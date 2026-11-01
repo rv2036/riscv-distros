@@ -144,6 +144,41 @@ make site-check   # 页面矩阵 / 明细页与 feed / hreflang / 站内链接 /
 
 push 到 `main` 触发 `.github/workflows/pages.yml`；只有主仓 `rv2036/riscv-distros` 会走 `configure-pages`、产物上传与 `deploy`，下游 fork 只跑构建与自检。
 
+## 数据来源与致谢
+
+站点上每条技术结论都要能点回来源；完整清单与判定方法在站点 `/sources/` 页，这里只列主干。
+
+### 一手来源（结论依据）
+
+| 类别 | 来源 |
+| --- | --- |
+| **测试结论** | [RuyiSDK 支持矩阵](https://matrix.ruyisdk.org/)（源仓 [ruyisdk/support-matrix](https://github.com/ruyisdk/support-matrix)）—— 逐板逐系统的真机实测报告，站内「某系统在某板可用」的结论首选依据 |
+| 发行版 | 各发行版官网 / 官方下载站 / 官方文档 / 官方仓库（`debian.org`、`ubuntu.com`、`fedoraproject.org`、`get.opensuse.org`、`alpinelinux.org`、`gentoo.org`、`nixos.org`、`freebsd.org`、`netbsd.org`、`openbsd.org`、`altlinux.org` 等） |
+| 厂商下游系统 | `revyos.com` / `docs.revyos.dev`、`spacemit.com` / `archive.spacemit.com`、`openeuler.org` / `docs.openeuler.org`、`openkylin.top` / `docs.openkylin.top`、`deepin.org` / `deepin-community.github.io` |
+| 开发板 | 厂商产品页与文档站：`sifive.com`、`starfivetech.com`、`sipeed.com` / `wiki.sipeed.com`、`milkv.io`、`banana-pi.org`、`orangepi.org`、`kendryte.com`、`zhcomputing.com`、`qemu.org` |
+| AI 软件 | 上游项目文档与 CI（`llama.cpp`、`onnxruntime`、`OpenCV`、`ncnn`、`Tengine`）、`riseproject.dev`、arXiv 2503.17422、厂商工具链文档（玄铁 HHB、SpacemiT AI SDK、ESWIN ENNP、嘉楠 nncase、知合 TORQ-Toolkit） |
+
+### 二手来源（只用于说明「消息存在」）
+
+CNX Software、Phoronix、ServeTheHome、The Register、The Next Platform、Design & Reuse；中文侧 IT之家、芯智讯、上观新闻、科技日报、《财经》。媒体转述一律标注为转述，不作为一手依据；厂商自报的性能与部署情况标注「厂商公布」，与第三方实测分开写。
+
+### 判定口径
+
+- **RuyiSDK 状态枚举**（引自其 CONTRIBUTING）：`good` 完整可用（能进桌面）、`basic` 基本可用（串口能起）、`part` 部分功能、`cft` 有镜像待验证、`cfh` 文档称支持但起不来、`cfi` 只有文档无镜像、`wip` 只有宣称
+- **本站支持等级**：`official` 厂商/发行版官方支持 · `community` 社区或第三方可用 · `partial` 部分功能；矩阵里格子若带 RuyiSDK 实测报告则以实测状态显示，只有本站资料的是灰点
+- 查不到的字段留空；厂商未公布的价格、TDP、SoC 型号不填看起来合理的数字
+- 每个条目带 `checked`（核查日期），数据每天 03:00 自动复查
+- 外链由 `scripts/check_urls.py` 逐条校验，失效链换成稳定目录页或官方下载页，换不了就删
+
+### 致谢
+
+- **RuyiSDK 团队 / PLCT 实验室（中国科学院软件研究所）**：逐板实测矩阵，本站最核心的数据来源
+- **各发行版社区与维护者**：Debian、Ubuntu、Fedora、openSUSE、Alpine、Arch Linux RISC-V、Gentoo、NixOS、FreeBSD、NetBSD、OpenBSD、ALT Linux、Buildroot、Yocto 等
+- **各开发板厂商与社区**：SiFive、StarFive、Sipeed、Milk-V、Banana Pi、Orange Pi、SpacemiT、ESWIN、UltraRISC、嘉楠、知合计算、PINE64、BIT-BRICK
+- **中文发行版团队**：openEuler RISC-V SIG、openKylin、deepin、openRuyi
+- **AI 侧开源项目**：llama.cpp、ONNX Runtime、OpenCV、ncnn、Tengine、RISE Project
+- **RISC-V International**：规范与生态基础设施
+
 ## 许可
 
 站点内容 CC BY-SA 4.0。

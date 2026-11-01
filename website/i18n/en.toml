@@ -1,4 +1,5 @@
 [nav]
+sources = "Sources"
 start = "Start"
 distros = "Distros"
 boards = "Boards"
@@ -149,3 +150,7 @@ cft = "Needs verification"
 part = "Partial"
 basic = "Basic"
 good = "Good"
+
+[sources]
+title = "Sources and acknowledgements"
+more = "The full source list and how each claim is judged:"

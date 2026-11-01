@@ -1,4 +1,4 @@
-# 开发板条目（中文母版）
+# zh board entries
 items:
 - id: qemu
   name: QEMU virt 虚拟机型
@@ -108,6 +108,18 @@ items:
   checked: '2026-11-01'
   order: 1
   feature: true
+  sources:
+  - https://www.qemu.org/docs/master/system/riscv/virt.html
+  - https://www.qemu.org/download/
+  - https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img
+  - https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/
+  - https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso
+  - https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - https://buildroot.org/downloads/
+  - https://wiki.qemu.org/Documentation/Platforms/RISCV
+  - https://wiki.debian.org/RISC-V
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+  - https://www.qemu.org/docs/master/system/riscv/virt.html
 - id: visionfive2
   name: StarFive VisionFive 2
   soc: StarFive JH7110：4×SiFive U74 @1.5GHz + S7 监控核 + E24
@@ -225,6 +237,24 @@ items:
   checked: '2026-11-01'
   order: 2
   feature: true
+  sources:
+  - https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
+  - https://github.com/starfive-tech/VisionFive2/releases/tag/6.0.0
+  - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+jh7110.img.xz
+  - https://github.com/starfive-tech/VisionFive2
+  - https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2
+  - https://www.armbian.com/visionfive2/
+  - https://archriscv.felixc.at/images/
+  - https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - https://forum.rvspace.org/t/visionfive-2-lite-debian-202510-released/5714
+  - https://wiki.gentoo.org/wiki/StarFive_VisionFive_2
+  - https://matrix.ruyisdk.org/reports/VisionFive2/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/Debian/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/Deepin/README/
+  - https://matrix.ruyisdk.org/
 - id: licheepi-4a
   name: 荔枝派 4A（LicheePi 4A）
   soc: T-Head TH1520：4×C910 @1.85GHz + C906 + E902，4TOPS NPU
@@ -326,6 +356,24 @@ items:
   checked: '2026-11-01'
   order: 3
   feature: true
+  sources:
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://docs.revyos.dev/en/docs/Installation/intro/
+  - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
+  - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
+  - https://dl.sipeed.com/shareURL/LICHEE/licheepi4a
+  - https://www.armbian.com/licheepi-4a/
+  - https://github.com/ryan4yin/nixos-licheepi4a
+  - https://github.com/chainsx/fedora-riscv-builder
+  - https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520
+  - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/irradium/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/NixOS/README/
+  - https://matrix.ruyisdk.org/
 - id: meles
   name: Milk-V Meles
   soc: T-Head TH1520：4×C910 @1.85GHz + C906 + E902，4TOPS NPU
@@ -398,6 +446,21 @@ items:
   checked: '2026-11-01'
   order: 4
   feature: false
+  sources:
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://milkv.io/docs/meles/resources-download/image
+  - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
+  - https://milkv.io/docs/meles/installation
+  - https://docs.revyos.dev/
+  - https://www.openeuler.org/en/sig/sig-RISC-V
+  - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  - https://milkv.io/docs/meles/overview
+  - https://milkv.io/docs/meles/hardware/meles-main-board
+  - https://milkv.io/zh/docs/meles/overview
+  - https://matrix.ruyisdk.org/reports/Meles/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Meles/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/Meles/RevyOS/README/
+  - https://matrix.ruyisdk.org/
 - id: k3
   name: 进迭时空 SpacemiT K3（Pico-ITX / CoM260）
   soc: SpacemiT K3（Key Stone K3）
@@ -486,6 +549,19 @@ items:
   checked: '2026-11-01'
   order: 5
   feature: true
+  sources:
+  - https://archive.spacemit.com/image/k3/version/bianbu/
+  - https://archive.spacemit.com/image/k3/version/debian/
+  - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/
+  - https://archive.spacemit.com/image/k3/version/buildroot/
+  - https://www.spacemit.com/community/development-kit/k3-pico-itx
+  - https://www.spacemit.com/community/development-kit/k3-com260
+  - https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/key_stone/k3
+  - https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX
+  - https://forum.spacemit.com/t/topic/963
+  - https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
+  - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
+  - https://matrix.ruyisdk.org/
 - id: a210
   name: 知合计算 A210（玄铁 MelonPi 开发板）
   soc: ZHIHE A210（4×C920 + 4×C908）
@@ -541,6 +617,13 @@ items:
   checked: '2026-11-01'
   order: 6
   feature: true
+  sources:
+  - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
+  - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/br2image-v2.9.0-a210_evb.tar.gz
+  - https://developer.zhcomputing.com/zh/docs/A210/A210_Datasheet
+  - https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
+  - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
+  - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
 - id: k230
   name: 嘉楠 Canaan K230（Kendryte K230 / CanMV-K230）
   soc: Kendryte K230（2×C908）
@@ -601,6 +684,18 @@ items:
   checked: '2026-11-01'
   order: 7
   feature: false
+  sources:
+  - https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
+  - https://github.com/kendryte/canmv_k230/releases
+  - https://github.com/kendryte/k230_linux_sdk
+  - https://www.kendryte.com/k230_canmv/zh/main/index.html
+  - https://www.kendryte.com/k230_linux/zh/main/index.html
+  - https://www.kendryte.com/k230_linux/zh/main/app_develop_guide/user_develop/debian_ubuntu.html
+  - https://nuttx.apache.org/docs/latest/platforms/risc-v/k230/boards/canmv230/index.html
+  - https://matrix.ruyisdk.org/reports/K230/Debian/README/
+  - https://matrix.ruyisdk.org/reports/K230/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/K230/Ubuntu/README/
+  - https://matrix.ruyisdk.org/
 - id: megrez
   name: Milk-V Megrez（ESWIN EIC7700X）
   soc: ESWIN EIC7700X
@@ -658,6 +753,19 @@ items:
   checked: '2026-11-01'
   order: 8
   feature: false
+  sources:
+  - https://github.com/milkv-megrez/megrez-build/releases/
+  - https://images.fedoravforce.org/Megrez
+  - https://milkv.io/zh/docs/megrez/overview
+  - https://milkv.io/docs/megrez/getting-started/boot
+  - https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction
+  - https://wiki.gentoo.org/wiki/User:Immolo/Sandbox/Milk-V-Megrez
+  - https://matrix.ruyisdk.org/reports/Megrez/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Megrez/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Megrez/Guix/README/
+  - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
+  - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
+  - https://matrix.ruyisdk.org/
 - id: titan
   name: Milk-V Titan（UltraRISC DP1000）
   soc: UltraRISC UR-DP1000
@@ -713,6 +821,13 @@ items:
   checked: '2026-11-01'
   order: 9
   feature: false
+  sources:
+  - https://github.com/milkv-titan/titan-ubuntu/releases
+  - https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - https://bj30886.apps.aliyunfile.com/disk/s/ekZ6yZbox2V?domainId=bj30886
+  - https://milkv.io/zh/docs/titan/overview
+  - https://milkv.io/docs/titan/getting-started/boot/ubuntu-24.04
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Titan
 - id: unmatched
   name: SiFive HiFive Unmatched
   soc: SiFive Freedom U740 (FU740)：4×U74 @1.2GHz + 1×S71 监控核
@@ -801,6 +916,24 @@ items:
   checked: '2026-11-01'
   order: 10
   feature: false
+  sources:
+  - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
+  - https://github.com/sifive/freedom-u-sdk
+  - https://wiki.debian.org/InstallingDebianOn/SiFive/HiFiveUnmatched
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+  - https://wiki.freebsd.org/riscv
+  - https://www.openbsd.org/riscv64.html
+  - https://www.openeuler.org/en/sig/sig-RISC-V
+  - https://www.sifive.com/development-platforms/hifive-unmatched
+  - https://www.sifive.com/documentation
+  - https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/boards/how-to/sifive-hifive-unmatched/
+  - https://matrix.ruyisdk.org/reports/Unmatched/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/FreeBSD/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/OpenBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: bpi-f3
   name: Banana Pi BPI-F3（SpacemiT K1）
   soc: SpacemiT K1（8×X60）
@@ -874,6 +1007,20 @@ items:
   checked: '2026-11-01'
   order: 11
   feature: false
+  sources:
+  - https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+  - http://archive.spacemit.com/image/k1/version/bianbu/
+  - https://www.armbian.com/boards/bananapif3
+  - https://docs.banana-pi.org/zh/BPI-F3/BananaPi_BPI-F3
+  - https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+  - https://forum.banana-pi.org/c/risc-v/bpi-f3/122
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Armbian/README_noble/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Bianbu/desktop/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/openEuler/README/
+  - https://matrix.ruyisdk.org/
 - id: orangepi-rv2
   name: Orange Pi RV2（Ky X1）
   soc: Ky X1（8 核 RISC-V AI CPU）
@@ -928,6 +1075,18 @@ items:
   checked: '2026-11-01'
   order: 12
   feature: false
+  sources:
+  - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
+  - https://armbian.com/boards/orangepirv2
+  - http://www.orangepi.org/orangepiwiki/index.php?title=Orange_Pi_RV2
+  - http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-RV2.html
+  - https://github.com/orangepi-xunlong/orangepi-build
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/BredOS/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/Debian/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/irradium/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/OpenWrt/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/Ubuntu/README_LTS/
+  - https://matrix.ruyisdk.org/
 - id: p550
   name: SiFive HiFive Premier P550
   soc: ESWIN EIC7700X
@@ -981,6 +1140,18 @@ items:
   checked: '2026-11-01'
   order: 13
   feature: false
+  sources:
+  - https://github.com/sifive/hifive-premier-p550-ubuntu/releases
+  - https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - https://github.com/sifiveinc/freedom-u-sdk/releases
+  - https://www.sifive.com/development-platforms/hifive-premier-p550
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/SiFive/HiFivePremierP550
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Ubuntu/REAMDE_LTS/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Yocto/REAMDE/
+  - https://matrix.ruyisdk.org/
 - id: visionfive2-lite
   name: StarFive VisionFive 2 Lite（JH7110S）
   soc: StarFive JH7110S
@@ -1038,6 +1209,16 @@ items:
   checked: '2026-11-01'
   order: 14
   feature: false
+  sources:
+  - https://debian.starfivetech.com/
+  - https://github.com/starfive-tech/VisionFive2/releases
+  - https://rvspace.org/en/homepage/product_center_sbc
+  - https://doc-en.rvspace.org/Doc_Center/visionfive_2_lite.html
+  - https://doc.rvspace.org/Doc_Center/vf2lite.html
+  - https://wiki.rvspace.org/zh/home
+  - https://matrix.ruyisdk.org/reports/VisionFive2_Lite/Debian/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2_Lite/Ubuntu/README/
+  - https://matrix.ruyisdk.org/
 - id: beaglev-ahead
   name: BeagleV-Ahead
   soc: T-Head TH1520：4×C910 @1.85GHz，4TOPS NPU，BXM-4-64 GPU
@@ -1110,6 +1291,17 @@ items:
   checked: '2026-11-01'
   order: 15
   feature: false
+  sources:
+  - https://www.beagleboard.org/distros
+  - https://www.beagleboard.org/distros/beaglev-ahead-ubuntu-2023-07-05
+  - https://www.beagleboard.org/distros/beaglev-ahead-yocto-npi-2023-06-10
+  - https://mirror.iscas.ac.cn/revyos/extra/images/beagle/20231210/
+  - https://git.beagleboard.org/beaglev-ahead/xuantie-ubuntu-old/-/releases/2023-07-05
+  - https://images.fedoravforce.org
+  - https://git.beagleboard.org/beaglev-ahead/beaglev-ahead
+  - https://docs.beagleboard.org/boards/beaglev/ahead/
+  - https://www.beagleboard.org/boards/beaglev-ahead
+  - https://openbeagle.org/beaglev-ahead/beaglev-ahead
 - id: pioneer
   name: Milk-V Pioneer（SG2042 服务器向）
   soc: SOPHON SG2042：64×XuanTie C920 @2GHz，RVV 0.71，64MB L3
@@ -1187,6 +1379,24 @@ items:
   checked: '2026-11-01'
   order: 16
   feature: false
+  sources:
+  - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - https://docs.revyos.dev/en/docs/Installation/milkv-pioneer/
+  - https://milkv.io/docs/pioneer/getting-started/InstallOS
+  - https://milkv.io/docs/pioneer/getting-started/download
+  - https://images.fedoravforce.org
+  - https://www.openeuler.org/en/sig/sig-RISC-V
+  - https://milkv.io/docs/pioneer/overview
+  - https://milkv.io/zh/docs/pioneer/overview
+  - https://github.com/milkv-pioneer/issues/issues
+  - https://docs.revyos.dev/
+  - https://matrix.ruyisdk.org/reports/Pioneer/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Pioneer/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Pioneer/openCloudOS/README_uefi/
+  - https://matrix.ruyisdk.org/reports/Pioneer/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/Pioneer/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/Pioneer/RevyOS/README/
+  - https://matrix.ruyisdk.org/
 - id: milkv-duo
   name: Milk-V Duo 系列（Duo / Duo 256M / Duo S）
   soc: CV1800B（Duo）/ SG2002（Duo 256M）/ SG2000（Duo S）
@@ -1277,6 +1487,24 @@ items:
   checked: '2026-11-01'
   order: 17
   feature: false
+  sources:
+  - https://milkv.io/docs/duo/getting-started/download
+  - https://github.com/milkv-duo/duo-buildroot-sdk/releases
+  - https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases
+  - https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/
+  - https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - https://github.com/cwt/duo-buildroot-sdk/releases/tag/poc1
+  - https://milkv.io/docs/duo/overview
+  - https://milkv.io/docs/duo/getting-started/duo
+  - https://milkv.io/docs/duo/getting-started/duo256m
+  - https://milkv.io/docs/duo/getting-started/buildroot-sdk
+  - https://matrix.ruyisdk.org/reports/Duo/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Duo/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo/BuildRoot/README_v2/
+  - https://matrix.ruyisdk.org/
 - id: mars
   name: Milk-V Mars
   soc: JH7110：SiFive U74 + SiFive S7 + SiFive E24
@@ -1295,6 +1523,14 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/Mars/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Mars/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/Mars/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Deepin/README/
+  - https://matrix.ruyisdk.org/
 - id: star64
   name: Star64
   soc: JH7110：SiFive U74 + SiFive S7 + SiFive E24
@@ -1313,6 +1549,14 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/STAR64/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/DietPi/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/irradium/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: visionfive
   name: VisionFive
   soc: JH7100：SiFive U74 + SiFive E24
@@ -1331,6 +1575,14 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/VisionFive/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/OpenBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: jupiter
   name: Milk-V Jupiter
   soc: Key Stone K1/M1：SpacemiT X60
@@ -1349,6 +1601,10 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/Jupiter/Bianbu/desktop/
+  - https://matrix.ruyisdk.org/reports/Jupiter/openKylin/README/
+  - https://matrix.ruyisdk.org/
 - id: muse-pi-pro
   name: Muse Pi Pro
   soc: Key Stone M1：SpacemiT X60
@@ -1367,6 +1623,10 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/Muse_Pi_Pro/Bianbu/README/
+  - https://matrix.ruyisdk.org/reports/Muse_Pi_Pro/openEuler/README/
+  - https://matrix.ruyisdk.org/
 - id: k3-som260
   name: SpacemiT K3 CoM260 Kit
   soc: SpacemiT K3：SpacemiT X100 + A100
@@ -1385,6 +1645,12 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/Bianbu/README/
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/OpenHarmony/README/
+  - https://matrix.ruyisdk.org/
 - id: bit-brick-k1
   name: BIT-BRICK K1
   soc: Key Stone K1：SpacemiT X60
@@ -1403,6 +1669,14 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/minimal/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/BredOS/README/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/openKylin/README/
+  - https://matrix.ruyisdk.org/
 - id: lichee-cluster-4a
   name: Lichee Cluster 4A
   soc: TH1520：XuanTie C910 + XuanTie C906 + XuanTie E902
@@ -1421,3 +1695,11 @@ items:
   checked: '2026-11-01'
   order: 900
   feature: false
+  sources:
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/OpenWrt/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/RevyOS/README/
+  - https://matrix.ruyisdk.org/

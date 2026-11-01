@@ -100,6 +100,22 @@ items:
   checked: '2026-11-01'
   order: 1
   feature: true
+  sources:
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://www.debian.org/releases/stable/riscv64/
+  - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
+  - https://www.debian.org/releases/stable/riscv64/index.ja.html
+  - https://www.debian.org/releases/stable/riscv64/index.ko.html
+  - https://www.debian.org/releases/stable/riscv64/index.ru.html
+  - https://www.youtube.com/watch?v=C5NkSlf4_WE
+  - https://matrix.ruyisdk.org/reports/K230/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Duo/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/Debian/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/Debian/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/Debian/README/
+  - https://matrix.ruyisdk.org/
 - id: ubuntu
   name: Ubuntu
   vendor: ''
@@ -183,6 +199,18 @@ items:
   checked: '2026-11-01'
   order: 2
   feature: true
+  sources:
+  - https://ubuntu.com/download/risc-v/canonical-built
+  - https://cdimage.ubuntu.com/releases/26.10/release/
+  - https://cdimage.ubuntu.com/releases/26.04/release/
+  - https://discourse.ubuntu.com/t/announcing-ubuntu-desktop-images-for-risc-v/89110
+  - https://matrix.ruyisdk.org/reports/K230/Ubuntu/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Ubuntu/README/
+  - https://matrix.ruyisdk.org/reports/Duo/Ubuntu/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/Ubuntu/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/Ubuntu/README/
+  - https://matrix.ruyisdk.org/reports/OrangePi-RV2/Ubuntu/README_LTS/
+  - https://matrix.ruyisdk.org/
 - id: fedora
   name: Fedora
   vendor: ''
@@ -270,6 +298,19 @@ items:
   checked: '2026-11-01'
   order: 3
   feature: true
+  sources:
+  - https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Hardware
+  - https://fedoraproject.org/wiki/Architectures/RISC-V
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/K230/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
+  - https://matrix.ruyisdk.org/
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -351,6 +392,11 @@ items:
   checked: '2026-11-01'
   order: 4
   feature: true
+  sources:
+  - https://images.fedoravforce.org
+  - https://www.fedoravforce.org
+  - https://www.fedoravforce.org/zh
+  - https://blog.fedoravforce.com
 - id: revyos
   name: RevyOS
   vendor: ''
@@ -425,6 +471,23 @@ items:
   checked: '2026-11-01'
   order: 5
   feature: true
+  sources:
+  - https://mirror.iscas.ac.cn/revyos/extra/images/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20260504/
+  - https://docs.revyos.dev/docs/Installation/intro/
+  - https://docs.revyos.dev/docs/Installation/licheepi4a/
+  - https://docs.revyos.dev/docs/Installation/milkv-meles/
+  - https://docs.revyos.dev/docs/Installation/milkv-pioneer/
+  - https://docs.revyos.dev/en/docs/Installation/licheepi4a/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/RevyOS/README/
+  - https://matrix.ruyisdk.org/reports/LicheeConsole4A/RevyOS/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/RevyOS/README/
+  - https://matrix.ruyisdk.org/reports/Meles/RevyOS/README/
+  - https://matrix.ruyisdk.org/reports/Pioneer/RevyOS/README/
+  - https://matrix.ruyisdk.org/
 - id: bianbu
   name: Bianbu
   vendor: ''
@@ -492,6 +555,24 @@ items:
   checked: '2026-11-01'
   order: 6
   feature: true
+  sources:
+  - https://archive.spacemit.com/image/k1/version/bianbu/
+  - https://archive.spacemit.com/image/k3/version/bianbu/
+  - https://archive.spacemit.com/image/k1/version/bianbu/v2.3.5/
+  - https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
+  - https://archive.spacemit.com/image/k3/version/bianbu/v4.0.8/
+  - https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/root_overview.md
+  - https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/image.md
+  - https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/user_guide/LXQt/desktop_introduction.md
+  - https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/release_notes/bianbu_4.0.md
+  - https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/bianbu/root_overview.md
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/minimal/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Bianbu/desktop/
+  - https://matrix.ruyisdk.org/reports/Jupiter/Bianbu/desktop/
+  - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/Bianbu/README/
+  - https://matrix.ruyisdk.org/reports/Muse_Pi_Pro/Bianbu/README/
+  - https://matrix.ruyisdk.org/
 - id: openeuler
   name: openEuler
   vendor: ''
@@ -584,6 +665,23 @@ items:
   checked: '2026-11-01'
   order: 7
   feature: true
+  sources:
+  - https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
+  - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
+  - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
+  - https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+  - https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
+  - https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-QEMU.html
+  - https://www.openeuler.org/zh/blog/20260317-RISC-V/20260317-RISC-V.html
+  - https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+  - https://matrix.ruyisdk.org/reports/BPI-F3/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/Meles/openEuler/README/
+  - https://matrix.ruyisdk.org/reports/Duo/openEuler/README/
+  - https://matrix.ruyisdk.org/
 - id: openkylin
   name: openKylin
   vendor: ''
@@ -664,6 +762,21 @@ items:
   checked: '2026-11-01'
   order: 8
   feature: true
+  sources:
+  - https://www.openkylin.top/downloads/
+  - https://cdimage.openkylin.top/3.0/openKylin-Server-V3.0-Release-spacemit-k3-riscv64.zip
+  - https://cdimage.openkylin.top/3.0/openKylin-V100-Server-V3.0-20261012-riscv64.iso
+  - https://www.openkylin.top/downloads/index-cn.html
+  - https://cdimage.openkylin.top/
+  - https://docs.openkylin.top/zh/1%E5%85%A5%E9%97%A8%E4%B8%8E%E5%8F%82%E4%B8%8E/1_3%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/03_%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+  - https://www.openkylin.top/news/4011-cn.html
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/Jupiter/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/openKylin/README/
+  - https://matrix.ruyisdk.org/reports/Mars/openKylin/README/
+  - https://matrix.ruyisdk.org/
 - id: deepin
   name: deepin
   vendor: ''
@@ -759,6 +872,21 @@ items:
   checked: '2026-11-01'
   order: 9
   feature: true
+  sources:
+  - https://www.deepin.org/zh/download/
+  - https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  - https://www.deepin.org/zh/deepin-25-installation/
+  - https://www.deepin.org/en/deepin-25-installation/
+  - https://deepin-community.github.io/sig-deepin-ports/matrix/riscv64
+  - https://www.deepin.org/en/dp1000
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Megrez/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Meles/Deepin/README/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Deepin/README/
+  - https://matrix.ruyisdk.org/
 - id: armbian
   name: Armbian
   vendor: ''
@@ -817,6 +945,20 @@ items:
   checked: '2026-11-01'
   order: 10
   feature: false
+  sources:
+  - https://armbian.com/boards/musepipro
+  - https://armbian.com/boards/bananapif3
+  - https://armbian.com/boards/k3picoitx
+  - https://armbian.com/boards/orangepirv2
+  - https://armbian.com/boards/visionfive2
+  - https://docs.armbian.com/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Armbian/README_noble/
+  - https://matrix.ruyisdk.org/reports/LicheeCluster4A/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
+  - https://matrix.ruyisdk.org/
 - id: alpine
   name: Alpine Linux
   vendor: ''
@@ -897,6 +1039,19 @@ items:
   checked: '2026-11-01'
   order: 11
   feature: false
+  sources:
+  - https://alpinelinux.org/downloads/
+  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
+  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
+  - https://alpinelinux.org/releases/
+  - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/BPI-F3/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Mars/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Duo/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/Alpine/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/Alpine/README/
+  - https://matrix.ruyisdk.org/
 - id: arch
   name: Arch Linux RISC-V
   vendor: ''
@@ -977,6 +1132,19 @@ items:
   checked: '2026-11-01'
   order: 12
   feature: false
+  sources:
+  - https://archriscv.felixc.at/images/
+  - https://archriscv.felixc.at/repo/
+  - https://riscv.mirror.pkgbuild.com/
+  - https://archriscv.felixc.at/
+  - https://github.com/felixonmars/archriscv-packages
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Mars/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/ArchLinux/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/ArchLinux/README/
+  - https://matrix.ruyisdk.org/
 - id: opensuse
   name: openSUSE
   vendor: ''
@@ -1057,6 +1225,17 @@ items:
   checked: '2026-11-01'
   order: 13
   feature: false
+  sources:
+  - https://download.opensuse.org/ports/riscv/tumbleweed/iso/
+  - https://download.opensuse.org/ports/riscv/tumbleweed/iso/openSUSE-Tumbleweed-DVD-riscv64-Current.iso
+  - https://download.opensuse.org/ports/riscv/
+  - https://doc.opensuse.org/
+  - https://www.youtube.com/watch?v=qrly2gV-wMA
+  - https://matrix.ruyisdk.org/reports/Mars/openSUSE/README/
+  - https://matrix.ruyisdk.org/reports/Unmatched/openSUSE/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/openSUSE/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/openSUSE/README/
+  - https://matrix.ruyisdk.org/
 - id: gentoo
   name: Gentoo
   vendor: ''
@@ -1116,6 +1295,13 @@ items:
   checked: '2026-11-01'
   order: 14
   feature: false
+  sources:
+  - https://www.gentoo.org/downloads/riscv/
+  - https://distfiles.gentoo.org/releases/riscv/autobuilds/current-stage3-rv64_lp64d-openrc/
+  - https://wiki.gentoo.org/wiki/Project:RISC-V
+  - https://wiki.gentoo.org/wiki/RISC-V_Qemu_setup
+  - https://matrix.ruyisdk.org/reports/VisionFive2/Gentoo/README/
+  - https://matrix.ruyisdk.org/
 - id: nixos
   name: NixOS
   vendor: ''
@@ -1164,6 +1350,17 @@ items:
   checked: '2026-11-01'
   order: 15
   feature: false
+  sources:
+  - https://nixos.org/download/
+  - https://github.com/zhaofengli/nixos-riscv64
+  - https://wiki.nixos.org/wiki/RISC-V
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/NixOS/README/
+  - https://matrix.ruyisdk.org/reports/Mars/NixOS/README/
+  - https://matrix.ruyisdk.org/reports/Duo/NixOS/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/NixOS/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/NixOS/README/
+  - https://matrix.ruyisdk.org/reports/STAR64/NixOS/README/
+  - https://matrix.ruyisdk.org/
 - id: freebsd
   name: FreeBSD
   vendor: ''
@@ -1217,6 +1414,15 @@ items:
   checked: '2026-11-01'
   order: 16
   feature: false
+  sources:
+  - https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/15.1/
+  - https://docs.freebsd.org/en/books/handbook/bsdinstall/
+  - https://www.freebsd.org/releases/15.1R/hardware/
+  - https://freebsdfoundation.org/wp-content/uploads/2020/03/Getting-Started-With-FreeBSD-RISC-V.pdf
+  - https://www.youtube.com/watch?v=QGW3l_Bz04I
+  - https://matrix.ruyisdk.org/reports/Unmatched/FreeBSD/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/FreeBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: netbsd
   name: NetBSD
   vendor: ''
@@ -1260,6 +1466,14 @@ items:
   checked: '2026-11-01'
   order: 17
   feature: false
+  sources:
+  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
+  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - https://wiki.netbsd.org/ports/riscv/
+  - https://wiki.netbsd.org/ports/qemu_riscv/
+  - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/NetBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: openbsd
   name: OpenBSD
   vendor: ''
@@ -1303,6 +1517,15 @@ items:
   checked: '2026-11-01'
   order: 18
   feature: false
+  sources:
+  - https://cdn.openbsd.org/pub/OpenBSD/8.0/riscv64/
+  - https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  - https://www.openbsd.org/riscv64.html
+  - https://www.openbsd.org/faq/faq4.html
+  - https://matrix.ruyisdk.org/reports/Unmatched/OpenBSD/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive/OpenBSD/README/
+  - https://matrix.ruyisdk.org/reports/VisionFive2/OpenBSD/README/
+  - https://matrix.ruyisdk.org/
 - id: alt
   name: ALT Linux
   vendor: ''
@@ -1349,6 +1572,11 @@ items:
   checked: '2026-11-01'
   order: 19
   feature: false
+  sources:
+  - https://nightly.altlinux.org/sisyphus-riscv64/current/
+  - https://mirror.yandex.ru/altlinux/ports/riscv64/Sisyphus/riscv64/
+  - https://en.altlinux.org/Regular/riscv64
+  - https://www.altlinux.org/Ports/riscv64
 - id: buildroot
   name: Buildroot
   vendor: ''
@@ -1395,6 +1623,16 @@ items:
   checked: '2026-11-01'
   order: 20
   feature: false
+  sources:
+  - https://buildroot.org/download.html
+  - https://buildroot.org/downloads/manual/manual.html
+  - https://matrix.ruyisdk.org/reports/CoM260_Kit/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/Mars/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/Duo/BuildRoot/README_v2/
+  - https://matrix.ruyisdk.org/reports/Duo256m/BuildRoot/README/
+  - https://matrix.ruyisdk.org/reports/Duo_S/BuildRoot/README_v2/
+  - https://matrix.ruyisdk.org/reports/VisionFive/BuildRoot/README/
+  - https://matrix.ruyisdk.org/
 - id: yocto
   name: Yocto / OpenEmbedded
   vendor: ''
@@ -1458,6 +1696,16 @@ items:
   checked: '2026-11-01'
   order: 21
   feature: false
+  sources:
+  - https://www.yoctoproject.org/development/releases/
+  - https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
+  - https://github.com/riscv/meta-riscv/blob/master/docs/QUICK_START.md
+  - https://github.com/riscv/meta-riscv
+  - https://matrix.ruyisdk.org/reports/Duo/Yocto/README/
+  - https://matrix.ruyisdk.org/reports/Duo256m/Yocto/README/
+  - https://matrix.ruyisdk.org/reports/Premier_P550/Yocto/REAMDE/
+  - https://matrix.ruyisdk.org/reports/STAR64/Yocto/README/
+  - https://matrix.ruyisdk.org/
 - id: openruyi
   name: openRuyi
   vendor: ''
@@ -1518,6 +1766,15 @@ items:
   checked: '2026-11-01'
   order: 22
   feature: false
+  sources:
+  - https://releases.openruyi.cn/creek/
+  - https://releases.openruyi.cn/creek/2026.09/
+  - https://releases.openruyi.cn/creek/2026.09/rva23/
+  - https://releases.openruyi.cn/creek/2026.09/rva20/
+  - https://openruyi.cn/docs/guide/how-to-install/server/
+  - https://openruyi.cn/docs/guide/how-to-install/workstation
+  - https://openruyi.cn/docs/guide/how-to-install/qemu
+  - https://openruyi.cn/news/2026-09/release
 - id: void
   name: Void Linux
   vendor: ''
@@ -1548,6 +1805,9 @@ items:
   checked: '2026-11-01'
   order: 23
   feature: false
+  sources:
+  - https://voidlinux.org/download/
+  - https://docs.voidlinux.org/installation/index.html
 - id: pld
   name: PLD Linux
   vendor: ''
@@ -1579,6 +1839,9 @@ items:
   checked: '2026-11-01'
   order: 24
   feature: false
+  sources:
+  - https://ftp.pld-linux.org/dists/3.0/
+  - https://www.pld-linux.org/
 - id: slackware
   name: Slackware
   vendor: ''
@@ -1626,6 +1889,13 @@ items:
   checked: '2026-11-01'
   order: 25
   feature: false
+  sources:
+  - http://dl.slarm64.org/slackware/slarm64-riscv64-current/
+  - http://dl.slarm64.org/slackware/images/
+  - https://github.com/sndwvs/slarm64-current
+  - http://forum.rvspace.org/t/slarm64-aarch64-riscv64-unofficial-slackware-linux-port/108
+  - https://matrix.ruyisdk.org/reports/LicheePi4A/Slackware/README/
+  - https://matrix.ruyisdk.org/
 - id: android
   name: Android (AOSP)
   vendor: ''
@@ -1670,3 +1940,8 @@ items:
   checked: '2026-11-01'
   order: 26
   feature: false
+  sources:
+  - https://source.android.com/docs/setup/download
+  - https://github.com/google/android-riscv64
+  - https://source.android.com/docs/setup/build/building
+  - https://source.android.com/docs/devices/cuttlefish/get-started

@@ -15,7 +15,7 @@ PUB = os.path.join(ROOT, "website", "public")
 
 LANGS = ["zh", "en", "ja", "ru", "ko"]
 # 每种语言都应存在的页面（相对站点根；zh 在根，其余在 /<lang>/）
-PAGES = ["", "start/", "distros/", "boards/", "matrix/", "ai/"]
+PAGES = ["", "start/", "distros/", "boards/", "matrix/", "ai/", "sources/"]
 # 明细栏目：其下每个子目录都必须有 index.html + index.xml（分条目的 feed）
 DETAIL_DIRS = ["distros", "boards"]
 # 每个语言都必须有这些 feed

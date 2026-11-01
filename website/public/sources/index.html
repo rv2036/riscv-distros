@@ -1,0 +1,62 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>来源与致谢 · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/sources/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/sources/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/sources/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/sources/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/sources/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/sources/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/sources/><link rel=alternate type=application/rss+xml href=/index.xml title="RISC-V 发行版"><link rel=stylesheet href=/css/main.min.be76cfe6407bc0aac9bf31fd10e68531a21351fdde1baf7615c30572108cf181.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/boards/>开发板</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/ai/>AI 软件</a>
+<a href=/sources/ class=active>来源与致谢</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=切换到深色>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=切换语言 aria-expanded=false>简</button><ul class=lang-menu id=langMenu><li><a href=/sources/ class=active lang=zh-CN>简体中文</a></li><li><a href=/en/sources/ lang=en>English</a></li><li><a href=/ja/sources/ lang=ja>日本語</a></li><li><a href=/ru/sources/ lang=ru>Русский</a></li><li><a href=/ko/sources/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>来源与致谢</h1><div class=sub>站上每条结论的来源、判定方法与致谢</div></div></header><aside class=subscribe aria-label=订阅更新><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>订阅更新</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=你的邮箱地址 disabled>
+<input type=hidden name=lang value=zh>
+<button class="btn btn-primary sub-btn" type=submit disabled>订阅</button></div><p class=sub-note>邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。</p></form><div class=sub-rss><span class=sub-label>RSS 订阅</span><div class=sub-rss-links><a href=/index.xml>全部更新</a>
+<a href=/distros/index.xml>发行版</a>
+<a href=/boards/index.xml>开发板</a>
+<a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><section class="block prose"><p><strong>这个站上每一条技术结论都应当能点回到来源。</strong> 下面按「一手 / 二手」分层列出全部来源，并说明每条结论是怎么判定的。站点数据每日自动核查一次，每个条目都带核查日期。</p><h2 id=一测试结论的来源ruyisdk-支持矩阵>一、测试结论的来源：RuyiSDK 支持矩阵</h2><p>站内所有「某系统在某板上实测可用/不可用」的结论，<strong>首选依据是 RuyiSDK 官方测试矩阵</strong>：</p><ul><li>站点：<a href=https://matrix.ruyisdk.org/>https://matrix.ruyisdk.org/</a></li><li>源仓库（数据本体，每板每系统一份 markdown + YAML front matter）：<a href=https://github.com/ruyisdk/support-matrix>https://github.com/ruyisdk/support-matrix</a></li><li>数据抓取方式：本站每日拉取该仓库，解析每一份测试报告的 <code>sys / sys_ver / sys_var / status / last_update</code> 字段，映射成站内的「板 × 发行版」组合</li><li>每条报告的链接形如 <code>https://matrix.ruyisdk.org/reports/&lt;板>/&lt;系统>/&lt;变体>/</code>，站内矩阵格子和发行版/开发板页面里的「RuyiSDK 实测报告」表都可以直接点进原文</li></ul><p><strong>致谢</strong>：RuyiSDK 团队与 PLCT 实验室（中国科学院软件研究所）长期维护这套逐板实测的数据，这是 RISC-V 生态里少见的、可复核的第三方测试集。本站直接采信它，不重复造轮子。</p><h3 id=状态枚举的定义引自该仓库-contributingmd>状态枚举的定义（引自该仓库 CONTRIBUTING.md）</h3><table><thead><tr><th>状态</th><th>含义</th></tr></thead><tbody><tr><td><code>good</code></td><td>完整可用，可以进桌面环境使用</td></tr><tr><td><code>basic</code></td><td>基本可用，能启动、能通过串口使用</td></tr><tr><td><code>part</code></td><td>只具备部分功能</td></tr><tr><td><code>cft</code></td><td>有镜像可用，但还需要在真机上进一步验证</td></tr><tr><td><code>cfh</code></td><td>官方文档/社区说支持，但实测启动失败</td></tr><tr><td><code>cfi</code></td><td>官方文档声称支持，但还没有可用镜像</td></tr><tr><td><code>wip</code></td><td>只有「将来会支持」的宣称，无镜像无源码</td></tr></tbody></table><p>站点矩阵里，格子带实心符号的是 RuyiSDK 实测数据；只有灰点的是「本站资料」，未经 RuyiSDK 实测，两者图例上有明确区分。</p><h2 id=二发行版官方来源>二、发行版官方来源</h2><p>26 个发行版条目里，<code>下载</code> 与 <code>安装文档</code> 链接全部指向<strong>官方</strong>页面：发行版自己的下载站、官方文档站、官方 wiki 或官方仓库。典型的几类：</p><ul><li>上游发行版：<a href=https://www.debian.org/releases/stable/riscv64/>debian.org</a>
+/ <a href=https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/>cdimage.debian.org</a>
+/ <a href=https://ubuntu.com/download/risc-v>ubuntu.com</a>
+/ <a href=https://cdimage.ubuntu.com/releases/>cdimage.ubuntu.com</a>
+/ <a href=https://fedoraproject.org/wiki/Architectures/RISC-V>fedoraproject.org</a>
+/ <a href=https://get.opensuse.org/>get.opensuse.org</a>
+/ <a href=https://alpinelinux.org/downloads/>alpinelinux.org</a>
+/ <a href=https://archriscv.felixc.at/>archlinuxriscv.org</a>
+/ <a href=https://www.gentoo.org/downloads/>gentoo.org</a>
+/ <a href=https://nixos.org/download/>nixos.org</a>
+/ <a href=https://wiki.freebsd.org/riscv>freebsd.org</a>
+/ <a href=https://www.netbsd.org/ports/riscv/>netbsd.org</a>
+/ <a href=https://www.openbsd.org/riscv64.html>openbsd.org</a></li><li>厂商下游系统：<a href=https://revyos.com/>revyos.com</a>
+与 <a href=https://docs.revyos.dev/>docs.revyos.dev</a>
+（玄铁 TH1520/SG2042）、<a href=https://www.spacemit.com/>spacemit.com</a>
+与 <a href=https://archive.spacemit.com/>archive.spacemit.com</a>
+（Bianbu）、<a href=https://www.openeuler.org/zh/download/>openeuler.org</a>
+与 <a href=https://docs.openeuler.org/>docs.openeuler.org</a>
+、<a href=https://www.openkylin.top/downloads/>openkylin.top</a>
+与 docs.openkylin.top、<a href=https://www.deepin.org/>deepin.org</a>
+与 <a href=https://deepin-community.github.io/sig-deepin-ports/images/riscv64>deepin-community.github.io</a></li><li>社区构建：<a href=https://www.armbian.com/download/>armbian.com</a>
+、<a href=https://dietpi.com/#download>dietpi.com</a>
+、<a href=https://irradium.org/>irradium.org</a>
+、bredos.org、FVF 的发布仓库</li></ul><p>每个发行版页面底部的「本页来源」列出的就是该条目的全部依据链接。</p><h2 id=三开发板厂商来源>三、开发板厂商来源</h2><p>25 块开发板的规格与官方系统信息，来自厂商官方产品页、官方文档站与官方仓库，例如：</p><ul><li><a href=https://www.sifive.com/boards>sifive.com</a>
+（HiFive Unmatched / Premier P550）、<a href=https://www.starfivetech.com/en>starfivetech.com</a>
+与 <a href=https://doc-en.rvspace.org/>doc-en.rvspace.org</a>
+（VisionFive 2 / VisionFive 2 Lite）</li><li><a href=https://sipeed.com/>sipeed.com</a>
+与 <a href=https://wiki.sipeed.com/>wiki.sipeed.com</a>
+（LicheePi 4A / Lichee Cluster 4A）、<a href=https://milkv.io/>milkv.io</a>
+与 <code>milkv.io/docs</code>（Meles / Mars / Jupiter / Pioneer / Megrez / Titan / Duo）</li><li><a href=https://www.banana-pi.org/>banana-pi.org</a>
+与 <a href=https://docs.banana-pi.org/>docs.banana-pi.org</a>
+（BPI-F3）、<a href=http://www.orangepi.org/>orangepi.org</a>
+（RV2）、<a href=https://www.kendryte.com/>kendryte.com</a>
+与嘉楠开发者站（K230）、<a href=https://www.spacemit.com/>spacemit.com</a>
+（K3 Pico-ITX / CoM260）</li><li>知合计算 A210 / 玄铁 MelonPi：<a href=http://www.zhcomputing.com/>zhcomputing.com</a>
+与 <a href=https://developer.zhcomputing.com/zh/docs/A210/>developer.zhcomputing.com</a>
+、<a href=https://matrix.ruyisdk.org/>matrix.ruyisdk.org</a>
+的 A210_SODIMM_V2 报告</li><li>QEMU：<a href=https://www.qemu.org/docs/master/system/riscv/virt.html>qemu.org</a>
+官方文档的 RISC-V virt 机型章节</li></ul><p>少数新板的硬件参数直接取自 RuyiSDK 矩阵里的板卡元数据，这些条目在页面上注明「板上信息取自 RuyiSDK 测试矩阵记录；供货与价格未单独核实」。</p><h2 id=四ai-软件维度逐条给证据>四、AI 软件维度：逐条给证据</h2><p>AI 支持页面不给「感觉」，每条判断背后都挂了链接，主要来自：</p><ul><li><strong>上游项目文档</strong>：<a href=https://github.com/ggml-org/llama.cpp>github.com/ggml-org/llama.cpp</a>
+（含 <code>docs/build-riscv64-spacemit.md</code> 与 SpacemiT kernel 实测数据）、<a href=https://github.com/microsoft/onnxruntime>github.com/microsoft/onnxruntime</a>
+、<a href=https://github.com/opencv/opencv>github.com/opencv/opencv</a>
+的 RISC-V wiki、<a href=https://github.com/Tencent/ncnn>github.com/Tencent/ncnn</a>
+的 RISC-V CI、<a href=https://github.com/OAID/Tengine>github.com/OAID/Tengine</a></li><li><strong>第三方分发</strong>：<a href=https://riseproject.dev/>riseproject.dev</a>
+（RISE 的 PyTorch RISC-V 轮子）、<a href=https://github.com/felixonmars/archriscv-packages>github.com/felixonmars/archriscv-packages</a></li><li><strong>学术</strong>：arXiv 2503.17422（V-Seek，SG2042 上的 LLM 推理优化）</li><li><strong>厂商工具链文档</strong>：玄铁 HHB（LicheePi 4A NPU）、SpacemiT AI SDK、ESWIN ENNP SDK、嘉楠 nncase、知合 TORQ-Toolkit</li><li><strong>实测文章</strong>：CNX Software、ServeTheHome、The Register、Phoronix 等对具体板子的上手记录</li></ul><p>找不到公开证据的，页面上写「未找到公开证据」，<strong>不写推测</strong>。</p><h2 id=五二手来源与口径>五、二手来源与口径</h2><p>媒体转述一律标注为转述，不作为一手依据，只用来说明「这条消息存在」。常见来源包括 CNX Software、Phoronix、ServeTheHome、The Register、The Next Platform、Design & Reuse，以及中文侧的 IT之家、芯智讯、上观新闻、科技日报、《财经》。厂商自报的性能与部署情况（例如「32 并发推理达 x86 平台 95.8%」「已在多地智算中心落地」）一律标注「厂商公布」，与第三方实测分开写。</p><h2 id=六方法与免责>六、方法与免责</h2><ul><li><strong>核查日期</strong>：每个条目带 <code>checked</code> 字段，页面上显示「最后核查」日期。数据每日 03:00 自动复查一遍</li><li><strong>不猜</strong>：查不到的字段留空；厂商未公布的价格、TDP、具体 SoC 型号，宁可不写，也不填一个看起来合理的数字</li><li><strong>链接校验</strong>：站内所有外链由 <code>scripts/check_urls.py</code> 逐条 curl 验证；失效的链接会被换成稳定的目录页或官方下载页，换不了的直接删掉</li><li><strong>勘误</strong>：发现问题请开 issue 或 MR，标明具体条目与依据链接，我们按证据改</li></ul><h2 id=七致谢>七、致谢</h2><p>感谢这些项目与团队，本站的数据建立在他们的工作之上：</p><ul><li><strong>RuyiSDK 团队 / PLCT 实验室（中国科学院软件研究所）</strong> —— 逐板逐系统的实测矩阵，本站最核心的数据来源</li><li><strong>各发行版社区与维护者</strong> —— Debian、Ubuntu、Fedora、openSUSE、Alpine、Arch Linux RISC-V、Gentoo、NixOS、FreeBSD、NetBSD、OpenBSD、ALT Linux、Buildroot、Yocto 等</li><li><strong>各开发板厂商与社区</strong> —— SiFive、StarFive、Sipeed、Milk-V、Banana Pi、Orange Pi、SpacemiT、ESWIN、UltraRISC、嘉楠、知合计算、PINE64、BIT-BRICK</li><li><strong>中文发行版团队</strong> —— openEuler RISC-V SIG、openKylin、deepin、openRuyi</li><li><strong>AI 侧的开源项目</strong> —— llama.cpp、ONNX Runtime、OpenCV、ncnn、Tengine、RISE Project</li><li><strong>RISC-V International</strong> —— 规范与生态基础设施</li></ul></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容许可 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/sources/>来源与致谢</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>源码</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"切换到深色":"切换到浅色")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

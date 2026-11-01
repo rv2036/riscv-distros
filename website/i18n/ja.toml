@@ -1,4 +1,5 @@
 [nav]
+sources = "出典と謝辞"
 start = "はじめかた"
 distros = "ディストロ"
 boards = "ボード"
@@ -149,3 +150,7 @@ cft = "要検証"
 part = "一部のみ"
 basic = "基本"
 good = "良好"
+
+[sources]
+title = "出典と謝辞"
+more = "出典の全一覧と判定方法は"

@@ -720,3 +720,20 @@ table.matrix td.mx-own a { color: var(--fg-mute); }
 @media (max-width: 1100px) {
   .scroll-hint { display: block; }
 }
+
+/* 来源清单 */
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: .6rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: .25rem .9rem;
+}
+.source-list li { border-bottom: 1px solid var(--line-soft); padding: .3rem 0; }
+.source-list a {
+  font-size: .85rem;
+  color: var(--fg-dim);
+  word-break: break-all;
+}
+.source-list a:hover { color: var(--accent); }

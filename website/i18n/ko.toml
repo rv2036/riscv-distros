@@ -1,4 +1,5 @@
 [nav]
+sources = "출처 및 감사"
 start = "시작하기"
 distros = "배포판"
 boards = "보드"
@@ -149,3 +150,7 @@ cft = "검증 필요"
 part = "부분"
 basic = "기본"
 good = "양호"
+
+[sources]
+title = "출처 및 감사"
+more = "전체 출처 목록과 판정 방법:"
