@@ -925,6 +925,18 @@ items:
         date: "2025-05-01"
         url: "https://matrix.ruyisdk.org/reports/Duo/Alpine/README/"
   - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2024-11-05"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-05"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Alpine/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo (64M)"
     distro: arch
     distro_name: "ArchLinux"
@@ -936,6 +948,30 @@ items:
         status: "basic"
         date: "2024-06-21"
         url: "https://matrix.ruyisdk.org/reports/Duo/ArchLinux/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2024-10-09"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-10-09"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/ArchLinux/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo S"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2026-09-06"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2026-09-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/ArchLinux/README/"
   - board: milkv-duo
     board_name: "Milk-V Duo (64M)"
     distro: buildroot
@@ -954,126 +990,6 @@ items:
         date: "2025-04-07"
         url: "https://matrix.ruyisdk.org/reports/Duo/BuildRoot/README/"
   - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: debian
-    distro_name: "Debian"
-    status: basic
-    last_update: "2024-06-21"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-06-21"
-        url: "https://matrix.ruyisdk.org/reports/Duo/Debian/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: fedora
-    distro_name: "Fedora"
-    status: basic
-    last_update: "2024-11-06"
-    reports:
-      - ver: "41"
-        var: ""
-        status: "basic"
-        date: "2024-11-06"
-        url: "https://matrix.ruyisdk.org/reports/Duo/Fedora/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: nixos
-    distro_name: "NixOS"
-    status: basic
-    last_update: "2025-01-27"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2025-01-27"
-        url: "https://matrix.ruyisdk.org/reports/Duo/NixOS/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: openeuler
-    distro_name: "openEuler"
-    status: basic
-    last_update: "2024-11-06"
-    reports:
-      - ver: "23.09"
-        var: ""
-        status: "basic"
-        date: "2024-11-06"
-        url: "https://matrix.ruyisdk.org/reports/Duo/openEuler/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: openwrt
-    distro_name: "OpenWrt"
-    status: basic
-    last_update: "2025-03-31"
-    reports:
-      - ver: "23.05"
-        var: "VizOS"
-        status: "basic"
-        date: "2025-03-31"
-        url: "https://matrix.ruyisdk.org/reports/Duo/OpenWrt/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: ubuntu
-    distro_name: "Ubuntu"
-    status: basic
-    last_update: "2024-11-13"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-11-13"
-        url: "https://matrix.ruyisdk.org/reports/Duo/Ubuntu/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: xv6
-    distro_name: "xv6"
-    status: basic
-    last_update: "2025-04-15"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2025-04-15"
-        url: "https://matrix.ruyisdk.org/reports/Duo/xv6/README/"
-  - board: milkv-duo
-    board_name: "Milk-V Duo (64M)"
-    distro: yocto
-    distro_name: "Yocto"
-    status: basic
-    last_update: "2024-11-25"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-11-25"
-        url: "https://matrix.ruyisdk.org/reports/Duo/Yocto/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: alpine
-    distro_name: "Alpine"
-    status: basic
-    last_update: "2024-11-05"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-11-05"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/Alpine/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: arch
-    distro_name: "ArchLinux"
-    status: basic
-    last_update: "2024-10-09"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-10-09"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/ArchLinux/README/"
-  - board: milkv-duo-256m
     board_name: "Milk-V Duo (256M)"
     distro: buildroot
     distro_name: "BuildRoot"
@@ -1090,103 +1006,7 @@ items:
         status: "basic"
         date: "2025-01-08"
         url: "https://matrix.ruyisdk.org/reports/Duo256m/BuildRoot/README_v2/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: debian
-    distro_name: "Debian"
-    status: basic
-    last_update: "2025-05-28"
-    reports:
-      - ver: "13.0"
-        var: ""
-        status: "basic"
-        date: "2025-05-28"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/Debian/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: fedora
-    distro_name: "Fedora"
-    status: basic
-    last_update: "2024-11-06"
-    reports:
-      - ver: "41"
-        var: ""
-        status: "basic"
-        date: "2024-11-06"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/Fedora/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: nixos
-    distro_name: "NixOS"
-    status: basic
-    last_update: "2025-01-27"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2025-01-27"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/NixOS/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: openeuler
-    distro_name: "openEuler"
-    status: basic
-    last_update: "2024-10-29"
-    reports:
-      - ver: "23.09"
-        var: ""
-        status: "basic"
-        date: "2024-10-29"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/openEuler/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: ubuntu
-    distro_name: "Ubuntu"
-    status: basic
-    last_update: "2024-11-13"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-11-13"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/Ubuntu/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: xv6
-    distro_name: "xv6"
-    status: cfh
-    last_update: "2025-04-15"
-    reports:
-      - ver: ""
-        var: ""
-        status: "cfh"
-        date: "2025-04-15"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/xv6/README/"
-  - board: milkv-duo-256m
-    board_name: "Milk-V Duo (256M)"
-    distro: yocto
-    distro_name: "Yocto"
-    status: basic
-    last_update: "2024-11-25"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2024-11-25"
-        url: "https://matrix.ruyisdk.org/reports/Duo256m/Yocto/README/"
-  - board: milkv-duo-s
-    board_name: "Milk-V Duo S"
-    distro: arch
-    distro_name: "ArchLinux"
-    status: basic
-    last_update: "2026-09-06"
-    reports:
-      - ver: ""
-        var: ""
-        status: "basic"
-        date: "2026-09-06"
-        url: "https://matrix.ruyisdk.org/reports/Duo_S/ArchLinux/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: buildroot
     distro_name: "BuildRoot"
@@ -1203,7 +1023,31 @@ items:
         status: "basic"
         date: "2025-04-14"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/BuildRoot/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Debian/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2025-05-28"
+    reports:
+      - ver: "13.0"
+        var: ""
+        status: "basic"
+        date: "2025-05-28"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Debian/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: debian
     distro_name: "Debian"
@@ -1215,7 +1059,31 @@ items:
         status: "basic"
         date: "2026-09-08"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/Debian/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Fedora/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Fedora/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: fedora
     distro_name: "Fedora"
@@ -1227,7 +1095,31 @@ items:
         status: "basic"
         date: "2024-11-24"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/Fedora/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-01-27"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-01-27"
+        url: "https://matrix.ruyisdk.org/reports/Duo/NixOS/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-01-27"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-01-27"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/NixOS/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: nixos
     distro_name: "NixOS"
@@ -1239,7 +1131,43 @@ items:
         status: "basic"
         date: "2025-04-14"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/NixOS/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo/openEuler/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2024-10-29"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "basic"
+        date: "2024-10-29"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/openEuler/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-03-31"
+    reports:
+      - ver: "23.05"
+        var: "VizOS"
+        status: "basic"
+        date: "2025-03-31"
+        url: "https://matrix.ruyisdk.org/reports/Duo/OpenWrt/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: openwrt
     distro_name: "OpenWrt"
@@ -1251,7 +1179,31 @@ items:
         status: "basic"
         date: "2025-03-24"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/OpenWrt/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-11-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-13"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Ubuntu/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-11-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-13"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Ubuntu/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: ubuntu
     distro_name: "Ubuntu"
@@ -1263,7 +1215,31 @@ items:
         status: "basic"
         date: "2026-09-14"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/Ubuntu/README/"
-  - board: milkv-duo-s
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: xv6
+    distro_name: "xv6"
+    status: basic
+    last_update: "2025-04-15"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-04-15"
+        url: "https://matrix.ruyisdk.org/reports/Duo/xv6/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: xv6
+    distro_name: "xv6"
+    status: cfh
+    last_update: "2025-04-15"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-04-15"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/xv6/README/"
+  - board: milkv-duo
     board_name: "Milk-V Duo S"
     distro: xv6
     distro_name: "xv6"
@@ -1275,6 +1251,30 @@ items:
         status: "basic"
         date: "2026-09-21"
         url: "https://matrix.ruyisdk.org/reports/Duo_S/xv6/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: yocto
+    distro_name: "Yocto"
+    status: basic
+    last_update: "2024-11-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-25"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Yocto/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (256M)"
+    distro: yocto
+    distro_name: "Yocto"
+    status: basic
+    last_update: "2024-11-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-25"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Yocto/README/"
   - board: muse-pi-pro
     board_name: "Muse Pi Pro"
     distro: bianbu

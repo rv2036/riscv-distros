@@ -1,4 +1,4 @@
-# RISC-V board entries
+# en board entries
 items:
 - id: qemu
   name: QEMU virt (virtual machine)
@@ -1295,4 +1295,148 @@ items:
     Community derivatives such as openwrt exist too (not listed as standard distro ids).
   checked: '2026-11-01'
   order: 17
+  feature: false
+- id: mars
+  name: Mars
+  soc: 'JH7110: SiFive U74 + SiFive S7 + SiFive E24'
+  vendor: Milk-V
+  spec: Memory 1G/2G/4G/8G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: star64
+  name: STAR64
+  soc: 'JH7110: SiFive U74 + SiFive S7 + SiFive E24'
+  vendor: PINE64
+  spec: Memory 4G/8G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: visionfive
+  name: VisionFive
+  soc: 'JH7100: SiFive U74 + SiFive E24'
+  vendor: StarFive
+  spec: Memory 8G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: jupiter
+  name: Milk-V Jupiter
+  soc: 'Key Stone K1/M1: SpacemiT X60'
+  vendor: Milk-V
+  spec: Memory 4G/8G/16G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: muse-pi-pro
+  name: Muse Pi Pro
+  soc: 'Key Stone M1: SpacemiT X60'
+  vendor: SpacemiT
+  spec: Memory LPDDR4X 8G/16G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: k3-som260
+  name: SpacemiT K3 CoM260 Kit
+  soc: 'SpacemiT K3: SpacemiT X100 + A100'
+  vendor: SpacemiT
+  spec: Memory 16GB LPDDR5 + 128GB UFS (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: bit-brick-k1
+  name: BIT-BRICK K1
+  soc: 'Key Stone K1: SpacemiT X60'
+  vendor: BIT-BRICK
+  spec: Memory 4G/8G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: lichee-cluster-4a
+  name: Lichee Cluster 4A
+  soc: 'TH1520: XuanTie C910 + XuanTie C906 + XuanTie E902'
+  vendor: Sipeed
+  spec: Memory 8G/16G (test configuration recorded by RuyiSDK)
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: Board data comes from RuyiSDK's test-matrix records; availability and pricing were not verified separately.
+  checked: '2026-11-01'
+  order: 900
   feature: false
