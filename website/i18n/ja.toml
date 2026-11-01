@@ -68,6 +68,7 @@ advanced = "ある程度の知識が必要"
 vendor = "ベンダー検証用"
 
 [status]
+virtual = "仮想プラットフォーム"
 on_sale = "販売中"
 eol = "販売終了"
 hard = "入手困難"
@@ -98,6 +99,7 @@ boards = "ボード"
 ai = "AI ソフト"
 
 [matrix]
+scroll_hint = "表は左右にスクロールすると全てのディストロが見えます"
 own_source = "当サイト調べ（RuyiSDK 実測ではない）"
 title = "対応マトリクス"
 sub = "行がボード、列がディストロ。各セルからダウンロードと注意点へ。"
@@ -126,6 +128,7 @@ license = "内容は CC BY-SA 4.0"
 tagline = "はじめての RISC-V のために"
 
 [ruyisdk]
+no_page = "当サイト未収録"
 legend_note = "状態の意味：good 完全に利用可（デスクトップ起動可）、basic 基本利用可（シリアルで起動可）、part 一部機能のみ、cft イメージはあるが要検証、cfh 対応記載があるが起動失敗、cfi 対応記載のみでイメージなし、wip 発表のみ。"
 source = "データ出典"
 open_report = "レポートを開く"

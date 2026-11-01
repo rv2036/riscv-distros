@@ -1,5 +1,7 @@
 {{ define "main" }}
 {{ $d := partial "site-data.html" . }}
+{{ $dids := slice }}
+{{ range $d.distros.items }}{{ $dids = $dids | append .id }}{{ end }}
 {{ $id := .Params.board }}
 {{ $x := dict }}
 {{ range $d.boards.items }}{{ if eq .id $id }}{{ $x = . }}{{ end }}{{ end }}
@@ -101,7 +103,7 @@
         {{ range $d.distros.items }}{{ if eq .id $did }}{{ $dname = .name }}{{ end }}{{ end }}
         {{ $first := index .reports 0 }}
         <tr>
-          <td><a href="{{ printf "distros/%s/" $did | relLangURL }}">{{ $dname }}</a></td>
+          <td>{{ if in $dids $did }}<a href="{{ printf "distros/%s/" $did | relLangURL }}">{{ $dname }}</a>{{ else }}{{ $dname }}<span class="muted">（{{ i18n "ruyisdk.no_page" }}）</span>{{ end }}</td>
           <td><span class="badge st-{{ .status }}">{{ partial "ruyi-symbol.html" .status }} {{ i18n (printf "ruyisdk.status.%s" .status) }}</span></td>
           <td>{{ range $i, $r := .reports }}{{ if $i }} · {{ end }}{{ with $r.ver }}{{ . }}{{ else }}—{{ end }}{{ with $r.var }}({{ . }}){{ end }}{{ end }}</td>
           <td class="muted">{{ .last_update }}</td>

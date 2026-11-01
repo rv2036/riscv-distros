@@ -1,0 +1,1594 @@
+# distros (ja)
+items:
+- id: debian
+  name: Debian
+  vendor: ''
+  upstream: official
+  upstream_note: Debian 13（trixie）以降、riscv64 は公式リリースアーキテクチャになりました。公式発表の原文は「This release for the first time officially supports the riscv64 architecture」。メインアーカイブ deb.debian.org に入っており、ports の追加ツリーではありません（debian.org/ports
+    の一覧でも riscv64 は 13/released と表示されます）。
+  kind: distro
+  based_on: 独立
+  audience: recommended
+  versions:
+  - 13.7（trixie、現行安定版、ISO は debian-13.7.0-riscv64-netinst.iso）
+  - 14（forky、開発／テスト中）
+  boards:
+  - board: qemu
+    level: official
+    note: 公式の riscv64 netinst を QEMU virt 上にインストールできます。d-i の主要ターゲットプラットフォームです
+  - board: unmatched
+    level: community
+    note: 汎用 riscv64 イメージ＋ボード側の U-Boot/UEFI で起動します。Debian はボード専用イメージを配布していません
+  - board: visionfive2
+    level: community
+    note: 同上。JH7110 ボードはベンダー U-Boot で UEFI を提供し、その上に汎用イメージを入れます
+  - board: licheepi-4a
+    level: partial
+    note: TH1520 はベンダー U-Boot／カーネルが必要で、Debian のメインラインにはボード対応がありません
+  - board: meles
+    level: partial
+    note: 同じ TH1520 プラットフォームで、状況は LicheePi 4A と同様です
+  - board: k3
+    level: partial
+    note: SpacemiT K3 はベンダー BSP が必要です。Debian メインラインでの対応状況は未確認です
+  - board: a210
+    level: partial
+    note: 知合 A210 はベンダーのファームウェア／カーネルが必要で、Debian の公式サポートはありません
+  - board: k230
+    level: partial
+    note: Canaan K230 は MCU 系の SoC で、メインラインの対応は限定的です
+  - board: megrez
+    level: community
+    note: EIC7700 ボードは汎用 UEFI イメージで動く可能性がありますが、Debian のドキュメントでは確認できていません
+  - board: titan
+    level: community
+    note: DP1000 も同様で、Debian のドキュメントでは確認できていません
+  - board: pioneer
+    level: community
+    note: SG2042 は汎用イメージで動く可能性がありますが、Debian のドキュメントでは確認できていません
+  - board: orangepi-rv2
+    level: community
+    note: SpacemiT K1 ボード。汎用イメージ＋ボード側 U-Boot で動きます
+  - board: bpi-f3
+    level: community
+    note: SpacemiT K1 ボード。汎用イメージ＋ボード側 U-Boot で動きます
+  downloads:
+  - label: riscv64 CD イメージディレクトリ（cdimage、現行安定版）
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
+  - label: debian-13.7.0-riscv64-netinst.iso への直リンク
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  guides:
+  - label: Debian GNU/Linux 13 riscv64 インストールマニュアル（英語）
+    url: https://www.debian.org/releases/stable/riscv64/
+    type: doc
+    lang: en
+  - label: インストールマニュアル 簡体字中国語
+    url: https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
+    type: doc
+    lang: zh
+  - label: インストールマニュアル 日本語
+    url: https://www.debian.org/releases/stable/riscv64/index.ja.html
+    type: doc
+    lang: ja
+  - label: インストールマニュアル 韓国語
+    url: https://www.debian.org/releases/stable/riscv64/index.ko.html
+    type: doc
+    lang: ko
+  - label: インストールマニュアル ロシア語
+    url: https://www.debian.org/releases/stable/riscv64/index.ru.html
+    type: doc
+    lang: ru
+  - label: 'RISC-V Linux in 2026: Debian, RVA23, Servers, Hardware—and What''s Still Missing'
+    url: https://www.youtube.com/watch?v=C5NkSlf4_WE
+    type: video
+    lang: en
+  gotchas:
+  - 配布されるのは汎用の riscv64 イメージ（netinst/ISO）だけで、ボード専用イメージはありません。起動できるかどうかはボード側の U-Boot/UEFI ファームウェア次第です
+  - 公式インストールマニュアル自身が「This installation guide has not been fully updated and fact checked for riscv64」と明記しており、一部の章は古い可能性があります
+  - netinst でのインストールはネットワーク接続が必須で、パッケージを取得しながら進みます
+  doc_langs:
+  - en
+  - zh
+  - ja
+  - ko
+  - ru
+  - fr
+  - de
+  derivatives:
+  - Ubuntu
+  note: Debian は今回のリストで唯一、riscv64 を正式なリリースアーキテクチャに含めている独立系ディストリビューションです。派生には Deepin や RevyOS など、Debian をベースにした riscv64 システムもあります（個別の検証はしていません）。
+  checked: '2026-11-01'
+  order: 1
+  feature: true
+- id: ubuntu
+  name: Ubuntu
+  vendor: ''
+  upstream: official
+  upstream_note: Canonical が riscv64 イメージを公式にビルド・ホストしています（「built and hosted by Canonical」）。riscv64 は Ubuntu の公式サポートアーキテクチャです。26.04 LTS から ISA のベースラインが RVA23S64 に上がりました。
+  kind: distro
+  based_on: Debian
+  audience: recommended
+  versions:
+  - 26.10（現行版、RVA23）
+  - 26.04.1 LTS (RVA23)
+  - 24.04.5 LTS（RVA20、旧ハードウェアも引き続きサポート）
+  boards:
+  - board: qemu
+    level: official
+    note: 26.10 / 26.04.1 LTS は Desktop、Server の live installer と preinstalled イメージを提供しています。公式ページに QEMU のインストール手順があります
+  - board: unmatched
+    level: official
+    note: 24.04.5 LTS は ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz を提供しています
+  - board: visionfive2
+    level: official
+    note: jh7110 イメージ（24.04.5 LTS +jh7110、VisionFive 2 / VisionFive 2 Lite をカバー）
+  - board: licheepi-4a
+    level: partial
+    note: 公式のボード一覧に LicheePi 4A はありません（Sipeed LicheeRV Dock のみ）。自前ビルドかコミュニティイメージが必要です
+  - board: meles
+    level: partial
+    note: 公式のボード一覧に Milk-V Meles はありません
+  - board: k3
+    level: official
+    note: SpacemiT K3 プラットフォーム（CoM260、picoITX、DeepComputing FML13V05）は 26.10 から対応しています
+  - board: a210
+    level: partial
+    note: 公式のボード一覧に知合 A210 はありません
+  - board: k230
+    level: partial
+    note: 公式のボード一覧に Canaan K230 はありません
+  - board: megrez
+    level: partial
+    note: 公式のボード一覧に Milk-V Megrez はありません
+  - board: titan
+    level: partial
+    note: 公式のボード一覧に Milk-V Titan はありません
+  - board: pioneer
+    level: partial
+    note: 公式のボード一覧に Milk-V Pioneer はありません
+  - board: orangepi-rv2
+    level: partial
+    note: 公式のボード一覧にあるのは Milk-V Mars（同じ K1）だけで、Orange Pi RV2 はありません
+  - board: bpi-f3
+    level: partial
+    note: 公式のボード一覧に Banana Pi BPI-F3 はありません
+  downloads:
+  - label: Canonical 公式 RISC-V ダウンロードページ（ボード別にイメージを選択）
+    url: https://ubuntu.com/download/risc-v/canonical-built
+  - label: cdimage 26.10 riscv64 ディレクトリ
+    url: https://cdimage.ubuntu.com/releases/26.10/release/
+  - label: cdimage 26.04.1 LTS riscv64 ディレクトリ
+    url: https://cdimage.ubuntu.com/releases/26.04/release/
+  guides:
+  - label: RISC-V ダウンロードページ内に各ボードのインストール手順（installation instructions）があります
+    url: https://ubuntu.com/download/risc-v/canonical-built
+    type: doc
+    lang: en
+  - label: Announcing Ubuntu desktop images for RISC-V (2026-10)
+    url: https://discourse.ubuntu.com/t/announcing-ubuntu-desktop-images-for-risc-v/89110
+    type: doc
+    lang: en
+  gotchas:
+  - 26.04 LTS から RVA23S64 が必須です。RVA23 非対応のハードウェア（VisionFive 2/JH7110、SiFive Unmatched など）は 24.04.5 LTS しか使えません。公式の原文は「Hardware that is not RVA23-ready continues to be supported by our 24.04.5 LTS release」
+  - 一部のボード向けイメージは headless のみ（GPU なし、WiFi なし）です。公式ページでも DeepComputing FML13V01 の項目に明記されています
+  - ボード向けイメージは +<board> のサフィックスで区別されます（+unmatched/+jh7110/+icicle/+nezha/+licheerv/+pic64gx）。間違ったイメージを書き込むと起動しません
+  doc_langs:
+  - en
+  derivatives:
+  - Ubuntu Base (riscv64 rootfs)
+  - DeepComputing FML13V01 partner-built Ubuntu
+  note: Ubuntu はボード対応が最も細かいところです。公式がボード別に preinstalled イメージを出していますが、26.04 からはハードルが RVA23 に上がり、古いボードは 24.04 LTS に留まります。
+  checked: '2026-11-01'
+  order: 2
+  feature: true
+- id: fedora
+  name: Fedora
+  vendor: ''
+  upstream: community
+  upstream_note: Fedora 公式 wiki の原文は「riscv64 is currently not an officially supported Fedora architecture」。イメージは Fedora RISC-V SIG が保守し、dl.fedoraproject.org/pub/alt/risc-v/（alt ツリー、メインアーキテクチャではない）に置かれています。リリースブロッキングには参加していません。
+  kind: distro
+  based_on: 独立
+  audience: recommended
+  versions:
+  - 44（安定版、RISC-V イメージあり）
+  - 45（Beta/RC、RISC-V イメージは "non-official, community-contributed" と明記）
+  - rawhide
+  boards:
+  - board: qemu
+    level: official
+    note: 公式対応。メインラインカーネルのままで動きます（Hardware ページの QEMU 項目）
+  - board: unmatched
+    level: partial
+    note: Hardware ページに SiFive Unmatched は載っていません（Premier P550 のみ）
+  - board: visionfive2
+    level: official
+    note: StarFive JH7110 の項目で公式対応。NVMe/PCIe が不要ならメインラインカーネルで動きます
+  - board: licheepi-4a
+    level: partial
+    note: Hardware ページに LicheePi 4A / TH1520 は載っていません
+  - board: meles
+    level: partial
+    note: Hardware ページに Milk-V Meles は載っていません
+  - board: k3
+    level: official
+    note: SpacemiT K3 の項目：K3 Pico-ITX、Milk-V Jupiter 2、K3-CoM260、DC-ROMA III (FML13V05)
+  - board: a210
+    level: partial
+    note: Hardware ページに知合 A210 は載っていません
+  - board: k230
+    level: partial
+    note: Hardware ページに Canaan K230 は載っていません
+  - board: megrez
+    level: official
+    note: ESWIN EIC7700X の項目で公式対応（Milk-V Megrez、HiFive Premier P550）
+  - board: titan
+    level: official
+    note: UltraRISC UR-DP1000 の項目で公式対応（Milk-V Titan）
+  - board: pioneer
+    level: official
+    note: SOPHGO SG2042 の項目で公式対応（Milk-V Pioneer）
+  - board: orangepi-rv2
+    level: official
+    note: SpacemiT M1/K1 の項目で公式対応（Orange Pi RV 2、BPI-F3、Milk-V Jupiter を含む）
+  - board: bpi-f3
+    level: official
+    note: SpacemiT M1/K1 の項目で公式対応（Banana Pi BPI-F3）
+  downloads:
+  - label: Fedora RISC-V イメージ一覧ディレクトリ（alt/risc-v/releases）
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - label: Fedora Remix for RISC-V
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
+  guides:
+  - label: Fedora RISC-V インストールガイド（wiki）
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  - label: Fedora RISC-V 対応ハードウェア一覧（wiki）
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Hardware
+    type: doc
+    lang: en
+  - label: Fedora/RISC-V プロジェクトページ（wiki）
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - 多くのボードでは Omni カーネル（...riscv64.omni.fcXX）が必須です。標準の 7.x カーネルがカバーするのは VisionFive 2 / Orange Pi RV / Milk-V Mars 程度で、公式の原文は「Most boards can only boot when using the Omni kernel」
+  - Omni カーネルには上流に取り込まれていないパッチが残っています（原文「Some patches in this kernel are still under review upstream」）
+  - headless 専用と考えてください。メインラインに SoC 内蔵 GPU のドライバがなく、公式の位置づけはビルドマシン／サーバーです（「video output are pretty much completely ignored」）
+  - インストールにはシリアルコンソールが必要です（Requirements → Serial console access）
+  - 一部のパッケージには RISC-V 専用のパッチが必要で、上流のソースとはまだ差分があります
+  doc_langs:
+  - en
+  derivatives:
+  - Fedora-V Force (FVF)
+  - Fedora Remix for RISC-V
+  note: Fedora には公式の RISC-V SIG と継続ビルドがありますが、riscv64 はいまも「not officially supported」と明記され、イメージは alt チャネル配布です。日常利用に問題はありませんが、公式サポートの位置づけは Debian や Ubuntu とは同じではありません。
+  checked: '2026-11-01'
+  order: 3
+  feature: true
+- id: fvf
+  name: Fedora-V Force (FVF)
+  vendor: ''
+  upstream: downstream
+  upstream_note: Fedora-V Force（多啦V盟）は独立したチーム／コミュニティのプロジェクトで、Fedora 36 から rawhide までの riscv64 ビルドを自前でコンパイルしてボードに合わせています。公式サイトの説明は「independently compiling releases from Fedora 36 to rawhide」で、Fedora の公式リリースプロセスとは関係がありません。
+  kind: distro
+  based_on: Fedora
+  audience: recommended
+  versions:
+  - Fedora 36 → rawhide（独自ビルド、複数の Fedora バージョンをカバー）
+  boards:
+  - board: qemu
+    level: community
+    note: FVF は市販の主要な RISC-V 開発ボードに対応していると自称しています。ボードごとの検証はしていません
+  - board: unmatched
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: visionfive2
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: licheepi-4a
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: meles
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: k3
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: a210
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: k230
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: megrez
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: titan
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: pioneer
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: orangepi-rv2
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  - board: bpi-f3
+    level: community
+    note: 同上。ボードごとの検証はしていません
+  downloads:
+  - label: FVF ミラーサイト (images.fedoravforce.org)
+    url: https://images.fedoravforce.org
+  - label: FVF 公式サイトのダウンロード入口
+    url: https://www.fedoravforce.org
+  guides:
+  - label: FVF 公式サイト（About／リソース、中英切替あり）
+    url: https://www.fedoravforce.org
+    type: doc
+    lang: en
+  - label: FVF 中国語トップページ
+    url: https://www.fedoravforce.org/zh
+    type: doc
+    lang: zh
+  - label: FVF ブログ（ドキュメント／チュートリアル）
+    url: https://blog.fedoravforce.com
+    type: doc
+    lang: zh
+  gotchas:
+  - イメージはコミュニティによる独立ビルドで、Fedora 公式の署名／リリース手順を通りません。バージョンも上流の Fedora と完全には同期していません
+  - ミラーサイトは JS のシングルページアプリで、スクリプトではボード一覧を取得できません。ボードの選択はページ上で手作業になります
+  doc_langs:
+  - en
+  - zh
+  derivatives: []
+  note: FVF は別チームが Fedora のソースから独自に再ビルドした RISC-V イメージで、Fedora 公式リリースではありません。公式 SIG のイメージより対応ボードが広く、箱から出して動く Fedora 環境が欲しい場合に実用的です。
+  checked: '2026-11-01'
+  order: 4
+  feature: true
+- id: revyos
+  name: RevyOS
+  vendor: ''
+  upstream: downstream
+  upstream_note: 下流のカスタムディストリビューションです。PLCT Lab（中国科学院ソフトウェア研究所）が XuanTie（T-Head）エコシステム向けに保守しており、Debian 13（trixie）のパッケージリポジトリと XuanTie 向けカスタムカーネルを組み合わせています。Debian の公式ポートでも、独立したパッケージ体系でもありません。
+  kind: distro
+  based_on: Debian 13 (trixie) の rootfs ＋ XuanTie カスタム 6.6 カーネル（TH1520/SG2042 BSP）。旧版 20240720 は Debian 12 ＋ 5.10 カーネル
+  audience: recommended
+  versions:
+  - 20260504（2026-05-04、ミラーサイトで最新の完全イメージ）
+  - 20251226（2025-12-26、公式ドキュメント記載の最新版）
+  - 20250729（2025-07-29）
+  - 20240720（2024-07-20、5.10 カーネル／Debian 12 の時代）
+  boards:
+  - board: licheepi-4a
+    level: official
+    note: 主力のリファレンスボード。SD/eMMC のデュアルブートで、イメージもドキュメントも最も充実しています
+  - board: meles
+    level: official
+    note: Milk-V Meles。公式イメージ 20260504 と書き込みチュートリアルがあります
+  - board: pioneer
+    level: official
+    note: Milk-V Pioneer（SG2042）。イメージは 20260504
+  - board: k3
+    level: partial
+    note: coreboot+OpenSBI+EDK2 ファームウェア（Ruyi Firmware）として提供されており、OS イメージそのものではありません
+  downloads:
+  - label: ミラーサイトのトップディレクトリ（ボードごとに分割）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/
+  - label: LicheePi 4A 20260504（sdcard/img.zst ＋ boot/root ＋ u-boot）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
+  - label: Milk-V Meles 20260504
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
+  - label: Milk-V Pioneer (SG2042) 20260504
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - label: 国内向け高速ミラー fast-mirror.isrc.ac.cn
+    url: https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20260504/
+  guides:
+  - label: イメージ書き込みの注意（対応デバイスとイメージ一覧）
+    url: https://docs.revyos.dev/docs/Installation/intro/
+    type: doc
+    lang: zh
+  - label: LicheePi 4A 書き込みチュートリアル（Linux）
+    url: https://docs.revyos.dev/docs/Installation/licheepi4a/
+    type: doc
+    lang: zh
+  - label: Milk-V Meles 書き込みチュートリアル
+    url: https://docs.revyos.dev/docs/Installation/milkv-meles/
+    type: doc
+    lang: zh
+  - label: Milk-V Pioneer インストールチュートリアル
+    url: https://docs.revyos.dev/docs/Installation/milkv-pioneer/
+    type: doc
+    lang: zh
+  - label: LicheePi 4A flashing guide (English)
+    url: https://docs.revyos.dev/en/docs/Installation/licheepi4a/
+    type: doc
+    lang: en
+  gotchas:
+  - バージョン番号は日付（YYYYMMDD）で、セマンティックバージョニングではありません。公式ドキュメントはミラーサイトより遅れがちです（ドキュメントは 20251226、ミラーサイトには 20260504 があります）
+  - 20240720 以前からアップグレードする場合は U-Boot の環境変数をリセットする必要があります（env default -a -f; env save; reset）。しないと起動しません
+  - LicheePi 4A は一部の SD カードで互換性の問題があります。公式が SD カード互換リストを保守しているので、eMMC を優先するのがおすすめです
+  - 20260926/20260924 のディレクトリは coreboot+EDK2 ファームウェア（U-Boot なし）で、システムイメージではありません。既定の 1.84GHz で回すなら放熱対策が必須です
+  - GPU/NPU はベンダー BSP のドライバスタックに依存します（revyos-gles-21、NPU のドキュメントも別途あり）。すべてがメインラインに入っているわけではありません
+  doc_langs:
+  - zh
+  - en
+  derivatives: []
+  note: TH1520 ボードでの事実上の標準システムです。LicheePi 4A と Milk-V Meles は出荷時／公式チュートリアルで RevyOS を書き込む前提になっています。初心者にはまずこれですが、ミラーサイトの方がドキュメントより新しく、日付はミラーサイトのディレクトリで最新のものを選んでください。
+  checked: '2026-11-01'
+  order: 5
+  feature: true
+- id: bianbu
+  name: Bianbu
+  vendor: ''
+  upstream: downstream
+  upstream_note: 下流のカスタムディストリビューションです。SpacemiT の公式 OS で、「Ubuntu コミュニティのソースからビルド」と明記されており、APT ＋ deb パッケージ形式です。K1 は Ubuntu 24.04（2.x）／25.04（3.x）、K3 は Ubuntu 26.04（4.x）に対応します。
+  kind: distro
+  based_on: Ubuntu 24.04 LTS（Bianbu 2.x、K1）／Ubuntu 25.04（Bianbu 3.x、K1）／Ubuntu 26.04（Bianbu 4.x、K3。ベンダーフォーラムの説明で、公式ドキュメントに版ごとの明記はなし）＋ ベンダー BSP カーネル 6.6 LTS / 6.18
+  audience: recommended
+  versions:
+  - Bianbu 2.3.5（K1、Ubuntu 24.04 ベース、2026-06 ビルド／2026-08-27 公開）
+  - Bianbu 3.0.1（K1、Ubuntu 25.04 ベース、2025-08-15）
+  - Bianbu 4.0.8（K3、Ubuntu 26.04 ベース、2026-10-22）
+  boards:
+  - board: bpi-f3
+    level: official
+    note: Banana Pi BPI-F3（K1）。公式の対応リストに載っています。同系列に Milk-V Jupiter、MUSE Card/Pi/Pi Pro/Box/Book があります
+  - board: k3
+    level: official
+    note: K3 プラットフォーム：Pico ITX と CoM260 Kit。Bianbu 4.x 専用です
+  downloads:
+  - label: K1 イメージ索引（公式 archive、全バージョンと日付）
+    url: https://archive.spacemit.com/image/k1/version/bianbu/
+  - label: K3 イメージ索引
+    url: https://archive.spacemit.com/image/k3/version/bianbu/
+  - label: K1 v2.3.5（GNOME/LXQt/Minimal、長期保守ライン）
+    url: https://archive.spacemit.com/image/k1/version/bianbu/v2.3.5/
+  - label: K1 v3.0.1（Ubuntu 25.04 ライン）
+    url: https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
+  - label: K3 v4.0.8（LXQt / Minimal / UEFI）
+    url: https://archive.spacemit.com/image/k3/version/bianbu/v4.0.8/
+  guides:
+  - label: Bianbu の概要（対応デバイス一覧あり）
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/root_overview.md
+    type: doc
+    lang: zh
+  - label: イメージと書き込みの説明
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/image.md
+    type: doc
+    lang: zh
+  - label: LXQt デスクトップの使い方
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/user_guide/LXQt/desktop_introduction.md
+    type: doc
+    lang: zh
+  - label: Bianbu 4.0 の更新情報（K3 のみ）
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/release_notes/bianbu_4.0.md
+    type: doc
+    lang: zh
+  - label: Bianbu Introduction (English)
+    url: https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/bianbu/root_overview.md
+    type: doc
+    lang: en
+  gotchas:
+  - K1 と K3 ではバージョン系列がまったく別です。K1 は 2.x（Ubuntu 24.04）を長期保守、3.x は非 LTS の Ubuntu 25.04 ベース。K3 は 4.x（Ubuntu 26.04）のみです
+  - RVA22 の K1 では、RVA23 向けにビルドされた Ubuntu 26.04／Bianbu 4.x は動きません。K3 は RVA22 のコードを下位互換で動かせます
+  - イメージは .zip（中に .img）なので、展開してから dd か Etcher で書き込みます。ボードによっては UEFI 版もあるので間違えないでください
+  - カーネルはメインラインではなくベンダー BSP（6.6 LTS / 6.18）です。差し替えるなら公式の kernel リポジトリからビルドします
+  - MUSE シリーズ、BPI-F3、Milk-V Jupiter はボードごとにイメージが分かれており、間違えると起動しません。イメージサイズは約 2〜2.6GB です
+  doc_langs:
+  - zh
+  - en
+  derivatives: []
+  note: K1/K3 ボード（BPI-F3、Milk-V Jupiter、MUSE、Pico ITX）で唯一、公式のデスクトップ環境が用意されているシステムです。GNOME/LXQt が最初から入っており、中国語ドキュメントも揃っていて、初心者に最も向いたベンダー製ディストリビューションです。
+  checked: '2026-11-01'
+  order: 6
+  feature: true
+- id: armbian
+  name: Armbian
+  vendor: ''
+  upstream: official
+  upstream_note: 公式のビルドフレームワーク（armbian/build）が riscv64 イメージを直接生成します。ボードは Platinum/Standard/Community の三段階に分類され、RISC-V ボードには公式サイトに専用のダウンロードページとイメージ一覧があります。
+  kind: distro
+  based_on: Debian/Ubuntu（Armbian build framework）
+  audience: recommended
+  versions:
+  - 26.8.9（MusePi Pro）
+  - 26.8.3（BPI-F3 / K3 Pico-ITX）
+  boards:
+  - board: k3
+    level: official
+    note: MusePi Pro は Platinum（カーネル 6.18.55 current / 6.6.100 legacy）。K3 Pico-ITX も Platinum です
+  - board: bpi-f3
+    level: official
+    note: Standard 級、カーネル 6.18.45。Bianbu の変体もあります
+  - board: orangepi-rv2
+    level: community
+    note: Community 級、Debian 13 minimal（6.18.58）のみ
+  - board: visionfive2
+    level: community
+    note: Community 級、ベンダーカーネル 6.6.20、Ubuntu/Debian の 3 イメージ
+  downloads:
+  - label: MusePi Pro（SpaceMiT K3）イメージ
+    url: https://armbian.com/boards/musepipro
+  - label: Banana Pi BPI-F3（SpaceMiT K1）イメージ
+    url: https://armbian.com/boards/bananapif3
+  - label: K3 Pico-ITX（SpaceMiT K3）イメージ
+    url: https://armbian.com/boards/k3picoitx
+  - label: Orange Pi RV2（Ky X1）イメージ
+    url: https://armbian.com/boards/orangepirv2
+  - label: StarFive VisionFive2 イメージ
+    url: https://armbian.com/boards/visionfive2
+  guides:
+  - label: Armbian 公式ドキュメント（ビルド／書き込み／使い方）
+    url: https://docs.armbian.com/
+    type: doc
+    lang: en
+  - label: VisionFive2 ボードページ（compile.sh の再現コマンドあり）
+    url: https://armbian.com/boards/visionfive2
+    type: doc
+    lang: en
+  gotchas:
+  - 多くのボードは今もベンダーカーネル（6.6.x Bianbu）に縛られており、メインライン化の度合いはまちまちです
+  - Community 級のボードは CLI イメージが 1 つだけで、デスクトップや更新はコミュニティ任せです
+  - Meles / Pioneer / Megrez / K230 などのボードはありません
+  - 同じバージョン番号でもボードによってカーネル版が違います。ドキュメントに固定値で書かないでください
+  doc_langs:
+  - en
+  derivatives:
+  - DietPi など Armbian/Debian ベースの派生版は VisionFive 2 を非公式にサポートしています
+  note: 中国製 RISC-V ボードが「買ってすぐ使える」ようになった最大の功労者です。K3 や BPI-F3 のような新しいボードは、まずこれを確認してください。
+  checked: '2026-11-01'
+  order: 7
+  feature: false
+- id: alpine
+  name: Alpine Linux
+  vendor: ''
+  upstream: official
+  upstream_note: riscv64 は Alpine の公式サポートアーキテクチャです。公式ダウンロードページで x86_64/aarch64 と並んで standard ISO、minirootfs、uboot イメージが提供され、パッケージリポジトリの main/community にも riscv64 のビルドがあります。
+  kind: distro
+  based_on: 独立
+  audience: recommended
+  versions:
+  - 3.24.3（現行安定版、alpine-standard-3.24.3-riscv64.iso）
+  - edge（開発ブランチ）
+  boards:
+  - board: qemu
+    level: official
+    note: 公式に u-boot-qemu パッケージがあり、QEMU が標準の開発経路です
+  - board: unmatched
+    level: official
+    note: 公式に u-boot-unmatched / u-boot-unleashed パッケージがあります
+  - board: visionfive2
+    level: official
+    note: 公式に u-boot-starfive パッケージ（StarFive JH7110 系）があります
+  - board: licheepi-4a
+    level: partial
+    note: u-boot-th1520 のような公式パッケージはなく、ブートローダーは自前で用意します
+  - board: meles
+    level: partial
+    note: TH1520 プラットフォーム。同上
+  - board: k3
+    level: community
+    note: 公式に u-boot-spacemit パッケージがあります（SpacemiT プラットフォーム、主に K1 系）。K3 を個別にカバーしているかは未確認です
+  - board: a210
+    level: partial
+    note: 公式の u-boot パッケージはありません
+  - board: k230
+    level: partial
+    note: 公式の u-boot パッケージはありません
+  - board: megrez
+    level: partial
+    note: 公式の u-boot パッケージはありません
+  - board: titan
+    level: partial
+    note: 公式の u-boot パッケージはありません
+  - board: pioneer
+    level: partial
+    note: 公式の u-boot パッケージはありません
+  - board: orangepi-rv2
+    level: partial
+    note: SpacemiT K1 ボード。u-boot-spacemit を流用できる可能性がありますが未確認です
+  - board: bpi-f3
+    level: partial
+    note: SpacemiT K1 ボード。u-boot-spacemit を流用できる可能性がありますが未確認です
+  downloads:
+  - label: Alpine 公式ダウンロードページ（riscv64 の全イメージ種別）
+    url: https://alpinelinux.org/downloads/
+  - label: v3.24 riscv64 リリースディレクトリ
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
+  - label: alpine-standard-3.24.3-riscv64.iso
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  guides:
+  - label: Alpine ユーザーマニュアル・インストールの章
+    url: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
+    type: doc
+    lang: en
+  - label: Alpine のリリースブランチとサポート期間
+    url: https://alpinelinux.org/releases/
+    type: doc
+    lang: en
+  gotchas:
+  - 公式の u-boot がカバーするのは qemu / starfive / spacemit / unleashed / unmatched の 5 種類だけで、他のボードはブートローダーを自前で用意します
+  - musl libc ＋ busybox なので、glibc 前提のプリコンパイル済みバイナリは動きません
+  - 公式 wiki（wiki.alpinelinux.org）は自動アクセスに 403 を返すため、RISC-V の細かい情報は packages/downloads ページから逆にたどるしかありません
+  doc_langs:
+  - en
+  derivatives:
+  - postmarketOS
+  note: Alpine の riscv64 は正式アーキテクチャですが、ボード対応の幅は狭いです。u-boot パッケージは 5 種類しかなく、それ以外のボードは自分で移植することになります。
+  checked: '2026-11-01'
+  order: 8
+  feature: false
+- id: arch
+  name: Arch Linux RISC-V
+  vendor: ''
+  upstream: community
+  upstream_note: Arch Linux RISC-V はコミュニティによる移植です（archriscv.felixc.at、Felix Yan らが保守）。Arch のソースパッケージにパッチを当ててビルドしており、Arch 公式リポジトリには入っていません。公式サイトでも長期目標として「riscv64 can be added to Arch Linux itself as an alternative
+    architecture」と書かれています。
+  kind: distro
+  based_on: Arch Linux
+  audience: advanced
+  versions:
+  - rolling (ISO archlinux-2026.08.27-riscv64.iso, rootfs archriscv-2026-08-27.tar.zst)
+  boards:
+  - board: qemu
+    level: official
+    note: 公式に「tested」と明記。QEMU は mainline linux パッケージの対応リストに入っています
+  - board: unmatched
+    level: official
+    note: HiFive Unmatched / Unleashed は tested リストに入っています
+  - board: visionfive2
+    level: official
+    note: VisionFive v2（および Milk-V Mars）は tested リストに入っています
+  - board: licheepi-4a
+    level: partial
+    note: '[unsupported] リポジトリでのみ TH1520 の実験的カーネルを提供しています'
+  - board: meles
+    level: partial
+    note: TH1520 プラットフォーム。[unsupported] の実験的カーネル経路で、個別の記載はありません
+  - board: k3
+    level: partial
+    note: 対応リストにありません。公式は AX45MP 以外のボードは BSP／カスタムカーネルが必要かもしれないとしています
+  - board: a210
+    level: partial
+    note: 対応リストにありません。BSP／カスタムカーネルが必要です
+  - board: k230
+    level: partial
+    note: スポンサー提供のテストボードとして謝辞に名前があるだけで、正式な対応項目はありません
+  - board: megrez
+    level: community
+    note: ESWIN EIC7700 はテストボードとして謝辞に名前がありますが、正式な対応項目はありません
+  - board: titan
+    level: partial
+    note: 対応リストにありません
+  - board: pioneer
+    level: partial
+    note: '[unsupported] リポジトリでのみ SG2042 の実験的カーネルを提供しています'
+  - board: orangepi-rv2
+    level: partial
+    note: 対応リストにありません。BSP／カスタムカーネルが必要です
+  - board: bpi-f3
+    level: community
+    note: BananaPi F3 はテストボードとして謝辞に名前がありますが、正式な対応項目はありません
+  downloads:
+  - label: イメージと rootfs のディレクトリ (archriscv.felixc.at/images)
+    url: https://archriscv.felixc.at/images/
+  - label: バイナリリポジトリ (core/extra/unsupported)
+    url: https://archriscv.felixc.at/repo/
+  - label: 公式ミラー riscv.mirror.pkgbuild.com
+    url: https://riscv.mirror.pkgbuild.com/
+  guides:
+  - label: Arch Linux RISC-V プロジェクトページ（ハードウェア対応／イメージ／リポジトリ／貢献ガイド）
+    url: https://archriscv.felixc.at/
+    type: doc
+    lang: en
+  - label: パッチリポジトリと貢献ガイド (GitHub)
+    url: https://github.com/felixonmars/archriscv-packages
+    type: doc
+    lang: en
+  gotchas:
+  - ピュアな上流ではありません。すべてのパッケージは Arch のソースパッケージにパッチを当ててビルドしており、パッチは archriscv-packages リポジトリで管理されています
+  - LicheePi 4A（TH1520）と Milk-V Pioneer（SG2042）は [unsupported] リポジトリの実験的カーネルしかありません
+  - AX45MP 系のボードはほぼそのままでは使えません。公式の原文は「Other boards, except those with AX45MP, may work with a BSP or custom kernel」
+  - rootfs の既定アカウントは root/archriscv です。インストール後は必ず変更してください
+  - 今も alt アーキテクチャ扱いで、Arch 公式リポジトリには入っていません
+  doc_langs:
+  - en
+  derivatives: []
+  note: Arch の「公式」はこの移植プロジェクト自身の tested リストという意味でしかなく、Arch 本体の公式サポートではありません。ページにはコミュニティ port であることを明記します。
+  checked: '2026-11-01'
+  order: 9
+  feature: false
+- id: opensuse
+  name: openSUSE
+  vendor: ''
+  upstream: community
+  upstream_note: RISC-V は download.opensuse.org/ports/ のポートツリー（ports/riscv/）にあり、コミュニティ移植扱いで openSUSE のメインアーキテクチャではありません。用意されているのは Tumbleweed と MicroOS だけで、Leap の riscv64 版はありません。
+  kind: distro
+  based_on: 独立
+  audience: recommended
+  versions:
+  - Tumbleweed（rolling、現行 ISO は Snapshot20260924）
+  - MicroOS 16.0.0 (riscv64, Snapshot20260924)
+  boards:
+  - board: qemu
+    level: official
+    note: Tumbleweed riscv64 の DVD/NET ISO は QEMU にそのままインストールできます（汎用イメージ）
+  - board: unmatched
+    level: community
+    note: ボード専用イメージはなく、汎用 ISO ＋ ボード側 UEFI/U-Boot です
+  - board: visionfive2
+    level: community
+    note: 第三者が実機にインストールした録画がありますが、openSUSE に公式のボードイメージはありません
+  - board: licheepi-4a
+    level: partial
+    note: TH1520 は公式サポートなし
+  - board: meles
+    level: partial
+    note: TH1520 は公式サポートなし
+  - board: k3
+    level: partial
+    note: SpacemiT K3 は公式サポートなし
+  - board: a210
+    level: partial
+    note: 公式サポートなし
+  - board: k230
+    level: partial
+    note: 公式サポートなし
+  - board: megrez
+    level: community
+    note: 汎用イメージ ＋ ボード側 UEFI。未確認です
+  - board: titan
+    level: community
+    note: 汎用イメージ ＋ ボード側 UEFI。未確認です
+  - board: pioneer
+    level: community
+    note: 汎用イメージ ＋ ボード側 UEFI。未確認です
+  - board: orangepi-rv2
+    level: community
+    note: 汎用イメージ ＋ ボード側 UEFI。未確認です
+  - board: bpi-f3
+    level: community
+    note: 汎用イメージ ＋ ボード側 UEFI。未確認です
+  downloads:
+  - label: ports/riscv Tumbleweed ISO ディレクトリ (DVD/NET)
+    url: https://download.opensuse.org/ports/riscv/tumbleweed/iso/
+  - label: openSUSE-Tumbleweed-DVD-riscv64-Current.iso
+    url: https://download.opensuse.org/ports/riscv/tumbleweed/iso/openSUSE-Tumbleweed-DVD-riscv64-Current.iso
+  - label: ports/riscv トップディレクトリ
+    url: https://download.opensuse.org/ports/riscv/
+  guides:
+  - label: openSUSE ドキュメントポータル（汎用のインストール資料、RISC-V 専用ページなし）
+    url: https://doc.opensuse.org/
+    type: doc
+    lang: en
+  - label: 'RISC-V Use Case 3: openSUSE Tumbleweed on VisionFive 2 (StarFive 公式チャンネル)'
+    url: https://www.youtube.com/watch?v=qrly2gV-wMA
+    type: video
+    lang: en
+  gotchas:
+  - ISO はスナップショットの自動公開で、公開前のテストはゼロです。公式 README.FIRST の原文は「They haven't seen any kind of testing before publishing... there are times when they are broken」
+  - ローリング版（Tumbleweed/MicroOS）だけで、Leap の安定版は使えません
+  - ボード専用イメージはなく、すべてボード側の UEFI/U-Boot ファームウェアに依存します
+  - 公式の RISC-V ドキュメントは主に en.opensuse.org の wiki にあり、このサイトは自動取得に 403 を返すため機械的に検証できません
+  doc_langs:
+  - en
+  derivatives: []
+  note: MicroOS は同じプロジェクトの riscv64 変体（kvm-and-xen qcow2 イメージあり）で、下流の派生ではありません。
+  checked: '2026-11-01'
+  order: 10
+  feature: false
+- id: gentoo
+  name: Gentoo
+  vendor: ''
+  upstream: official
+  upstream_note: 公式アーキテクチャです。ARCH=riscv、~riscv キーワードで、release engineering が rv64gc/rv32gc の stage3（lp64d/lp64/multilib、openrc/systemd、glibc/musl の全組み合わせ）を出しています。ただし stable キーワードを付ける予定は当面ないと公式が明言しています。
+  kind: distro
+  based_on: 独立（ソースビルド、OpenRC/systemd 選択可）
+  audience: advanced
+  versions:
+  - rolling（stage3 rv64_lp64d-openrc 20261026T164559Z）
+  boards:
+  - board: qemu
+    level: official
+    note: qemu-system-riscv64 でも qemu-riscv64 user-mode でも可。公式 wiki に QEMU 専用のインストールページがあります
+  - board: unmatched
+    level: community
+    note: コミュニティのメンバーが所有し、wiki のハードウェア一覧に登録されています（SiFive FU740）
+  - board: visionfive2
+    level: community
+    note: JH7110。wiki では Active／上流カーネル追随と記載
+  - board: licheepi-4a
+    level: community
+    note: TH1520（C910）。コミュニティが標準インストールで動くと登録
+  - board: pioneer
+    level: community
+    note: Milk-V Pioneer Box（SG2042、64 コア）に開発者の実機があります
+  - board: orangepi-rv2
+    level: community
+    note: Ky X1（X60）。コミュニティ登録
+  - board: bpi-f3
+    level: community
+    note: SpacemiT K1（RVV 1.0）。コミュニティ登録
+  downloads:
+  - label: Gentoo 公式 riscv ダウンロードページ（stage3/di 一覧）
+    url: https://www.gentoo.org/downloads/riscv/
+  - label: riscv autobuilds ディレクトリ（各 ABI の stage3 と install CD）
+    url: https://distfiles.gentoo.org/releases/riscv/autobuilds/current-stage3-rv64_lp64d-openrc/
+  guides:
+  - label: 'Gentoo Wiki: Project:RISC-V（状態／keyword 方針／ABI）'
+    url: https://wiki.gentoo.org/wiki/Project:RISC-V
+    type: doc
+    lang: en
+  - label: 'Gentoo Wiki: RISC-V QEMU インストールガイド'
+    url: https://wiki.gentoo.org/wiki/RISC-V_Qemu_setup
+    type: doc
+    lang: en
+  gotchas:
+  - ~riscv（テスト）キーワードしかなく stable はありません。インストール後も不安定なパッケージを受け入れ続けることになります
+  - そのまま書き込めるイメージは提供されず、stage3 からの手作業インストールが必須です（公式 TODO にも bootable image が残っています）
+  - rv32 は qemu user-mode でまだバグがあり、クロス／エミュレーションのテストでつまずきます
+  - multilib と lp64d/lp64 の ABI を混ぜると stage3 を間違えやすいので、まずボードに D 拡張があるか確認してください
+  doc_langs:
+  - en
+  derivatives: []
+  note: 慣れた人には快適、初心者には厳しい。ドキュメントは揃っていますがすべて手作業のインストールで、深くカスタマイズしたい人や組み込み向け rootfs を作りたい人に向いています。
+  checked: '2026-11-01'
+  order: 11
+  feature: false
+- id: nixos
+  name: NixOS
+  vendor: ''
+  upstream: community
+  upstream_note: nixpkgs の nixpkgs-unstable にも stable チャンネルにも公式の riscv64-linux 対応はありません。公式 wiki は「RISC-V プラットフォームは現在すべて実験的」と明記しており、イメージはコミュニティ提供です。
+  kind: distro
+  based_on: 独立（Nix/nixpkgs、systemd）
+  audience: advanced
+  versions:
+  - 26.05（公式は x86_64/aarch64 のみ）
+  - unstable（riscv64 はコミュニティビルド）
+  boards:
+  - board: qemu
+    level: community
+    note: エミュレーションは可能ですが、wiki は一部のプログラムが QEMU 上で segfault すると明記しています
+  - board: unmatched
+    level: community
+    note: 最も初期のコミュニティ移植対象（zhaofengli/nixos-riscv64）
+  - board: visionfive2
+    level: community
+    note: JH7110。コミュニティイメージ ＋ misuzu/nixos-vf2 flake
+  - board: licheepi-4a
+    level: community
+    note: ryan4yin/nixos-licheepi4a のコミュニティ flake
+  downloads:
+  - label: NixOS 公式ダウンロード（riscv64 ISO はなし）
+    url: https://nixos.org/download/
+  - label: コミュニティイメージ／overlay：zhaofengli/nixos-riscv64（HiFive Unmatched から始まった）
+    url: https://github.com/zhaofengli/nixos-riscv64
+  guides:
+  - label: 'NixOS Wiki: RISC-V（対応デバイス、コミュニティイメージ、サードパーティ binary cache）'
+    url: https://wiki.nixos.org/wiki/RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - 公式 ISO はなく、コミュニティイメージを使うか自分で cross-compile するしかありません
+  - 公式の cache.nixos.org に riscv64 パッケージがないため、サードパーティの substituter（cache.ztier.in や beam.attic.rs など）を追加しないとほぼ全部ローカルビルドになります
+  - QEMU 上では動作が不安定です（segfault）
+  - コミュニティイメージは特定のカーネル／ファームウェア版に縛られていることが多く、アップグレードで壊れやすいです
+  doc_langs:
+  - en
+  derivatives:
+  - nixos-riscv64（コミュニティイメージ集）
+  - nixos-licheepi4a / nixos-vf2（ボード別 flake）
+  note: 宣言的な設定は魅力的ですが、riscv64 は「動くけれど、楽はできない」という状態です。
+  checked: '2026-11-01'
+  order: 12
+  feature: false
+- id: freebsd
+  name: FreeBSD
+  vendor: ''
+  upstream: official
+  upstream_note: riscv64 は公式の Tier 2 アーキテクチャです（14.x/15.x/16.x の計画はいずれも Tier 2）。正式な RELEASE インストールイメージが提供され、ハードウェアノートに対応プラットフォームが明記されています。
+  kind: distro
+  based_on: 独立（BSD、FreeBSD カーネル ＋ pkg）
+  audience: advanced
+  versions:
+  - 15.1-RELEASE（production、2026-06-16）
+  - 14.5-RELEASE（legacy）
+  boards:
+  - board: qemu
+    level: official
+    note: ハードウェアノートに QEMU と Spike が記載されています
+  - board: unmatched
+    level: official
+    note: SiFive HiFive Unmatched（FU740）を公式サポート
+  - board: visionfive2
+    level: official
+    note: StarFive VisionFive 2（JH7110）を公式サポート
+  downloads:
+  - label: 15.1-RELEASE riscv64 公式イメージ（disc1/memstick/bootonly/GENERICSD）
+    url: https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/15.1/
+  guides:
+  - label: FreeBSD Handbook 第 2 章 FreeBSD のインストール
+    url: https://docs.freebsd.org/en/books/handbook/bsdinstall/
+    type: doc
+    lang: en
+  - label: FreeBSD 15.1 ハードウェアノート（RISC-V 対応プラットフォーム一覧）
+    url: https://www.freebsd.org/releases/15.1R/hardware/
+    type: doc
+    lang: en
+  - label: 'FreeBSD Foundation: Getting Started With FreeBSD/RISC-V（2020、PDF）'
+    url: https://freebsdfoundation.org/wp-content/uploads/2020/03/Getting-Started-With-FreeBSD-RISC-V.pdf
+    type: doc
+    lang: en
+  - label: 動画：Introduction to RISC-V on FreeBSD
+    url: https://www.youtube.com/watch?v=QGW3l_Bz04I
+    type: video
+    lang: en
+  gotchas:
+  - Tier 2 なので、セキュリティチームは迅速な修正を保証しておらず、新しいハードウェアへの対応も遅れます
+  - 公式の対応プラットフォームは Unmatched/Unleashed/VisionFive 2/QEMU/Spike だけで、中国製の新しいボードはほぼ対象外です
+  - riscv64sf（ソフト浮動小数点）は 13.5 以降サポート終了です。古いドキュメントをそのまま当てにしないでください
+  - RISC-V では GPU や無線などのドライバ対応が x86/arm64 に遠く及ばず、デスクトップ体験は限られます
+  doc_langs:
+  - en
+  derivatives: []
+  note: 「まともな Unix 系 OS ＋ 公式イメージ」が欲しいなら、FreeBSD は RISC-V で最も安定した非 Linux の選択肢です。
+  checked: '2026-11-01'
+  order: 13
+  feature: false
+- id: netbsd
+  name: NetBSD
+  vendor: ''
+  upstream: official
+  upstream_note: 公式 port（tier 2）です。NetBSD 11.0 は riscv64 のインストールセットと pkgsrc のバイナリパッケージを提供し、RV64/SV39 に対応します。
+  kind: distro
+  based_on: 独立（BSD、NetBSD カーネル ＋ pkgsrc）
+  audience: advanced
+  versions:
+  - 11.0（現行リリース）
+  boards:
+  - board: qemu
+    level: official
+    note: 公式ドキュメントに qemu での起動手順が専門に書かれています
+  - board: visionfive2
+    level: official
+    note: ポートページに StarFive VisionFive 2 / Milk-V Mars CM が記載されています
+  downloads:
+  - label: 11.0 riscv64 インストールセット（instkernel/misc）
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
+  - label: 11.0 riscv64 の pkgsrc バイナリパッケージ（2026Q2 も可）
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  guides:
+  - label: NetBSD/riscv ポートページ（対応ハードウェア、リリース情報）
+    url: https://wiki.netbsd.org/ports/riscv/
+    type: doc
+    lang: en
+  - label: NetBSD/riscv under QEMU ガイド
+    url: https://wiki.netbsd.org/ports/qemu_riscv/
+    type: doc
+    lang: en
+  gotchas:
+  - 多くのボードではまずボード用の U-Boot を用意する必要があり、汎用イメージだけでは起動しません
+  - RV64/SV39 のみです。rv32 は別の port です
+  - tier 2 なので、リリースとサポートの強度は x86/arm より低くなります
+  - ボードごとのドキュメントは散在していて、メーリングリストをたどる必要があることも多いです
+  doc_langs:
+  - en
+  derivatives: []
+  note: QEMU 上では快適に動きます。実機は既成の U-Boot があるかどうか次第です。
+  checked: '2026-11-01'
+  order: 14
+  feature: false
+- id: openbsd
+  name: OpenBSD
+  vendor: ''
+  upstream: official
+  upstream_note: riscv64 は公式移植（openbsd.org/riscv64.html）です。現在のターゲットは SiFive HiFive Unmatched で、リリースごとに riscv64 インストールイメージを出し、定期的に snapshot も出しています。
+  kind: distro
+  based_on: 独立（BSD、OpenBSD カーネル ＋ ports/packages）
+  audience: advanced
+  versions:
+  - 8.0（現行リリース）
+  boards:
+  - board: unmatched
+    level: official
+    note: 現在唯一の「主目標」プラットフォームです
+  - board: visionfive2
+    level: official
+    note: プラットフォームページに VisionFive / VisionFive 2 が載っていますが、起動にはファームウェアの調整が先に必要です
+  downloads:
+  - label: 8.0 riscv64 公式イメージ（install/miniroot/base）
+    url: https://cdn.openbsd.org/pub/OpenBSD/8.0/riscv64/
+  - label: riscv64 snapshots（-current のデイリービルド）
+    url: https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  guides:
+  - label: OpenBSD/riscv64 プラットフォームページ（対応ハードウェア、インストール手順）
+    url: https://www.openbsd.org/riscv64.html
+    type: doc
+    lang: en
+  - label: OpenBSD FAQ 第 4 章 インストールガイド
+    url: https://www.openbsd.org/faq/faq4.html
+    type: doc
+    lang: en
+  gotchas:
+  - 主目標は今も生産終了した HiFive Unmatched で、新しいボードはコミュニティ任せです
+  - VisionFive 2 はファームウェアの設定を変えないと boot できません
+  - PolarFire Icicle Kit の対応は不完全です
+  - RISC-V ではグラフィックス／無線の対応がごく限られており、デスクトップは期待しないでください
+  doc_langs:
+  - en
+  derivatives: []
+  note: セキュリティ重視でミニマル。Unmatched があるなら最も正統な体験になりますが、なければ初心者にはおすすめしません。
+  checked: '2026-11-01'
+  order: 15
+  feature: false
+- id: alt
+  name: ALT Linux
+  vendor: ''
+  upstream: official
+  upstream_note: 公式の riscv64 移植です。Sisyphus の riscv64 リポジトリと Regular riscv64 のテストイメージ（jeos-systemd/lxqt/mate/xfce、rv64gc）があり、ALT チームが保守して riscv-devel メーリングリストも運営しています。
+  kind: distro
+  based_on: 独立（RPM/apt-rpm、ALT 独自ツールチェーン）
+  audience: advanced
+  versions:
+  - Sisyphus（rolling、riscv64 port）
+  - p11（stable ブランチ、riscv64 は Sisyphus のみ）
+  boards:
+  - board: qemu
+    level: official
+    note: イメージは qemu でそのまま起動できるように作られており、wiki に QEMU 専用ページがあります
+  - board: unmatched
+    level: official
+    note: wiki に HiFive Unmatched/Unleashed の書き込みと起動手順があります
+  downloads:
+  - label: Regular riscv64 イメージ（nightly、iso/tar.xz）
+    url: https://nightly.altlinux.org/sisyphus-riscv64/current/
+  - label: riscv64 Sisyphus パッケージリポジトリ（RPM）
+    url: https://mirror.yandex.ru/altlinux/ports/riscv64/Sisyphus/riscv64/
+  guides:
+  - label: 'ALT Wiki: Regular/riscv64（ダウンロード、QEMU、Unmatched/Unleashed、VNC）'
+    url: https://en.altlinux.org/Regular/riscv64
+    type: doc
+    lang: en
+  - label: 'ALT Wiki: Ports/riscv64（ロシア語）'
+    url: https://www.altlinux.org/Ports/riscv64
+    type: doc
+    lang: ru
+  gotchas:
+  - 公式は riscv64 イメージを「Sisyphus 移植のテストと開発用」と位置づけており、長期サポート製品ではありません
+  - wiki も ftp もサイト全体に Anubis の対ボット保護がかかっており、スクリプトで取得すると本文ではなく 200 のチャレンジページが返ります（ブラウザかミラーサイトが必要）
+  - グラフィカルイメージの初回起動は alterator-setup を通ります。GPU のないボードでは VNC を使う必要があります
+  - rv64gc のみで rv32 はありません
+  doc_langs:
+  - en
+  - ru
+  derivatives:
+  - Simply Linux / ALT Mobile（同じリポジトリ体系だが riscv64 ビルドなし）
+  note: ロシア系の中では RISC-V 対応が最も充実しており、イメージはすぐ使えます。QEMU と Unmatched に向いています。
+  checked: '2026-11-01'
+  order: 16
+  feature: false
+- id: buildroot
+  name: Buildroot
+  vendor: ''
+  upstream: official
+  upstream_note: ビルドシステム（完成品のディストリビューションではありません）。ツリー内に qemu_riscv32/64_virt、spike、hifive_unmatched、visionfive/visionfive2、sipeed_licheepi_4a などの defconfig があり、RISC-V は一級市民です。
+  kind: buildsystem
+  based_on: 自前ビルド（BusyBox/glibc/musl ＋ 任意のパッケージ）
+  audience: advanced
+  versions:
+  - 2026.08.1（stable、2026-10-22）
+  - 2025.02.x LTS（最新ポイントリリース 2025.02.19、2028-03 までサポート）
+  boards:
+  - board: qemu
+    level: official
+    note: qemu_riscv64_virt / _efi / nommu。rv32 も同じ構成です
+  - board: visionfive2
+    level: official
+    note: visionfive2_defconfig（ツリー内）
+  - board: unmatched
+    level: official
+    note: hifive_unmatched_defconfig（ツリー内）
+  - board: licheepi-4a
+    level: official
+    note: sipeed_licheepi_4a_defconfig（ツリー内）
+  downloads:
+  - label: Buildroot 公式ダウンロード（tarball ＋ PGP 署名）
+    url: https://buildroot.org/download.html
+  guides:
+  - label: Buildroot ユーザーマニュアル（RISC-V/QEMU の章あり）
+    url: https://buildroot.org/downloads/manual/manual.html
+    type: doc
+    lang: en
+  gotchas:
+  - これはビルドシステムです。バイナリリポジトリもパッケージマネージャもなく、ソフトを入れる＝ファームウェアを再ビルドすることになります
+  - 初回のフルビルドは数十分から数時間かかり、数十 GB の容量も必要です
+  - 既定の BusyBox にはデスクトップがなく、GUI が欲しければ自分でパッケージを有効にします
+  - 生成物は wic/img で、アップグレードはディスク全体の再書き込みしかありません
+  doc_langs:
+  - en
+  derivatives:
+  - 多くのベンダー SDK が Buildroot ベースです（D1/K230 の SDK など）
+  note: 初心者向けにはっきり書いておきます。これはディストリビューションではなく、「自分でディストリビューションを作る」ための道具箱です。
+  checked: '2026-11-01'
+  order: 17
+  feature: false
+- id: yocto
+  name: Yocto / OpenEmbedded
+  vendor: ''
+  upstream: official
+  upstream_note: ビルドシステムです。oe-core に qemuriscv32/qemuriscv64 マシンと riscv64 tune が入っており、個々のボードは公式の RISC-V レイヤ meta-riscv（riscv/ オーガナイゼーション）が machine 設定として提供します。
+  kind: buildsystem
+  based_on: 自前ビルド（BitBake ＋ oe-core ＋ meta-riscv）
+  audience: advanced
+  versions:
+  - 6.1 Blacksail（現行シリーズ）
+  - 6.0 Wrynose（LTS、2030-04 までサポート）
+  boards:
+  - board: qemu
+    level: official
+    note: oe-core 標準の qemuriscv64/qemuriscv32
+  - board: bpi-f3
+    level: community
+    note: meta-riscv の bananapi-f3（メインラインカーネル/U-Boot、ベンダー FSBL は依然必要）
+  - board: k3
+    level: community
+    note: meta-riscv の k3-com260 / k3-pico-itx（-mainline 変体あり）
+  - board: licheepi-4a
+    level: community
+    note: meta-riscv の licheepi-4a
+  - board: visionfive2
+    level: community
+    note: meta-riscv の visionfive2
+  - board: orangepi-rv2
+    level: community
+    note: meta-riscv の orangepi-rv2（メインラインカーネル/U-Boot ＋ ベンダー FSBL）
+  - board: a210
+    level: community
+    note: meta-riscv の zhihe-a210：OSU-OSL のメインラインカーネル、TFTP netboot のみ、bootloader recipe なし
+  downloads:
+  - label: Yocto 各バージョンのダウンロード（release tarball）
+    url: https://www.yoctoproject.org/development/releases/
+  guides:
+  - label: Yocto Project Quick Build
+    url: https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
+    type: doc
+    lang: en
+  - label: meta-riscv Quick Start（ボードとビルド手順）
+    url: https://github.com/riscv/meta-riscv/blob/master/docs/QUICK_START.md
+    type: doc
+    lang: en
+  - label: meta-riscv リポジトリ（machine 一覧）
+    url: https://github.com/riscv/meta-riscv
+    type: doc
+    lang: en
+  gotchas:
+  - 学習曲線が最も急です。BitBake の文法に加えて、レイヤのバージョンを厳密に合わせる必要があります（meta-riscv は master に追随）
+  - 初回ビルドで数十 GB をダウンロードし、数時間かかります
+  - 既成のイメージは提供されず、wic/sdimg を自分で生成します
+  - ベンダーの FSBL/TEE は別途入手が必要で、純粋なオープンソースの手順だけでは通りません
+  doc_langs:
+  - en
+  derivatives:
+  - SpacemiT / StarFive / T-Head などのベンダー Yocto BSP は、いずれも oe-core ＋ meta-riscv の形をとっています
+  note: 産業／量産向けです。個人で試すなら、まず Armbian か Buildroot から始めるのがおすすめです。
+  checked: '2026-11-01'
+  order: 18
+  feature: false
+- id: openeuler
+  name: openEuler
+  vendor: ''
+  upstream: official
+  upstream_note: 独立したディストリビューション（それ自体が上流）です。openEuler コミュニティ（OpenAtom Foundation）が公式にマルチアーキテクチャを同源ビルドしており、RISC-V は OERV SIG が移植・保守しています。Debian/Ubuntu のカスタム版ではありません。
+  kind: distro
+  based_on: openEuler 24.03 LTS（RPM/dnf、自前リポジトリ）＋ RVCK 6.6 カーネル。RISC-V は RVA20 と RVA23 の 2 系統のビルドがあります
+  audience: vendor
+  versions:
+  - 24.03 LTS SP4（2026-06-30 リリース、RISC-V RVA23 ISO は 2026-09-08）
+  - 24.03 LTS SP3（2026-03-09 に長期保守へ移行、RVA20 と RVA23 の2バージョン）
+  boards:
+  - board: pioneer
+    level: official
+    note: Milk-V Pioneer（SG2042）。公式インストールドキュメントは RISC-V-Pioneer1.3
+  - board: licheepi-4a
+    level: official
+    note: 公式インストールドキュメントで個別に扱われている TH1520 プラットフォーム
+  - board: k3
+    level: official
+    note: SP3 から SpacemiT K3 に対応（COM260 で検証、SD ＋ GMAC）。LTS に入った最初の RVA23 SoC です
+  - board: qemu
+    level: official
+    note: 公式の QEMU インストールドキュメント。まず試すならこれが最適です
+  - board: visionfive2
+    level: community
+    note: 23.03 から VisionFive 2 に対応。24.03 のドキュメントでは個別記載なし
+  downloads:
+  - label: 公式ダウンロードページ（24.03 LTS SP4 を選択）
+    url: https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - label: SP4 RISC-V RVA23 ISO ディレクトリ（dvd/netinst/everything）
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
+  - label: SP3 RISC-V RVA20 ISO ディレクトリ
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
+  - label: SP3 RISC-V RVA23 ISO ディレクトリ
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
+  guides:
+  - label: LicheePi 4A への openEuler RISC-V インストール
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: zh
+  - label: Pioneer Box（SG2042）へのインストール
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
+    type: doc
+    lang: zh
+  - label: QEMU への openEuler RISC-V インストール
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-QEMU.html
+    type: doc
+    lang: zh
+  - label: 24.03 LTS SP3 の RISC-V が長期保守に入った件（K3 対応の説明あり）
+    url: https://www.openeuler.org/zh/blog/20260317-RISC-V/20260317-RISC-V.html
+    type: doc
+    lang: zh
+  - label: Install on LicheePi 4A (English)
+    url: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: en
+  gotchas:
+  - RVA20 と RVA23 のイメージは別々に公開されています。24.03 LTS SP4 の RISC-V は RVA23 の ISO だけで、rva20 ディレクトリは存在しません
+  - UEFI/EDK2 ファームウェアとボード対応の DTB が必要で、古い U-Boot のボードでは起動しないことがあります
+  - ドキュメントはバージョンごとにパスが分かれ、RISC-V のインストールページは 24.03_LTS の下にしかありません。SP3/SP4 のパスは 404 になります
+  - サーバー指向です。既定は最小インストールで、デスクトップやマルチメディアの対応はベンダーのデスクトップ版より弱くなります
+  - everything ISO は 20GB 級です。通常のユーザーは dvd/netinst で十分です
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - EulixOS
+  - Eulaceura
+  note: サーバー／企業向けの RISC-V 基盤で、RVA23 ＋ Server Platform 仕様の整備が最も進んでいます。個人の開発ボード用途なら、サーバー検証をしたい場合を除いて RevyOS/Bianbu の方が楽です。
+  checked: '2026-11-01'
+  order: 19
+  feature: false
+- id: openkylin
+  name: openKylin
+  vendor: ''
+  upstream: official
+  upstream_note: 独立したディストリビューションです。openKylin コミュニティが自前の deb リポジトリと UKUI デスクトップを持ち、公式には独立したルートコミュニティ OS と位置づけられています（Ubuntu/Debian の直接派生ではありません）。RISC-V は openKylin RISC-V SIG が対応しています。
+  kind: distro
+  based_on: 独立ビルド（deb/APT ＋ 自前リポジトリ、UKUI デスクトップ）。3.0 は Linux 7.0 カーネル、2.0 SP2 が長期安定版
+  audience: advanced
+  versions:
+  - openKylin 3.0（2026-08-31 リリース、ダウンロードページのミラーは 2026-09-18、RISC-V イメージは 2026-08-28 / 2026-10-29）
+  - openKylin 2.0 SP2（2026-08-13 長期安定版、RISC-V イメージは 2025-08-26）
+  boards:
+  - board: k3
+    level: official
+    note: 3.0 は SpacemiT K3 Server / Embedded イメージを提供
+  - board: licheepi-4a
+    level: official
+    note: 2.0 SP2 は LicheePi4A イメージを提供（2.5G、2025-08-26）
+  - board: pioneer
+    level: official
+    note: 2.0 SP2 は Milk-V Pioneer イメージを提供（3.0G）
+  - board: qemu
+    level: official
+    note: 2.0 SP2 は RVA23 の QEMU イメージを提供（1.8G）
+  - board: bpi-f3
+    level: community
+    note: 2.0 SP2 に SpacemiT K1 イメージあり（BPI-F3 の明記はなく、自分で確認が必要）
+  downloads:
+  - label: システムダウンロードセンター（アーキテクチャで RISC-V を選択）
+    url: https://www.openkylin.top/downloads/
+  - label: 3.0 RISC-V：SpacemiT K3 Server（zip）
+    url: https://cdimage.openkylin.top/3.0/openKylin-Server-V3.0-Release-spacemit-k3-riscv64.zip
+  - label: 3.0 RISC-V：SpacemiT V100 Server（iso）
+    url: https://cdimage.openkylin.top/3.0/openKylin-V100-Server-V3.0-20261012-riscv64.iso
+  - label: 2.0 SP2 ダウンロードページ（LicheePi4A / Pioneer / K1 / qemu のイメージは「すべてのバージョン」内）
+    url: https://www.openkylin.top/downloads/index-cn.html
+  - label: ミラーサイト cdimage.openkylin.top
+    url: https://cdimage.openkylin.top/
+  guides:
+  - label: RISC-V への openKylin インストール
+    url: https://docs.openkylin.top/zh/1%E5%85%A5%E9%97%A8%E4%B8%8E%E5%8F%82%E4%B8%8E/1_3%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/03_%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    type: doc
+    lang: zh
+  - label: openKylin 3.0 リリースノート（RISC-V / RVA23 最適化）
+    url: https://www.openkylin.top/news/4011-cn.html
+    type: doc
+    lang: zh
+  gotchas:
+  - 3.0 の RISC-V イメージが対象とするのは SpacemiT K3（Server/Embedded）と V100 だけです。LicheePi 4A / Pioneer は 2.0 SP2 のままです
+  - RISC-V イメージは汎用 ISO ではなくボードごとのカスタム版なので、自分のボードに合うものを選ぶ必要があります。RVA23 の qemu イメージがあるのは 2.0 SP2 だけです
+  - 3.0 の RISC-V イメージはサーバー／組み込み寄り（Server、Embedded）で、デスクトップ体験とは別物です
+  - ダウンロードリンクは download-smp.php?id=xxx のリダイレクトで、実体は cdimage.openkylin.top にあります
+  - ドキュメントは中国語が中心で、英語のドキュメントサイトはほぼ空です。RISC-V の話題は主に中国語コミュニティ／SIG が対応します
+  doc_langs:
+  - zh
+  derivatives: []
+  note: 中国製デスクトップ OS の RISC-V ブランチですが、ボード対応がバージョンごとに分断されています（3.0 は K3/V100 のみ）。中国製デスクトップスタックを評価したい人向けで、TH1520/K1 の旧ボードの日常用途には向きません。
+  checked: '2026-11-01'
+  order: 20
+  feature: false
+- id: deepin
+  name: deepin
+  vendor: ''
+  upstream: downstream
+  upstream_note: 下流のカスタムディストリビューションです。deepin コミュニティ版は Debian のパッケージを引き継ぎつつ、独自リポジトリと玲珑（linglong）パッケージ体系を重ねています。RISC-V は deepin-ports SIG が保守し、公式には「技術プレビュー」と明記されています。
+  kind: distro
+  based_on: Debian 系 ＋ deepin 独自リポジトリ（deepin 25「crimson」）。カーネルはボードごとに 6.6/6.12/6.16、DP1000 はメインラインカーネル
+  audience: advanced
+  versions:
+  - deepin 25.2.0（RISC-V 汎用 ISO、2026-07-07）
+  - deepin 25 crimson preview（ボード別イメージ、K3 の最新は 2026-05-22）
+  - deepin next-crimson preview（K3、2026-09-14）
+  boards:
+  - board: licheepi-4a
+    level: community
+    note: TH1520 向けカスタムイメージ（u-boot 起動、カーネル 6.6）
+  - board: k3
+    level: community
+    note: K3 向けカスタムイメージ、最新は 25-crimson-preview
+  - board: pioneer
+    level: community
+    note: SG2042（MilkV Pioneer）、linuxboot 起動、カーネル 6.6/6.12/6.16
+  - board: visionfive2
+    level: community
+    note: JH7110、カーネル 5.15/6.6/6.12、u-boot 起動
+  - board: titan
+    level: community
+    note: UltraRISC DP1000（MilkV Titan）、メインラインカーネル ＋ UEFI
+  - board: megrez
+    level: community
+    note: ESWIN EIC7700（MilkV Megrez）、u-boot 起動
+  - board: qemu
+    level: community
+    note: QEMU メインラインカーネル ＋ UEFI
+  - board: bpi-f3
+    level: community
+    note: SpacemiT K1 向けカスタムイメージ
+  downloads:
+  - label: 公式ダウンロードページ（RISC-V 技術プレビュー）
+    url: https://www.deepin.org/zh/download/
+  - label: deepin 25.2.0 RISC-V 汎用 ISO
+    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: deepin-ports RISC-V イメージ一覧（ボード別 tar.xz）
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  guides:
+  - label: deepin 25 インストールガイド
+    url: https://www.deepin.org/zh/deepin-25-installation/
+    type: doc
+    lang: zh
+  - label: deepin 25 Installation Guide (English)
+    url: https://www.deepin.org/en/deepin-25-installation/
+    type: doc
+    lang: en
+  - label: deepin-ports デバイス対応マトリクス（RISC-V）
+    url: https://deepin-community.github.io/sig-deepin-ports/matrix/riscv64
+    type: doc
+    lang: zh
+  - label: メインラインカーネル ＋ 汎用 ISO：deepin RISC-V が UltraRISC DP1000 に対応
+    url: https://www.deepin.org/en/dp1000
+    type: doc
+    lang: zh
+  gotchas:
+  - RISC-V は今も技術プレビュー（公式が明記）で、安定性と完成度は不十分です
+  - ボード別イメージは ISO ではなく tar.xz なので、手動で展開して書き込みます。汎用 ISO 25.2.0 は UEFI 起動が必要です
+  - インストーラ付きの liveimage-desktop は既定ユーザーを作りません。root の既定パスワードは deepin です
+  - immutable（読み取り専用ルート）の変体があり、システムの改造方法が通常と異なります
+  - deepin の RISC-V はコミュニティレベルのサポートのみで、商用サポートは統信 UOS になります
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - 統信 UOS
+  note: デスクトップが最も美しい中国製ディストリビューションですが、RISC-V ブランチはコミュニティのプレビュー扱いでボード別に tar.xz を配布しています。評価や試用向けで、唯一の日常システムにはしないでください。
+  checked: '2026-11-01'
+  order: 21
+  feature: false
+- id: openruyi
+  name: openRuyi
+  vendor: ''
+  upstream: official
+  upstream_note: 独立したディストリビューションです。中国科学院ソフトウェア研究所（ISCAS）が立ち上げ、長期にわたって保守している RISC-V ネイティブのディストリビューションで、独自の RPM パッケージ群とビルドパイプライン（SPECS/dnf）を持ちます。Debian/Ubuntu/openEuler のバイナリパッケージをベースにはしていません。
+  kind: distro
+  based_on: 独立自前ビルド（RPM ＋ dnf、ローリングリリース）。カーネル 7.2.6 / LTS 6.18.54、ツールチェーンは GCC 16.2 / glibc 同梱
+  audience: vendor
+  versions:
+  - 2026.09（2026-09-29 ビルド）
+  - 2026.08（2026-08-26）
+  - 2026.07（2026-07-23）
+  boards:
+  - board: qemu
+    level: official
+    note: QEMU/virt イメージと RVA23 の仮想化の説明が公式にあり、試すには最も手軽です
+  - board: k3
+    level: community
+    note: Ruyi Firmware（coreboot+OpenSBI+EDK2）で SpacemiT K3 Pico ITX 上のファームウェア→デスクトップまでを検証
+  downloads:
+  - label: ダウンロードサイトのトップディレクトリ（Creek 系列）
+    url: https://releases.openruyi.cn/creek/
+  - label: 2026.09 のディレクトリ（RVA20/RVA23 の 2 系統）
+    url: https://releases.openruyi.cn/creek/2026.09/
+  - label: 2026.09 RVA23（Server ISO / Workstation KDE / labwc / Zero / rootfs）
+    url: https://releases.openruyi.cn/creek/2026.09/rva23/
+  - label: 2026.09 RVA20
+    url: https://releases.openruyi.cn/creek/2026.09/rva20/
+  guides:
+  - label: How to install openRuyi Server
+    url: https://openruyi.cn/docs/guide/how-to-install/server/
+    type: doc
+    lang: en
+  - label: How to install openRuyi Workstation
+    url: https://openruyi.cn/docs/guide/how-to-install/workstation
+    type: doc
+    lang: en
+  - label: Install on QEMU
+    url: https://openruyi.cn/docs/guide/how-to-install/qemu
+    type: doc
+    lang: en
+  - label: 2026.09 リリースノート
+    url: https://openruyi.cn/news/2026-09/release
+    type: doc
+    lang: en
+  gotchas:
+  - ローリングリリースで LTS はありません。月次版で大きく変わることがあり、安定した本番基盤には向きません
+  - イメージは RVA20 / RVA23 の 2 系統で、対応プロファイルを持たないコアに間違った方を入れると起動しません
+  - K3 は Ruyi Firmware（coreboot+OpenSBI+EDK2）と組み合わせる必要があり、一般的な U-Boot ボードの多くには既成イメージがありません
+  - インストーラはディスク全体をフォーマットし、既定ではサーバー／ワークステーション向けです。中国語のデスクトップが最初から使えるわけではありません
+  - ドキュメントはすべて英語で、中国語の資料はごくわずかです。コミュニティも小規模です
+  doc_langs:
+  - en
+  derivatives: []
+  note: 主にベンダー／エコシステムのテスト用です。公式の位置づけが「早期検証」で、ファームウェアやプラットフォームの意味論、カーネルとの相互運用の問題を早く炙り出し、ベンダー側の分岐を減らすことが目的です。一般ユーザーが入れる必要はほとんどなく、日常用途なら Bianbu / RevyOS / openKylin のようなベンダー版を選んでください。まず試したいだけなら QEMU イメージが手軽です。
+  checked: '2026-11-01'
+  order: 22
+  feature: false
+- id: void
+  name: Void Linux
+  vendor: ''
+  upstream: community
+  upstream_note: riscv64 ターゲットはありません。公式リポジトリは x86_64/i686/aarch64/armv6l/armv7l（musl 変体を含む）だけで、ダウンロードページにも /live/current にも RISC-V イメージはありません。
+  kind: distro
+  based_on: 独立（XBPS ＋ runit ＋ musl/glibc）
+  audience: advanced
+  versions:
+  - rolling（live/ROOTFS 20250202）
+  boards: []
+  downloads:
+  - label: 公式ダウンロードページ（riscv64 の項目なし）
+    url: https://voidlinux.org/download/
+  guides:
+  - label: 'Void Handbook: インストールの章'
+    url: https://docs.voidlinux.org/installation/index.html
+    type: doc
+    lang: en
+  gotchas:
+  - 現在 riscv64 のパッケージリポジトリは一切なく、インストールもアップグレードもできません
+  - コミュニティには個人のビルド記録（saeziae/voidriscv）があるだけで、公式の成果物ではありません
+  - 使うなら xbps-src でソースからクロスビルドするしかなく、公式のドキュメントもありません
+  doc_langs:
+  - en
+  derivatives: []
+  note: 現時点ではどの RISC-V 用途にも向きません。ここに載せているのは「小さくて速い」≠「RISC-V がある」を説明するためです。
+  checked: '2026-11-01'
+  order: 23
+  feature: false
+- id: pld
+  name: PLD Linux
+  vendor: ''
+  upstream: community
+  upstream_note: RISC-V 移植はありません。ftp 上の th/3.0 系バイナリリポジトリは i686/x86_64/x32/noarch だけで、公式サイト、Machines ページ、ミラー一覧のいずれにも riscv64 の記述はありません。
+  kind: distro
+  based_on: 独立（RPM ＋ poldek、ポーランドのコミュニティディストリビューション）
+  audience: advanced
+  versions:
+  - Th 2025 snapshot（3.0 系）
+  boards: []
+  downloads:
+  - label: 公式バイナリリポジトリ（riscv64 ディレクトリなし）
+    url: https://ftp.pld-linux.org/dists/3.0/
+  guides:
+  - label: PLD 公式ドキュメント入口
+    url: https://www.pld-linux.org/
+    type: doc
+    lang: en
+  gotchas:
+  - riscv64 のリポジトリ、イメージ、インストールメディアは一切ありません
+  - プロジェクトは x86 中心（i686/x86_64/x32）で、近年の活動は低調です
+  - 公式サイトの情報は古く、Machines ページは 2012 年で止まっています
+  doc_langs:
+  - en
+  - pl
+  derivatives: []
+  note: 「RISC-V 非対応」と見てよいでしょう。ポータルでは誤解を招かないよう、未対応と明記するのがよいです。
+  checked: '2026-11-01'
+  order: 24
+  feature: false
+- id: slackware
+  name: Slackware
+  vendor: ''
+  upstream: community
+  upstream_note: 公式の Slackware 15.0 は x86_64 のみです（slackware.com には別途公式 ARM プロジェクト arm.slackware.com があります）。RISC-V は非公式の slarm64 移植（sndwvs）が 15.0/current に追随してパッケージとボードイメージを提供しています。
+  kind: distro
+  based_on: 独立（pkgtools ＋ slackpkg、BSD 風の init）
+  audience: advanced
+  versions:
+  - 15.0（公式、x86_64）
+  - slarm64-riscv64-current / slarm64-riscv64-15.0（非公式移植）
+  boards:
+  - board: visionfive2
+    level: community
+    note: slarm64 が visionfive_2 イメージディレクトリを提供
+  - board: licheepi-4a
+    level: community
+    note: slarm64 が lichee_pi_4a イメージディレクトリを提供
+  downloads:
+  - label: slarm64 riscv64 パッケージツリー（current）
+    url: http://dl.slarm64.org/slackware/slarm64-riscv64-current/
+  - label: slarm64 ボードイメージディレクトリ（visionfive_2 / lichee_pi_4a / star64 / nezha など）
+    url: http://dl.slarm64.org/slackware/images/
+  guides:
+  - label: slarm64 プロジェクトリポジトリ（ビルドスクリプトと説明）
+    url: https://github.com/sndwvs/slarm64-current
+    type: doc
+    lang: en
+  - label: RVSpace フォーラム：slarm64（aarch64/riscv64 の非公式 Slackware 移植）
+    url: http://forum.rvspace.org/t/slarm64-aarch64-riscv64-unofficial-slackware-linux-port/108
+    type: doc
+    lang: en
+  gotchas:
+  - 公式サポートはゼロで、すべて個人が保守する slarm64 に依存します
+  - インストーラがありません。パッケージツリーから chroot で手作業インストールするか、ボードイメージを直接書き込みます
+  - slackware.com はスクリプトアクセスに 403 を返します（Akamai）。バージョン確認はミラーサイトで行ってください
+  - ドキュメントは README とフォーラム投稿だけで、中国語の資料はほぼありません
+  doc_langs:
+  - en
+  derivatives:
+  - slarm64（aarch64/riscv64 の非公式移植）
+  - Slackware ARM（公式 ARM プロジェクト、RISC-V なし）
+  note: Slack の古参ユーザーが RISC-V で続けたいなら slarm64 を試す価値はありますが、初心者は手を出さないでください。
+  checked: '2026-11-01'
+  order: 25
+  feature: false
+- id: android
+  name: Android (AOSP)
+  vendor: ''
+  upstream: official
+  upstream_note: AOSP のメインラインには riscv64 ターゲットが残っています（build/target/product/aosp_riscv64.mk、module_riscv64.mk）が、検証は Cuttlefish 仮想デバイス上だけです。2024 年に Android Common Kernel/GKI は RISC-V 対応を削除し、Google は AOSP では続けると述べています。
+  kind: distro
+  based_on: AOSP（Linux カーネル ＋ Android フレームワーク）
+  audience: advanced
+  versions:
+  - Android 17（AOSP、2026-06）
+  - main（trunk_staging）
+  boards:
+  - board: qemu
+    level: official
+    note: Cuttlefish（cvd）が公式に唯一の実行方法です。qemu 8.1 以上が必要（9.0 以降は V 拡張がより安定）
+  downloads:
+  - label: AOSP ソースのダウンロード（riscv64 はソースビルドのみ、公式イメージなし）
+    url: https://source.android.com/docs/setup/download
+  guides:
+  - label: google/android-riscv64（状態、lunch ターゲット、Cuttlefish の手順）
+    url: https://github.com/google/android-riscv64
+    type: doc
+    lang: en
+  - label: 'AOSP: Building Android'
+    url: https://source.android.com/docs/setup/build/building
+    type: doc
+    lang: en
+  - label: 'AOSP: Cuttlefish の使い方（riscv64 で動かす唯一の方法）'
+    url: https://source.android.com/docs/devices/cuttlefish/get-started
+    type: doc
+    lang: en
+  gotchas:
+  - スマートフォンや開発ボード向けの公式イメージはなく、エミュレータだけです
+  - NDK の riscv64 ABI はまだ暫定（provisional）で、今コンパイルした .so は将来互換でなくなる可能性があります
+  - デスクトップまで起動するのに、速いマシンでも 10 分ほどかかります
+  - ACK/GKI が RISC-V を外したため、ベンダーは長期のカーネルサポートを得られず、量産は望めません
+  doc_langs:
+  - en
+  derivatives: []
+  note: 「Android フレームワークが RISC-V で動く」ことを確かめる検証実験向けで、実用システムとして扱わないでください。
+  checked: '2026-11-01'
+  order: 26
+  feature: false

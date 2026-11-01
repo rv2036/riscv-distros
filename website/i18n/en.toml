@@ -68,6 +68,7 @@ advanced = "Needs some effort"
 vendor = "Vendor testing"
 
 [status]
+virtual = "Virtual platform"
 on_sale = "On sale"
 eol = "End of life"
 hard = "Hard to buy"
@@ -98,6 +99,7 @@ boards = "Boards"
 ai = "AI software"
 
 [matrix]
+scroll_hint = "Scroll sideways to see every distribution"
 own_source = "Our own notes (not tested by RuyiSDK)"
 title = "Support matrix"
 sub = "Boards down the side, distros across the top. Each cell links to the distribution page with images and pitfalls."
@@ -126,6 +128,7 @@ license = "Content licensed CC BY-SA 4.0"
 tagline = "For your first RISC-V machine"
 
 [ruyisdk]
+no_page = "not covered here"
 legend_note = "Status meanings: good — fully usable (desktop boots); basic — basic system (serial console works); part — partial functionality; cft — image exists, needs verification; cfh — documented as supported but fails to boot; cfi — claimed supported, no image; wip — announced only."
 source = "Source"
 open_report = "Open report"

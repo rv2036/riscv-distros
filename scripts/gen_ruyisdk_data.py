@@ -197,14 +197,8 @@ def main():
             lines.append(f"        status: \"{r['status']}\"")
             lines.append(f"        date: \"{r['date']}\"")
             lines.append(f"        url: \"{r['url']}\"")
-            if r['downloads']:
-                lines.append('        downloads:')
-                for u in r['downloads'][:3]:
-                    lines.append(f"          - \"{u}\"")
-            if r['docs']:
-                lines.append('        docs:')
-                for u in r['docs'][:3]:
-                    lines.append(f"          - \"{u}\"")
+            # 报告里记录的下载/文档深链接会随发布滚掉（实测 45 条 404/超时），
+            # 本站已有自己维护的 downloads，这里只保留稳定的报告 URL。
     open(OUT_YAML, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
 
     os.makedirs('/tmp/rdstr', exist_ok=True)

@@ -68,6 +68,7 @@ advanced = "손이 좀 필요"
 vendor = "벤더 테스트용"
 
 [status]
+virtual = "가상 플랫폼"
 on_sale = "판매 중"
 eol = "단종"
 hard = "구하기 어려움"
@@ -98,6 +99,7 @@ boards = "보드"
 ai = "AI 소프트웨어"
 
 [matrix]
+scroll_hint = "표를 좌우로 스크롤하면 모든 배포판을 볼 수 있습니다"
 own_source = "자체 조사(RuyiSDK 실측 아님)"
 title = "지원 매트릭스"
 sub = "행은 보드, 열은 배포판. 각 칸에서 다운로드와 주의점으로 이동합니다."
@@ -126,6 +128,7 @@ license = "콘텐츠 라이선스 CC BY-SA 4.0"
 tagline = "처음 쓰는 RISC-V를 위해"
 
 [ruyisdk]
+no_page = "사이트 미수록"
 legend_note = "상태 의미: good 완전 사용 가능(데스크톱 부팅), basic 기본 사용 가능(시리얼 동작), part 일부 기능, cft 이미지는 있으나 검증 필요, cfh 지원 문서는 있으나 부팅 실패, cfi 지원만 표기되고 이미지 없음, wip 발표만 됨."
 source = "데이터 출처"
 open_report = "보고서 열기"

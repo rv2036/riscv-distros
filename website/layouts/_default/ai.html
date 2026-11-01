@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{ $d := partial "site-data.html" . }}
 {{ $rows := sort $d.ai.items "order" }}
+{{ $bnames := dict }}
+{{ range $d.boards.items }}{{ $bnames = merge $bnames (dict .id .name) }}{{ end }}
 <header class="page-head">
   <div class="wrap">
     <h1>{{ .Title }}</h1>
@@ -12,7 +14,7 @@
   {{ range $rows }}
   <article class="card ai-card">
     <div class="card-top">
-      <h3>{{ .board_name | default .board }}</h3>
+      <h3>{{ index $bnames .board | default .board_name | default .board }}</h3>
       {{ with .soc }}<span class="badge soft">{{ . }}</span>{{ end }}
     </div>
     {{ with .runs }}
@@ -22,7 +24,7 @@
         <span class="run-{{ .state }}">{{ .item }}</span>
         <span class="badge run-badge-{{ .state }}">{{ i18n (printf "run.%s" .state) }}</span>
         {{ with .note }}<span class="muted">{{ . }}</span>{{ end }}
-        {{ with .evidence }}<span class="ev">{{ range . }}<a href="{{ . }}" rel="noopener">{{ i18n "ai.evidence" }}</a>{{ end }}</span>{{ end }}
+        {{ with .evidence }}<span class="ev">{{ range . }}{{ $host := (urls.Parse .).Host }}{{ $host = strings.TrimPrefix "www." $host }}<a href="{{ . }}" rel="noopener" title="{{ . }}">{{ if $host }}{{ $host }}{{ else }}{{ i18n "ai.evidence" }}{{ end }}</a>{{ end }}</span>{{ end }}
       </li>
       {{ end }}
     </ul>

@@ -714,3 +714,9 @@ table.matrix td.mx-own a { color: var(--fg-mute); }
 .ruyi-table thead th { color: var(--fg-mute); font-weight: 600; font-size: .82rem; white-space: nowrap; }
 .ruyi-table tbody tr:hover { background: var(--bg-soft); }
 .ruyi-table td.muted { color: var(--fg-mute); white-space: nowrap; }
+
+/* 矩阵滚动提示：只在窄屏提示，宽屏不需要 */
+.scroll-hint { display: none; margin: .4rem 0 0; font-size: .82rem; }
+@media (max-width: 1100px) {
+  .scroll-hint { display: block; }
+}

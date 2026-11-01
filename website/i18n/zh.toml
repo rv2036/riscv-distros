@@ -68,6 +68,7 @@ advanced = "需要动手能力"
 vendor = "厂商测试用"
 
 [status]
+virtual = "虚拟平台"
 on_sale = "在售"
 eol = "已停产"
 hard = "不易买到"
@@ -98,6 +99,7 @@ boards = "开发板"
 ai = "AI 软件"
 
 [matrix]
+scroll_hint = "表格可左右滚动看全部发行版"
 own_source = "本站资料（未经 RuyiSDK 实测）"
 title = "支持矩阵"
 sub = "行是开发板、列是发行版。点进任意一格可以看该发行版的下载与坑。"
@@ -126,6 +128,7 @@ license = "内容许可 CC BY-SA 4.0"
 tagline = "给第一次用 RISC-V 的人"
 
 [ruyisdk]
+no_page = "本站未收录"
 legend_note = "状态含义：good 完整可用（能进桌面）、basic 基本可用（串口能起来）、part 部分功能、cft 有镜像待验证、cfh 文档称支持但启动失败、cfi 官方称支持但无镜像、wip 只有宣称。"
 source = "数据来源"
 open_report = "查看报告"

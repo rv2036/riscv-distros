@@ -5,7 +5,7 @@ items:
   soc: 无（QEMU 通用虚拟平台，可配 RV32/RV64，最多 512 核）
   vendor: QEMU Project
   spec: 纯虚拟平台：最多 512 个 RV64GC 核、CLINT/PLIC、PCIe 主机桥、8 个 virtio-mmio、NS16550 UART、可选 AIA/IOMMU；内存、磁盘、网络全部由命令行参数虚拟，无真实 GPU/VPU/NPU。
-  status: on_sale
+  status: virtual
   price_note: 免费开源（GPLv2），随各发行版软件源提供
   forms: []
   official_os:

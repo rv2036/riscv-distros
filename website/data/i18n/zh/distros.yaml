@@ -262,7 +262,7 @@ items:
   derivatives:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
-  note: Fedora 有官方 SIG 和持续构建，但架构身份仍是 "not officially supported"，这条要在页面上写清楚，别和 Debian/Ubuntu 并列成"官方支持"。
+  note: Fedora 有官方 RISC-V SIG 与持续构建，但官方至今把 riscv64 写作「not officially supported」，镜像走 alt 通道。日常使用没问题，只是它的「官方支持」等级与 Debian、Ubuntu 不同级。
   checked: '2026-11-01'
   order: 3
   feature: true
@@ -341,7 +341,7 @@ items:
   - en
   - zh
   derivatives: []
-  note: FVF 本身就是 Fedora 的 RISC-V 下游构建；把它单列一条是为了和 Fedora 官方 SIG 区分开，不要混为一谈。
+  note: FVF 是独立团队基于 Fedora 源码重编的 RISC-V 镜像，不是 Fedora 官方发布；覆盖的板子比官方 SIG 镜像多，想用 Fedora 用户空间又要开箱即用就选它。
   checked: '2026-11-01'
   order: 4
   feature: true
@@ -352,7 +352,7 @@ items:
   upstream_note: 下游定制发行版：PLCT Lab（中科院软件所）为玄铁/T-Head（XuanTie）生态维护，复用 Debian 13 (trixie) 软件包仓 + 玄铁定制内核，不是 Debian 官方 port，也不是独立包体系。
   kind: distro
   based_on: Debian 13 (trixie) rootfs + 玄铁定制 6.6 内核（TH1520/SG2042 BSP）；旧版 20240720 为 Debian 12 + 5.10 内核
-  audience: 新人推荐
+  audience: recommended
   versions:
   - 20260504（2026-05-04，镜像站最新完整镜像）
   - 20251226（2025-12-26，官方文档标注的最新版）
@@ -424,7 +424,7 @@ items:
   upstream_note: 下游定制发行版：进迭时空（SpacemiT）官方 OS，明确『基于 Ubuntu 社区源码构建』，APT + deb 包格式；K1 走 Ubuntu 24.04(2.x)/25.04(3.x)，K3 走 Ubuntu 26.04(4.x)。
   kind: distro
   based_on: Ubuntu 24.04 LTS（Bianbu 2.x，K1）/ Ubuntu 25.04（Bianbu 3.x，K1）/ Ubuntu 26.04（Bianbu 4.x，K3；厂商论坛口径，官方文档未逐版标注）+ 厂商 BSP 内核 6.6 LTS / 6.18
-  audience: 新人推荐
+  audience: recommended
   versions:
   - Bianbu 2.3.5（K1，Ubuntu 24.04 基线，2026-06 构建 / 2026-08-27 上传）
   - Bianbu 3.0.1（K1，Ubuntu 25.04 基线，2025-08-15）
@@ -1181,7 +1181,7 @@ items:
   upstream_note: 独立发行版（自身即上游）：openEuler 社区（开放原子基金会）官方多架构同源构建，RISC-V 由 OERV SIG 移植维护，不是 Debian/Ubuntu 定制。
   kind: distro
   based_on: openEuler 24.03 LTS（RPM/dnf，自建源）+ RVCK 6.6 内核；RISC-V 分 RVA20 与 RVA23 两套构建
-  audience: 厂商测试
+  audience: vendor
   versions:
   - 24.03 LTS SP4（2026-06-30 发布；RISC-V RVA23 ISO 2026-09-08）
   - 24.03 LTS SP3（2026-03-09 转入长期维护；RVA20 + RVA23 双版本）
@@ -1254,7 +1254,7 @@ items:
   upstream_note: 独立发行版：openKylin（开放麒麟）社区自建 deb 仓库与 UKUI 桌面，官方定位为独立根社区操作系统，不是 Ubuntu/Debian 直接派生；RISC-V 由 openKylin RISC-V SIG 适配。
   kind: distro
   based_on: 独立构建（deb/APT + 自建源，UKUI 桌面）；3.0 用 Linux 7.0 内核，2.0 SP2 为长期稳定版
-  audience: 仅评估
+  audience: advanced
   versions:
   - openKylin 3.0（2026-08-31 发布；下载页镜像 2026-09-18，RISC-V 镜像 2026-08-28 / 2026-10-29）
   - openKylin 2.0 SP2（2026-08-13 长期稳定版；RISC-V 镜像 2025-08-26）
@@ -1314,7 +1314,7 @@ items:
   upstream_note: 下游定制发行版：deepin（深度）社区版继承 Debian 软件包并叠加自有仓库与玲珑包体系；RISC-V 由 deepin-ports SIG 维护，官方标注为『技术预览』。
   kind: distro
   based_on: Debian 系 + deepin 自有仓库（deepin 25『crimson』）；内核按板卡 6.6/6.12/6.16，DP1000 用主线内核
-  audience: 仅评估
+  audience: advanced
   versions:
   - deepin 25.2.0（RISC-V 通用 ISO，2026-07-07）
   - deepin 25 crimson preview（按板卡镜像，K3 最新 2026-05-22）
@@ -1390,7 +1390,7 @@ items:
   upstream_note: 独立发行版：中科院软件所（ISCAS）发起并长期维护的 RISC-V 原生发行版，自建 RPM 包集与构建流水线（SPECS/dnf），不基于 Debian/Ubuntu/openEuler 的二进制包。
   kind: distro
   based_on: 独立自建（RPM + dnf，滚动发布）；内核 7.2.6 / LTS 6.18.54，工具链 GCC 16.2 / glibc 自带
-  audience: 厂商测试
+  audience: vendor
   versions:
   - 2026.09（2026-09-29 构建）
   - 2026.08（2026-08-26）

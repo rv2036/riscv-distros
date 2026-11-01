@@ -1,0 +1,51 @@
+<!doctype html><html lang=en data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Fedora-V Force (FVF) · RISC-V Distros</title><meta name=description content="Which RISC-V distribution runs on which board, where to get images, and the pitfalls to expect."><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/en/distros/fvf/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/distros/fvf/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/distros/fvf/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/distros/fvf/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/distros/fvf/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/distros/fvf/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/en/distros/fvf/><link rel=alternate type=application/rss+xml href=/en/distros/fvf/index.xml title="RISC-V Distros — Fedora-V Force (FVF)"><link rel=stylesheet href=/css/main.min.77e4f9e0d824cdd434a5fec86acea6f709a97cb062d717122ff798f7840ee440.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>Skip to content</a><header class=site-head><div class=wrap><a class=brand href=/en/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V Distros</span></a><nav class=nav aria-label="Main navigation"><a href=/en/start/>Start</a>
+<a href=/en/distros/ class=active>Distros</a>
+<a href=/en/boards/>Boards</a>
+<a href=/en/matrix/>Matrix</a>
+<a href=/en/ai/>AI software</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label="Switch to dark">☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label="Switch language" aria-expanded=false>E</button><ul class=lang-menu id=langMenu><li><a href=/distros/fvf/ lang=zh-CN>简体中文</a></li><li><a href=/en/distros/fvf/ class=active lang=en>English</a></li><li><a href=/ja/distros/fvf/ lang=ja>日本語</a></li><li><a href=/ru/distros/fvf/ lang=ru>Русский</a></li><li><a href=/ko/distros/fvf/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>Fedora-V Force (FVF)</h1><div class=sub><span class="badge soft">Vendor derivative</span>
+<span class="badge soft">Distribution</span>
+<span class=badge>Good for newcomers</span></div></div></header><aside class=subscribe aria-label="Subscribe for updates"><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>Subscribe for updates</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder="Your email address" disabled>
+<input type=hidden name=lang value=en>
+<button class="btn btn-primary sub-btn" type=submit disabled>Subscribe</button></div><p class=sub-note>The mailing-list backend is not connected yet, so this field is disabled. Once it is, this form will submit directly.</p></form><div class=sub-rss><span class=sub-label>RSS feeds</span><div class=sub-rss-links><a href=/en/index.xml>All updates</a>
+<a href=/en/distros/index.xml>Distros</a>
+<a href=/en/boards/index.xml>Boards</a>
+<a href=/en/ai/index.xml>AI software</a></div></div></div></aside><div class=wrap><section class=block><div class=block-head><h2>Bottom line</h2></div><p>FVF is a RISC-V image rebuilt from Fedora sources by a separate team, not an official Fedora release. It covers more boards than the official SIG images, so it is the practical pick when you want a Fedora userland that boots out of the box.</p></section><section class=block><dl class=specs><dt>Based on</dt><dd>Fedora</dd><dt>Upstream</dt><dd>Fedora-V Force is an independent team/community project that compiles its own riscv64 builds from Fedora 36 through rawhide and adapts them to boards; its site says it is "independently compiling releases from Fedora 36 to rawhide", and it has no affiliation with Fedora's official release process.</dd><dt>Versions</dt><dd>Fedora 36 → rawhide (built independently, covering several Fedora releases)</dd><dt>Doc languages</dt><dd>en / zh</dd><dt>Checked</dt><dd>2026-11-01</dd></dl></section><section class=block><div class=block-head><h2>Boards</h2></div><ul class=support-list><li><a href=/en/boards/qemu/>QEMU virt (virtual machine)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>FVF claims support for mainstream RISC-V boards; not verified board by board</span></li><li><a href=/en/boards/unmatched/>SiFive HiFive Unmatched</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/visionfive2/>StarFive VisionFive 2</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/licheepi-4a/>LicheePi 4A</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/meles/>Milk-V Meles</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/k3/>SpacemiT K3 (Pico-ITX / CoM260)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/a210/>Zhihe A210 (XuanTie MelonPi dev board)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/k230/>Canaan K230 (Kendryte K230 / CanMV-K230)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/megrez/>Milk-V Megrez (ESWIN EIC7700X)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/titan/>Milk-V Titan (UltraRISC DP1000)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/pioneer/>Milk-V Pioneer (SG2042, server-oriented)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/orangepi-rv2/>Orange Pi RV2 (Ky X1)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li><li><a href=/en/boards/bpi-f3/>Banana Pi BPI-F3 (SpacemiT K1)</a>
+<span class="badge lv-community">Community</span>
+<span class=muted>As above; not verified board by board</span></li></ul></section><section class=block><div class=block-head><h2>Download</h2></div><div class=links><a href=https://images.fedoravforce.org rel=noopener>FVF mirror (images.fedoravforce.org)</a><a href=https://www.fedoravforce.org rel=noopener>FVF download entry on the official site</a></div></section><section class=block><div class=block-head><h2>Docs and videos</h2></div><ul class=support-list><li><a href=https://www.fedoravforce.org rel=noopener>FVF official site (About/resources, Chinese/English toggle)</a>
+<span class="badge soft">Doc</span>
+<span class=muted>en</span></li><li><a href=https://www.fedoravforce.org/zh rel=noopener>FVF Chinese home page</a>
+<span class="badge soft">Doc</span>
+<span class=muted>zh</span></li><li><a href=https://blog.fedoravforce.com rel=noopener>FVF blog (docs/tutorials)</a>
+<span class="badge soft">Doc</span>
+<span class=muted>zh</span></li></ul></section><section class=block><div class=block-head><h2>Pitfalls</h2></div><ul class=pitfalls><li>Images are built independently by the community, not through Fedora's signing/release process, and versions drift from upstream Fedora</li><li>The mirror is a JS single-page app, so scripts can't scrape the board list; pick your board by hand on the page</li></ul></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V Distros · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>Content licensed CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/en/start/>Start</a>
+<a href=/en/distros/>Distros</a>
+<a href=/en/matrix/>Matrix</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>Source</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"Switch to dark":"Switch to light")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

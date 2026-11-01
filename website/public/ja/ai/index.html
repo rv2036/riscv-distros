@@ -1,0 +1,290 @@
+<!doctype html><html lang=ja data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>AI ソフト · RISC-V ディストロ</title><meta name=description content="RISC-V ディストリビューションとボードの対応一覧。どの板で何が動くか、イメージの入手先、つまずきどころ。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/ja/ai/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/ai/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/ai/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/ai/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/ai/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/ai/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/ja/ai/><link rel=alternate type=application/rss+xml href=/ja/ai/index.xml title="RISC-V ディストロ — AI ソフト"><link rel=stylesheet href=/css/main.min.77e4f9e0d824cdd434a5fec86acea6f709a97cb062d717122ff798f7840ee440.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>本文へスキップ</a><header class=site-head><div class=wrap><a class=brand href=/ja/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V ディストロ</span></a><nav class=nav aria-label=メインナビ><a href=/ja/start/>はじめかた</a>
+<a href=/ja/distros/>ディストロ</a>
+<a href=/ja/boards/>ボード</a>
+<a href=/ja/matrix/>対応表</a>
+<a href=/ja/ai/ class=active>AI ソフト</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=ダークに切り替え>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=言語を切り替え aria-expanded=false>日</button><ul class=lang-menu id=langMenu><li><a href=/ai/ lang=zh-CN>简体中文</a></li><li><a href=/en/ai/ lang=en>English</a></li><li><a href=/ja/ai/ class=active lang=ja>日本語</a></li><li><a href=/ru/ai/ lang=ru>Русский</a></li><li><a href=/ko/ai/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>AI ソフト</h1><div class=sub>公開された証拠があるものだけ：公式リポジトリ、ベンダーのドキュメント、信頼できる実測</div></div></header><aside class=subscribe aria-label=更新を購読><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>更新を購読</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=メールアドレス disabled>
+<input type=hidden name=lang value=ja>
+<button class="btn btn-primary sub-btn" type=submit disabled>購読する</button></div><p class=sub-note>メール配信のバックエンドが未接続のため、入力欄は現在ご利用いただけません。接続後はここから直接登録できます。</p></form><div class=sub-rss><span class=sub-label>RSS 購読</span><div class=sub-rss-links><a href=/ja/index.xml>すべての更新</a>
+<a href=/ja/distros/index.xml>ディストロ</a>
+<a href=/ja/boards/index.xml>ボード</a>
+<a href=/ja/ai/index.xml>AI ソフト</a></div></div></div></aside><div class=wrap><article class="card ai-card"><div class=card-top><h3>QEMU virt 仮想マシン</h3><span class="badge soft">QEMU エミュレート rv64（vlen=256, RVV 1.0）</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>qemu-riscv64 -cpu max,vlen=256 で上流ビルドを実行できます。SpacemiT のドキュメントには qemu で llama-cli を動かす完全なコマンド例があります。あくまで機能確認で、速度に意味はありません。</span>
+<span class=ev><a href=https://github.com/kriznaw/llama.cpp-riscv64-qemu rel=noopener title=https://github.com/kriznaw/llama.cpp-riscv64-qemu>github.com</a><a href=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md rel=noopener title=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md>raw.githubusercontent.com</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>build_riscv64.sh はクロスコンパイル成果物の検証に qemu を使っており、動きますが非常に遅いです。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RISE の wheel は「QEMU ビルドではない」と明記しており、qemu 上では機能確認しかできません。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>エミュレーション環境でも動作しますが、性能的な意味はありません。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-works>ncnn</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>CI は riscv64 上で通っています。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li></ul><p class=muted>NPU / アクセラレータなし（純粋なエミュレーション）</p><p>ハードウェアがないときにコンパイルと機能を確認するためのもので、性能の根拠にはできません。</p></article><article class="card ai-card"><div class=card-top><h3>SiFive HiFive Unmatched</h3><span class="badge soft">SiFive FU740（4x U74, RV64GC、V なし）</span></div><ul class=support-list><li><span class=run-unknown>llama.cpp</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>Unmatched 専用の公開実測は見つかりませんでした。上流はソースのみで（release に riscv64 バイナリはありません）、U74 に RVV がないためスカラ経路しかなく、かなり遅いと見込まれます。</span>
+<span class=ev><a href=https://github.com/ggml-org/llama.cpp rel=noopener title=https://github.com/ggml-org/llama.cpp>github.com</a><a href=https://github.com/ggml-org/llama.cpp/issues/20988 rel=noopener title=https://github.com/ggml-org/llama.cpp/issues/20988>github.com</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>上流には MLAS の RVV カーネルと tools/scripts/build_riscv64.sh（SiFive が貢献）がありますが、riscv64 のビルド済みパッケージはなく、自分でクロスコンパイルする必要があります。RVV カーネルは RVV 1.0 向けです。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a><a href=https://github.com/microsoft/onnxruntime rel=noopener title=https://github.com/microsoft/onnxruntime>github.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>PyPI に riscv64 の wheel はありません。RISE が torch 2.13.0 の manylinux_2_39_riscv64 wheel を提供しています（glibc 2.39 以上、Ubuntu 24.04/Bianbu など）。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a><a href=https://pypi.riseproject.dev/simple/torch/ rel=noopener title=https://pypi.riseproject.dev/simple/torch/>pypi.riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>上流の 4.x は RISC-V と RVV HAL に対応しています。多くのディストリビューションで導入でき、RVV バックエンドで自前ビルドも可能です。ボードごとの性能検証はしていません。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-partial>ncnn</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>上流には linux-riscv64 の CI と RVV 実装があります。U74 に RVV はないので、ncnn はスカラでしか動きません。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>tengine-lite は risc-v/lp64dv の RVV 畳み込みカーネルと rv64-c906 ツールチェーンを提供しますが、最適化されるのは一部の演算子だけで、実験的な対応です。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md rel=noopener title=https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md>raw.githubusercontent.com</a><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li></ul><p class=muted>NPU / アクセラレータNPU なし</p><p>ruyi は OpenBSD/Ubuntu/openKylin/openWrt のイメージを提供しています。エコシステムは老舗ですが、AI アクセラレータはありません。</p></article><article class="card ai-card"><div class=card-top><h3>StarFive VisionFive 2</h3><span class="badge soft">StarFive JH7110（4x U74, RV64GC、V なし）</span></div><ul class=support-list><li><span class=run-partial>llama.cpp</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>コミュニティでビルド・実行できますが、issue #14926 では VF2 で Illegal instruction が出ると報告されています。RVV/CPU のビルドパラメータを正しく設定する必要があります。V 拡張がないので純スカラ推論になり、速度はかなり低いです。</span>
+<span class=ev><a href=https://github.com/ggml-org/llama.cpp/issues/14926 rel=noopener title=https://github.com/ggml-org/llama.cpp/issues/14926>github.com</a><a href=https://github.com/ggml-org/llama.cpp rel=noopener title=https://github.com/ggml-org/llama.cpp>github.com</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>上流には MLAS の RVV カーネルと tools/scripts/build_riscv64.sh（SiFive が貢献）がありますが、riscv64 のビルド済みパッケージはなく、自分でクロスコンパイルする必要があります。RVV カーネルは RVV 1.0 向けです。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a><a href=https://github.com/microsoft/onnxruntime rel=noopener title=https://github.com/microsoft/onnxruntime>github.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>PyPI に riscv64 の wheel はありません。RISE が torch 2.13.0 の manylinux_2_39_riscv64 wheel を提供しています（glibc 2.39 以上、Ubuntu 24.04/Bianbu など）。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a><a href=https://pypi.riseproject.dev/simple/torch/ rel=noopener title=https://pypi.riseproject.dev/simple/torch/>pypi.riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>上流の 4.x は RISC-V と RVV HAL に対応しています。多くのディストリビューションで導入でき、RVV バックエンドで自前ビルドも可能です。ボードごとの性能検証はしていません。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-partial>ncnn</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>上流には linux-riscv64 の CI と RVV 実装があります。JH7110 に RVV はないので、ncnn はスカラで動きます。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>tengine-lite は risc-v/lp64dv の RVV 畳み込みカーネルと rv64-c906 ツールチェーンを提供しますが、最適化されるのは一部の演算子だけで、実験的な対応です。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md rel=noopener title=https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md>raw.githubusercontent.com</a><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li></ul><p class=muted>NPU / アクセラレータNPU なし（GPU／動画エンコード・デコードのみ）</p><p>最も成熟した入門ボードのひとつです（ruyi は Armbian/openEIC/OpenBSD のイメージを提供）。ただし SoC にベクトル拡張がなく、LLM は「動くが非常に遅い」になります。</p></article><article class="card ai-card"><div class=card-top><h3>LicheePi 4A（ライチパイ 4A）</h3><span class="badge soft">T-HEAD TH1520 (4x C910 @1.85GHz, RV64GCV 0.7.1)</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>Sipeed 公式 wiki に llama.cpp の章があり、7B モデルで約 6s/token（V 拡張は未使用）。C910 は RVV 0.7.1 なので上流の RVV 1.0 最適化経路は使えず、スカラのみです。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md rel=noopener title=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md>raw.githubusercontent.com</a><a href=https://github.com/ggml-org/llama.cpp rel=noopener title=https://github.com/ggml-org/llama.cpp>github.com</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>上流の riscv64 ビルドの MLAS RVV カーネルは RVV 1.0 向けで、TH1520 の 0.7.1 ベクトルはそのままでは使えずスカラに戻ります。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RISE の wheel は glibc 2.39 以上かつ RVV 1.0 最適化経路が前提です。RevyOS/Debian には入りますがベクトル加速はありません。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>通常は使用可能です。RVV HAL の 0.7.1 対応は限定的です。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-partial>ncnn</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>ビルドは可能ですが、RVV 最適化は 1.0 向けで 0.7.1 ではスカラに退行します。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>tengine-lite は rv64-c906 ツールチェーンと RVV 畳み込みカーネルを同梱しており、まさに C906/C910 のような 0.7.1 コア向けですが、対応する演算子は一部だけです。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-partial>npu-sdk (HHB)</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>公式 wiki に NPU の手順があります。T-Head HHB コンパイラが ONNX を NPU 実行ファイル（int8/int16 固定小数点）に変換し、専用の docker イメージが必要です。クローズドなツールチェーンで固定小数点のみのため、LLM には向きません。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md rel=noopener title=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md>raw.githubusercontent.com</a></span></li></ul><p class=muted>NPU / アクセラレータ4 TOPS@INT8。ベンダーのクローズドな HHB ツールチェーン（int8/int16 固定小数点）のみで、上流のオープンソースドライバはありません</p><p>CPU で LLM を動かすことは可能ですが遅く（約 6s/token）、NPU は T-Head のクローズドな HHB しか経路がなく、Transformer の LLM は動きません。</p></article><article class="card ai-card"><div class=card-top><h3>Milk-V Meles</h3><span class="badge soft">T-HEAD TH1520 (4x C910 @1.85GHz, RV64GCV 0.7.1)</span></div><ul class=support-list><li><span class=run-partial>llama.cpp</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>LicheePi 4A と同じ TH1520 で、RevyOS がこのボードを公式サポートしています。llama.cpp は同じ 0.7.1 のベクトル／スカラ経路です（LPi4A の実測で約 6s/token）。Meles 専用の公開ベンチマークは見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/meles/overview rel=noopener title=https://milkv.io/docs/meles/overview>milkv.io</a><a href=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md rel=noopener title=https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md>raw.githubusercontent.com</a><a href=https://revyos.github.io/docs/ rel=noopener title=https://revyos.github.io/docs/>revyos.github.io</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>TH1520 共通の事情で、上流の RVV カーネルは 1.0 向けのためここではスカラに退行します。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RISE の wheel を導入できます（RevyOS は Debian ベース）。ベクトル加速はありません。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>通常は使用可能です。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-partial>ncnn</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>ビルドは可能ですが、RVV 最適化は 0.7.1 では退行します。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>rv64-c906 ツールチェーンがこの種のコアに合いますが、対応は一部の演算子のみです。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-partial>npu-sdk (HHB)</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>Milk-V の公式仕様では 4TOPS@INT8 の NPU が TensorFlow/ONNX/Caffe に対応するとされていますが、経路は T-Head のクローズドなツールチェーンで、オープンソースのドライバはありません。</span>
+<span class=ev><a href=https://milkv.io/docs/meles/overview rel=noopener title=https://milkv.io/docs/meles/overview>milkv.io</a></span></li></ul><p class=muted>NPU / アクセラレータ4 TOPS@INT8（TH1520）、クローズドな HHB ツールチェーン</p><p>ruyi から RevyOS を直接書き込めます（4G/8G/16G の uboot パッケージあり）。AI の状況は LPi4A と同じです。</p></article><article class="card ai-card"><div class=card-top><h3>SpacemiT K3（Pico-ITX / CoM260）</h3><span class="badge soft">SpacemiT K3（A100 コア、RV64GCV + RVV 1.0）</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>上流 llama.cpp の公式ドキュメントに build-riscv64-spacemit.md の専用章があります。A100 は RISCV64_SPACEMIT_IME2 を使い、実測で qwen3 0.6B Q4_0 が pp128 565.8 / tg128 55.8 t/s、qwen3 4B Q4_0 が pp128 79.7 / tg128 11.3 t/s（8 スレッド）。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md rel=noopener title=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md>raw.githubusercontent.com</a></span></li><li><span class=run-works>spacemit-llama.cpp (メーカー)</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>SpacemiT はビルド済みの spacemit-llama.cpp.riscv64（0.0.9 まであり）と archive.spacemit.com のモデルライブラリを提供しています。Bit-Brick のドキュメントに llama-cli/llama-server の使い方があります。</span>
+<span class=ev><a href=https://archive.spacemit.com/spacemit-ai/llama.cpp/ rel=noopener title=https://archive.spacemit.com/spacemit-ai/llama.cpp/>archive.spacemit.com</a><a href=https://docs.bit-brick.com/docs/k1/ml/llama-cpp rel=noopener title=https://docs.bit-brick.com/docs/k1/ml/llama-cpp>docs.bit-brick.com</a></span></li><li><span class=run-works>onnxruntime</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 のコアなので上流の MLAS RVV カーネルを活かせます。自分でビルドする必要があります。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-works>pytorch</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>Bianbu など glibc 2.39 以上のディストリビューションなら、RISE の torch 2.13.0 riscv64 wheel（manylinux_2_39_riscv64）をそのまま入れられます。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a><a href=https://pypi.riseproject.dev/simple/torch/ rel=noopener title=https://pypi.riseproject.dev/simple/torch/>pypi.riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 ＋ RVV HAL で、最良の組み合わせです。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-works>ncnn</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、上流 CI の対象です。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>使えますが、最適化は 0.7.1 の C906 向けなので 1.0 では効果が限定的です。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-works>spacemit-ai-sdk</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>archive.spacemit.com/spacemit-ai/ に ModelZoo、llama.cpp、localai、dify などの成果物があり、現在の RISC-V で最も揃ったベンダー AI スタックのひとつです。</span>
+<span class=ev><a href=https://archive.spacemit.com/spacemit-ai/ rel=noopener title=https://archive.spacemit.com/spacemit-ai/>archive.spacemit.com</a></span></li></ul><p class=muted>NPU / アクセラレータK3 は CPU ＋ AI コア（SpacemiT IME 拡張）が主体で、独立した汎用 NPU のプログラミングモデルはありません。加速は SpacemiT 独自命令と AI SDK 経由です</p><p>現在の RISC-V SBC で AI ソフトウェアスタックが最も揃っている部類です。上流の llama.cpp にカーネルが直接入っています。</p></article><article class="card ai-card"><div class=card-top><h3>知合計算 A210（XuanTie MelonPi 開発ボード）</h3><span class="badge soft">Zhihe A210 (4x C920 @2.3GHz + 4x C908, RV64GCV)</span></div><ul class=support-list><li><span class=run-unknown>llama.cpp</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>A210 上での llama.cpp の公開実測は見つかりませんでした。C920 は RVV 0.7.1 なので、上流の 1.0 最適化経路は使えません。</span>
+<span class=ev><a href=https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board rel=noopener title=https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board>cnx-software.com</a></span></li><li><span class=run-unknown>onnxruntime</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>このボードの公開証拠は見つかりませんでした（チップが新しく、upstream 対応は 2026 年からです）。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-unknown>pytorch</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>このボードの公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-partial>opencv</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RVV 0.7.1 で、スカラ／限定的なベクトル経路のみです。このボードでの実測は見ていません。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-unknown>ncnn</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>このボードの公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a></span></li><li><span class=run-unknown>tengine</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>このボードの公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-partial>torq-toolkit (メーカー)</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>CNX の報道によると、公式 Linux SDK ＋ TORQ-Toolkit でモデル変換と配備を行い、NPU は INT4/INT8/INT16/FP8/FP16/BF16 に対応、DeepSeek-7B で 8 tok/s と主張しています。ツールチェーンはクローズドで、ドキュメントも公開されていません。</span>
+<span class=ev><a href=https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board rel=noopener title=https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board>cnx-software.com</a></span></li></ul><p class=muted>NPU / アクセラレータ12 TOPS@INT8（FP16/BF16/FP8 対応）。ベンダーの TORQ-Toolkit というクローズドなツールチェーン経由です</p><p>ruyi は zhihe-a210 の Debian/buildroot イメージを提供していますが、AI 側はベンダーの主張だけで、公開された再現可能な実測がありません。</p></article><article class="card ai-card"><div class=card-top><h3>Canaan K230（Kendryte K230 / CanMV-K230）</h3><span class="badge soft">Canaan K230 (C908 + KPU)</span></div><ul class=support-list><li><span class=run-unknown>llama.cpp</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>K230 は視覚推論（KPU）向けで、llama.cpp の公開実測は見つかりませんでした。メモリは 512MB/1GB 級で、LLM は現実的ではありません。</span>
+<span class=ev><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li><li><span class=run-unknown>onnxruntime</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした（公式が推すのは nncase です）。</span>
+<span class=ev><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li><li><span class=run-unknown>pytorch</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。学習側は対象外です。</span>
+<span class=ev><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>CanMV/K230 SDK に画像処理とカメラのパイプラインが組み込まれており、OpenCV 風の API が使えます。</span>
+<span class=ev><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li><li><span class=run-unknown>ncnn</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li><li><span class=run-works>nncase + KPU</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>kendryte/nncase は公式のオープンソース深層学習コンパイラで、ONNX/TFLite を KPU の kmodel に変換します。K230 SDK のドキュメントに AI 開発の一連の流れがあります。</span>
+<span class=ev><a href=https://github.com/kendryte/nncase rel=noopener title=https://github.com/kendryte/nncase>github.com</a><a href=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html rel=noopener title=https://www.kendryte.com/ai_docs/en/main/Development_Basics.html>kendryte.com</a></span></li></ul><p class=muted>NPU / アクセラレータKPU（約 1 TOPS 級）。nncase で kmodel にコンパイルし、ドライバはベンダー SDK（上流ではありません）</p><p>「視覚 AI は得意、LLM には不向き」という典型的なボードです。nncase はオープンソースですが、ランタイムは今もベンダー SDK に縛られています。</p></article><article class="card ai-card"><div class=card-top><h3>Milk-V Megrez（ESWIN EIC7700X）</h3><span class="badge soft">ESWIN EIC7700X (4x SiFive P550 @1.8GHz, RV64GBCH)</span></div><ul class=support-list><li><span class=run-unknown>llama.cpp</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>P550 に RVV はなく、Megrez 上での llama.cpp の公開実測も見つかりませんでした。公式の AI 経路は CPU ではなく NPU です。</span>
+<span class=ev><a href=https://milkv.io/docs/megrez/overview rel=noopener title=https://milkv.io/docs/megrez/overview>milkv.io</a></span></li><li><span class=run-unknown>onnxruntime</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/megrez/overview rel=noopener title=https://milkv.io/docs/megrez/overview>milkv.io</a></span></li><li><span class=run-unknown>pytorch</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/megrez/overview rel=noopener title=https://milkv.io/docs/megrez/overview>milkv.io</a></span></li><li><span class=run-partial>opencv</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RVV がなくスカラ経路です。RockOS には入れられますが公開ベンチマークはありません。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-unknown>ncnn</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a></span></li><li><span class=run-works>ennp-sdk (メーカー)</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>ESWIN の ENNP プラットフォーム（クローズド）は EsQuant 量子化、EsAAC コンパイル、EsSimulator シミュレーションを提供します。公式 runtime sample には Qwen2 と DeepSeek-R1 を NPU で動かす例がそのまま入っています（apt install es-sdk-sample-npu-qwen、モデルは ZIFENG278/Qwen2-0.5B_ENNP）。</span>
+<span class=ev><a href=https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction rel=noopener title=https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction>milkv.io</a><a href=https://milkv.io/docs/megrez/development-guide/runtime-sample/qwen2 rel=noopener title=https://milkv.io/docs/megrez/development-guide/runtime-sample/qwen2>milkv.io</a></span></li></ul><p class=muted>NPU / アクセラレータ19.95 TOPS@INT8（INT16/FP16）。クローズドな ENNP SDK ですが、公式が Qwen2/DeepSeek-R1 のサンプルを提供しています</p><p>RISC-V では珍しい「NPU で LLM が動き、ベンダーがサンプルも出している」ボードです。代償は ESWIN のクローズドなスタックへの完全依存です。</p></article><article class="card ai-card"><div class=card-top><h3>Milk-V Titan（UltraRISC DP1000）</h3><span class="badge soft">UltraRISC UR-DP1000 (8x RISC-V RV64GCBH)</span></div><ul class=support-list><li><span class=run-unknown>llama.cpp</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>Titan 上での llama.cpp の公開実測は見つかりませんでした。ボードが新しく出荷も少ないためです。</span>
+<span class=ev><a href=https://milkv.io/docs/titan/overview rel=noopener title=https://milkv.io/docs/titan/overview>milkv.io</a></span></li><li><span class=run-unknown>onnxruntime</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/titan/overview rel=noopener title=https://milkv.io/docs/titan/overview>milkv.io</a></span></li><li><span class=run-unknown>pytorch</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/titan/overview rel=noopener title=https://milkv.io/docs/titan/overview>milkv.io</a></span></li><li><span class=run-partial>opencv</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RVV がなくスカラ経路です。公開実測もありません。</span>
+<span class=ev><a href=https://milkv.io/docs/titan/overview rel=noopener title=https://milkv.io/docs/titan/overview>milkv.io</a></span></li><li><span class=run-unknown>ncnn</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/titan/overview rel=noopener title=https://milkv.io/docs/titan/overview>milkv.io</a></span></li></ul><p class=muted>NPU / アクセラレータオンボード NPU なし。公式の位置づけは PCIe Gen4 x16 に外付け GPU／AI アクセラレータカードを挿すことです</p><p>Mini-ITX ワークステーションとしての位置づけで（DDR4 ECC 2 本で最大 64GB、BMC）、AI は外付け PCIe カード頼みです。ただし RISC-V で使える公開の GPU/NPU ドライバスタックの証拠は今のところありません。</p></article><article class="card ai-card"><div class=card-top><h3>Milk-V Pioneer（SG2042 サーバー向け）</h3><span class="badge soft">Sophgo SG2042 (64x XuanTie C920, RVV 0.7.1)</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>arXiv 2503.17422（V-Seek）は SG2042 上で LLM 推論の最適化を行い、DeepSeek R1 Distill Llama 8B / QWEN 14B で生成 4.32 / 2.29 token/s、prefill 6.54 / 3.68 token/s を達成しています。Milk-V 公式には別途 InferLLM のドキュメントがあります。</span>
+<span class=ev><a href=https://arxiv.org/abs/2503.17422 rel=noopener title=https://arxiv.org/abs/2503.17422>arxiv.org</a><a href=https://milkv.io/docs/pioneer/resources/inferllm rel=noopener title=https://milkv.io/docs/pioneer/resources/inferllm>milkv.io</a></span></li><li><span class=run-partial>onnxruntime</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>64 コアで並列化できますが、RVV 0.7.1 なので上流の 1.0 カーネルは使えません。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>RISE の wheel を導入できます。0.7.1 のベクトル加速はありません。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>マルチコアのスカラなら使えます。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-partial>ncnn</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>ビルドは可能ですが、0.7.1 ではスカラに退行します。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>rv64-c906 カーネルは 0.7.1 に合いますが、対応は一部の演算子のみです。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-works>inferllm</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>Milk-V 公式ドキュメントに InferLLM（MegEngine）を Pioneer に配備する手順があります。</span>
+<span class=ev><a href=https://milkv.io/docs/pioneer/resources/inferllm rel=noopener title=https://milkv.io/docs/pioneer/resources/inferllm>milkv.io</a></span></li></ul><p class=muted>NPU / アクセラレータNPU なし（純粋な 64 コア CPU）</p><p>大容量メモリ（最大 128GB）と 64 コアを備えた唯一の RISC-V ボードで、70B 級のモデルも載りますが、スループットは 1 桁 token/s です。</p></article><article class="card ai-card"><div class=card-top><h3>Orange Pi RV2（Ky X1）</h3><span class="badge soft">SpacemiT K1 (8x X60, RV64GCV + RVV 1.0)</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>X60 は BPI-F3 と同じコアで、上流の build-riscv64-spacemit.md に X60 の実測表があります（qwen3 0.6B Q4_0: pp128 49.15 / tg128 11.73 t/s）。ほかに Orange Pi RV2 上での llama.cpp 実験リポジトリもあります。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md rel=noopener title=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md>raw.githubusercontent.com</a><a href=https://github.com/Cauacs/riscv-ai-inference-lab rel=noopener title=https://github.com/Cauacs/riscv-ai-inference-lab>github.com</a></span></li><li><span class=run-works>spacemit-llama.cpp (メーカー)</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>SpacemiT のビルド済みパッケージが使えます（K1 と同源）。</span>
+<span class=ev><a href=https://archive.spacemit.com/spacemit-ai/llama.cpp/ rel=noopener title=https://archive.spacemit.com/spacemit-ai/llama.cpp/>archive.spacemit.com</a></span></li><li><span class=run-works>onnxruntime</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、上流カーネルが使えます。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-partial>pytorch</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>glibc 2.39 以上（Ubuntu 24.04 や新しい Armbian など）なら RISE の wheel を入れられます。古いイメージは glibc が足りません。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 ＋ RVV HAL。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-works>ncnn</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、上流 CI の対象です。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>使えますが、最適化は 1.0 専用ではありません。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li></ul><p class=muted>NPU / アクセラレータ独立 NPU なし（K1 の AI 能力は SpacemiT 独自のベクトル／AI 拡張によるものです）</p><p>ruyi は armbian-orangepi-rv2-minimal イメージを提供しています。コストパフォーマンスが最も高い「LLM が本当に動く」ボードのひとつです。</p></article><article class="card ai-card"><div class=card-top><h3>Banana Pi BPI-F3（SpacemiT K1）</h3><span class="badge soft">SpacemiT K1 (8x X60, RV64GCV + RVV 1.0)</span></div><ul class=support-list><li><span class=run-works>llama.cpp</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>上流 llama.cpp の公式 riscv64-spacemit ドキュメントに X60（K1）の実測表と量子化の対応表があります（Q4_0/Q4_1/Q4_K/Q8_0 が利用可）。Bit-Brick の公式ドキュメントに Bianbu 上での一連の使い方があります。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md rel=noopener title=https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md>raw.githubusercontent.com</a><a href=https://docs.bit-brick.com/docs/k1/ml/llama-cpp rel=noopener title=https://docs.bit-brick.com/docs/k1/ml/llama-cpp>docs.bit-brick.com</a></span></li><li><span class=run-works>spacemit-llama.cpp (メーカー)</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>SpacemiT のビルド済み spacemit-llama.cpp.riscv64.0.0.4+（archive には 0.0.9 まであり）が llama-cli / llama-server / OpenAI 互換 API に対応します。</span>
+<span class=ev><a href=https://archive.spacemit.com/spacemit-ai/llama.cpp/ rel=noopener title=https://archive.spacemit.com/spacemit-ai/llama.cpp/>archive.spacemit.com</a><a href=https://docs.bit-brick.com/docs/k1/ml/llama-cpp rel=noopener title=https://docs.bit-brick.com/docs/k1/ml/llama-cpp>docs.bit-brick.com</a></span></li><li><span class=run-works>onnxruntime</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、上流の MLAS RVV カーネルが使えます（自前ビルドが必要）。</span>
+<span class=ev><a href=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh rel=noopener title=https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh>raw.githubusercontent.com</a></span></li><li><span class=run-works>pytorch</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>Bianbu など glibc 2.39 以上のディストリビューションなら、RISE の torch 2.13.0 riscv64 wheel（manylinux_2_39_riscv64）を入れられます。</span>
+<span class=ev><a href=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/ rel=noopener title=https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/>riseproject.dev</a><a href=https://pypi.riseproject.dev/simple/torch/ rel=noopener title=https://pypi.riseproject.dev/simple/torch/>pypi.riseproject.dev</a></span></li><li><span class=run-works>opencv</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、OpenCV の RVV HAL が効きます。</span>
+<span class=ev><a href=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V rel=noopener title=https://github.com/opencv/opencv/wiki/OpenCV-RISC-V>github.com</a></span></li><li><span class=run-works>ncnn</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>RVV 1.0 で、上流 CI の対象です。</span>
+<span class=ev><a href=https://github.com/Tencent/ncnn rel=noopener title=https://github.com/Tencent/ncnn>github.com</a><a href=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml rel=noopener title=https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml>github.com</a></span></li><li><span class=run-partial>tengine</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>使えますが最適ではありません。</span>
+<span class=ev><a href=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v rel=noopener title=https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v>github.com</a></span></li><li><span class=run-works>spacemit-ai-sdk</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>SpacemiT の AI 成果物リポジトリ（ModelZoo/llama.cpp/localai/dify）をそのまま利用できます。</span>
+<span class=ev><a href=https://archive.spacemit.com/spacemit-ai/ rel=noopener title=https://archive.spacemit.com/spacemit-ai/>archive.spacemit.com</a></span></li></ul><p class=muted>NPU / アクセラレータ独立 NPU なし。AI は SpacemiT X60 のベクトル／AI 拡張と独自 AI SDK 経由です</p><p>現在「電源を入れれば LLM が動く」代表的なボードです。上流の llama.cpp、ベンダーのビルド済みパッケージ、Bianbu の 3 つが揃っています。</p></article><article class="card ai-card"><div class=card-top><h3>Milk-V Duo シリーズ（Duo / Duo 256M / Duo S）</h3><span class="badge soft">Sophgo CV1800B (C906 @1GHz, 64/256MB)</span></div><ul class=support-list><li><span class=run-no>llama.cpp</span>
+<span class="badge run-badge-no">動作せず</span>
+<span class=muted>メモリが 64MB/256MB 級で、RVV もなく FPU の余裕もないため、LLM の実用性はありません。動いたという公開記録も見つかりませんでした。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li><li><span class=run-no>onnxruntime</span>
+<span class="badge run-badge-no">動作せず</span>
+<span class=muted>メモリも演算力も足りず、公式の AI 経路は汎用ランタイムではなく TPU です。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li><li><span class=run-no>pytorch</span>
+<span class="badge run-badge-no">動作せず</span>
+<span class=muted>対象外です。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li><li><span class=run-partial>opencv</span>
+<span class="badge run-badge-partial">一部可</span>
+<span class=muted>基本的な画像処理はできますがメモリが制約になり、公式のサンプルは TDL SDK 経由です。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li><li><span class=run-unknown>ncnn</span>
+<span class="badge run-badge-unknown">公開情報なし</span>
+<span class=muted>公開証拠は見つかりませんでした（一般的なモデルを読み込むにはメモリが足りません）。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li><li><span class=run-works>cvitek-tpu / tdl-sdk</span>
+<span class="badge run-badge-works">動作可</span>
+<span class=muted>Milk-V 公式ドキュメントによると、Duo シリーズの SoC には CVITEK TPU が内蔵され、TDL SDK の使用が推奨されています。YOLOv5/v8/11/12、MobileNetV2、ResNet18 などのサンプルがあります。TPU スタックはクローズドです。</span>
+<span class=ev><a href=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction rel=noopener title=https://milkv.io/docs/duo/application-development/tpu/tpu-introduction>milkv.io</a></span></li></ul><p class=muted>NPU / アクセラレータCVITEK TPU（約 0.5 TOPS）。クローズドな TDL SDK / cvitek ツールチェーン</p><p>MCU 級の視覚ボードの典型で、YOLO 系の小型モデルは動きますが LLM にはまったく向きません。</p></article><section class=block><div class=block-head><h2>RuyiSDK テスト表</h2></div><p><a href=https://matrix.ruyisdk.org/ rel=noopener>https://matrix.ruyisdk.org/</a></p></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V ディストロ · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容は CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/ja/start/>はじめかた</a>
+<a href=/ja/distros/>ディストロ</a>
+<a href=/ja/matrix/>対応表</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>ソース</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"ダークに切り替え":"ライトに切り替え")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

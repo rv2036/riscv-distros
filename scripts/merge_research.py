@@ -60,6 +60,16 @@ def normalize_upstream(d, ):
     return 'community'
 
 
+AUDIENCE_ALIAS = {'新人推荐': 'recommended', '厂商测试': 'vendor', '仅评估': 'advanced',
+                  '可直接用': 'recommended', '需要动手': 'advanced'}
+
+
+def norm_audience(v, did):
+    if not v:
+        return audience_of(did)
+    return AUDIENCE_ALIAS.get(v.strip(), v.strip())
+
+
 def audience_of(did):
     for k, v in AUDIENCE.items():
         if did in v:
@@ -119,7 +129,7 @@ def main():
             'upstream_note': d.get('upstream_note', ''),
             'kind': d.get('kind', 'distro'),
             'based_on': d.get('based_on') or d.get('base', ''),
-            'audience': d.get('audience') or audience_of(did),
+            'audience': norm_audience(d.get('audience'), did),
             'versions': d.get('versions', []),
             'boards': clean_boards(d.get('boards')),
             'downloads': [{'label': x['label'], 'url': x['url']} for x in d.get('downloads', []) if x.get('url')],
