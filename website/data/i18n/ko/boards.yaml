@@ -1,0 +1,1281 @@
+# boards (ko)
+items:
+- id: qemu
+  name: QEMU virt 가상 머신
+  soc: 없음(QEMU 범용 가상 플랫폼, RV32/RV64 구성 가능, 최대 512코어)
+  vendor: QEMU Project
+  spec: '순수 가상 플랫폼: 최대 512개 RV64GC 코어, CLINT/PLIC, PCIe 호스트 브리지, virtio-mmio 8개, NS16550 UART, 선택적 AIA/IOMMU. 메모리·디스크·네트워크는 전부 명령행 인자로 가상화되고 실제 GPU/VPU/NPU는 없습니다.'
+  status: virtual
+  price_note: 무료 오픈소스(GPLv2), 각 배포판 소프트웨어 저장소로 제공
+  forms: []
+  official_os:
+  - debian
+  - ubuntu
+  distros:
+  - distro: debian
+    level: official
+    note: Debian 13부터 riscv64가 정식 아키텍처라 공식 netinst ISO를 virt에 바로 설치할 수 있습니다.
+  - distro: ubuntu
+    level: official
+    note: 공식 riscv64 cloud image. EDK2(pflash) 또는 -kernel로 부팅합니다.
+  - distro: fedora
+    level: community
+    note: Fedora RISC-V가 QEMU 설치 안내와 이미지를 제공합니다.
+  - distro: alpine
+    level: official
+    note: riscv64 minirootfs만 있고 virt ISO가 없어 커널/initramfs를 직접 준비해야 합니다.
+  - distro: arch
+    level: official
+    note: archriscv가 riscv64 ISO를 제공하며 QEMU에서 부팅할 수 있습니다.
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports가 riscv64를 제공하지만 공식 사이트가 curl에 403을 돌려줘 직링크는 검증하지 못했습니다.
+  - distro: gentoo
+    level: official
+    note: stage3 riscv64 + 핸드북이 QEMU 시스템을 지원합니다.
+  - distro: void
+    level: partial
+    note: riscv64 포트는 있지만 QEMU 이미지는 직접 빌드해야 합니다.
+  - distro: nixos
+    level: community
+    note: riscv64는 비공식 지원 등급이라 크로스 빌드가 필요합니다.
+  - distro: alt
+    level: official
+    note: ALT Ports riscv64가 QEMU 이미지를 제공합니다.
+  - distro: freebsd
+    level: official
+    note: riscv64가 QEMU virt를 지원합니다.
+  - distro: netbsd
+    level: official
+    note: riscv64 포트가 QEMU를 지원합니다.
+  - distro: openbsd
+    level: official
+    note: riscv64가 QEMU virt를 지원합니다.
+  - distro: openeuler
+    level: official
+    note: openEuler RISC-V SIG가 QEMU 이미지를 제공합니다.
+  - distro: buildroot
+    level: official
+    note: qemu_riscv64_virt_defconfig, make 한 줄로 시스템이 뜹니다.
+  - distro: yocto
+    level: official
+    note: qemuriscv64 machine 공식 지원.
+  downloads:
+  - label: 'QEMU 공식 문서: RISC-V virt 머신'
+    url: https://www.qemu.org/docs/master/system/riscv/virt.html
+  - label: QEMU 다운로드 페이지
+    url: https://www.qemu.org/download/
+  - label: Ubuntu 24.04 riscv64 cloud image
+    url: https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img
+  - label: Debian 13.7 riscv64 netinst ISO
+    url: https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/
+  - label: Arch Linux RISC-V ISO
+    url: https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso
+  - label: Alpine riscv64 minirootfs
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - label: Buildroot 다운로드
+    url: https://buildroot.org/downloads/
+  guides:
+  - label: 'QEMU wiki: RISC-V 플랫폼 설명'
+    url: https://wiki.qemu.org/Documentation/Platforms/RISCV
+    type: doc
+    lang: en
+  - label: 'Debian wiki: RISC-V 포트'
+    url: https://wiki.debian.org/RISC-V
+    type: doc
+    lang: en
+  - label: 'Fedora: RISC-V 설치 가이드'
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  - label: Gentoo RISC-V 프로젝트
+    url: https://wiki.gentoo.org/wiki/Project:RISC-V
+    type: doc
+    lang: en
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - -bios default는 OpenSBI만 올리고 U-Boot/EDK2는 없습니다. Ubuntu/Fedora cloud image를 부팅하려면 pflash로 32MiB EDK2 펌웨어를 올려야 하고, 아니면 화면이 검게 나옵니다.
+  - virt에는 GPU/VPU/NPU가 없으니 그래픽, 영상 하드웨어 디코딩, AI 가속 검증에 쓰면 안 됩니다.
+  - 시리얼은 ttyS0으로 고정입니다. -nographic 모드에서 나가려면 Ctrl-A 다음 X를 누릅니다.
+  - Ubuntu 26.04부터 RVA23S64가 필요해 확장이 없는 구버전 QEMU에서는 부팅되지 않습니다. 24.04는 여전히 RVA20 베이스라인입니다.
+  - Alpine riscv64는 minirootfs만 내고 virt ISO가 없어 커널과 initramfs를 직접 준비해야 합니다.
+  doc_langs:
+  - en
+  note: 모든 보드의 공통 출발점입니다. virt에서 커널/rootfs를 먼저 검증하고 실기로 넘어가면 플래싱과 디버깅 시간을 크게 줄일 수 있습니다.
+  checked: '2026-11-01'
+  order: 1
+  feature: true
+- id: visionfive2
+  name: StarFive VisionFive 2
+  soc: 'StarFive JH7110: 4×SiFive U74 @1.5GHz + S7 모니터 코어 + E24'
+  vendor: StarFive
+  spec: 2/4/8GB LPDDR4, microSD + eMMC(일부 버전), M.2 M-Key NVMe, 기가비트 이더넷 2개(v1.3은 PoE 지원), HDMI 2.0, USB 4개, 40핀 GPIO. 간소화 버전인 VisionFive 2 Lite도 있습니다.
+  status: on_sale
+  price_note: 표준판 2/4/8GB 약 US$60–120(미검증). VisionFive 2 Lite 채널 실판매가 US$99.95
+  forms: []
+  official_os:
+  - debian
+  - ubuntu
+  distros:
+  - distro: debian
+    level: official
+    note: StarFive 공식 Debian 202510(Trixie + Wayland 데스크톱)이며, 메인라인 Debian 13 공식 설치 프로그램으로도 설치할 수 있습니다.
+  - distro: ubuntu
+    level: official
+    note: StarFive 공식 Ubuntu 24.04.3(202510) + Canonical jh7110 프리인스톨 이미지.
+  - distro: fedora
+    level: community
+    note: Fedora RISC-V 공식 테스트 보드 중 하나입니다.
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports가 riscv64를 제공하지만 공식 사이트가 403이라 직링크는 미검증입니다.
+  - distro: arch
+    level: community
+    note: archriscv가 VF2 rootfs/ISO를 제공합니다.
+  - distro: alpine
+    level: community
+    note: riscv64 minirootfs를 쓸 수 있습니다.
+  - distro: armbian
+    level: community
+    note: Armbian이 VisionFive 2를 공식 지원합니다.
+  - distro: gentoo
+    level: community
+    note: Gentoo wiki에 VisionFive 2 전용 페이지가 있습니다.
+  - distro: netbsd
+    level: community
+    note: NetBSD/riscv가 JH7110을 지원합니다.
+  - distro: openbsd
+    level: community
+    note: OpenBSD/riscv64가 JH7110을 지원합니다.
+  - distro: freebsd
+    level: community
+    note: FreeBSD에 JH7110 지원이 있습니다.
+  - distro: nixos
+    level: community
+    note: 커뮤니티 유지보수로 이미지를 직접 만들어야 합니다.
+  - distro: buildroot
+    level: official
+    note: StarFive SDK가 Buildroot 기반이라 SPL/U-Boot/FIT를 만듭니다.
+  - distro: yocto
+    level: community
+    note: 커뮤니티 meta-starfive 레이어.
+  - distro: openeuler
+    level: community
+    note: openEuler RISC-V SIG가 이미지를 제공합니다.
+  - distro: deepin
+    level: community
+    note: deepin RISC-V 포팅판.
+  - distro: openkylin
+    level: community
+    note: openKylin에 VF2 이미지가 있습니다.
+  downloads:
+  - label: StarFive 공식 Debian 202510 (v0.15.0)
+    url: https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
+  - label: StarFive 공식 Ubuntu 24.04.3 (202510)
+    url: https://github.com/starfive-tech/VisionFive2/releases/tag/6.0.0
+  - label: Canonical Ubuntu jh7110 프리인스톨 이미지 (VF2/Mars/Star64 공용)
+    url: https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+jh7110.img.xz
+  - label: StarFive VisionFive2 SDK / 펌웨어
+    url: https://github.com/starfive-tech/VisionFive2
+  - label: 'Debian wiki: VisionFive 2에 Debian 설치'
+    url: https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2
+  - label: Armbian VisionFive 2
+    url: https://www.armbian.com/visionfive2/
+  - label: Arch Linux RISC-V 이미지 디렉터리
+    url: https://archriscv.felixc.at/images/
+  - label: Alpine riscv64 minirootfs
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - label: 'RVspace 포럼: Debian 202510 릴리스 글 (호환성 피드백 포함)'
+    url: https://forum.rvspace.org/t/visionfive-2-lite-debian-202510-released/5714
+  guides:
+  - label: StarFive VisionFive2 SDK 문서 (README, 펌웨어 기록/복구 포함)
+    url: https://github.com/starfive-tech/VisionFive2
+    type: doc
+    lang: en
+  - label: Debian wiki 설치 가이드
+    url: https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2
+    type: doc
+    lang: en
+  - label: 'Gentoo wiki: StarFive VisionFive 2'
+    url: https://wiki.gentoo.org/wiki/StarFive_VisionFive_2
+    type: doc
+    lang: en
+  - label: RVspace 공식 커뮤니티 (중영문)
+    url: https://rvspace.org/
+    type: doc
+    lang: zh
+  - label: Fedora RISC-V 설치 가이드
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  gotchas:
+  - U-Boot/SPL이 QSPI Flash에 있어 이미지와 펌웨어가 강하게 묶입니다. 202310 이후 이미지는 QSPI의 U-Boot ≥ v3.1.5를 요구하므로, 아니면 u-boot-spl.bin.normal.out + visionfive2_fw_payload.img를 먼저 기록해야 합니다.
+  - 부팅 순서가 QSPI → SD/eMMC/NVMe라 DIP 스위치를 잘못 두면 엉뚱한 매체에서 부팅합니다.
+  - v1.2 구형 보드에 Debian 202510을 올리면 실패 보고가 있습니다. 펌웨어를 먼저 올리거나 메인라인 Debian으로 바꾸세요.
+  - StarFive 공식 Debian 202510은 USB 부팅을 지원하지 않습니다. 메인라인 Debian 13은 USB 부팅이 되지만 HDMI/GPU/VPU 드라이버가 없습니다.
+  - VisionFive 2 Lite는 표준판과 U-Boot/DTB가 달라 이미지를 섞어 쓸 수 없습니다.
+  - eMMC/SD 부팅에 알려진 errata가 있으니 NVMe나 품질 좋은 SD 카드를 우선하세요.
+  doc_langs:
+  - en
+  - zh
+  note: 생태계와 배포판 커버리지가 가장 넓은 JH7110 보드로, 초보자의 첫 RISC-V 보드 후보 중 하나입니다. 배치별 펌웨어 차이에 주의하세요. openwrt/dietpi/guix 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
+  checked: '2026-11-01'
+  order: 2
+  feature: true
+- id: licheepi-4a
+  name: LicheePi 4A(리치파이 4A)
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz + C906 + E902, 4TOPS NPU'
+  vendor: Sipeed
+  spec: 4/8/16GB LPDDR4X, 8/32/128GB eMMC, 기가비트 이더넷 2개, WiFi5/BT5, HDMI 2.0 + 4레인 MIPI DSI, MIPI CSI 2개, USB3 4개, 40핀 GPIO.
+  status: on_sale
+  price_note: 8GB 약 US$120, 16GB 약 US$180(채널 견적, 미검증)
+  forms: []
+  official_os:
+  - revyos
+  distros:
+  - distro: revyos
+    level: official
+    note: 공식 주력. 최신 시스템 이미지 20251226(Debian 계열 + kernel 6.6).
+  - distro: debian
+    level: partial
+    note: 메인라인 Debian 13이 LPi4A에서 부팅되지만 U-Boot/DTB를 직접 준비해야 하고 공식 설치 이미지는 없습니다.
+  - distro: ubuntu
+    level: partial
+    note: ubuntu-base rootfs뿐이라 커널과 부팅 구성을 직접 해야 합니다.
+  - distro: fedora
+    level: community
+    note: Fedora-V Force가 TH1520 이미지를 제공합니다.
+  - distro: arch
+    level: community
+    note: archriscv가 TH1520을 지원합니다.
+  - distro: armbian
+    level: community
+    note: Armbian이 LicheePi 4A를 공식 지원합니다.
+  - distro: gentoo
+    level: community
+    note: Gentoo wiki에 TH1520 전용 페이지가 있습니다.
+  - distro: nixos
+    level: community
+    note: 커뮤니티 저장소 nixos-licheepi4a(RevyOS 커널/U-Boot 재사용).
+  - distro: openeuler
+    level: community
+    note: openEuler RISC-V SIG가 이미지를 제공합니다.
+  - distro: openkylin
+    level: community
+    note: 커뮤니티 openKylin 이미지.
+  - distro: deepin
+    level: community
+    note: deepin RISC-V 포팅판.
+  - distro: buildroot
+    level: partial
+    note: RevyOS가 Buildroot로 boot/rootfs를 빌드합니다.
+  downloads:
+  - label: RevyOS LicheePi 4A 이미지 (20251226)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS 플래싱 개요 (U-Boot env 초기화 설명 포함)
+    url: https://docs.revyos.dev/en/docs/Installation/intro/
+  - label: Sipeed Wiki 이미지 모음 (영문)
+    url: https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
+  - label: Sipeed Wiki 이미지 모음 (중문, 정보가 가장 많음)
+    url: https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
+  - label: Sipeed 공식 다운로드 서버 (사양/회로도/도구)
+    url: https://dl.sipeed.com/shareURL/LICHEE/licheepi4a
+  - label: Armbian LicheePi 4A
+    url: https://www.armbian.com/licheepi-4a/
+  - label: NixOS on LicheePi 4A (커뮤니티)
+    url: https://github.com/ryan4yin/nixos-licheepi4a
+  - label: Fedora RISC-V builder (chainsx)
+    url: https://github.com/chainsx/fedora-riscv-builder
+  - label: Gentoo TH1520 배포 가이드
+    url: https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520
+  - label: deepin RISC-V 이미지
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  - label: openKylin LPi4A 이미지 (커뮤니티)
+    url: https://github.com/aiminickwong/licheepi4a-images
+  guides:
+  - label: Sipeed Wiki 보드 소개 (영문)
+    url: https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/1_intro.html
+    type: doc
+    lang: en
+  - label: Sipeed Wiki 보드 소개 (중문)
+    url: https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/1_intro.html
+    type: doc
+    lang: zh
+  - label: RevyOS 문서 사이트
+    url: https://docs.revyos.dev/
+    type: doc
+    lang: en
+  - label: RuyiSDK 지원 매트릭스 (배포판별 실측 상태)
+    url: https://matrix.ruyisdk.org/
+    type: doc
+    lang: zh
+  gotchas:
+  - GPU는 Imagination BXM-4-64인데 벤더 클로즈드 blob뿐이라 메인라인 커널에서는 GPU 가속이 없습니다. NPU는 T-Head 전용 SDK가 필요합니다.
+  - 2023.8.1 이전 출하 16GB 배치에 U-Boot 메모리 인식 버그가 있어 16G 전용 u-boot를 기록해야 합니다. 아니면 대용량 메모리 앱이 죽습니다.
+  - 플래싱은 BOOT 키를 누른 채 전원을 넣어 fastboot(USB 2345:7654)로 들어가야 합니다. 일반 전원 투입으로는 다운로드 모드에 못 들어갑니다.
+  - 20240720 이하 RevyOS에서 올라올 때는 반드시 env default -a -f; env save로 U-Boot 환경 변수를 초기화해야 합니다.
+  - 8GB와 16GB 버전은 boot.ext4 디바이스 트리가 달라 섞어 기록하면 부팅되지 않습니다.
+  - 2026-09부터 RevyOS가 coreboot+EDK2 새 펌웨어(U-Boot SPL 대체)를 밀고 있는데 실험 성격이라 기록 전에 보드 형식을 확인하세요.
+  doc_langs:
+  - en
+  - zh
+  note: TH1520 중 자료가 가장 많고 커뮤니티가 가장 큰 보드입니다. RevyOS 데스크톱은 쓸 만하지만 GPU/NPU가 클로즈드소스인 점이 아픕니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
+  checked: '2026-11-01'
+  order: 3
+  feature: true
+- id: meles
+  name: Milk-V Meles
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz + C906 + E902, 4TOPS NPU'
+  vendor: Milk-V
+  spec: 4/8/16GB LPDDR4X 4266MT/s, eMMC 슬롯(옵션 모듈) + microSD, 기가비트 이더넷 1개(PoE 지원), WiFi5/BT5.2(AP6256), USB3.0 4개, HDMI 2.0 4K60, MIPI DSI/CSI, 40핀, 신용카드 크기.
+  status: on_sale
+  price_note: 8GB 약 US$90–110(미검증)
+  forms: []
+  official_os:
+  - revyos
+  distros:
+  - distro: revyos
+    level: official
+    note: 공식 주력, 20251226 시스템 이미지(kernel 6.6). Milk-V 공식 이미지 페이지는 이제 RevyOS Docs를 가리킵니다.
+  - distro: openeuler
+    level: community
+    note: openEuler RISC-V SIG가 Meles 이미지를 제공합니다.
+  - distro: deepin
+    level: community
+    note: deepin RISC-V 포팅판.
+  - distro: debian
+    level: community
+    note: Debian wiki의 RISC-V 페이지가 TH1520/Meles를 언급하며 debian-ports로 직접 구성할 수 있습니다.
+  - distro: buildroot
+    level: partial
+    note: RevyOS 빌드 체인이 Buildroot 기반이라 boot/rootfs를 직접 낼 수 있습니다.
+  downloads:
+  - label: RevyOS Meles 이미지 (20251226)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: Milk-V 공식 이미지 페이지 (RevyOS로 안내)
+    url: https://milkv.io/docs/meles/resources-download/image
+  - label: eMMC에 기록하기 (fastboot 절차)
+    url: https://milkv.io/docs/meles/installation/install-an-image-to-emmc
+  - label: 설치 개요 (SD/SPI/eMMC 세 가지 방식)
+    url: https://milkv.io/docs/meles/installation
+  - label: RevyOS 문서 사이트
+    url: https://docs.revyos.dev/
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  - label: deepin RISC-V 이미지
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  guides:
+  - label: Meles 개요와 사양 (영문)
+    url: https://milkv.io/docs/meles/overview
+    type: doc
+    lang: en
+  - label: Meles 하드웨어 설명 (버전/전원/인터페이스)
+    url: https://milkv.io/docs/meles/hardware/meles-main-board
+    type: doc
+    lang: en
+  - label: Meles 개요와 사양 (중문)
+    url: https://milkv.io/zh/docs/meles/overview
+    type: doc
+    lang: zh
+  - label: Meles 설치 안내 (중문)
+    url: https://milkv.io/zh/docs/meles/installation
+    type: doc
+    lang: zh
+  gotchas:
+  - 4GB판과 8GB/16GB판의 U-Boot SPL이 달라(u-boot-with-spl-meles-4g.bin vs meles.bin) 잘못 기록하면 바로 벽돌이 됩니다.
+  - 20251226부터 kernel 6.6으로 바뀌었으니 시스템을 기록하기 전에 SPI Flash 펌웨어를 먼저 올려야 합니다.
+  - eMMC는 옵션 모듈입니다. eMMC 부팅을 하려면 SPI NOR을 먼저 기록해야 하고, 아니면 SD로만 부팅합니다.
+  - eMMC 기록은 fastboot(T-HEAD USB download gadget 2345:7654)로 하고 Download 키를 눌러 다운로드 모드로 들어갑니다.
+  - 보드에 V1.x 하드웨어 리비전이 여럿이라(실크 인쇄는 앞면) DTB/이미지를 맞춰야 합니다.
+  - PoE 전원은 핀헤더 PIN2/PIN4에 5V를 직접 넣는 방식이라 표준 802.3af 수전이 아닙니다.
+  doc_langs:
+  - en
+  - zh
+  note: LicheePi 4A와 같은 SoC로 더 작고 저렴하지만 커뮤니티가 한 단계 작아 이미지는 사실상 RevyOS 한 갈래입니다.
+  checked: '2026-11-01'
+  order: 4
+  feature: false
+- id: k3
+  name: SpacemiT K3(Pico-ITX / CoM260)
+  soc: SpacemiT K3(Key Stone K3)
+  vendor: SpacemiT
+  spec: '8×X100@2.4GHz + 8×A100 AI 코어, RVA23/RVV1.0(최대 1024bit), 60 TOPS 범용 AI 연산, 130 KDMIPS. Pico-ITX: 16/32GB LPDDR5-6400, UFS2.2 128/256GB, 10GbE SFP+ + 1GbE, M.2 2개(M-Key Gen3 x4 / B-Key), USB3.2 Type-C
+    2개(풀기능 65W PD + 4K DP 포함) + USB2.0 4개, 100×86mm. CoM260: 260pin 코어 보드 + 레퍼런스 캐리어, 캐리어는 Jetson Orin Nano와 하드웨어 호환.'
+  status: on_sale
+  price_note: Sipeed 첫 판매가 Pico-ITX 8GB $299, CoM260 키트 $309. 32GB/128GB 채널가 $595–889(Firefly 출하, TinyComputers 리뷰 세금 포함 $1175), 중국 Milk-V Jupiter2 8GB 예약판매 약 ¥1799. 채널·관세 차이가 커서 미디어/채널 견적입니다.
+  forms:
+  - Pico-ITX
+  - CoM260(브리프의 SOM260)
+  official_os:
+  - bianbu
+  - ubuntu
+  - debian
+  - buildroot
+  distros:
+  - distro: bianbu
+    level: official
+    note: 출하 시 Bianbu Desktop 3.0 프리인스톨. archive에는 이미 4.0.8(2026-10-16 빌드, LXQt/Minimal, UEFI 변형 포함)이 올라 있습니다.
+  - distro: ubuntu
+    level: official
+    note: SpacemiT archive가 ubuntu-26.04-preinstalled-desktop-riscv64 이미지를 제공하고, 공식 사양 페이지에 Ubuntu 26.04가 올라 있습니다.
+  - distro: debian
+    level: official
+    note: Debian 13 GNOME/XFCE/Minimal 이미지(2026-07-30 빌드).
+  - distro: buildroot
+    level: official
+    note: 공식 SDK가 buildroot 설정과 이미지를 제공합니다.
+  - distro: openkylin
+    level: vendor-claim
+    note: 공식 사양 페이지에 OpenKylin 지원이 적혀 있지만 공개 이미지 다운로드는 보이지 않습니다.
+  - distro: deepin
+    level: vendor-claim
+    note: 공식 사양 페이지에 Deepin 지원이 적혀 있지만 공개 이미지 다운로드는 보이지 않습니다.
+  - distro: fedora
+    level: vendor-claim
+    note: 공식 사양 페이지에 Fedora 지원이 적혀 있지만 K3 전용 공식 이미지는 보이지 않습니다.
+  downloads:
+  - label: Bianbu K3 이미지 (4.0.8 포함)
+    url: https://archive.spacemit.com/image/k3/version/bianbu/
+  - label: Debian 13 K3 이미지
+    url: https://archive.spacemit.com/image/k3/version/debian/
+  - label: Ubuntu 26.04 K3 이미지
+    url: https://archive.spacemit.com/image/k3/version/ubuntu/26.04/
+  - label: Buildroot K3 이미지
+    url: https://archive.spacemit.com/image/k3/version/buildroot/
+  guides:
+  - label: K3 Pico-ITX 공식 제품 페이지 (사양과 OS 목록)
+    url: https://www.spacemit.com/community/development-kit/k3-pico-itx
+    type: doc
+    lang: zh
+  - label: K3-CoM260 공식 제품 페이지
+    url: https://www.spacemit.com/community/development-kit/k3-com260
+    type: doc
+    lang: zh
+  - label: SpacemiT K3 칩 문서 입구
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/key_stone/k3
+    type: doc
+    lang: zh
+  - label: Banana Pi K3 Pico-ITX 사양과 시작하기 (영문)
+    url: https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX
+    type: doc
+    lang: en
+  - label: K3 레퍼런스 디자인과 SDK 공개 계획 (공식 포럼)
+    url: https://forum.spacemit.com/t/topic/963
+    type: doc
+    lang: en
+  - label: Banana Pi K3 공개 판매 공지 (2026-05)
+    url: https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
+    type: doc
+    lang: en
+  - label: TinyComputers K3 Pico-ITX 심층 리뷰 (함정 포함)
+    url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
+    type: doc
+    lang: en
+  gotchas:
+  - 출하 Bianbu 4.0.4는 벤더 커널 6.18.3-generic이라 mainline이 아닙니다. K3 레퍼런스 디자인과 SDK는 2026-05부터 순차 공개돼 문서와 하드웨어 검증이 같이 진행 중입니다.
+  - 코어는 16개로 열거되지만 한 작업에는 최대 8코어까지만 스케줄되고 KVM/가상머신은 실측상 쓸 수 없습니다(TinyComputers 2026-09 리뷰).
+  - 리뷰에서 10GbE SFP+가 link되지 않고 기가비트 포트만 동작했습니다. 10GbE 드라이버와 광모듈 호환은 실측이 필요합니다.
+  - 채널 가격 차이가 크고 관세도 직접 부담해야 합니다. Milk-V Jupiter2 문서는 아직 stub이라 주로 SpacemiT 공식 문서에 의존합니다.
+  doc_langs:
+  - zh
+  - en
+  note: 공식 명칭은 K3-CoM260(260pin SO-DIMM 코어 보드)이고 과제의 SOM260이 이 형태입니다. Pico-ITX와 CoM260은 SoC/SDK와 시스템 이미지를 공유합니다. K3는 2026-04-30 글로벌 판매를 시작해 2026-05부터 양산 공개 판매에 들어갔습니다.
+  checked: '2026-11-01'
+  order: 5
+  feature: true
+- id: a210
+  name: Zhihe A210(XuanTie MelonPi 개발 보드)
+  soc: ZHIHE A210(4×C920 + 4×C908)
+  vendor: 'Zhihe Computing(보드 브랜드: XuanTie MelonPi)'
+  spec: '8코어 64비트 RISC-V: 4×C920@1.9GHz + 4×C908@1.9GHz, 모두 RVV(128bit) 지원. NPU 12 TOPS@INT8로 INT4/INT8/FP8/FP16/BF16와 Transformer 지원, LPDDR4X 최대 16GB, eMMC5.1, H.265 디코딩 4K@120fps. 보드는 SODIMM 코어 보드 + V1/V2/V3
+    오픈소스 캐리어, 8GB LPDDR4X + 32GB eMMC(제3자 프로젝트 페이지 데이터).'
+  status: hard
+  price_note: 소매가가 공개되지 않았고 개발 보드는 주로 쉬안톄 RV 아카데미나 화추 오픈소스 하드웨어 같은 채널로 풀립니다. 공개 견적은 찾지 못했습니다.
+  forms:
+  - SODIMM 컴퓨트 모듈 + V3 캐리어
+  - A210 컴퓨트 동글(Dongle)
+  official_os:
+  - debian
+  - buildroot
+  distros:
+  - distro: debian
+    level: official
+    note: a210-evb 데스크톱 Debian 사전 빌드 이미지(SDK v2.9.0).
+  - distro: buildroot
+    level: official
+    note: zhihe_a210_defconfig, 공식 Buildroot SDK.
+  downloads:
+  - label: A210 Debian 데스크톱 이미지 (v2.9.0)
+    url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
+  - label: A210 Buildroot 이미지 (v2.9.0)
+    url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/br2image-v2.9.0-a210_evb.tar.gz
+  guides:
+  - label: A210 제품 사양서 (중문)
+    url: https://developer.zhcomputing.com/zh/docs/A210/A210_Datasheet
+    type: doc
+    lang: zh
+  - label: A210 제품 사양서 (영문)
+    url: https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
+    type: doc
+    lang: en
+  - label: SDK 빠른 시작 (이미지/빌드/기록)
+    url: https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
+    type: doc
+    lang: zh
+  - label: A210 이미지 기록 가이드 (SODIMM V1/V2/V3, 연산 스틱)
+    url: https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
+    type: doc
+    lang: zh
+  gotchas:
+  - 소매 채널과 공개 가격이 없어 개발 보드가 평가/협력 채널 중심이라 일반 개발자는 구하기 어렵습니다.
+  - A210과 A200 이미지는 호환되지 않습니다. 공식 Ubuntu는 A200만 제공하고 A210은 Debian/Buildroot뿐입니다.
+  - GitHub/Gitee에 공식 BSP 저장소가 없고(검색 결과 0) 커널과 드라이버가 벤더 SDK 패키지로만 나와 제3자 배포판 지원이 거의 없습니다.
+  - '벤더 데이터: 단일 칩 DeepSeek-7B 약 8 tok/s, 4 die 캐스케이드 25 tok/s. 실제 값은 자체 측정 기준입니다.'
+  doc_langs:
+  - zh
+  - en
+  note: '모델 구분: 칩은 즈허컴퓨팅 A210(아르키메데스 계열, 쉬안톄 C920/C908 코어)이고 개발 보드 브랜드가 “MelonPi”입니다. Ubuntu 이미지는 A200(a200-evb)만 커버해 A210에는 쓸 수 없습니다.'
+  checked: '2026-11-01'
+  order: 6
+  feature: true
+- id: k230
+  name: Canaan K230(Kendryte K230 / CanMV-K230)
+  soc: Kendryte K230(2×C908)
+  vendor: Canaan
+  spec: '듀얼코어 64비트 RISC-V C908: 대코어 1.6GHz(RVV1.0), 소코어 0.8GHz. KPU 6 TOPS 상당 연산(INT8/INT16, K230D는 1 TOPS). CanMV-K230은 512MB LPDDR4, microSD, HDMI, MIPI-CSI 3개, USB 온보드. 칩 전체 전형 소비전력 약 2W.'
+  status: on_sale
+  price_note: CanMV-K230 약 $40–60(AliExpress/Newegg 등 채널), 01Studio 키트 $49–88. 공식 가격은 비공개(채널 견적).
+  forms:
+  - CanMV-K230
+  - BPI-K230D-ZERO(K230D)
+  official_os:
+  - buildroot
+  - debian
+  - ubuntu
+  distros:
+  - distro: buildroot
+    level: official
+    note: k230_linux_sdk 기본이 Buildroot 방식(k230_canmv/k230_evb defconfig).
+  - distro: debian
+    level: official
+    note: SDK가 make debian을 지원하고 공식 《K230 Debian/Ubuntu 시스템 가이드》가 있습니다.
+  - distro: ubuntu
+    level: official
+    note: SDK가 make ubuntu를 지원하며 위 가이드와 같습니다.
+  downloads:
+  - label: K230 Linux SDK 일일 빌드 이미지
+    url: https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
+  - label: CanMV(MicroPython) 펌웨어 Releases
+    url: https://github.com/kendryte/canmv_k230/releases
+  - label: K230 Linux SDK 소스
+    url: https://github.com/kendryte/k230_linux_sdk
+  guides:
+  - label: CanMV-K230 빠른 시작 (중문)
+    url: https://www.kendryte.com/k230_canmv/zh/main/index.html
+    type: doc
+    lang: zh
+  - label: K230 Linux SDK 문서 (중문)
+    url: https://www.kendryte.com/k230_linux/zh/main/index.html
+    type: doc
+    lang: zh
+  - label: K230 Debian/Ubuntu 시스템 가이드
+    url: https://www.kendryte.com/k230_linux/zh/main/app_develop_guide/user_develop/debian_ubuntu.html
+    type: doc
+    lang: zh
+  - label: NuttX CanMV-K230 보드 문서 (영문)
+    url: https://nuttx.apache.org/docs/latest/platforms/risc-v/k230/boards/canmv230/index.html
+    type: doc
+    lang: en
+  gotchas:
+  - AMP 이기종 구조라 기본은 소코어가 Linux, 대코어가 RT-Smart/CanMV를 돌립니다. V 확장은 대코어에만 있으니 벡터 워크로드는 코어를 맞춰야 합니다.
+  - 공식 Linux 메인라인은 Buildroot이고 Debian/Ubuntu는 make debian / make ubuntu로 직접 빌드해야 합니다. 완성된 공식 데스크톱 이미지는 없습니다.
+  - 펌웨어를 반드시 맞춰야 합니다. CanMV IDE는 파일명이 CanMV-K230_micropython으로 시작하는 펌웨어만 인식해 K230 SDK 이미지를 올리면 연결되지 않습니다.
+  - nncase 툴체인이 클로즈드소스이고 펌웨어 버전에 강하게 묶입니다. 초기 빌드 문서는 중국어뿐이었습니다.
+  doc_langs:
+  - zh
+  - en
+  note: CanMV(MicroPython 펌웨어)가 출하량이 가장 많고 자료도 가장 많습니다. Linux 쪽은 공식적으로 Buildroot를 밀고, Apache NuttX에는 CanMV-K230 보드 지원이 따로 있습니다(배포판 아님). RuyiSDK 지원 매트릭스에 CanMV K230(D)이 올라 있어 ruyi device provision으로 이미지를
+    받을 수 있습니다.
+  checked: '2026-11-01'
+  order: 7
+  feature: false
+- id: megrez
+  name: Milk-V Megrez(ESWIN EIC7700X)
+  soc: ESWIN EIC7700X
+  vendor: 'Milk-V(칩: ESWIN)'
+  spec: 4×SiFive P550@1.8GHz(RV64GBCH, 출하 기본 1.4GHz/800mV), 19.95 TOPS@INT8 NPU, IMG AXM-8-256 GPU(OpenGL ES3.2/Vulkan1.2/OpenCL), 8/16/32GB LPDDR5-6400, Mini-ITX 170×170mm, PCIe x8 슬롯(Gen3 x4), GbE 2개,
+    USB3 4개, SATA/M.2 SATA, 8K H.265 인코딩/디코딩.
+  status: hard
+  price_note: 2024년 첫 판매 $199(16GB) / $269(32GB, Arace). 현재 공식 사이트에는 Contact us만 남아 있고 공개 소매 링크가 없습니다.
+  forms:
+  - Mini-ITX
+  official_os:
+  - debian
+  - fedora
+  distros:
+  - distro: debian
+    level: official
+    note: RockOS(PLCT가 유지하는 Debian 최적화판, EIC77 계열 대상).
+  - distro: fedora
+    level: official
+    note: Fedora 41 이미지를 Fedora-V Force(FVF)가 빌드한 것으로 Fedora 공식 이미지는 아닙니다.
+  - distro: gentoo
+    level: community
+    note: Gentoo wiki에 Megrez 설치 페이지가 있습니다(커뮤니티 유지).
+  downloads:
+  - label: RockOS/Debian 이미지와 bootloader (megrez-build releases)
+    url: https://github.com/milkv-megrez/megrez-build/releases/
+  - label: Fedora 41(FVF) Megrez 이미지
+    url: https://images.fedoravforce.org/Megrez
+  guides:
+  - label: Megrez 개요와 사양 (중문)
+    url: https://milkv.io/zh/docs/megrez/overview
+    type: doc
+    lang: zh
+  - label: Megrez 시스템 설치/부팅 안내 (파티션 확장 등)
+    url: https://milkv.io/docs/megrez/getting-started/boot
+    type: doc
+    lang: en
+  - label: ENNP SDK 개발 가이드 (NPU)
+    url: https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction
+    type: doc
+    lang: en
+  - label: Gentoo on Megrez (커뮤니티)
+    url: https://wiki.gentoo.org/wiki/User:Immolo/Sandbox/Milk-V-Megrez
+    type: doc
+    lang: en
+  gotchas:
+  - 출하 CPU 기본이 1.4GHz/800mV라 문서대로 수동 조정해야 1.8GHz가 됩니다. 아니면 성능이 홍보보다 낮습니다.
+  - 첫 부팅에서 파티션이 자동 확장되지 않아 루트가 6GB뿐입니다. gparted로 직접 늘리지 않으면 곧 꽉 차서 재부팅 후 데스크톱에 못 들어갑니다.
+  - Fedora 이미지는 Fedora-V Force(F41) 빌드이고 Fedora 공식 빌드가 아닙니다. Ubuntu 공식 이미지는 없습니다.
+  - 공개 소매 채널이 없고(공식 사이트는 Contact us만) 2026년 현재 실제 구매가 어렵습니다.
+  doc_langs:
+  - zh
+  - en
+  note: Megrez는 EIC7700X를 가장 먼저 양산한 Mini-ITX 보드입니다. 같은 칩에 SiFive HiFive Premier P550(더 비싸지만 Ubuntu 공식 지원이 좋음)도 있습니다.
+  checked: '2026-11-01'
+  order: 8
+  feature: false
+- id: titan
+  name: Milk-V Titan(UltraRISC DP1000)
+  soc: UltraRISC UR-DP1000
+  vendor: 'Milk-V(칩: UltraRISC)'
+  spec: 8×UR-CP100@2.0GHz, RV64GCBHX(RVA22 완전, V 확장 없음). 최대 64GB DDR4 UDIMM(ECC 지원), PCIe Gen4 x16, NVMe Gen4 x4, GbE 2개, USB3, Mini-ITX, UEFI+ACPI+SMBIOS, BMC 모듈 옵션, 온보드 디스플레이 출력 없음.
+  status: on_sale
+  price_note: $329(Arace 표준/예약판매가). 2025년 예약 기간에 $279 티어와 $50 할인권이 있었습니다(미디어).
+  forms:
+  - Mini-ITX
+  official_os:
+  - ubuntu
+  - fedora
+  - openkylin
+  distros:
+  - distro: ubuntu
+    level: official
+    note: UltraRISC 공식 Ubuntu 24.04 Desktop(rvck-titan, 2026-06-05 빌드).
+  - distro: fedora
+    level: official
+    note: Fedora 44 Server Omni(Fedora RISC-V 공식 이미지, GRUB/DTB 절차 포함).
+  - distro: openkylin
+    level: official
+    note: openKylin 2.0 SP2(ultrarisc-titan, 2026-06-22 빌드).
+  downloads:
+  - label: Ubuntu 24.04(UltraRISC 공식, 분할 7z)
+    url: https://github.com/milkv-titan/titan-ubuntu/releases
+  - label: Fedora 44 RISC-V 이미지 디렉터리
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - label: openKylin 2.0 SP2 for Titan
+    url: https://bj30886.apps.aliyunfile.com/disk/s/ekZ6yZbox2V?domainId=bj30886
+  guides:
+  - label: Titan 개요와 사양 (중문)
+    url: https://milkv.io/zh/docs/titan/overview
+    type: doc
+    lang: zh
+  - label: Titan에 Ubuntu 24.04 설치 (기록+부팅)
+    url: https://milkv.io/docs/titan/getting-started/boot/ubuntu-24.04
+    type: doc
+    lang: en
+  - label: Fedora on Milk-V Titan (공식 Wiki)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Titan
+    type: doc
+    lang: en
+  gotchas:
+  - UR-DP1000에는 V(벡터) 확장이 없어 엄밀히는 RVA23에 못 미치고 AI/벡터 워크로드 성능이 불리합니다.
+  - 메인보드에 HDMI/디스플레이 출력이 없어 외장 그래픽 카드나 순수 시리얼/SSH로 써야 합니다.
+  - 현재는 벤더 커널이고 공식적으로 2026 Q4에 Linux mainline 업스트림을 계획한다고 합니다.
+  - DDR4 UDIMM은 공식 지원 목록에서 골라야 합니다. 예약 배송 주기가 길고(45일+ 사례) 관세도 직접 부담합니다.
+  doc_langs:
+  - zh
+  - en
+  note: “그래픽 카드를 꽂을 수 있는 RISC-V 워크스테이션/경량 서버”를 겨냥하며 기본 OS는 Ubuntu입니다. Fedora 44부터 Omni 커널로 바뀌었습니다.
+  checked: '2026-11-01'
+  order: 9
+  feature: false
+- id: unmatched
+  name: SiFive HiFive Unmatched
+  soc: 'SiFive Freedom U740(FU740): 4×U74 @1.2GHz + 1×S71 모니터 코어'
+  vendor: SiFive
+  spec: 16GB DDR4 온보드, PCIe x16(그래픽 카드/NVMe 장착 가능), M.2 Key M, M.2 Key E(WiFi), 기가비트 이더넷, USB 3.0 4개, microSD, SPI Flash. microATX 폼팩터, 12V 배럴 전원.
+  status: eol
+  price_note: 공식 페이지가 Discontinued로 표기되고 가격이 없습니다. 2024년 재고 정리에서 US$299까지 내려갔고 지금은 중고가 중심입니다(가격 미검증).
+  forms: []
+  official_os:
+  - ubuntu
+  - buildroot
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Canonical 공식 프리인스톨 이미지 ubuntu-24.04.5-...+unmatched.img.xz, 아직 24.04 LTS 지원 범위입니다.
+  - distro: buildroot
+    level: official
+    note: SiFive Freedom U SDK(FUSDK, Buildroot/Yocto 혼합)가 벤더 레퍼런스 시스템이고 U-Boot/OpenSBI를 포함합니다.
+  - distro: debian
+    level: community
+    note: Debian 공식 riscv64 설치 프로그램을 쓸 수 있고 Debian wiki에 이 보드 전용 페이지가 있습니다.
+  - distro: fedora
+    level: community
+    note: Fedora RISC-V가 오랫동안 Unmatched를 레퍼런스 보드로 올려 왔습니다.
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports가 riscv64를 제공하지만 공식 사이트가 403이라 이 보드 이미지는 검증하지 못했습니다.
+  - distro: freebsd
+    level: community
+    note: FreeBSD/riscv가 Unmatched를 지원합니다.
+  - distro: openbsd
+    level: community
+    note: OpenBSD/riscv64 커뮤니티 보고로 사용 가능합니다.
+  - distro: gentoo
+    level: community
+    note: Gentoo RISC-V 프로젝트가 U74 플랫폼을 커버합니다.
+  - distro: armbian
+    level: partial
+    note: 커뮤니티 이미지가 있었지만 Armbian 공식 사이트에서 이 보드 페이지가 내려갔습니다.
+  - distro: openeuler
+    level: community
+    note: openEuler RISC-V SIG에 이 보드용 이미지가 있습니다.
+  - distro: openkylin
+    level: community
+    note: openKylin RISC-V 버전이 한때 지원했습니다.
+  - distro: deepin
+    level: community
+    note: deepin RISC-V 포팅판을 쓸 수 있습니다.
+  downloads:
+  - label: Ubuntu 24.04.5 LTS(Unmatched 프리인스톨 이미지)
+    url: https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
+  - label: SiFive Freedom U SDK(소스)
+    url: https://github.com/sifive/freedom-u-sdk
+  - label: 'Debian wiki: Unmatched에 Debian 설치'
+    url: https://wiki.debian.org/InstallingDebianOn/SiFive/HiFiveUnmatched
+  - label: Fedora RISC-V 설치 가이드
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+  - label: FreeBSD RISC-V 설명
+    url: https://wiki.freebsd.org/riscv
+  - label: OpenBSD/riscv64
+    url: https://www.openbsd.org/riscv64.html
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  guides:
+  - label: SiFive 공식 제품 페이지 (사양과 Discontinued 표기)
+    url: https://www.sifive.com/development-platforms/hifive-unmatched
+    type: doc
+    lang: en
+  - label: SiFive 문서 센터
+    url: https://www.sifive.com/documentation
+    type: doc
+    lang: en
+  - label: Ubuntu 공식 설치 가이드 (HiFive Unmatched)
+    url: https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/boards/how-to/sifive-hifive-unmatched/
+    type: doc
+    lang: en
+  gotchas:
+  - 온보드 디스플레이 출력이 없어 PCIe 그래픽 카드를 꽂거나 시리얼을 써야 합니다. 디버깅하려면 USB-UART(FTDI)를 연결해야 OpenSBI/U-Boot 로그가 보입니다.
+  - 12V/6A 배럴 전원이라 전력이 부족하면 무작위 재부팅이나 DDR 트레이닝 실패가 납니다.
+  - 부팅 매체를 MSEL 딥스위치로 정하므로 잘못 두면 아예 부팅하지 않습니다. SPI 펌웨어가 깨지면 JTAG로 복구해야 합니다.
+  - 공식 단종이라 Ubuntu 24.04가 마지막 지원 LTS 이미지이고 커널도 오래됐습니다. 새 배포판은 이 보드 이미지를 거의 내지 않습니다.
+  - PCIe 그래픽 카드는 외부 전원이 필요하고 일부 카드는 U-Boot 단계에서 출력이 없어 Linux가 뜬 뒤에야 화면이 나옵니다.
+  doc_langs:
+  - en
+  note: 역사적으로 RISC-V 데스크톱의 기준점이었지만 지금은 중고/교육용에 더 맞습니다. 초보자 진입 비용이 높아(시리얼+딥스위치+전원) 첫 보드로는 권하지 않습니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
+  checked: '2026-11-01'
+  order: 10
+  feature: false
+- id: bpi-f3
+  name: Banana Pi BPI-F3(SpacemiT K1)
+  soc: SpacemiT K1(8×X60)
+  vendor: 'Banana Pi(칩: SpacemiT)'
+  spec: 8×X60(RV64GCVB, RVA22, RVV1.0), 2.0 TOPS, IMG BXE-2-32 GPU@819MHz, 2/4/8/16GB LPDDR4, 8/16/32/128GB eMMC, GbE 2개, USB3.0 4개, HDMI1.4(1080p), PCIe2.1(M.2 M-Key + mini PCIe), WiFi6/BT5.2, 148×100mm.
+  status: on_sale
+  price_note: AliExpress/Banana Pi 스토어에서 약 $68(저사양)–$190(16GB/128GB). 메모리와 eMMC 구성에 따라 차이가 큽니다(채널 견적).
+  forms:
+  - 단일 보드 SBC
+  - BPI-CM6 컴퓨트 모듈
+  official_os:
+  - bianbu
+  distros:
+  - distro: bianbu
+    level: official
+    note: 공식 주력 Bianbu(SpacemiT K1 이미지, v1.0.7부터 16GB 지원).
+  - distro: armbian
+    level: community
+    note: Armbian 표준 지원으로 Debian/Ubuntu 이미지를 제공합니다(SD 부팅만).
+  - distro: debian
+    level: community
+    note: Armbian을 통해 제공.
+  - distro: ubuntu
+    level: community
+    note: Armbian을 통해 제공(Canonical 공식 아님).
+  - distro: fedora
+    level: community
+    note: Banana Pi 문서 페이지에 걸린 제3자 이미지.
+  - distro: opensuse
+    level: community
+    note: 위와 같습니다. 제3자 이미지.
+  - distro: arch
+    level: community
+    note: 위와 같습니다. 제3자 이미지.
+  - distro: gentoo
+    level: community
+    note: 위와 같습니다. 제3자 이미지.
+  downloads:
+  - label: BPI-F3 전체 이미지 페이지 (Bianbu/Debian/Ubuntu/Fedora/openSUSE/Arch/Gentoo/Armbian)
+    url: https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+  - label: SpacemiT K1 Bianbu 공식 이미지 저장소
+    url: http://archive.spacemit.com/image/k1/version/bianbu/
+  - label: Armbian for BPI-F3
+    url: https://www.armbian.com/boards/bananapif3
+  guides:
+  - label: BPI-F3 문서 (영문, 사양/이미지/기록)
+    url: https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+    type: doc
+    lang: en
+  - label: BPI-F3 문서 (중문)
+    url: https://docs.banana-pi.org/zh/BPI-F3/BananaPi_BPI-F3
+    type: doc
+    lang: zh
+  - label: BPI-F3 시작하기 (SD/eMMC 기록)
+    url: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+    type: doc
+    lang: en
+  - label: Banana Pi RISC-V 포럼 BPI-F3 게시판
+    url: https://forum.banana-pi.org/c/risc-v/bpi-f3/122
+    type: doc
+    lang: en
+  gotchas:
+  - Bianbu 이미지가 SD 카드판(*.img.zip)과 eMMC판(*.zip)으로 나뉘어 잘못 기록하면 부팅되지 않습니다.
+  - 공식은 Bianbu만 밀고 Debian/Ubuntu는 주로 Armbian 커뮤니티 이미지에 의존하며 Armbian은 SD 부팅만 지원합니다.
+  - 초기 Bianbu(<v1.0.7)는 16GB 메모리 버전을 지원하지 않습니다.
+  - HDMI가 1.4/1080p뿐이라 4K 데스크톱에는 맞지 않습니다.
+  doc_langs:
+  - zh
+  - en
+  note: K1은 2024-2025년 출하량이 가장 큰 고성능 RISC-V SBC 칩 중 하나이고, BPI-F3는 생태계가 가장 잡다합니다(공식 Bianbu + 커뮤니티 Armbian/Fedora/openSUSE/Arch/Gentoo 이미지 모두 있음). RuyiSDK 지원 매트릭스에도 BPI-F3가 올라 있습니다.
+  checked: '2026-11-01'
+  order: 11
+  feature: false
+- id: orangepi-rv2
+  name: Orange Pi RV2(Ky X1)
+  soc: Ky X1(8코어 RISC-V AI CPU)
+  vendor: Orange Pi
+  spec: 8코어 64비트 RISC-V(단일 코어 성능은 Cortex-A55의 약 1.3배), 2 TOPS CPU 융합 연산(독립 NPU 없음), 2/4/8GB LPDDR4X, eMMC 모듈 16–128GB 선택, M.2 M-Key 2개(PCIe2.0 x2, NVMe 지원), GbE 2개, WiFi5/BT5, USB3 3개+USB2 2개, HDMI, 89×56mm.
+  status: on_sale
+  price_note: $30(2GB)부터, 4GB/8GB 약 $40/$50(미디어·채널). AliExpress/Amazon/타오바오에서 판매.
+  forms:
+  - 단일 보드 SBC
+  official_os:
+  - ubuntu
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Ubuntu 24.04 Server/GNOME(벤더 6.6 커널, orangepi-build로 직접 빌드 가능).
+  - distro: armbian
+    level: community
+    note: Armbian이 Debian/Ubuntu 빌드를 제공합니다.
+  - distro: debian
+    level: community
+    note: Armbian을 통해 제공.
+  - distro: arch
+    level: community
+    note: BredOS(Arch 파생)가 공식 사이트에 제3자 이미지로 올라 있습니다.
+  downloads:
+  - label: RV2 공식 이미지 다운로드 페이지 (Ubuntu/Orange Pi OS/OpenWRT, Google Drive)
+    url: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
+  - label: Armbian for Orange Pi RV2
+    url: https://armbian.com/boards/orangepirv2
+  guides:
+  - label: Orange Pi RV2 Wiki (영문, 기록/GPIO/커널 포함)
+    url: http://www.orangepi.org/orangepiwiki/index.php?title=Orange_Pi_RV2
+    type: doc
+    lang: en
+  - label: RV2 중문 제품 페이지
+    url: http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-RV2.html
+    type: doc
+    lang: zh
+  - label: orangepi-build (커널/이미지 빌드)
+    url: https://github.com/orangepi-xunlong/orangepi-build
+    type: doc
+    lang: en
+  gotchas:
+  - Ubuntu 24.04는 벤더 6.6 커널(orange-pi-6.6-ky)이라 mainline이 아니고 커널 업그레이드에 주의해야 합니다.
+  - “2 TOPS”는 CPU 융합 연산이고 독립 NPU가 없어 대형 모델은 CPU/RVV에만 의존해야 합니다.
+  - 8코어지만 실제 성능은 여전히 낮아(Phoronix 등 여러 리뷰에서 같은 시기 4코어 ARM 보드에 못 미침) 데스크톱 주력으로는 부적합합니다.
+  - 공식 이미지가 Google Drive에 있어 중국에서는 받기 불편하고 eMMC는 모듈을 따로 사야 합니다.
+  doc_langs:
+  - zh
+  - en
+  note: Ky X1은 SpaceMiT K1과 매우 동일한 계열(8×X60 계열 코어, 업계에서는 개명판으로 보는 시각이 많음)이지만 벤더가 공식 확인하지 않았습니다. 그래서 Bianbu K1 이미지를 그대로 쓸 수 없습니다.
+  checked: '2026-11-01'
+  order: 12
+  feature: false
+- id: p550
+  name: SiFive HiFive Premier P550
+  soc: ESWIN EIC7700X
+  vendor: SiFive
+  spec: 4×SiFive P550@1.4GHz(아웃오브오더), 16/32GB LPDDR5-6400 + 128GB eMMC, 20 TOPS NPU, Imagination GPU, Mini-DTX, PCIe Gen3 x4(x16 슬롯), GbE 2개, USB3 5개, SATA. Ubuntu 24.04 프리인스톨(6.6 커널, OTA 지원).
+  status: on_sale
+  price_note: 'Arrow 견적: 16GB $381.43, 32GB $485.84(2026-11 검색 스냅샷, 상품 페이지 직링크 검증은 안 됨). 초기 출시가는 $399/$499.'
+  forms:
+  - Mini-DTX
+  official_os:
+  - ubuntu
+  - fedora
+  - yocto
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Ubuntu 24.04 프리인스톨, SiFive 릴리스 2025.11.00(커널 6.12.33).
+  - distro: fedora
+    level: official
+    note: Fedora 42부터 지원하고 Fedora 44부터 Omni 커널을 씁니다.
+  - distro: yocto
+    level: official
+    note: freedom-u-sdk Yocto BSP(bootchain 펌웨어 포함).
+  - distro: debian
+    level: community
+    note: SiFive 블로그가 Debian 지원을 추진한다고 밝혔지만 이미지는 직접 준비해야 합니다.
+  downloads:
+  - label: Ubuntu 이미지 Releases(SiFive 공식)
+    url: https://github.com/sifive/hifive-premier-p550-ubuntu/releases
+  - label: Fedora 44 RISC-V 이미지 디렉터리
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - label: freedom-u-sdk(Yocto/BSP와 bootchain)
+    url: https://github.com/sifiveinc/freedom-u-sdk/releases
+  guides:
+  - label: P550 공식 제품 페이지 (사양/구매 링크)
+    url: https://www.sifive.com/development-platforms/hifive-premier-p550
+    type: doc
+    lang: en
+  - label: Fedora on P550 (펌웨어 요구사항/시리얼/설치)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/SiFive/HiFivePremierP550
+    type: doc
+    lang: en
+  gotchas:
+  - 펌웨어와 이미지 버전을 맞춰야 합니다. bootchain이 오래되면 Fedora가 아예 부팅하지 않아 최신 firmware를 먼저 기록해야 합니다.
+  - 네이티브 NVMe 슬롯이 없어 PCIe 어댑터를 써야 하고 온보드 네트워크는 GbE 2개뿐입니다.
+  - iGPU는 OpenGL ES만 지원해 OpenGL은 MESA_LOADER_DRIVER_OVERRIDE=zink가 필요하고, 외장 그래픽을 꽂으면 GRUB 메뉴가 보이지 않습니다.
+  - 중국 내 정식 채널이 없어 Arrow 같은 해외 대리점을 써야 하고 운송비/관세가 별도입니다.
+  doc_langs:
+  - en
+  note: Milk-V Megrez와 같은 칩(EIC7700X)이지만 P550은 Ubuntu 공식 프리인스톨+OTA라 소프트웨어 성숙도가 Megrez보다 높습니다. Red Hat RHEL 10 개발자 프리뷰 지원도 있습니다.
+  checked: '2026-11-01'
+  order: 13
+  feature: false
+- id: visionfive2-lite
+  name: StarFive VisionFive 2 Lite(JH7110S)
+  soc: StarFive JH7110S
+  vendor: StarFive
+  spec: 4×RV64GC@1.25GHz + IMG BXE-4-32 MC1 GPU, 2/4/8GB LPDDR4, WiFi6/BT5.4, M.2(PCIe2.0 x1), GbE, USB2.0/3.0, HDMI 4K@60, 40pin GPIO, MIPI-CSI/DSI, microSD/eMMC.
+  status: on_sale
+  price_note: Kickstarter 크라우드펀딩 $19.90부터. 소매 약 $23(2GB)/$30(4GB)/$37(8GB)(Liliputing/CNX, 미디어 가격).
+  forms:
+  - 단일 보드 SBC
+  official_os:
+  - debian
+  - ubuntu
+  - buildroot
+  distros:
+  - distro: debian
+    level: official
+    note: StarFive Debian 이미지(debian.starfivetech.com).
+  - distro: ubuntu
+    level: official
+    note: ubuntu-24.04.3-preinstalled-desktop-riscv64+vf2-lite 이미지(StarFive 릴리스, 2025-10-16).
+  - distro: buildroot
+    level: official
+    note: StarFive Buildroot SDK(VisionFive2 저장소).
+  downloads:
+  - label: StarFive Debian 이미지 입구
+    url: https://debian.starfivetech.com/
+  - label: VisionFive2 저장소 Releases(Ubuntu/Debian/Buildroot 이미지와 SDK)
+    url: https://github.com/starfive-tech/VisionFive2/releases
+  guides:
+  - label: VisionFive 2 Lite 제품과 사양 (영문)
+    url: https://rvspace.org/en/homepage/product_center_sbc
+    type: doc
+    lang: en
+  - label: VisionFive 2 Lite 문서 센터 (영문)
+    url: https://doc-en.rvspace.org/Doc_Center/visionfive_2_lite.html
+    type: doc
+    lang: en
+  - label: VisionFive 2 Lite 문서 센터 (중문)
+    url: https://doc.rvspace.org/Doc_Center/vf2lite.html
+    type: doc
+    lang: zh
+  - label: RVspace 중문 Wiki
+    url: https://wiki.rvspace.org/zh/home
+    type: doc
+    lang: zh
+  gotchas:
+  - apt dist-upgrade를 하지 마세요. CNX 실측에서 207개 패키지를 올린 뒤 재부팅하니 gnome-shell이 코어 하나를 다 먹고 시스템이 거의 응답하지 않았습니다.
+  - GPU 펌웨어 rgx.fw가 로드 실패(PVR_K 오류)를 자주 내고 3D 가속은 이미지 안의 맞는 펌웨어에 달려 있습니다.
+  - 성능은 Raspberry Pi 3B 수준(JH7110S 1.25GHz 다운클럭판)이라 무거운 작업에는 맞지 않습니다.
+  - VisionFive 2의 하위 사양판이고 VisionFive 3가 아닙니다.
+  doc_langs:
+  - zh
+  - en
+  note: VisionFive 3는 나오지 않았습니다. StarFive의 2026년 신제품은 서버용 Dubhe-100 RISC-V IP이고 SBC 라인은 VisionFive 2 Lite까지만 갱신됐습니다(2025-08 크라우드펀딩, 2025-10 양산). rvspace는 OpenWrt 네이티브 지원도 언급합니다(배포판 id 아님).
+  checked: '2026-11-01'
+  order: 14
+  feature: false
+- id: beaglev-ahead
+  name: BeagleV-Ahead
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz, 4TOPS NPU, BXM-4-64 GPU'
+  vendor: BeagleBoard.org
+  spec: 4GB LPDDR4, 16GB eMMC(온보드), WiFi5/BT5(AP6203BM), 기가비트 이더넷, microHDMI, microSD, CSI 2개 + DSI 1개, mikroBUS, BeagleBone Black cape 핀헤더.
+  status: on_sale
+  price_note: 첫 출시 약 US$150(BeagleBoard 포럼), 현재 채널가 약 US$160–190(미검증).
+  forms: []
+  official_os:
+  - ubuntu
+  - yocto
+  distros:
+  - distro: ubuntu
+    level: official
+    note: 공식 유일한 Linux 데스크톱 이미지 xuantie-ubuntu-23.04-20230705(Ubuntu 23.04는 이미 EOL).
+  - distro: yocto
+    level: official
+    note: 공식 Yocto 프로덕션 이미지 2023-06-10, 출하 시 프리인스톨.
+  - distro: revyos
+    level: community
+    note: RevyOS의 beagle 디렉터리가 20231210에서 멈췄고 이후 갱신이 없습니다.
+  - distro: fedora
+    level: community
+    note: Fedora-V Force가 BeagleV Ahead 이미지를 제공합니다.
+  - distro: debian
+    level: partial
+    note: 메인라인 Debian에는 공식 설치 프로그램 지원이 없어 rootfs를 직접 만들어야 합니다.
+  downloads:
+  - label: BeagleBoard 공식 이미지 서버(전체 보드)
+    url: https://www.beagleboard.org/distros
+  - label: 공식 Ubuntu 23.04(2023-07-05)
+    url: https://www.beagleboard.org/distros/beaglev-ahead-ubuntu-2023-07-05
+  - label: 공식 Yocto(2023-06-10, 출하 이미지)
+    url: https://www.beagleboard.org/distros/beaglev-ahead-yocto-npi-2023-06-10
+  - label: RevyOS BeagleV-Ahead 이미지(20231210)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/beagle/20231210/
+  - label: Xuantie Ubuntu 소스 저장소(2023-07-05 release)
+    url: https://git.beagleboard.org/beaglev-ahead/xuantie-ubuntu-old/-/releases/2023-07-05
+  - label: Fedora-V Force RISC-V 이미지 서버
+    url: https://images.fedoravforce.org
+  - label: 하드웨어 설계와 issue tracker
+    url: https://git.beagleboard.org/beaglev-ahead/beaglev-ahead
+  guides:
+  - label: 'BeagleBoard 공식 문서: BeagleV-Ahead'
+    url: https://docs.beagleboard.org/boards/beaglev/ahead/
+    type: doc
+    lang: en
+  - label: 제품 페이지(사양/구매 채널)
+    url: https://www.beagleboard.org/boards/beaglev-ahead
+    type: doc
+    lang: en
+  - label: OpenBeagle 프로젝트 홈
+    url: https://openbeagle.org/beaglev-ahead/beaglev-ahead
+    type: doc
+    lang: en
+  - label: 공식 포럼 BeagleV-Ahead 게시판
+    url: https://forum.beagleboard.org/tags/c/beaglev/15/ahead
+    type: doc
+    lang: en
+  gotchas:
+  - 공식 이미지가 2023년에 멈췄고(Ubuntu 23.04 / Yocto 2023-06) Ubuntu 23.04는 이미 EOL이라 apt 저장소가 사실상 못 씁니다.
+  - RevyOS의 beagle 이미지도 20231210에서 멈춰 지속 유지되는 배포판이 없는 셈입니다.
+  - eMMC 기록은 USB-C로 fastboot에 들어가 Xuantie 전용 툴체인 산출물이 필요하고, SD 부팅이 오히려 간단합니다.
+  - RAM이 4GB뿐이라 데스크톱은 빠듯하고 microHDMI는 젠더가 필요합니다.
+  - WiFi가 AP6203BM이라 맞는 firmware blob이 필요하고 메인라인 커널 지원이 불완전합니다.
+  - cape 핀헤더가 3.3V 로직이라 5V cape를 연결하면 탑니다.
+  doc_langs:
+  - en
+  note: 하드웨어 완성도와 cape 생태계는 좋지만 소프트웨어는 TH1520 삼형제 중 가장 나쁩니다. 공식 이미지가 3년째 갱신되지 않아 소장/교육용으로만 맞습니다.
+  checked: '2026-11-01'
+  order: 15
+  feature: false
+- id: pioneer
+  name: Milk-V Pioneer(SG2042 서버 지향)
+  soc: 'SOPHON SG2042: 64×XuanTie C920 @2GHz, RVV 0.71, 64MB L3'
+  vendor: Milk-V
+  spec: DDR4 DIMM 4개 최대 128GB(ECC RDIMM/UDIMM), PCIe x16 3개(Gen3 x8 신호), SATA 5개, 2.5GbE 2개, USB3 8개, M.2 2개, eMMC 모듈 인터페이스, microSD. mATX 24.4×24.4cm, 표준 24핀 ATX 전원, 전형 소비전력 120W.
+  status: on_sale
+  price_note: '크라우드펀딩가: 메인보드 US$1,199(CPU 별매 US$899), Pioneer Box 완제품 US$1,999. 현재 가격은 문의 필요(미검증).'
+  forms: []
+  official_os:
+  - revyos
+  - fedora
+  distros:
+  - distro: revyos
+    level: official
+    note: 현재 공식 주력. RevyOS 20260504가 pioneer/pisces 두 벌의 펌웨어와 이미지를 제공합니다.
+  - distro: fedora
+    level: official
+    note: Milk-V 공식 문서가 Fedora 38을 설치 예시로 쓰고 Fedora RISC-V가 SG2042를 지원합니다.
+  - distro: openeuler
+    level: community
+    note: openEuler RISC-V SIG가 서버 시나리오로 SG2042를 지원합니다.
+  - distro: openkylin
+    level: community
+    note: openKylin에 RISC-V 서버 이미지가 있습니다.
+  - distro: deepin
+    level: community
+    note: deepin RISC-V 포팅판.
+  - distro: debian
+    level: partial
+    note: debian-ports에 riscv64 기본 패키지는 있지만 공식 Pioneer 이미지는 없습니다.
+  - distro: ubuntu
+    level: partial
+    note: Canonical 공식 이미지가 없어 rootfs를 직접 구성해야 합니다.
+  downloads:
+  - label: RevyOS SG2042 이미지 디렉터리(20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - label: RevyOS 공식 설치 가이드(Milk-V Pioneer)
+    url: https://docs.revyos.dev/en/docs/Installation/milkv-pioneer/
+  - label: Milk-V Pioneer 설치 절차(영문, Fedora 예시 포함)
+    url: https://milkv.io/docs/pioneer/getting-started/InstallOS
+  - label: Milk-V Pioneer 다운로드 정리(하드웨어/소스)
+    url: https://milkv.io/docs/pioneer/getting-started/download
+  - label: Fedora-V Force RISC-V 이미지 서버
+    url: https://images.fedoravforce.org
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  guides:
+  - label: Pioneer 개요와 사양(영문)
+    url: https://milkv.io/docs/pioneer/overview
+    type: doc
+    lang: en
+  - label: Pioneer 개요와 사양(중문)
+    url: https://milkv.io/zh/docs/pioneer/overview
+    type: doc
+    lang: zh
+  - label: Pioneer 알려진 문제 목록
+    url: https://github.com/milkv-pioneer/issues/issues
+    type: doc
+    lang: en
+  - label: RevyOS 문서 사이트(이미지/기록)
+    url: https://docs.revyos.dev/
+    type: doc
+    lang: en
+  gotchas:
+  - Milk-V 문서의 Download 페이지 Image 영역이 비었습니다(RevyOS로 이전). 옛 페이지에서 시스템 이미지를 찾지 마세요.
+  - 메모리 선별이 중요합니다. 공식 DDR 지원 목록대로 RDIMM/UDIMM을 골라야 하고 아니면 DDR 트레이닝 실패로 부팅하지 않습니다.
+  - 표준 ATX 24핀 + CPU 8핀 전원이 필요하고 쿨러를 반드시 달아야 합니다(전형 120W).
+  - 온보드 디스플레이 출력이 없어 PCIe 그래픽 카드가 필요하고 일부 카드는 LinuxBoot/U-Boot 단계에서 출력이 없습니다.
+  - 펌웨어(LinuxBoot/EDK2 + MCU) 업그레이드에 벽돌 위험이 있어 공식 순서대로 기록해야 합니다.
+  - 초기 배치의 ASM2824 PCIe 스위치에 호환 문제가 있어 buglist를 먼저 확인하세요.
+  doc_langs:
+  - en
+  - zh
+  note: “RISC-V 워크스테이션/서버”로 쓸 수 있는 유일한 보드이고 가격과 소비전력이 다른 차원입니다. 64코어 병렬 빌드나 CI 러너에 맞고 입문용은 아닙니다. opencloudos 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
+  checked: '2026-11-01'
+  order: 16
+  feature: false
+- id: milkv-duo
+  name: Milk-V Duo 시리즈(Duo / Duo 256M / Duo S)
+  soc: CV1800B(Duo)/ SG2002(Duo 256M)/ SG2000(Duo S)
+  vendor: Milk-V
+  spec: 'Duo: 2×C906(1GHz+700MHz) + 8051, 64MB SIP DRAM. Duo 256M: SG2002 + Cortex-A53 1개, 256MB. Duo S: 512MB + eMMC 패드(일부 세트는 8GB 포함) + WiFi6. 모두 100M 이더넷, USB-C. Duo/256M은 26×GPIO 패드, 21×51mm, Duo S는
+    2×26핀 헤더, 43×43mm.'
+  status: on_sale
+  price_note: Duo US$4.99, Duo S US$9.99(Arace 공식점 실판매가). Duo 256M 약 US$7.99.
+  forms: []
+  official_os:
+  - buildroot
+  distros:
+  - distro: buildroot
+    level: official
+    note: 공식 V1/V2 Buildroot SDK. 카드에 쓰면 바로 동작하는 가장 안정적인 시스템입니다.
+  - distro: fedora
+    level: community
+    note: Fedora 41 이미지(Fedora-V Force, ISCAS 미러).
+  - distro: debian
+    level: community
+    note: Fishwaldo/scpcom의 sophgo-sg200x-debian, 256M/S 커버.
+  - distro: ubuntu
+    level: community
+    note: Ubuntu 22.04 커뮤니티 이미지(bassusteur).
+  - distro: arch
+    level: community
+    note: 커뮤니티 Arch 이미지.
+  - distro: alpine
+    level: community
+    note: 커뮤니티 Alpine 이미지(cwt).
+  - distro: nixos
+    level: community
+    note: 커뮤니티 유지보수, 기능 제한적.
+  - distro: yocto
+    level: community
+    note: meta-milkv 레이어.
+  - distro: openeuler
+    level: community
+    note: openEuler에 Duo 이미지가 있습니다.
+  downloads:
+  - label: Milk-V 공식 이미지 정리(제3자 이미지 표 포함)
+    url: https://milkv.io/docs/duo/getting-started/download
+  - label: 공식 Buildroot SDK V1 releases
+    url: https://github.com/milkv-duo/duo-buildroot-sdk/releases
+  - label: 공식 Buildroot SDK V2 releases(256M/S용 RISC-V+ARM 듀얼 이미지)
+    url: https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases
+  - label: Fedora 41 Duo 이미지(ISCAS)
+    url: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/
+  - label: Debian(sophgo-sg200x-debian)
+    url: https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - label: Alpine 커뮤니티 이미지(PoC)
+    url: https://github.com/cwt/duo-buildroot-sdk/releases/tag/poc1
+  guides:
+  - label: Duo 개요(영문)
+    url: https://milkv.io/docs/duo/overview
+    type: doc
+    lang: en
+  - label: Duo 빠른 시작
+    url: https://milkv.io/docs/duo/getting-started/duo
+    type: doc
+    lang: en
+  - label: Duo 256M 설명
+    url: https://milkv.io/docs/duo/getting-started/duo256m
+    type: doc
+    lang: en
+  - label: Buildroot SDK 빌드 가이드
+    url: https://milkv.io/docs/duo/getting-started/buildroot-sdk
+    type: doc
+    lang: en
+  - label: 업스트림 메인라인 지원 상태(항목별 patch 진행)
+    url: https://milkv.io/docs/duo/resources/upstream-status
+    type: doc
+    lang: en
+  - label: 메인라인 Linux 지원 설명
+    url: https://milkv.io/docs/duo/resources/mainline
+    type: doc
+    lang: en
+  gotchas:
+  - 64MB Duo는 메모리가 너무 작아 V2 이미지의 AI 앱이 돌지 않습니다. 공식적으로도 64M에는 V1 이미지를 쓰라고 합니다.
+  - 기본은 USB-NCM 네트워크 카드(192.168.42.1)만 있고 DHCP가 없어 호스트에서 같은 대역 IP를 수동 설정해야 합니다. root 비밀번호는 milkv.
+  - 메인라인 커널 지원이 불완전합니다. minimal은 6.7, GPIO 6.8, clock/SPI/I2C/MMC/USB는 6.9–6.10에야 들어갔고 camera/VPU/NPU/일부 clock은 아직 review 중입니다.
+  - Duo 256M/S에는 ARM Cortex-A53 코어가 있어 RISC-V와 ARM 이미지를 섞어 기록하면 안 됩니다.
+  - HDMI가 없고 Duo S도 MIPI DSI뿐입니다. 화면을 붙이려면 어댑터 보드를 따로 사야 합니다.
+  - Duo S에는 BOOT 스위치가 있어 잘못 두면 다운로드/부팅 모드에 못 들어갑니다. 전원은 5V/1A면 충분하니 고속 충전기를 억지로 쓰지 마세요.
+  doc_langs:
+  - en
+  - zh
+  note: US$5급 입문용으로 임베디드 Linux/RTOS 학습에 맞고 데스크톱에는 맞지 않습니다. 사기 전에 64M인지 256M/S인지 확인하세요. 이미지가 완전히 호환되지 않습니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
+  checked: '2026-11-01'
+  order: 17
+  feature: false

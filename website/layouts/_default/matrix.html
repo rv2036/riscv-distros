@@ -1,0 +1,73 @@
+{{ define "main" }}
+{{ $d := partial "site-data.html" . }}
+{{ $boards := sort $d.boards.items "order" }}
+{{ $distros := sort $d.distros.items "order" }}
+{{ $ruyi := dict }}
+{{ range $d.ruyisdk.items }}{{ $ruyi = merge $ruyi (dict (printf "%s|%s" .board .distro) .) }}{{ end }}
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.sub }}<div class="sub">{{ . }}</div>{{ end }}
+  </div>
+</header>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  <p class="muted scroll-hint">{{ i18n "matrix.scroll_hint" }}</p>
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th class="mx-corner">{{ i18n "nav.boards" }} \ {{ i18n "nav.distros" }}</th>
+          {{ range $distros }}
+          <th><a href="{{ printf "distros/%s/" .id | relLangURL }}">{{ .name }}</a></th>
+          {{ end }}
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $boards }}
+        {{ $b := . }}
+        <tr>
+          <th class="mx-row">
+            <a href="{{ printf "boards/%s/" $b.id | relLangURL }}">{{ $b.name }}</a>
+            <span class="mx-soc">{{ $b.soc }}</span>
+          </th>
+          {{ range $distros }}
+          {{ $did := .id }}
+          {{ $rk := index $ruyi (printf "%s|%s" $b.id $did) }}
+          {{ $own := "" }}
+          {{ range $b.distros }}{{ if eq .distro $did }}{{ $own = .level }}{{ end }}{{ end }}
+          {{ if $rk }}
+          {{ $st := $rk.status | default "unknown" }}
+          <td class="st-{{ $st }}"><a href="{{ (index $rk.reports 0).url }}" rel="noopener" title="{{ i18n "ruyisdk.tested" }} · {{ i18n (printf "ruyisdk.status.%s" $st) }}{{ with $rk.last_update }} · {{ . }}{{ end }}"><span aria-hidden="true">{{ partial "ruyi-symbol.html" $st }}</span><span class="sr-only">{{ i18n (printf "ruyisdk.status.%s" $st) }}</span></a></td>
+          {{ else if $own }}
+          <td class="mx-own lv-{{ $own }}"><a href="{{ printf "distros/%s/" $did | relLangURL }}" title="{{ i18n "matrix.own_source" }} · {{ i18n (printf "level.%s" $own) }}"><span aria-hidden="true">·</span><span class="sr-only">{{ i18n (printf "level.%s" $own) }}</span></a></td>
+          {{ else }}
+          <td class="lv-none"></td>
+          {{ end }}
+          {{ end }}
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="matrix-legend">
+    <strong>{{ i18n "matrix.legend" }}</strong>
+    <span class="badge st-good">● {{ i18n "ruyisdk.status.good" }}</span>
+    <span class="badge st-basic">◐ {{ i18n "ruyisdk.status.basic" }}</span>
+    <span class="badge st-part">◔ {{ i18n "ruyisdk.status.part" }}</span>
+    <span class="badge st-cft">◌ {{ i18n "ruyisdk.status.cft" }}</span>
+    <span class="badge st-cfh">✕ {{ i18n "ruyisdk.status.cfh" }}</span>
+    <span class="badge mx-own lv-official">· {{ i18n "matrix.own_source" }}</span>
+  </div>
+  <p class="muted matrix-note">{{ i18n "ruyisdk.legend_note" }}</p>
+  {{ with $d.ruyisdk.source }}
+  <p class="muted matrix-note">{{ i18n "ruyisdk.source" }}
+    <a href="{{ .site }}" rel="noopener">{{ .site }}</a> ·
+    {{ i18n "label.checked" }} {{ .fetched_at }} ·
+    <a href="{{ .repo }}" rel="noopener">support-matrix</a>
+  </p>
+  {{ end }}
+
+  <section class="block prose">{{ .Content }}</section>
+</div>
+{{ end }}

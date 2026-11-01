@@ -1,0 +1,1298 @@
+# RISC-V board entries
+items:
+- id: qemu
+  name: QEMU virt (virtual machine)
+  soc: None (generic QEMU virtual platform, RV32/RV64 configurable, up to 512 cores)
+  vendor: QEMU Project
+  spec: 'Pure virtual platform: up to 512 RV64GC cores, CLINT/PLIC, a PCIe host bridge, 8 virtio-mmio devices, NS16550 UART, optional AIA/IOMMU; memory, disks and networking are all virtualised through
+    command-line options, with no real GPU/VPU/NPU.'
+  status: virtual
+  price_note: Free and open source (GPLv2), available from every distro's package repos
+  forms: []
+  official_os:
+  - debian
+  - ubuntu
+  distros:
+  - distro: debian
+    level: official
+    note: riscv64 is a first-class architecture since Debian 13; the official netinst ISO installs straight into virt
+  - distro: ubuntu
+    level: official
+    note: Official riscv64 cloud image, booted with EDK2 (pflash) or -kernel
+  - distro: fedora
+    level: community
+    note: Fedora RISC-V provides QEMU install docs and images
+  - distro: alpine
+    level: official
+    note: riscv64 minirootfs only, no virt ISO; bring your own kernel/initramfs
+  - distro: arch
+    level: official
+    note: archriscv provides a riscv64 ISO that boots in QEMU
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports has riscv64; the site returns 403 to curl, so the direct link is unverified
+  - distro: gentoo
+    level: official
+    note: riscv64 stage3 plus handbook coverage for QEMU systems
+  - distro: void
+    level: partial
+    note: The riscv64 port exists; you build the QEMU image yourself
+  - distro: nixos
+    level: community
+    note: riscv64 is not an official support tier; cross-build required
+  - distro: alt
+    level: official
+    note: ALT Ports riscv64 provides a QEMU image
+  - distro: freebsd
+    level: official
+    note: riscv64 supports QEMU virt
+  - distro: netbsd
+    level: official
+    note: The riscv64 port supports QEMU
+  - distro: openbsd
+    level: official
+    note: riscv64 supports QEMU virt
+  - distro: openeuler
+    level: official
+    note: The openEuler RISC-V SIG provides a QEMU image
+  - distro: buildroot
+    level: official
+    note: qemu_riscv64_virt_defconfig — one make and the system boots
+  - distro: yocto
+    level: official
+    note: qemuriscv64 machine officially supported
+  downloads:
+  - label: 'QEMU docs: the RISC-V virt machine'
+    url: https://www.qemu.org/docs/master/system/riscv/virt.html
+  - label: QEMU download page
+    url: https://www.qemu.org/download/
+  - label: Ubuntu 24.04 riscv64 cloud image
+    url: https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img
+  - label: Debian 13.7 riscv64 netinst ISO
+    url: https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/
+  - label: Arch Linux RISC-V ISO
+    url: https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso
+  - label: Alpine riscv64 minirootfs
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - label: Buildroot downloads
+    url: https://buildroot.org/downloads/
+  guides:
+  - label: 'QEMU wiki: RISC-V platform notes'
+    url: https://wiki.qemu.org/Documentation/Platforms/RISCV
+    type: doc
+    lang: en
+  - label: 'Debian wiki: RISC-V port'
+    url: https://wiki.debian.org/RISC-V
+    type: doc
+    lang: en
+  - label: 'Fedora: RISC-V installation guide'
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  - label: Gentoo RISC-V project
+    url: https://wiki.gentoo.org/wiki/Project:RISC-V
+    type: doc
+    lang: en
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - -bios default only loads OpenSBI, with no U-Boot/EDK2; booting an Ubuntu/Fedora cloud image needs pflash with a 32MiB EDK2 firmware, otherwise you get a black screen
+  - virt has no GPU/VPU/NPU — don't use it to validate graphics, hardware video decoding or AI acceleration
+  - The serial port is always ttyS0; to quit -nographic mode press Ctrl-A then X
+  - From Ubuntu 26.04 RVA23S64 is required, so older QEMU builds without the extensions won't boot; 24.04 is still RVA20
+  - Alpine riscv64 ships only a minirootfs with no virt ISO, so prepare the kernel and initramfs yourself
+  doc_langs:
+  - en
+  note: 'The common starting point for every board: validate the kernel/rootfs on virt first, then move to real hardware — it saves a lot of flashing and debugging time.'
+  checked: '2026-11-01'
+  order: 1
+  feature: true
+- id: visionfive2
+  name: StarFive VisionFive 2
+  soc: 'StarFive JH7110: 4×SiFive U74 @1.5GHz + S7 monitor core + E24'
+  vendor: StarFive
+  spec: 2/4/8GB LPDDR4, microSD + eMMC (some versions), M.2 M-Key NVMe, 2× GbE (v1.3 supports PoE), HDMI 2.0, 4× USB, 40-pin GPIO; there is also a cut-down VisionFive 2 Lite.
+  status: on_sale
+  price_note: Standard 2/4/8GB around US$60–120 (unverified); the VisionFive 2 Lite sells for US$99.95 at retail
+  forms: []
+  official_os:
+  - debian
+  - ubuntu
+  distros:
+  - distro: debian
+    level: official
+    note: StarFive's official Debian 202510 (trixie + Wayland desktop); mainline Debian 13's official installer also works
+  - distro: ubuntu
+    level: official
+    note: StarFive's official Ubuntu 24.04.3 (202510) plus Canonical's jh7110 preinstalled image
+  - distro: fedora
+    level: community
+    note: One of the Fedora RISC-V official test boards
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports has riscv64; the site returns 403, so the direct link is unverified
+  - distro: arch
+    level: community
+    note: archriscv provides a VF2 rootfs/ISO
+  - distro: alpine
+    level: community
+    note: riscv64 minirootfs works
+  - distro: armbian
+    level: community
+    note: Armbian officially supports VisionFive 2
+  - distro: gentoo
+    level: community
+    note: The Gentoo wiki has a dedicated VisionFive 2 page
+  - distro: netbsd
+    level: community
+    note: NetBSD/riscv supports JH7110
+  - distro: openbsd
+    level: community
+    note: OpenBSD/riscv64 supports JH7110
+  - distro: freebsd
+    level: community
+    note: FreeBSD has JH7110 support
+  - distro: nixos
+    level: community
+    note: Community-maintained; build your own image
+  - distro: buildroot
+    level: official
+    note: The StarFive SDK is Buildroot-based and produces SPL/U-Boot/FIT
+  - distro: yocto
+    level: community
+    note: Community meta-starfive layer
+  - distro: openeuler
+    level: community
+    note: The openEuler RISC-V SIG provides images
+  - distro: deepin
+    level: community
+    note: deepin RISC-V port
+  - distro: openkylin
+    level: community
+    note: openKylin has a VF2 image
+  downloads:
+  - label: StarFive's official Debian 202510 (v0.15.0)
+    url: https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
+  - label: StarFive's official Ubuntu 24.04.3 (202510)
+    url: https://github.com/starfive-tech/VisionFive2/releases/tag/6.0.0
+  - label: Canonical Ubuntu jh7110 preinstalled image (shared by VF2/Mars/Star64)
+    url: https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+jh7110.img.xz
+  - label: StarFive VisionFive2 SDK / firmware
+    url: https://github.com/starfive-tech/VisionFive2
+  - label: 'Debian wiki: installing Debian on VisionFive 2'
+    url: https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2
+  - label: Armbian VisionFive 2
+    url: https://www.armbian.com/visionfive2/
+  - label: Arch Linux RISC-V image directory
+    url: https://archriscv.felixc.at/images/
+  - label: Alpine riscv64 minirootfs
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz
+  - label: 'RVspace forum: Debian 202510 release thread (with compatibility feedback)'
+    url: https://forum.rvspace.org/t/visionfive-2-lite-debian-202510-released/5714
+  guides:
+  - label: StarFive VisionFive2 SDK docs (README, including firmware flashing/recovery)
+    url: https://github.com/starfive-tech/VisionFive2
+    type: doc
+    lang: en
+  - label: Debian wiki install guide
+    url: https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2
+    type: doc
+    lang: en
+  - label: 'Gentoo wiki: StarFive VisionFive 2'
+    url: https://wiki.gentoo.org/wiki/StarFive_VisionFive_2
+    type: doc
+    lang: en
+  - label: RVspace community (Chinese and English)
+    url: https://rvspace.org/
+    type: doc
+    lang: zh
+  - label: Fedora RISC-V installation guide
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  gotchas:
+  - 'U-Boot/SPL lives in QSPI flash and images are tightly bound to firmware: images after 202310 need U-Boot >= v3.1.5 in QSPI, otherwise flash u-boot-spl.bin.normal.out + visionfive2_fw_payload.img first'
+  - Boot order is QSPI → SD/eMMC/NVMe; a wrong DIP switch boots from the wrong medium
+  - There are failure reports for Debian 202510 on older v1.2 boards; upgrade the firmware first or use mainline Debian
+  - StarFive's official Debian 202510 can't boot from USB; mainline Debian 13 can, but without HDMI/GPU/VPU drivers
+  - VisionFive 2 Lite uses different U-Boot/DTB from the standard board — images are not interchangeable
+  - eMMC/SD boot has known errata; prefer NVMe or a good SD card
+  doc_langs:
+  - en
+  - zh
+  note: The JH7110 board with the widest ecosystem and distro coverage, and one of the best first RISC-V boards; watch for firmware differences between batches. Community derivatives such as openwrt/dietpi/guix
+    exist too (not listed as standard distro ids).
+  checked: '2026-11-01'
+  order: 2
+  feature: true
+- id: licheepi-4a
+  name: LicheePi 4A
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz + C906 + E902, 4TOPS NPU'
+  vendor: Sipeed
+  spec: 4/8/16GB LPDDR4X, 8/32/128GB eMMC, 2× GbE, WiFi5/BT5, HDMI 2.0 + 4-lane MIPI DSI, 2× MIPI CSI, 4× USB3, 40-pin GPIO.
+  status: on_sale
+  price_note: About US$120 for 8GB and US$180 for 16GB (reseller quotes, unverified)
+  forms: []
+  official_os:
+  - revyos
+  distros:
+  - distro: revyos
+    level: official
+    note: The vendor's recommended system; newest image 20251226 (Debian-based + kernel 6.6)
+  - distro: debian
+    level: partial
+    note: Mainline Debian 13 boots on the LPi4A, but you need your own U-Boot/DTB — there is no official installer image
+  - distro: ubuntu
+    level: partial
+    note: Only an ubuntu-base rootfs; set up the kernel and bootloader yourself
+  - distro: fedora
+    level: community
+    note: Fedora-V Force provides TH1520 images
+  - distro: arch
+    level: community
+    note: archriscv supports TH1520
+  - distro: armbian
+    level: community
+    note: Armbian officially supports LicheePi 4A
+  - distro: gentoo
+    level: community
+    note: The Gentoo wiki has a dedicated TH1520 page
+  - distro: nixos
+    level: community
+    note: Community repo nixos-licheepi4a (reusing the RevyOS kernel/U-Boot)
+  - distro: openeuler
+    level: community
+    note: The openEuler RISC-V SIG provides images
+  - distro: openkylin
+    level: community
+    note: Community openKylin image
+  - distro: deepin
+    level: community
+    note: deepin RISC-V port
+  - distro: buildroot
+    level: partial
+    note: RevyOS builds boot/rootfs with Buildroot
+  downloads:
+  - label: RevyOS LicheePi 4A image (20251226)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS flashing overview (including the U-Boot env reset)
+    url: https://docs.revyos.dev/en/docs/Installation/intro/
+  - label: Sipeed Wiki image collection (English)
+    url: https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
+  - label: Sipeed Wiki image collection (Chinese, the most complete)
+    url: https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
+  - label: Sipeed download share (specs/schematics/tools)
+    url: https://dl.sipeed.com/shareURL/LICHEE/licheepi4a
+  - label: Armbian LicheePi 4A
+    url: https://www.armbian.com/licheepi-4a/
+  - label: NixOS on LicheePi 4A (community)
+    url: https://github.com/ryan4yin/nixos-licheepi4a
+  - label: Fedora RISC-V builder (chainsx)
+    url: https://github.com/chainsx/fedora-riscv-builder
+  - label: Gentoo TH1520 deployment guide
+    url: https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520
+  - label: deepin RISC-V image
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  - label: openKylin LPi4A image (community)
+    url: https://github.com/aiminickwong/licheepi4a-images
+  guides:
+  - label: Sipeed Wiki board overview (English)
+    url: https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/1_intro.html
+    type: doc
+    lang: en
+  - label: Sipeed Wiki board overview (Chinese)
+    url: https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/1_intro.html
+    type: doc
+    lang: zh
+  - label: RevyOS documentation site
+    url: https://docs.revyos.dev/
+    type: doc
+    lang: en
+  - label: RuyiSDK support matrix (measured status per distro)
+    url: https://matrix.ruyisdk.org/
+    type: doc
+    lang: zh
+  gotchas:
+  - The GPU is an Imagination BXM-4-64 with a vendor closed-source blob only, so there is no GPU acceleration under mainline; the NPU needs the T-Head-specific SDK
+  - 16GB boards shipped before 2023.8.1 have a U-Boot memory-detection bug; flash the 16G-specific u-boot or memory-hungry apps crash
+  - To flash, hold BOOT while powering on to enter fastboot (USB 2345:7654); a normal power-up won't enter download mode
+  - Upgrading from RevyOS <= 20240720 requires `env default -a -f; env save` to reset the U-Boot environment first
+  - The 8GB and 16GB versions use different device trees in boot.ext4; mixing them means no boot
+  - Since 2026-09 RevyOS has been pushing new coreboot+EDK2 firmware (replacing U-Boot SPL); it is experimental — confirm your board variant before flashing
+  doc_langs:
+  - en
+  - zh
+  note: The best-documented TH1520 board with the largest community; the RevyOS desktop works, but closed-source GPU/NPU support is the weak spot. Community derivatives such as openwrt exist too (not listed
+    as standard distro ids).
+  checked: '2026-11-01'
+  order: 3
+  feature: true
+- id: meles
+  name: Milk-V Meles
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz + C906 + E902, 4TOPS NPU'
+  vendor: Milk-V
+  spec: 4/8/16GB LPDDR4X 4266MT/s, eMMC socket (optional module) + microSD, 1× GbE (PoE capable), WiFi5/BT5.2 (AP6256), 4× USB3.0, HDMI 2.0 4K60, MIPI DSI/CSI, 40-pin, credit-card sized.
+  status: on_sale
+  price_note: 8GB around US$90–110 (unverified)
+  forms: []
+  official_os:
+  - revyos
+  distros:
+  - distro: revyos
+    level: official
+    note: The vendor's recommended system, image 20251226 (kernel 6.6); Milk-V's image page now points to the RevyOS docs
+  - distro: openeuler
+    level: community
+    note: The openEuler RISC-V SIG provides Meles images
+  - distro: deepin
+    level: community
+    note: deepin RISC-V port
+  - distro: debian
+    level: community
+    note: The Debian wiki RISC-V page mentions TH1520/Meles; you can self-build from debian-ports
+  - distro: buildroot
+    level: partial
+    note: The RevyOS build chain is Buildroot-based, so you can produce your own boot/rootfs
+  downloads:
+  - label: RevyOS Meles image (20251226)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: Milk-V image page (points to RevyOS)
+    url: https://milkv.io/docs/meles/resources-download/image
+  - label: Flashing to eMMC (fastboot steps)
+    url: https://milkv.io/docs/meles/installation/install-an-image-to-emmc
+  - label: Install overview (SD/SPI/eMMC)
+    url: https://milkv.io/docs/meles/installation
+  - label: RevyOS documentation site
+    url: https://docs.revyos.dev/
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  - label: deepin RISC-V image
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  guides:
+  - label: Meles overview and specs (English)
+    url: https://milkv.io/docs/meles/overview
+    type: doc
+    lang: en
+  - label: Meles hardware notes (versions/power/interfaces)
+    url: https://milkv.io/docs/meles/hardware/meles-main-board
+    type: doc
+    lang: en
+  - label: Meles overview and specs (Chinese)
+    url: https://milkv.io/zh/docs/meles/overview
+    type: doc
+    lang: zh
+  - label: Meles installation notes (Chinese)
+    url: https://milkv.io/zh/docs/meles/installation
+    type: doc
+    lang: zh
+  gotchas:
+  - The 4GB and 8GB/16GB boards need different U-Boot SPL files (u-boot-with-spl-meles-4g.bin vs meles.bin); the wrong one bricks the board
+  - From 20251226 it uses kernel 6.6, so upgrade the firmware in SPI flash before flashing the system
+  - eMMC is an optional module; booting from it requires SPI NOR to be flashed first, otherwise you can only boot from SD
+  - Flashing eMMC goes through fastboot (T-HEAD USB download gadget 2345:7654), and you must hold the Download button to enter download mode
+  - The board has several V1.x hardware revisions (marked on the front silkscreen) that need matching DTBs/images
+  - PoE power means feeding 5V into header PIN2/PIN4 yourself; it is not standard 802.3af powered-device input
+  doc_langs:
+  - en
+  - zh
+  note: Same SoC as the LicheePi 4A, smaller and cheaper, but with a noticeably smaller community and essentially only RevyOS for images.
+  checked: '2026-11-01'
+  order: 4
+  feature: false
+- id: k3
+  name: SpacemiT K3 (Pico-ITX / CoM260)
+  soc: SpacemiT K3 (Key Stone K3)
+  vendor: SpacemiT
+  spec: '8× X100 @2.4GHz + 8× A100 AI cores, RVA23/RVV1.0 (up to 1024-bit), 60 TOPS general AI compute, 130 KDMIPS. Pico-ITX: 16/32GB LPDDR5-6400, UFS2.2 128/256GB, 10GbE SFP+ + 1GbE, 2× M.2 (M-Key Gen3
+    x4 / B-Key), 2× USB3.2 Type-C (full-featured 65W PD + 4K DP) + 4× USB2.0, 100×86mm. CoM260: a 260-pin compute module plus a reference carrier board, the carrier being hardware-compatible with Jetson
+    Orin Nano.'
+  status: on_sale
+  price_note: 'Sipeed launch prices: Pico-ITX 8GB $299, CoM260 kit $309; reseller prices for 32GB/128GB run $595–889 (Firefly listings; TinyComputers'' review came to $1175 with tax); the domestic Milk-V
+    Jupiter2 8GB pre-order was about ¥1799. Reseller and duty differences are large — these are media/reseller quotes.'
+  forms:
+  - Pico-ITX
+  - CoM260 (also called SOM260)
+  official_os:
+  - bianbu
+  - ubuntu
+  - debian
+  - buildroot
+  distros:
+  - distro: bianbu
+    level: official
+    note: Ships with Bianbu Desktop 3.0; the archive is at 4.0.8 (built 2026-10-16, LXQt/Minimal, with a UEFI variant)
+  - distro: ubuntu
+    level: official
+    note: The SpacemiT archive provides an ubuntu-26.04-preinstalled-desktop-riscv64 image; the spec page lists Ubuntu 26.04
+  - distro: debian
+    level: official
+    note: Debian 13 GNOME/XFCE/Minimal images (built 2026-07-30)
+  - distro: buildroot
+    level: official
+    note: The official SDK provides Buildroot configs and images
+  - distro: openkylin
+    level: vendor-claim
+    note: The spec page says OpenKylin is supported, but no public image download was found
+  - distro: deepin
+    level: vendor-claim
+    note: The spec page says deepin is supported, but no public image download was found
+  - distro: fedora
+    level: vendor-claim
+    note: The spec page says Fedora is supported, but there is no K3-specific official image
+  downloads:
+  - label: Bianbu K3 images (including 4.0.8)
+    url: https://archive.spacemit.com/image/k3/version/bianbu/
+  - label: Debian 13 K3 image
+    url: https://archive.spacemit.com/image/k3/version/debian/
+  - label: Ubuntu 26.04 K3 image
+    url: https://archive.spacemit.com/image/k3/version/ubuntu/26.04/
+  - label: Buildroot K3 image
+    url: https://archive.spacemit.com/image/k3/version/buildroot/
+  guides:
+  - label: K3 Pico-ITX product page (specs including the OS list)
+    url: https://www.spacemit.com/community/development-kit/k3-pico-itx
+    type: doc
+    lang: zh
+  - label: K3-CoM260 product page
+    url: https://www.spacemit.com/community/development-kit/k3-com260
+    type: doc
+    lang: zh
+  - label: SpacemiT K3 chip documentation entry
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/key_stone/k3
+    type: doc
+    lang: zh
+  - label: Banana Pi K3 Pico-ITX specs and getting started (English)
+    url: https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX
+    type: doc
+    lang: en
+  - label: K3 reference design and SDK release plan (official forum)
+    url: https://forum.spacemit.com/t/topic/963
+    type: doc
+    lang: en
+  - label: Banana Pi K3 public sales announcement (2026-05)
+    url: https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
+    type: doc
+    lang: en
+  - label: TinyComputers in-depth K3 Pico-ITX review (including pitfalls)
+    url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
+    type: doc
+    lang: en
+  gotchas:
+  - The factory Bianbu 4.0.4 uses vendor kernel 6.18.3-generic, not mainline; K3 reference designs and SDKs have been released in batches since 2026-05, with docs and hardware validation moving together
+  - 16 cores are enumerated but a single task schedules on at most 8, and KVM/VMs did not work in testing (TinyComputers review, 2026-09)
+  - In the review the 10GbE SFP+ never linked and only the GbE port worked; 10GbE driver/transceiver compatibility needs testing
+  - Reseller prices vary wildly and duty is extra; the Milk-V Jupiter2 docs are still a stub, so rely on SpacemiT's official docs
+  doc_langs:
+  - zh
+  - en
+  note: Officially named K3-CoM260 (a 260-pin SO-DIMM compute module), which is the SOM260 form factor in the brief; the Pico-ITX and CoM260 share the SoC/SDK and system images. K3 went on global sale on
+    2026-04-30 and reached volume public sales in 2026-05.
+  checked: '2026-11-01'
+  order: 5
+  feature: true
+- id: a210
+  name: Zhihe A210 (XuanTie MelonPi dev board)
+  soc: ZHIHE A210 (4×C920 + 4×C908)
+  vendor: 'Zhihe Computing (board brand: XuanTie MelonPi)'
+  spec: '8-core 64-bit RISC-V: 4× C920 @1.9GHz + 4× C908 @1.9GHz, all with RVV (128-bit); NPU 12 TOPS@INT8 supporting INT4/INT8/FP8/FP16/BF16 and Transformers; LPDDR4X up to 16GB; eMMC5.1; H.265 decode
+    4K@120fps; the board is a SODIMM compute module plus V1/V2/V3 open carrier boards, 8GB LPDDR4X + 32GB eMMC (figures from a third-party project page)'
+  status: hard
+  price_note: No public retail price; boards come mainly through programme channels such as the XuanTie RV Academy and Huaqiu open hardware, and no public quote was found
+  forms:
+  - SODIMM compute module + V3 carrier
+  - A210 compute stick (dongle)
+  official_os:
+  - debian
+  - buildroot
+  distros:
+  - distro: debian
+    level: official
+    note: Prebuilt a210-evb desktop Debian image (SDK v2.9.0)
+  - distro: buildroot
+    level: official
+    note: zhihe_a210_defconfig in the official Buildroot SDK
+  downloads:
+  - label: A210 Debian desktop image (v2.9.0)
+    url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
+  - label: A210 Buildroot image (v2.9.0)
+    url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/br2image-v2.9.0-a210_evb.tar.gz
+  guides:
+  - label: A210 product brief (Chinese)
+    url: https://developer.zhcomputing.com/zh/docs/A210/A210_Datasheet
+    type: doc
+    lang: zh
+  - label: A210 product brief (English)
+    url: https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
+    type: doc
+    lang: en
+  - label: SDK quick start (images/build/flash)
+    url: https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
+    type: doc
+    lang: zh
+  - label: A210 flashing guide (SODIMM V1/V2/V3, compute dongle)
+    url: https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
+    type: doc
+    lang: zh
+  gotchas:
+  - No retail channel or public price; boards go mainly through evaluation/partner channels, so ordinary developers struggle to buy one
+  - 'A210 and A200 images are not interchangeable: the official Ubuntu only covers A200, while A210 has Debian/Buildroot only'
+  - There is no official BSP repo on GitHub/Gitee (zero search results); the kernel and drivers ship inside vendor SDK packages, and the community has almost no third-party distro support
+  - 'Vendor figures: about 8 tok/s for DeepSeek-7B on a single chip and 25 tok/s with 4 dies cascaded; measure it yourself'
+  doc_langs:
+  - zh
+  - en
+  note: 'Model disambiguation: the chip is Zhihe A210 (Archimedes series, XuanTie C920/C908 cores), while the board brand is written "XuanTie MelonPi". The Ubuntu image only covers the A200 (a200-evb) and
+    does not work on the A210.'
+  checked: '2026-11-01'
+  order: 6
+  feature: true
+- id: k230
+  name: Canaan K230 (Kendryte K230 / CanMV-K230)
+  soc: Kendryte K230 (2×C908)
+  vendor: Canaan
+  spec: 'Dual-core 64-bit RISC-V C908: big core 1.6GHz with RVV1.0, little core 0.8GHz; KPU rated at 6 TOPS equivalent (INT8/INT16) (1 TOPS on the K230D); the CanMV-K230 board carries 512MB LPDDR4, microSD,
+    HDMI, 3× MIPI-CSI and USB; typical chip power is about 2W'
+  status: on_sale
+  price_note: CanMV-K230 about $40–60 (AliExpress/Newegg and similar); 01Studio kits $49–88; no official list price (reseller quotes)
+  forms:
+  - CanMV-K230
+  - BPI-K230D-ZERO (K230D)
+  official_os:
+  - buildroot
+  - debian
+  - ubuntu
+  distros:
+  - distro: buildroot
+    level: official
+    note: k230_linux_sdk's default Buildroot setup (k230_canmv/k230_evb defconfigs)
+  - distro: debian
+    level: official
+    note: The SDK supports make debian, and there is an official K230 Debian/Ubuntu guide
+  - distro: ubuntu
+    level: official
+    note: The SDK supports make ubuntu, same guide
+  downloads:
+  - label: K230 Linux SDK daily build images
+    url: https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
+  - label: CanMV (MicroPython) firmware releases
+    url: https://github.com/kendryte/canmv_k230/releases
+  - label: K230 Linux SDK source
+    url: https://github.com/kendryte/k230_linux_sdk
+  guides:
+  - label: CanMV-K230 quick start (Chinese)
+    url: https://www.kendryte.com/k230_canmv/zh/main/index.html
+    type: doc
+    lang: zh
+  - label: K230 Linux SDK docs (Chinese)
+    url: https://www.kendryte.com/k230_linux/zh/main/index.html
+    type: doc
+    lang: zh
+  - label: K230 Debian/Ubuntu system guide
+    url: https://www.kendryte.com/k230_linux/zh/main/app_develop_guide/user_develop/debian_ubuntu.html
+    type: doc
+    lang: zh
+  - label: NuttX CanMV-K230 board docs (English)
+    url: https://nuttx.apache.org/docs/latest/platforms/risc-v/k230/boards/canmv230/index.html
+    type: doc
+    lang: en
+  gotchas:
+  - 'AMP heterogeneous design: by default the little core runs Linux and the big core RT-Smart/CanMV; only the big core has the V extension, so vector workloads must land on the right core'
+  - The official Linux path is Buildroot; Debian/Ubuntu must be built with make debian / make ubuntu, and there are no ready official desktop images
+  - 'Firmware must match: CanMV IDE only accepts files named CanMV-K230_micropython*, and a K230 SDK image won''t connect'
+  - The nncase toolchain is closed source and tightly bound to firmware versions; early build docs are Chinese only
+  doc_langs:
+  - zh
+  - en
+  note: CanMV (MicroPython firmware) is the highest-volume, best-documented form; on the Linux side the vendor pushes Buildroot. Apache NuttX has separate CanMV-K230 board support (not a distro), and the
+    RuyiSDK support matrix already covers the CanMV K230(D), so `ruyi device provision` can fetch images.
+  checked: '2026-11-01'
+  order: 7
+  feature: false
+- id: megrez
+  name: Milk-V Megrez (ESWIN EIC7700X)
+  soc: ESWIN EIC7700X
+  vendor: 'Milk-V (chip: ESWIN)'
+  spec: 4× SiFive P550 @1.8GHz (RV64GBCH, ships at 1.4GHz/800mV); 19.95 TOPS@INT8 NPU; IMG AXM-8-256 GPU (OpenGL ES3.2/Vulkan1.2/OpenCL); 8/16/32GB LPDDR5-6400; Mini-ITX 170×170mm; PCIe x8 slot (Gen3 x4),
+    2× GbE, 4× USB3, SATA/M.2 SATA, 8K H.265 encode/decode
+  status: hard
+  price_note: Launched in 2024 at $199 (16GB) / $269 (32GB, Arace); the site now only offers Contact us with no public retail link
+  forms:
+  - Mini-ITX
+  official_os:
+  - debian
+  - fedora
+  distros:
+  - distro: debian
+    level: official
+    note: RockOS (a PLCT-maintained tuned Debian for the EIC77 family)
+  - distro: fedora
+    level: official
+    note: The Fedora 41 image is built by Fedora-V Force (FVF), not an official Fedora image
+  - distro: gentoo
+    level: community
+    note: The Gentoo wiki has a Megrez install page (community-maintained)
+  downloads:
+  - label: RockOS/Debian images and bootloader (megrez-build releases)
+    url: https://github.com/milkv-megrez/megrez-build/releases/
+  - label: Fedora 41 (FVF) Megrez image
+    url: https://images.fedoravforce.org/Megrez
+  guides:
+  - label: Megrez overview and specs (Chinese)
+    url: https://milkv.io/zh/docs/megrez/overview
+    type: doc
+    lang: zh
+  - label: Megrez install/boot notes (partition resizing and more)
+    url: https://milkv.io/docs/megrez/getting-started/boot
+    type: doc
+    lang: en
+  - label: ENNP SDK developer guide (NPU)
+    url: https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction
+    type: doc
+    lang: en
+  - label: Gentoo on Megrez (community)
+    url: https://wiki.gentoo.org/wiki/User:Immolo/Sandbox/Milk-V-Megrez
+    type: doc
+    lang: en
+  gotchas:
+  - The CPU ships at 1.4GHz/800mV; you must raise it to 1.8GHz by hand per the docs or performance falls short of the marketing
+  - First boot does not grow the partition and root is only 6GB; expand it with gparted or it fills up quickly and reboots into no desktop
+  - The Fedora image comes from Fedora-V Force (F41), not an official Fedora build; there is no official Ubuntu image
+  - No public retail channel (the site only offers Contact us), so in 2026 it is genuinely hard to buy
+  doc_langs:
+  - zh
+  - en
+  note: Megrez was the first EIC7700X board in volume production (Mini-ITX); the same chip also appears in the SiFive HiFive Premier P550, which is dearer but has better official Ubuntu support.
+  checked: '2026-11-01'
+  order: 8
+  feature: false
+- id: titan
+  name: Milk-V Titan (UltraRISC DP1000)
+  soc: UltraRISC UR-DP1000
+  vendor: 'Milk-V (chip: UltraRISC)'
+  spec: 8× UR-CP100 @2.0GHz, RV64GCBHX (full RVA22, no V extension); up to 64GB DDR4 UDIMM (ECC supported); PCIe Gen4 x16, NVMe Gen4 x4, 2× GbE, USB3; Mini-ITX; UEFI+ACPI+SMBIOS; optional BMC module; no
+    onboard display output
+  status: on_sale
+  price_note: $329 (Arace standard/pre-order price); during the 2025 pre-order there was a $279 tier plus a $50 voucher (media)
+  forms:
+  - Mini-ITX
+  official_os:
+  - ubuntu
+  - fedora
+  - openkylin
+  distros:
+  - distro: ubuntu
+    level: official
+    note: UltraRISC's official Ubuntu 24.04 Desktop (rvck-titan, built 2026-06-05)
+  - distro: fedora
+    level: official
+    note: Fedora 44 Server Omni (official Fedora RISC-V image, with GRUB/DTB steps)
+  - distro: openkylin
+    level: official
+    note: openKylin 2.0 SP2 (ultrarisc-titan, built 2026-06-22)
+  downloads:
+  - label: Ubuntu 24.04 (UltraRISC official, split 7z)
+    url: https://github.com/milkv-titan/titan-ubuntu/releases
+  - label: Fedora 44 RISC-V image directory
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - label: openKylin 2.0 SP2 for Titan
+    url: https://bj30886.apps.aliyunfile.com/disk/s/ekZ6yZbox2V?domainId=bj30886
+  guides:
+  - label: Titan overview and specs (Chinese)
+    url: https://milkv.io/zh/docs/titan/overview
+    type: doc
+    lang: zh
+  - label: Installing Ubuntu 24.04 on Titan (imaging + boot)
+    url: https://milkv.io/docs/titan/getting-started/boot/ubuntu-24.04
+    type: doc
+    lang: en
+  - label: Fedora on Milk-V Titan (official wiki)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Titan
+    type: doc
+    lang: en
+  gotchas:
+  - UR-DP1000 has no V (vector) extension, so strictly it misses RVA23, which hurts AI/vector workloads
+  - The board has no HDMI/display output; use a discrete GPU or work purely over serial/SSH
+  - It currently runs a vendor kernel; upstream Linux mainline is only planned for 2026 Q4
+  - Pick DDR4 UDIMMs from the official support list; pre-order lead times are long (45 days+ at times) and duty is extra
+  doc_langs:
+  - zh
+  - en
+  note: Positioned as a RISC-V workstation/light server that takes a GPU, with Ubuntu as the first-choice OS; from Fedora 44 it uses the Omni kernel.
+  checked: '2026-11-01'
+  order: 9
+  feature: false
+- id: unmatched
+  name: SiFive HiFive Unmatched
+  soc: 'SiFive Freedom U740 (FU740): 4×U74 @1.2GHz + 1×S71 monitor core'
+  vendor: SiFive
+  spec: 16GB DDR4 onboard, PCIe x16 (for a GPU/NVMe), M.2 Key M, M.2 Key E (WiFi), GbE, 4× USB 3.0, microSD, SPI Flash; microATX form factor with 12V barrel power.
+  status: eol
+  price_note: The official page is marked Discontinued with no price; clearance in 2024 dropped to US$299, and second-hand is now the main source (price unverified)
+  forms: []
+  official_os:
+  - ubuntu
+  - buildroot
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Canonical's official preinstalled ubuntu-24.04.5-...+unmatched.img.xz, still within 24.04 LTS support
+  - distro: buildroot
+    level: official
+    note: The SiFive Freedom U SDK (FUSDK, a Buildroot/Yocto hybrid) is the vendor reference system, including U-Boot/OpenSBI
+  - distro: debian
+    level: community
+    note: Debian's official riscv64 installer works, and the Debian wiki has a page for this board
+  - distro: fedora
+    level: community
+    note: Fedora RISC-V has long listed Unmatched as a reference board
+  - distro: opensuse
+    level: community
+    note: openSUSE Ports has riscv64; the site returns 403, so this board's image is unverified
+  - distro: freebsd
+    level: community
+    note: FreeBSD/riscv supports Unmatched
+  - distro: openbsd
+    level: community
+    note: Community reports say OpenBSD/riscv64 works
+  - distro: gentoo
+    level: community
+    note: The Gentoo RISC-V project covers U74 platforms
+  - distro: armbian
+    level: partial
+    note: Community images existed, but Armbian has since removed this board's page
+  - distro: openeuler
+    level: community
+    note: The openEuler RISC-V SIG has an image for this board
+  - distro: openkylin
+    level: community
+    note: An openKylin RISC-V release supported it in the past
+  - distro: deepin
+    level: community
+    note: The deepin RISC-V port works
+  downloads:
+  - label: Ubuntu 24.04.5 LTS (Unmatched preinstalled image)
+    url: https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
+  - label: SiFive Freedom U SDK (source)
+    url: https://github.com/sifive/freedom-u-sdk
+  - label: 'Debian wiki: installing Debian on Unmatched'
+    url: https://wiki.debian.org/InstallingDebianOn/SiFive/HiFiveUnmatched
+  - label: Fedora RISC-V installation guide
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+  - label: FreeBSD RISC-V notes
+    url: https://wiki.freebsd.org/riscv
+  - label: OpenBSD/riscv64
+    url: https://www.openbsd.org/riscv64.html
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  guides:
+  - label: SiFive product page (specs plus the Discontinued marker)
+    url: https://www.sifive.com/development-platforms/hifive-unmatched
+    type: doc
+    lang: en
+  - label: SiFive documentation centre
+    url: https://www.sifive.com/documentation
+    type: doc
+    lang: en
+  - label: Ubuntu install guide (HiFive Unmatched)
+    url: https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/boards/how-to/sifive-hifive-unmatched/
+    type: doc
+    lang: en
+  gotchas:
+  - No onboard display output — add a PCIe GPU or use serial; debugging needs a USB-UART (FTDI) to see OpenSBI/U-Boot logs
+  - It needs a 12V/6A barrel supply; under-powering causes random reboots or DDR training failures
+  - The boot medium is set by the MSEL switches (SD/SPI flash); the wrong setting means no boot, and a corrupted SPI firmware needs JTAG recovery
+  - 'Officially discontinued: Ubuntu 24.04 is the last supported LTS image, the kernel is old, and new distros largely skip this board'
+  - PCIe GPUs need external power, and some cards show nothing during U-Boot — they only light up once Linux starts
+  doc_langs:
+  - en
+  note: The historic RISC-V desktop reference, now better suited to second-hand bargains or teaching; the setup cost for newcomers (serial + DIP switches + power) is high, so it is not recommended as a
+    first board. Community derivatives such as openwrt exist too (not listed as standard distro ids).
+  checked: '2026-11-01'
+  order: 10
+  feature: false
+- id: bpi-f3
+  name: Banana Pi BPI-F3 (SpacemiT K1)
+  soc: SpacemiT K1 (8×X60)
+  vendor: 'Banana Pi (chip: SpacemiT)'
+  spec: 8× X60 (RV64GCVB, RVA22, RVV1.0), 2.0 TOPS; IMG BXE-2-32 GPU @819MHz; 2/4/8/16GB LPDDR4; 8/16/32/128GB eMMC; 2× GbE, 4× USB3.0, HDMI1.4 (1080p), PCIe2.1 (M.2 M-Key + mini PCIe), WiFi6/BT5.2; 148×100mm
+  status: on_sale
+  price_note: About $68 (base) to $190 (16GB/128GB) at AliExpress/Banana Pi stores; prices vary a lot with RAM and eMMC (reseller quotes)
+  forms:
+  - Single-board computer (SBC)
+  - BPI-CM6 compute module
+  official_os:
+  - bianbu
+  distros:
+  - distro: bianbu
+    level: official
+    note: Bianbu is the vendor's pick (SpacemiT K1 image; 16GB supported since v1.0.7)
+  - distro: armbian
+    level: community
+    note: Armbian Standard support with Debian/Ubuntu images (SD boot only)
+  - distro: debian
+    level: community
+    note: Provided via Armbian
+  - distro: ubuntu
+    level: community
+    note: Provided via Armbian (not Canonical official)
+  - distro: fedora
+    level: community
+    note: A third-party image linked from the Banana Pi docs
+  - distro: opensuse
+    level: community
+    note: As above, a third-party image
+  - distro: arch
+    level: community
+    note: As above, a third-party image
+  - distro: gentoo
+    level: community
+    note: As above, a third-party image
+  downloads:
+  - label: BPI-F3 full image page (Bianbu/Debian/Ubuntu/Fedora/openSUSE/Arch/Gentoo/Armbian)
+    url: https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+  - label: SpacemiT K1 Bianbu official image repository
+    url: http://archive.spacemit.com/image/k1/version/bianbu/
+  - label: Armbian for BPI-F3
+    url: https://www.armbian.com/boards/bananapif3
+  guides:
+  - label: BPI-F3 docs (English, specs/images/flashing)
+    url: https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+    type: doc
+    lang: en
+  - label: BPI-F3 docs (Chinese)
+    url: https://docs.banana-pi.org/zh/BPI-F3/BananaPi_BPI-F3
+    type: doc
+    lang: zh
+  - label: BPI-F3 getting started (SD/eMMC flashing)
+    url: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+    type: doc
+    lang: en
+  - label: Banana Pi RISC-V forum, BPI-F3 section
+    url: https://forum.banana-pi.org/c/risc-v/bpi-f3/122
+    type: doc
+    lang: en
+  gotchas:
+  - Bianbu images come in SD (*.img.zip) and eMMC (*.zip) variants; the wrong one won't boot
+  - The vendor pushes Bianbu only; Debian/Ubuntu come mainly from Armbian community images, and Armbian supports SD boot only
+  - Early Bianbu (<v1.0.7) does not support the 16GB memory version
+  - HDMI is 1.4/1080p only — not suitable for a 4K desktop
+  doc_langs:
+  - zh
+  - en
+  note: K1 was one of the highest-volume high-performance RISC-V SBC chips in 2024-2025, and the BPI-F3 has the most varied ecosystem (official Bianbu plus community Armbian/Fedora/openSUSE/Arch/Gentoo
+    images). The RuyiSDK support matrix covers the BPI-F3 too.
+  checked: '2026-11-01'
+  order: 11
+  feature: false
+- id: orangepi-rv2
+  name: Orange Pi RV2 (Ky X1)
+  soc: Ky X1 (8-core RISC-V AI CPU)
+  vendor: Orange Pi
+  spec: 8-core 64-bit RISC-V (single-core performance about 1.3× a Cortex-A55), 2 TOPS fused CPU compute (no dedicated NPU); 2/4/8GB LPDDR4X; optional 16–128GB eMMC module; 2× M.2 M-Key (PCIe2.0 x2, NVMe
+    capable), 2× GbE, WiFi5/BT5, 3× USB3 + 2× USB2, HDMI, 89×56mm
+  status: on_sale
+  price_note: From $30 (2GB), about $40/$50 for 4GB/8GB (media and resellers); sold on AliExpress/Amazon/Taobao
+  forms:
+  - Single-board computer (SBC)
+  official_os:
+  - ubuntu
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Ubuntu 24.04 Server/GNOME (vendor 6.6 kernel, buildable with orangepi-build)
+  - distro: armbian
+    level: community
+    note: Armbian provides Debian/Ubuntu builds
+  - distro: debian
+    level: community
+    note: Provided via Armbian
+  - distro: arch
+    level: community
+    note: BredOS (an Arch derivative) is listed as a third-party image on the site
+  downloads:
+  - label: RV2 official image page (Ubuntu/Orange Pi OS/OpenWRT, Google Drive)
+    url: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
+  - label: Armbian for Orange Pi RV2
+    url: https://armbian.com/boards/orangepirv2
+  guides:
+  - label: Orange Pi RV2 Wiki (English, with flashing/GPIO/kernel)
+    url: http://www.orangepi.org/orangepiwiki/index.php?title=Orange_Pi_RV2
+    type: doc
+    lang: en
+  - label: RV2 Chinese product page
+    url: http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-RV2.html
+    type: doc
+    lang: zh
+  - label: orangepi-build (kernel/image build)
+    url: https://github.com/orangepi-xunlong/orangepi-build
+    type: doc
+    lang: en
+  gotchas:
+  - Ubuntu 24.04 uses the vendor 6.6 kernel (orange-pi-6.6-ky), not mainline; upgrade the kernel with care
+  - '"2 TOPS" is fused CPU compute with no dedicated NPU, so LLMs run on CPU/RVV only'
+  - Real-world 8-core performance is still low (Phoronix and others rate it below a contemporary 4-core ARM board), so it is no desktop workhorse
+  - Official images are hosted on Google Drive, which is awkward from China; eMMC needs a separately purchased module
+  doc_langs:
+  - zh
+  - en
+  note: Ky X1 is closely related to SpacemiT K1 (8× X60-class cores, widely believed to be a rebrand, though the vendor has not confirmed it), so Bianbu K1 images cannot simply be reused.
+  checked: '2026-11-01'
+  order: 12
+  feature: false
+- id: p550
+  name: SiFive HiFive Premier P550
+  soc: ESWIN EIC7700X
+  vendor: SiFive
+  spec: 4× SiFive P550 @1.4GHz (out-of-order); 16/32GB LPDDR5-6400 + 128GB eMMC; 20 TOPS NPU; Imagination GPU; Mini-DTX; PCIe Gen3 x4 (x16 slot), 2× GbE, 5× USB3, SATA; Ubuntu 24.04 preinstalled (6.6 kernel,
+    OTA supported)
+  status: on_sale
+  price_note: 'Arrow quotes: 16GB $381.43, 32GB $485.84 (search snapshot 2026-11, product page not verified directly); early list prices were $399/$499'
+  forms:
+  - Mini-DTX
+  official_os:
+  - ubuntu
+  - fedora
+  - yocto
+  distros:
+  - distro: ubuntu
+    level: official
+    note: Ubuntu 24.04 preinstalled; SiFive released 2025.11.00 (kernel 6.12.33)
+  - distro: fedora
+    level: official
+    note: Supported since Fedora 42; Omni kernel since Fedora 44
+  - distro: yocto
+    level: official
+    note: freedom-u-sdk Yocto BSP (including bootchain firmware)
+  - distro: debian
+    level: community
+    note: A SiFive blog says Debian support is in progress; prepare the image yourself
+  downloads:
+  - label: Ubuntu image releases (SiFive official)
+    url: https://github.com/sifive/hifive-premier-p550-ubuntu/releases
+  - label: Fedora 44 RISC-V image directory
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/44/Server/riscv64/images/
+  - label: freedom-u-sdk (Yocto/BSP and bootchain)
+    url: https://github.com/sifiveinc/freedom-u-sdk/releases
+  guides:
+  - label: P550 product page (specs/purchase links)
+    url: https://www.sifive.com/development-platforms/hifive-premier-p550
+    type: doc
+    lang: en
+  - label: Fedora on P550 (firmware requirements/serial/install)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/SiFive/HiFivePremierP550
+    type: doc
+    lang: en
+  gotchas:
+  - 'Firmware must match the image: an old bootchain leaves Fedora unbootable, so flash the newest firmware first'
+  - No native NVMe slot — use a PCIe adapter; onboard networking is just 2× GbE
+  - The iGPU supports OpenGL ES only; OpenGL needs MESA_LOADER_DRIVER_OVERRIDE=zink, and with a discrete GPU the GRUB menu doesn't display
+  - No official channel in China; buy through overseas distributors such as Arrow, with shipping and duty on top
+  doc_langs:
+  - en
+  note: Same chip as the Milk-V Megrez (EIC7700X), but the P550 ships official Ubuntu with OTA, so its software is more mature; there is also Red Hat RHEL 10 developer preview support.
+  checked: '2026-11-01'
+  order: 13
+  feature: false
+- id: visionfive2-lite
+  name: StarFive VisionFive 2 Lite (JH7110S)
+  soc: StarFive JH7110S
+  vendor: StarFive
+  spec: 4× RV64GC @1.25GHz + IMG BXE-4-32 MC1 GPU; 2/4/8GB LPDDR4; WiFi6/BT5.4; M.2 (PCIe2.0 x1), GbE, USB2.0/3.0, HDMI 4K@60, 40-pin GPIO, MIPI-CSI/DSI; microSD/eMMC
+  status: on_sale
+  price_note: Kickstarter from $19.90; retail about $23 (2GB) / $30 (4GB) / $37 (8GB) (Liliputing/CNX, media prices)
+  forms:
+  - Single-board computer (SBC)
+  official_os:
+  - debian
+  - ubuntu
+  - buildroot
+  distros:
+  - distro: debian
+    level: official
+    note: StarFive Debian image (debian.starfivetech.com)
+  - distro: ubuntu
+    level: official
+    note: ubuntu-24.04.3-preinstalled-desktop-riscv64+vf2-lite (released by StarFive, 2025-10-16)
+  - distro: buildroot
+    level: official
+    note: StarFive Buildroot SDK (VisionFive2 repo)
+  downloads:
+  - label: StarFive Debian image entry
+    url: https://debian.starfivetech.com/
+  - label: VisionFive2 repo releases (Ubuntu/Debian/Buildroot images and SDK)
+    url: https://github.com/starfive-tech/VisionFive2/releases
+  guides:
+  - label: VisionFive 2 Lite product and specs (English)
+    url: https://rvspace.org/en/homepage/product_center_sbc
+    type: doc
+    lang: en
+  - label: VisionFive 2 Lite documentation centre (English)
+    url: https://doc-en.rvspace.org/Doc_Center/visionfive_2_lite.html
+    type: doc
+    lang: en
+  - label: VisionFive 2 Lite documentation centre (Chinese)
+    url: https://doc.rvspace.org/Doc_Center/vf2lite.html
+    type: doc
+    lang: zh
+  - label: RVspace Chinese wiki
+    url: https://wiki.rvspace.org/zh/home
+    type: doc
+    lang: zh
+  gotchas:
+  - 'Don''t apt dist-upgrade: CNX upgraded 207 packages and after a reboot gnome-shell pinned a core and the system became nearly unresponsive'
+  - The GPU firmware rgx.fw often fails to load (PVR_K errors); 3D acceleration depends on firmware matching the image
+  - Performance is roughly Raspberry Pi 3B level (JH7110S at a reduced 1.25GHz) — not for heavy loads
+  - This is a cut-down VisionFive 2, not a VisionFive 3
+  doc_langs:
+  - zh
+  - en
+  note: 'There is no VisionFive 3: StarFive''s 2026 launch is the server-oriented Dubhe-100 RISC-V IP, and the SBC line only moved to the VisionFive 2 Lite (crowdfunded 2025-08, in production 2025-10).
+    rvspace separately claims native OpenWrt support (not a distro id).'
+  checked: '2026-11-01'
+  order: 14
+  feature: false
+- id: beaglev-ahead
+  name: BeagleV-Ahead
+  soc: 'T-Head TH1520: 4×C910 @1.85GHz, 4TOPS NPU, BXM-4-64 GPU'
+  vendor: BeagleBoard.org
+  spec: 4GB LPDDR4, 16GB onboard eMMC, WiFi5/BT5 (AP6203BM), GbE, microHDMI, microSD, 2× CSI + 1× DSI, mikroBUS, BeagleBone Black cape headers.
+  status: on_sale
+  price_note: Launched around US$150 (BeagleBoard forum); resellers now ask about US$160–190 (unverified)
+  forms: []
+  official_os:
+  - ubuntu
+  - yocto
+  distros:
+  - distro: ubuntu
+    level: official
+    note: The only official Linux desktop image, xuantie-ubuntu-23.04-20230705 (Ubuntu 23.04 is EOL)
+  - distro: yocto
+    level: official
+    note: Official Yocto production image 2023-06-10, preinstalled at the factory
+  - distro: revyos
+    level: community
+    note: RevyOS's beagle directory stops at 20231210 with no updates since
+  - distro: fedora
+    level: community
+    note: Fedora-V Force provides BeagleV-Ahead images
+  - distro: debian
+    level: partial
+    note: Mainline Debian has no official installer support; build the rootfs yourself
+  downloads:
+  - label: BeagleBoard image site (all board models)
+    url: https://www.beagleboard.org/distros
+  - label: Official Ubuntu 23.04 (2023-07-05)
+    url: https://www.beagleboard.org/distros/beaglev-ahead-ubuntu-2023-07-05
+  - label: Official Yocto (2023-06-10, factory image)
+    url: https://www.beagleboard.org/distros/beaglev-ahead-yocto-npi-2023-06-10
+  - label: RevyOS BeagleV-Ahead image (20231210)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/beagle/20231210/
+  - label: XuanTie Ubuntu source repo (2023-07-05 release)
+    url: https://git.beagleboard.org/beaglev-ahead/xuantie-ubuntu-old/-/releases/2023-07-05
+  - label: Fedora-V Force RISC-V mirror
+    url: https://images.fedoravforce.org
+  - label: Hardware design and issue tracker
+    url: https://git.beagleboard.org/beaglev-ahead/beaglev-ahead
+  guides:
+  - label: 'BeagleBoard docs: BeagleV-Ahead'
+    url: https://docs.beagleboard.org/boards/beaglev/ahead/
+    type: doc
+    lang: en
+  - label: Product page (specs/purchase channels)
+    url: https://www.beagleboard.org/boards/beaglev-ahead
+    type: doc
+    lang: en
+  - label: OpenBeagle project home
+    url: https://openbeagle.org/beaglev-ahead/beaglev-ahead
+    type: doc
+    lang: en
+  - label: Official forum, BeagleV-Ahead section
+    url: https://forum.beagleboard.org/tags/c/beaglev/15/ahead
+    type: doc
+    lang: en
+  gotchas:
+  - Official images stopped in 2023 (Ubuntu 23.04 / Yocto 2023-06); Ubuntu 23.04 is long EOL and its apt repos are mostly dead
+  - RevyOS's beagle image also stops at 20231210, which leaves no continuously maintained distro
+  - Flashing eMMC needs USB-C fastboot plus artifacts from the XuanTie toolchain; booting from SD is far simpler
+  - Only 4GB RAM, which is tight for a desktop; microHDMI needs an adapter
+  - WiFi is an AP6203BM needing its own firmware blob, with incomplete mainline support
+  - The cape headers are 3.3V logic — a 5V cape will fry them
+  doc_langs:
+  - en
+  note: 'Good build quality and a strong cape ecosystem, but the worst software of the three TH1520 boards: the official image has not been updated in three years, so it is only good for collecting or teaching.'
+  checked: '2026-11-01'
+  order: 15
+  feature: false
+- id: pioneer
+  name: Milk-V Pioneer (SG2042, server-oriented)
+  soc: 'SOPHON SG2042: 64×XuanTie C920 @2GHz, RVV 0.71, 64MB L3'
+  vendor: Milk-V
+  spec: 4× DDR4 DIMM up to 128GB (ECC RDIMM/UDIMM), 3× PCIe x16 (Gen3 x8 signalling), 5× SATA, 2× 2.5GbE, 8× USB3, 2× M.2, an eMMC module connector, microSD; mATX 24.4×24.4cm with standard 24-pin ATX power,
+    120W typical.
+  status: on_sale
+  price_note: 'Crowdfunding: board US$1,199 (US$899 without CPU), Pioneer Box complete system US$1,999; current pricing is quote-only (unverified)'
+  forms: []
+  official_os:
+  - revyos
+  - fedora
+  distros:
+  - distro: revyos
+    level: official
+    note: Currently the vendor's recommended system; RevyOS 20260504 ships pioneer/pisces firmware and images
+  - distro: fedora
+    level: official
+    note: Milk-V's docs use Fedora 38 as the install example; Fedora RISC-V supports SG2042
+  - distro: openeuler
+    level: community
+    note: The openEuler RISC-V SIG supports SG2042 for server scenarios
+  - distro: openkylin
+    level: community
+    note: openKylin has a RISC-V server image
+  - distro: deepin
+    level: community
+    note: deepin RISC-V port
+  - distro: debian
+    level: partial
+    note: debian-ports has base riscv64 packages but no official Pioneer image
+  - distro: ubuntu
+    level: partial
+    note: No Canonical image; build the rootfs yourself
+  downloads:
+  - label: RevyOS SG2042 image directory (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - label: RevyOS install guide (Milk-V Pioneer)
+    url: https://docs.revyos.dev/en/docs/Installation/milkv-pioneer/
+  - label: Milk-V Pioneer install steps (English, with a Fedora example)
+    url: https://milkv.io/docs/pioneer/getting-started/InstallOS
+  - label: Milk-V Pioneer download roundup (hardware/source)
+    url: https://milkv.io/docs/pioneer/getting-started/download
+  - label: Fedora-V Force RISC-V mirror
+    url: https://images.fedoravforce.org
+  - label: openEuler RISC-V SIG
+    url: https://www.openeuler.org/en/sig/sig-RISC-V
+  guides:
+  - label: Pioneer overview and specs (English)
+    url: https://milkv.io/docs/pioneer/overview
+    type: doc
+    lang: en
+  - label: Pioneer overview and specs (Chinese)
+    url: https://milkv.io/zh/docs/pioneer/overview
+    type: doc
+    lang: zh
+  - label: Pioneer known-issues list
+    url: https://github.com/milkv-pioneer/issues/issues
+    type: doc
+    lang: en
+  - label: RevyOS docs (images/flashing)
+    url: https://docs.revyos.dev/
+    type: doc
+    lang: en
+  gotchas:
+  - The Image area of Milk-V's Download page is empty now (moved to RevyOS) — don't look for system images there
+  - 'Choose memory carefully: pick RDIMM/UDIMM from the official DDR support list or DDR training fails and it won''t boot'
+  - It needs standard ATX 24-pin plus CPU 8-pin power, and a cooler is mandatory (120W typical)
+  - No onboard display output — add a PCIe GPU; some cards show nothing during LinuxBoot/U-Boot
+  - Firmware upgrades (LinuxBoot/EDK2 + MCU) can brick the board; follow the official order exactly
+  - Early batches have ASM2824 PCIe switch compatibility issues — check the buglist first
+  doc_langs:
+  - en
+  - zh
+  note: The only board that works as a RISC-V workstation/server, at a completely different price and power level; good for 64-core parallel builds and CI runners, not for beginners. Community derivatives
+    such as opencloudos exist too (not listed as standard distro ids).
+  checked: '2026-11-01'
+  order: 16
+  feature: false
+- id: milkv-duo
+  name: Milk-V Duo series (Duo / Duo 256M / Duo S)
+  soc: CV1800B (Duo) / SG2002 (Duo 256M) / SG2000 (Duo S)
+  vendor: Milk-V
+  spec: 'Duo: 2× C906 (1GHz + 700MHz) + an 8051, 64MB SIP DRAM; Duo 256M: SG2002 plus 1× Cortex-A53, 256MB; Duo S: 512MB + eMMC pads (some kits ship 8GB) + WiFi6; all have a 100M Ethernet port and USB-C;
+    Duo/256M are 26-pin GPIO pads at 21×51mm, Duo S has 2× 26-pin headers at 43×43mm.'
+  status: on_sale
+  price_note: Duo US$4.99 and Duo S US$9.99 (actual Arace store prices); Duo 256M about US$7.99
+  forms: []
+  official_os:
+  - buildroot
+  distros:
+  - distro: buildroot
+    level: official
+    note: Official V1/V2 Buildroot SDKs — flash and go, the steadiest system
+  - distro: fedora
+    level: community
+    note: Fedora 41 image (Fedora-V Force, ISCAS mirror)
+  - distro: debian
+    level: community
+    note: Fishwaldo/scpcom's sophgo-sg200x-debian, covering 256M/S
+  - distro: ubuntu
+    level: community
+    note: Ubuntu 22.04 community image (bassusteur)
+  - distro: arch
+    level: community
+    note: Community Arch image
+  - distro: alpine
+    level: community
+    note: Community Alpine image (cwt)
+  - distro: nixos
+    level: community
+    note: Community-maintained with limited features
+  - distro: yocto
+    level: community
+    note: meta-milkv layer
+  - distro: openeuler
+    level: community
+    note: openEuler has a Duo image
+  downloads:
+  - label: Milk-V image roundup (including a third-party image table)
+    url: https://milkv.io/docs/duo/getting-started/download
+  - label: Official Buildroot SDK V1 releases
+    url: https://github.com/milkv-duo/duo-buildroot-sdk/releases
+  - label: Official Buildroot SDK V2 releases (RISC-V+ARM dual images for 256M/S)
+    url: https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases
+  - label: Fedora 41 Duo image (ISCAS)
+    url: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/
+  - label: Debian (sophgo-sg200x-debian)
+    url: https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - label: Alpine community image (PoC)
+    url: https://github.com/cwt/duo-buildroot-sdk/releases/tag/poc1
+  guides:
+  - label: Duo overview (English)
+    url: https://milkv.io/docs/duo/overview
+    type: doc
+    lang: en
+  - label: Duo quick start
+    url: https://milkv.io/docs/duo/getting-started/duo
+    type: doc
+    lang: en
+  - label: Duo 256M notes
+    url: https://milkv.io/docs/duo/getting-started/duo256m
+    type: doc
+    lang: en
+  - label: Buildroot SDK build guide
+    url: https://milkv.io/docs/duo/getting-started/buildroot-sdk
+    type: doc
+    lang: en
+  - label: Mainline support status (patch-by-patch progress)
+    url: https://milkv.io/docs/duo/resources/upstream-status
+    type: doc
+    lang: en
+  - label: Mainline Linux support notes
+    url: https://milkv.io/docs/duo/resources/mainline
+    type: doc
+    lang: en
+  gotchas:
+  - The 64MB Duo has too little RAM for the AI apps in V2 images; the vendor explicitly recommends V1 images for 64M boards
+  - By default there is only a USB-NCM network interface (192.168.42.1) with no DHCP, so set a host IP in the same subnet; the root password is milkv
+  - 'Mainline support is partial: minimal landed in 6.7, GPIO in 6.8, clock/SPI/I2C/MMC/USB in 6.9–6.10, and camera/VPU/NPU and some clocks are still under review'
+  - Duo 256M/S include an ARM Cortex-A53 core; RISC-V and ARM images are not interchangeable
+  - There is no HDMI — even the Duo S only has MIPI DSI; add an adapter board to connect a screen
+  - The Duo S has a BOOT switch; the wrong position blocks download/boot mode, and 5V/1A is enough power — don't force a fast charger into it
+  doc_langs:
+  - en
+  - zh
+  note: A US$5-class starter board, good for learning embedded Linux/RTOS and useless as a desktop; check whether you have a 64M or a 256M/S before buying, since the images are completely incompatible.
+    Community derivatives such as openwrt exist too (not listed as standard distro ids).
+  checked: '2026-11-01'
+  order: 17
+  feature: false

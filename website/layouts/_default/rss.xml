@@ -1,0 +1,97 @@
+{{- /* RSS：首页出「发行版 + 开发板」合并更新，栏目录出各自条目，单个发行版/开发板页出它自己。 */ -}}
+{{- $d := partial "site-data.html" . -}}
+{{- $kindOfFeed := "all" -}}
+{{- $oneID := "" -}}
+{{- if eq .Kind "page" -}}
+  {{- with .Params.distro -}}{{ $kindOfFeed = "distro" }}{{ $oneID = . }}{{- end -}}
+  {{- with .Params.board -}}{{ $kindOfFeed = "board" }}{{ $oneID = . }}{{- end -}}
+{{- else if eq .Section "distros" -}}
+  {{- $kindOfFeed = "distros" -}}
+{{- else if eq .Section "boards" -}}
+  {{- $kindOfFeed = "boards" -}}
+{{- else if and (eq .Kind "page") (eq .File.BaseFileName "ai") -}}
+  {{- $kindOfFeed = "ai" -}}
+{{- end -}}
+{{- $items := slice -}}
+{{- if or (eq $kindOfFeed "distros") (eq $kindOfFeed "distro") (eq $kindOfFeed "all") -}}
+  {{- range $d.distros.items -}}
+    {{- $x := . -}}
+    {{- if or (ne $kindOfFeed "distro") (eq $x.id $oneID) -}}
+      {{- $desc := $x.note | default "" -}}
+      {{- with $x.based_on -}}{{- $desc = printf "%s ｜ %s %s" $desc (i18n "label.based_on") . -}}{{- end -}}
+      {{- $link := printf "distros/%s/" $x.id | relLangURL -}}
+      {{- $items = $items | append (dict
+            "kind" "distro" "date" ($x.checked | default "1970-01-01")
+            "title" (printf "%s — %s" (i18n "nav.distros") $x.name)
+            "link" $link "desc" $desc
+            "cats" (slice (i18n (printf "kind.%s" ($x.kind | default "distro"))))
+            "guid" (printf "distro:%s" $x.id)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if or (eq $kindOfFeed "boards") (eq $kindOfFeed "board") (eq $kindOfFeed "all") -}}
+  {{- range $d.boards.items -}}
+    {{- $x := . -}}
+    {{- if or (ne $kindOfFeed "board") (eq $x.id $oneID) -}}
+      {{- $link := printf "boards/%s/" $x.id | relLangURL -}}
+      {{- $items = $items | append (dict
+            "kind" "board" "date" ($x.checked | default "1970-01-01")
+            "title" (printf "%s — %s" (i18n "nav.boards") $x.name)
+            "link" $link "desc" ($x.spec | default "")
+            "cats" (slice ($x.soc | default ""))
+            "guid" (printf "board:%s" $x.id)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $kindOfFeed "ai" -}}
+  {{- range $d.ai.items -}}
+    {{- $x := . -}}
+    {{- $link := printf "ai/#%s" ($x.board | default "") | relLangURL -}}
+    {{- $desc := $x.note | default "" -}}
+    {{- with $x.runs -}}
+      {{- $r := slice -}}
+      {{- range . -}}{{- $r = $r | append (printf "%s: %s" .item (i18n (printf "run.%s" .state))) -}}{{- end -}}
+      {{- $desc = printf "%s ｜ %s" (delimit $r "；") $desc -}}
+    {{- end -}}
+    {{- $items = $items | append (dict
+          "kind" "ai" "date" ($x.checked | default "1970-01-01")
+          "title" (printf "%s — %s" (i18n "nav.ai") ($x.board_name | default $x.board))
+          "link" $link "desc" $desc
+          "cats" (slice ($x.soc | default ""))
+          "guid" (printf "ai:%s" ($x.board | default $x.board_name))) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items = sort $items "date" "desc" -}}
+{{- $feedName := i18n "feed.all" -}}
+{{- if eq $kindOfFeed "distros" -}}{{ $feedName = i18n "feed.distros" }}
+{{- else if eq $kindOfFeed "boards" -}}{{ $feedName = i18n "feed.boards" }}
+{{- else if eq $kindOfFeed "distro" -}}{{ $feedName = printf "%s · %s" (i18n "feed.distros") $oneID }}
+{{- else if eq $kindOfFeed "board" -}}{{ $feedName = printf "%s · %s" (i18n "feed.boards") $oneID }}
+{{- else if eq $kindOfFeed "ai" -}}{{ $feedName = i18n "feed.ai" }}
+{{- end -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ printf "%s — %s" site.Title $feedName }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ with .Params.sub }}{{ . }}{{ else }}{{ site.Params.description | default site.Title }}{{ end }}</description>
+    <language>{{ .Language.LanguageCode | default .Language.Lang }}</language>
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    <generator>Hugo</generator>
+    {{- with .OutputFormats.Get "rss" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml"/>
+    {{- end }}
+    {{- range first 60 $items }}
+    <item>
+      <title>{{ .title }}</title>
+      <link>{{ absURL .link }}</link>
+      <guid isPermaLink="false">{{ .guid }}</guid>
+      <pubDate>{{ (time.AsTime (default "1970-01-01" .date)).Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <description>{{ .desc }}</description>
+      {{- range .cats }}
+      <category>{{ . }}</category>
+      {{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

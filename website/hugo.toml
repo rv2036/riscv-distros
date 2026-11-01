@@ -1,0 +1,69 @@
+baseURL = "https://riscv-distros.org/"
+title = "RISC-V Distros"
+enableRobotsTXT = true
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+hasCJKLanguage = true
+timeZone = "Asia/Shanghai"
+disableKinds = ["taxonomy", "term"]
+
+[pagination]
+  pagerSize = 60
+
+[params]
+  # 邮件订阅后端地址。留空 = 前端表单置灰（未接入状态）。
+  # 配好服务后把 POST 端点填在这里，表单会自动变成可提交。
+  newsletter_endpoint = ""
+  domain = "riscv-distros.org"
+  repo = "https://github.com/rv2036/riscv-distros"
+  license = "CC BY-SA 4.0"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[languages]
+  [languages.zh]
+    languageName = "简体中文"
+    languageCode = "zh-CN"
+    contentDir = "content/zh"
+    weight = 1
+    title = "RISC-V 发行版"
+    [languages.zh.params]
+      tagline = "给第一次用 RISC-V 的人"
+      description = "RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    contentDir = "content/en"
+    weight = 2
+    title = "RISC-V Distros"
+    [languages.en.params]
+      tagline = "For your first RISC-V machine"
+      description = "Which RISC-V distribution runs on which board, where to get images, and the pitfalls to expect."
+  [languages.ja]
+    languageName = "日本語"
+    languageCode = "ja"
+    contentDir = "content/ja"
+    weight = 3
+    title = "RISC-V ディストロ"
+    [languages.ja.params]
+      tagline = "はじめての RISC-V のために"
+      description = "RISC-V ディストリビューションとボードの対応一覧。どの板で何が動くか、イメージの入手先、つまずきどころ。"
+  [languages.ru]
+    languageName = "Русский"
+    languageCode = "ru"
+    contentDir = "content/ru"
+    weight = 4
+    title = "Дистрибутивы RISC-V"
+    [languages.ru.params]
+      tagline = "Для первого знакомства с RISC-V"
+      description = "Какие дистрибутивы RISC-V работают на каких платах, где брать образы и какие подводные камни ждут."
+  [languages.ko]
+    languageName = "한국어"
+    languageCode = "ko"
+    contentDir = "content/ko"
+    weight = 5
+    title = "RISC-V 배포판"
+    [languages.ko.params]
+      tagline = "처음 쓰는 RISC-V를 위해"
+      description = "어떤 RISC-V 배포판이 어떤 보드에서 돌아가는지, 이미지는 어디서 받고 무엇을 조심해야 하는지 정리했습니다."

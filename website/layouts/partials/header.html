@@ -1,0 +1,27 @@
+{{ $here := . }}
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="{{ "" | relLangURL }}">
+      <span class="brand-mark" aria-hidden="true">RV</span>
+      <span>{{ site.Title }}</span>
+    </a>
+    <nav class="nav" aria-label="{{ i18n "a11y.nav" }}">
+      {{- $nav := slice
+        (dict "key" "start"   "path" "start/"   "label" (i18n "nav.start"))
+        (dict "key" "distros" "path" "distros/" "label" (i18n "nav.distros"))
+        (dict "key" "boards"  "path" "boards/"  "label" (i18n "nav.boards"))
+        (dict "key" "matrix"  "path" "matrix/"  "label" (i18n "nav.matrix"))
+        (dict "key" "ai"      "path" "ai/"      "label" (i18n "nav.ai"))
+      -}}
+      {{- range $nav }}
+        {{- $url := .path | relLangURL }}
+        {{- $active := or (eq $here.RelPermalink $url) (and (ne .key "start") (hasPrefix $here.RelPermalink $url)) }}
+        <a href="{{ $url }}"{{ if $active }} class="active"{{ end }}>{{ .label }}</a>
+      {{- end }}
+    </nav>
+    <div class="head-tools">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="{{ i18n "a11y.theme_dark" }}">☀</button>
+      {{ partial "lang-switch.html" . }}
+    </div>
+  </div>
+</header>

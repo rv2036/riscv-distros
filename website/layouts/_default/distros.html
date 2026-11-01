@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ $d := partial "site-data.html" . }}
+{{ $all := sort $d.distros.items "order" }}
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.sub }}<div class="sub">{{ . }}</div>{{ end }}
+  </div>
+</header>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  {{ range $group := slice "distro" "buildsystem" }}
+  {{ $g := where $all "kind" (cond (eq $group "distro") "distro" "buildsystem") }}
+  {{ if $g }}
+  <h2 class="group-head">{{ i18n (printf "kind.%s" $group) }}<span class="count">{{ len $g }}</span></h2>
+  <div class="grid cols-2">
+    {{ range $g }}
+    <article class="card{{ if .feature }} feature{{ end }}">
+      <div class="card-top">
+        <h3><a href="{{ printf "distros/%s/" .id | relLangURL }}">{{ .name }}</a></h3>
+        <span class="badge soft">{{ i18n (printf "upstream.%s" (.upstream | default "community")) }}</span>
+        {{ with .audience }}<span class="badge">{{ i18n (printf "audience.%s" .) }}</span>{{ end }}
+      </div>
+      {{ with .vendor }}<p>{{ . }}</p>{{ end }}
+      {{ with .based_on }}<p>{{ i18n "label.based_on" }}{{ . }}</p>{{ end }}
+      {{ with .note }}<p>{{ . }}</p>{{ end }}
+      {{ with .versions }}<p class="muted">{{ i18n "label.versions" }}{{ delimit . " · " }}</p>{{ end }}
+      {{ with .boards }}
+      <p class="muted">{{ i18n "label.boards" }}
+        {{- range $i, $b := . }}{{ if $i }}、{{ end }}{{ $b.board }}（{{ i18n (printf "level.%s" $b.level) }}）{{ end -}}
+      </p>
+      {{ end }}
+      {{ with .downloads }}
+      <div class="links">{{ range . }}<a href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}</div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+
+  <section class="block prose">{{ .Content }}</section>
+</div>
+{{ end }}

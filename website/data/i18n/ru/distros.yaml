@@ -1,0 +1,1630 @@
+# distros (ru)
+items:
+- id: debian
+  name: Debian
+  vendor: ''
+  upstream: official
+  upstream_note: 'Начиная с Debian 13 (trixie) riscv64 является официальной архитектурой релиза — цитата из официального пресс-релиза: "This release for the first time officially supports the riscv64 architecture";
+    входит в основной архив deb.debian.org, а не в дополнительное дерево ports (в списке debian.org/ports у riscv64 указано 13/released).'
+  kind: distro
+  based_on: Независимый
+  audience: recommended
+  versions:
+  - 13.7 (trixie, текущая стабильная, ISO — debian-13.7.0-riscv64-netinst.iso)
+  - 14 (forky, в разработке/тестировании)
+  boards:
+  - board: qemu
+    level: official
+    note: Официальный riscv64 netinst устанавливается на QEMU virt и является основной целевой платформой d-i
+  - board: unmatched
+    level: community
+    note: Универсальный образ riscv64 + загрузка через U-Boot/UEFI на плате; Debian не выпускает образы для конкретных плат
+  - board: visionfive2
+    level: community
+    note: То же самое; для плат JH7110 используется U-Boot от производителя, который предоставляет UEFI, после чего устанавливается универсальный образ
+  - board: licheepi-4a
+    level: partial
+    note: Для TH1520 требуется U-Boot/ядро от производителя; в mainline Debian поддержки на уровне платы нет
+  - board: meles
+    level: partial
+    note: Та же платформа TH1520, ситуация аналогична LicheePi 4A
+  - board: k3
+    level: partial
+    note: Для SpacemiT K3 требуется BSP от производителя; поддержка в mainline Debian не подтверждена
+  - board: a210
+    level: partial
+    note: Для Zhihe A210 требуются прошивка/ядро от производителя, официальной поддержки Debian нет
+  - board: k230
+    level: partial
+    note: Canaan K230 — SoC класса MCU, поддержка в mainline ограничена
+  - board: megrez
+    level: community
+    note: Платы EIC7700 могут использовать универсальный образ UEFI, в документации Debian это не подтверждено
+  - board: titan
+    level: community
+    note: DP1000 — то же самое, в документации Debian не подтверждено
+  - board: pioneer
+    level: community
+    note: SG2042 может использовать универсальный образ, в документации Debian не подтверждено
+  - board: orangepi-rv2
+    level: community
+    note: Плата SpacemiT K1, универсальный образ + U-Boot на плате
+  - board: bpi-f3
+    level: community
+    note: Плата SpacemiT K1, универсальный образ + U-Boot на плате
+  downloads:
+  - label: Каталог CD-образов riscv64 (cdimage, текущая стабильная версия)
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
+  - label: Прямая ссылка на debian-13.7.0-riscv64-netinst.iso
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  guides:
+  - label: Руководство по установке Debian GNU/Linux 13 riscv64 (на английском)
+    url: https://www.debian.org/releases/stable/riscv64/
+    type: doc
+    lang: en
+  - label: Руководство по установке, упрощённый китайский
+    url: https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
+    type: doc
+    lang: zh
+  - label: Руководство по установке, японский
+    url: https://www.debian.org/releases/stable/riscv64/index.ja.html
+    type: doc
+    lang: ja
+  - label: Руководство по установке, 한국어
+    url: https://www.debian.org/releases/stable/riscv64/index.ko.html
+    type: doc
+    lang: ko
+  - label: Руководство по установке, Русский
+    url: https://www.debian.org/releases/stable/riscv64/index.ru.html
+    type: doc
+    lang: ru
+  - label: 'RISC-V Linux in 2026: Debian, RVA23, Servers, Hardware—and What''s Still Missing'
+    url: https://www.youtube.com/watch?v=C5NkSlf4_WE
+    type: video
+    lang: en
+  gotchas:
+  - Публикуются только универсальные образы riscv64 (netinst/ISO), образов для конкретных плат нет; возможность загрузки зависит от прошивки U-Boot/UEFI на стороне платы
+  - 'Официальное руководство по установке содержит оговорку: "This installation guide has not been fully updated and fact checked for riscv64", часть разделов может быть устаревшей'
+  - Установка netinst требует подключения к сети для загрузки пакетов
+  doc_langs:
+  - en
+  - zh
+  - ja
+  - ko
+  - ru
+  - fr
+  - de
+  derivatives:
+  - Ubuntu
+  note: Debian — единственный независимый дистрибутив в этой подборке, включивший riscv64 в число официально поддерживаемых архитектур релиза; есть и производные системы на базе Debian для riscv64, например
+    Deepin и RevyOS (по каждому пункту не проверялось).
+  checked: '2026-11-01'
+  order: 1
+  feature: true
+- id: ubuntu
+  name: Ubuntu
+  vendor: ''
+  upstream: official
+  upstream_note: Canonical официально собирает и размещает образы riscv64 ("built and hosted by Canonical"), riscv64 — официально поддерживаемая архитектура Ubuntu; начиная с 26.04 LTS базовая версия ISA
+    повышена до RVA23S64.
+  kind: distro
+  based_on: Debian
+  audience: recommended
+  versions:
+  - 26.10 (текущая версия, RVA23)
+  - 26.04.1 LTS (RVA23)
+  - 24.04.5 LTS (RVA20, поддержка старого оборудования продолжается)
+  boards:
+  - board: qemu
+    level: official
+    note: 26.10 / 26.04.1 LTS предоставляют Desktop, Server live installer и preinstalled образы; на официальной странице есть инструкция по установке в QEMU
+  - board: unmatched
+    level: official
+    note: 24.04.5 LTS предоставляет ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
+  - board: visionfive2
+    level: official
+    note: Образ jh7110 (24.04.5 LTS +jh7110, охватывает VisionFive 2 / VisionFive 2 Lite)
+  - board: licheepi-4a
+    level: partial
+    note: В официальном списке плат нет LicheePi 4A (только Sipeed LicheeRV Dock), требуется самостоятельная сборка/образы сообщества
+  - board: meles
+    level: partial
+    note: В официальном списке плат нет Milk-V Meles
+  - board: k3
+    level: official
+    note: Поддержка платформы SpacemiT K3 (CoM260, picoITX, DeepComputing FML13V05) с 26.10
+  - board: a210
+    level: partial
+    note: В официальном списке плат нет Zhihe A210
+  - board: k230
+    level: partial
+    note: В официальном списке плат нет Canaan K230
+  - board: megrez
+    level: partial
+    note: В официальном списке плат нет Milk-V Megrez
+  - board: titan
+    level: partial
+    note: В официальном списке плат нет Milk-V Titan
+  - board: pioneer
+    level: partial
+    note: В официальном списке плат нет Milk-V Pioneer
+  - board: orangepi-rv2
+    level: partial
+    note: В официальном списке плат только Milk-V Mars (тот же K1), нет Orange Pi RV2
+  - board: bpi-f3
+    level: partial
+    note: В официальном списке плат нет Banana Pi BPI-F3
+  downloads:
+  - label: Официальная страница загрузки RISC-V от Canonical (выбор образа по плате)
+    url: https://ubuntu.com/download/risc-v/canonical-built
+  - label: Каталог cdimage 26.10 riscv64
+    url: https://cdimage.ubuntu.com/releases/26.10/release/
+  - label: Каталог cdimage 26.04.1 LTS riscv64
+    url: https://cdimage.ubuntu.com/releases/26.04/release/
+  guides:
+  - label: Страница загрузки RISC-V содержит инструкции по установке для каждой платы (installation instructions)
+    url: https://ubuntu.com/download/risc-v/canonical-built
+    type: doc
+    lang: en
+  - label: Анонс образов Ubuntu desktop для RISC-V (2026-10)
+    url: https://discourse.ubuntu.com/t/announcing-ubuntu-desktop-images-for-risc-v/89110
+    type: doc
+    lang: en
+  gotchas:
+  - 'Начиная с 26.04 LTS требуется RVA23S64: оборудование без RVA23 (VisionFive 2/JH7110, SiFive Unmatched и др.) может использовать только 24.04.5 LTS, официальная формулировка "Hardware that is not RVA23-ready
+    continues to be supported by our 24.04.5 LTS release"'
+  - Образы некоторых плат поддерживают только headless (без GPU, без WiFi), официальная страница прямо указывает это в записи DeepComputing FML13V01
+  - Образы для конкретных плат различаются по суффиксу +<board> (+unmatched/+jh7110/+icicle/+nezha/+licheerv/+pic64gx), при скачивании неверного образа система не загрузится
+  doc_langs:
+  - en
+  derivatives:
+  - Ubuntu Base (riscv64 rootfs)
+  - DeepComputing FML13V01 partner-built Ubuntu
+  note: 'Ubuntu — дистрибутив с самой детальной поддержкой на уровне платы: официально выпускает preinstalled образы для каждой платы, но с 26.04 поднимает планку до RVA23, и старые платы остаются на 24.04
+    LTS.'
+  checked: '2026-11-01'
+  order: 2
+  feature: true
+- id: fedora
+  name: Fedora
+  vendor: ''
+  upstream: community
+  upstream_note: 'Официальная wiki Fedora, оригинал: "riscv64 is currently not an officially supported Fedora architecture". Образы поддерживаются Fedora RISC-V SIG и размещены на dl.fedoraproject.org/pub/alt/risc-v/
+    (дерево alt, не основная архитектура), не участвуют в release blocking.'
+  kind: distro
+  based_on: Независимый
+  audience: recommended
+  versions:
+  - 44 (стабильная версия, образ RISC-V уже есть)
+  - 45 (Beta/RC, образ RISC-V помечен как "non-official, community-contributed")
+  - rawhide
+  boards:
+  - board: qemu
+    level: official
+    note: Официальная поддержка, достаточно mainline ядра (запись QEMU на странице Hardware)
+  - board: unmatched
+    level: partial
+    note: На странице Hardware не указан SiFive Unmatched (указан только Premier P550)
+  - board: visionfive2
+    level: official
+    note: Запись StarFive JH7110 официально поддерживается; если NVMe/PCIe не нужны, можно использовать ядро mainline
+  - board: licheepi-4a
+    level: partial
+    note: На странице Hardware не указан LicheePi 4A / TH1520
+  - board: meles
+    level: partial
+    note: На странице Hardware не указан Milk-V Meles
+  - board: k3
+    level: official
+    note: 'Запись SpacemiT K3: K3 Pico-ITX, Milk-V Jupiter 2, K3-CoM260, DC-ROMA III (FML13V05)'
+  - board: a210
+    level: partial
+    note: На странице Hardware не указана плата Zhihe A210
+  - board: k230
+    level: partial
+    note: На странице Hardware не указан Canaan K230
+  - board: megrez
+    level: official
+    note: Запись ESWIN EIC7700X официально поддерживается (Milk-V Megrez, HiFive Premier P550)
+  - board: titan
+    level: official
+    note: Запись UltraRISC UR-DP1000 официально поддерживается (Milk-V Titan)
+  - board: pioneer
+    level: official
+    note: Запись SOPHGO SG2042 официально поддерживается (Milk-V Pioneer)
+  - board: orangepi-rv2
+    level: official
+    note: Запись SpacemiT M1/K1 официально поддерживается (включая Orange Pi RV 2, BPI-F3, Milk-V Jupiter)
+  - board: bpi-f3
+    level: official
+    note: Официальная поддержка SpacemiT M1/K1 (Banana Pi BPI-F3)
+  downloads:
+  - label: Общий каталог образов Fedora RISC-V (alt/risc-v/releases)
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - label: Fedora Remix for RISC-V
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
+  guides:
+  - label: Руководство по установке Fedora RISC-V (wiki)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+    type: doc
+    lang: en
+  - label: Список поддерживаемого оборудования Fedora RISC-V (wiki)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Hardware
+    type: doc
+    lang: en
+  - label: Домашняя страница проекта Fedora/RISC-V (wiki)
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - 'Для большинства плат необходимо использовать ядро Omni (...riscv64.omni.fcXX); стандартное ядро 7.x покрывает только VisionFive 2 / Orange Pi RV / Milk-V Mars и подобные; в оригинале: "Most boards
+    can only boot when using the Omni kernel"'
+  - 'В ядре Omni всё ещё есть патчи, не принятые в upstream (в оригинале: "Some patches in this kernel are still under review upstream")'
+  - 'Подходит только для headless: mainline не содержит драйвера встроенной графики SoC, официальное позиционирование — сборочная машина/сервер ("video output are pretty much completely ignored")'
+  - Для установки требуется последовательная консоль (Requirements → Serial console access)
+  - Некоторые пакеты требуют патчей специально для RISC-V, всё ещё есть расхождения с исходным кодом upstream
+  doc_langs:
+  - en
+  derivatives:
+  - Fedora-V Force (FVF)
+  - Fedora Remix for RISC-V
+  note: У Fedora есть официальный SIG RISC-V с непрерывными сборками, но riscv64 по-прежнему помечен как «not officially supported», а образы публикуются в канале alt. В повседневной работе это не мешает,
+    однако уровень поддержки не тот же, что у Debian или Ubuntu.
+  checked: '2026-11-01'
+  order: 3
+  feature: true
+- id: fvf
+  name: Fedora-V Force (FVF)
+  vendor: ''
+  upstream: downstream
+  upstream_note: 'Fedora-V Force — независимая команда/общественный проект: самостоятельно собирает riscv64-сборки Fedora 36→rawhide и адаптирует их под платы; на официальном сайте сказано "independently
+    compiling releases from Fedora 36 to rawhide"; к официальному процессу выпуска Fedora отношения не имеет.'
+  kind: distro
+  based_on: Fedora
+  audience: recommended
+  versions:
+  - Fedora 36 → rawhide (собственная сборка, охватывает несколько версий Fedora)
+  boards:
+  - board: qemu
+    level: community
+    note: FVF заявляет об адаптации для популярных на рынке плат разработчика RISC-V; по каждой плате не проверялось
+  - board: unmatched
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: visionfive2
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: licheepi-4a
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: meles
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: k3
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: a210
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: k230
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: megrez
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: titan
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: pioneer
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: orangepi-rv2
+    level: community
+    note: То же, по каждой плате не проверялось
+  - board: bpi-f3
+    level: community
+    note: То же, по каждой плате не проверялось
+  downloads:
+  - label: Зеркало образов FVF (images.fedoravforce.org)
+    url: https://images.fedoravforce.org
+  - label: Точка скачивания на официальном сайте FVF
+    url: https://www.fedoravforce.org
+  guides:
+  - label: Официальный сайт FVF (About/ресурсы, с переключением китайский/английский)
+    url: https://www.fedoravforce.org
+    type: doc
+    lang: en
+  - label: Китайская главная страница FVF
+    url: https://www.fedoravforce.org/zh
+    type: doc
+    lang: zh
+  - label: Блог FVF (документация/руководства)
+    url: https://blog.fedoravforce.com
+    type: doc
+    lang: zh
+  gotchas:
+  - Образы собираются независимо сообществом, не проходят официальную подпись/процесс выпуска Fedora, версии не полностью синхронизированы с upstream Fedora
+  - Зеркало — одностраничное JS-приложение, скрипт не может получить список плат, выбор платы нужно делать вручную на странице
+  doc_langs:
+  - en
+  - zh
+  derivatives: []
+  note: FVF — это образы RISC-V, пересобранные из исходников Fedora отдельной командой, а не официальный релиз Fedora. Они покрывают больше плат, чем образы официального SIG, поэтому практичны, если нужен
+    готовый к загрузке Fedora-пользовательский слой.
+  checked: '2026-11-01'
+  order: 4
+  feature: true
+- id: revyos
+  name: RevyOS
+  vendor: ''
+  upstream: downstream
+  upstream_note: 'Дистрибутив с downstream-кастомизацией: поддерживается PLCT Lab (Институт программного обеспечения КАН) для экосистемы XuanTie/T-Head, использует репозиторий пакетов Debian 13 (trixie)
+    + кастомное ядро XuanTie; это не официальный port Debian и не независимая система пакетов.'
+  kind: distro
+  based_on: rootfs Debian 13 (trixie) + кастомное ядро 6.6 XuanTie (BSP TH1520/SG2042); старая версия 20240720 — Debian 12 + ядро 5.10
+  audience: recommended
+  versions:
+  - 20260504 (2026-05-04, последний полный образ на зеркале)
+  - 20251226 (2025-12-26, последняя версия по официальной документации)
+  - 20250729（2025-07-29）
+  - 20240720 (2024-07-20, эпоха ядра 5.10 / Debian 12)
+  boards:
+  - board: licheepi-4a
+    level: official
+    note: Основная референсная плата, двойная загрузка SD/eMMC, наиболее полные образы и документация
+  - board: meles
+    level: official
+    note: Milk-V Meles, официальный образ 20260504 + руководство по прошивке
+  - board: pioneer
+    level: official
+    note: Milk-V Pioneer (SG2042), образ 20260504
+  - board: k3
+    level: partial
+    note: Поставляется в виде прошивки coreboot+OpenSBI+EDK2 (Ruyi Firmware), а не полного образа ОС
+  downloads:
+  - label: Корневой каталог зеркала (подкаталоги по платам разработчика)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/
+  - label: LicheePi 4A 20260504 (sdcard/img.zst + boot/root + u-boot)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
+  - label: Milk-V Meles 20260504
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
+  - label: Milk-V Pioneer (SG2042) 20260504
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
+  - label: Ускоренное зеркало в Китае fast-mirror.isrc.ac.cn
+    url: https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20260504/
+  guides:
+  - label: Что нужно знать о прошивке образов (список поддерживаемых устройств и образов)
+    url: https://docs.revyos.dev/docs/Installation/intro/
+    type: doc
+    lang: zh
+  - label: Руководство по прошивке LicheePi 4A (Linux)
+    url: https://docs.revyos.dev/docs/Installation/licheepi4a/
+    type: doc
+    lang: zh
+  - label: Руководство по прошивке Milk-V Meles
+    url: https://docs.revyos.dev/docs/Installation/milkv-meles/
+    type: doc
+    lang: zh
+  - label: Руководство по установке Milk-V Pioneer
+    url: https://docs.revyos.dev/docs/Installation/milkv-pioneer/
+    type: doc
+    lang: zh
+  - label: LicheePi 4A flashing guide (English)
+    url: https://docs.revyos.dev/en/docs/Installation/licheepi4a/
+    type: doc
+    lang: en
+  gotchas:
+  - Номер версии — это дата (YYYYMMDD), а не семантическая версия; страница официальной документации долго отстаёт от зеркала (в документации указано 20251226, на зеркале уже есть 20260504)
+  - При обновлении с 20240720 и более ранних версий необходимо сбросить переменные окружения U-Boot (env default -a -f; env save; reset), иначе система не загрузится
+  - У некоторых SD-карт есть проблемы совместимости с LicheePi 4A; официально ведётся список совместимых SD-карт, рекомендуется отдавать предпочтение eMMC
+  - Каталоги 20260926/20260924 — это прошивка coreboot+EDK2 (без U-Boot), а не образ системы; при штатной частоте 1.84GHz обязательно охлаждение
+  - GPU/NPU зависят от стека драйверов BSP производителя (также есть revyos-gles-21, документация NPU), не всё вошло в mainline
+  doc_langs:
+  - zh
+  - en
+  derivatives: []
+  note: 'Фактически стандартная система для плат TH1520: LicheePi 4A, Milk-V Meles — заводская/официальная прошивка по умолчанию RevyOS. Первый выбор для новичков, но учтите: зеркало новее документации
+    — берите самую свежую дату в каталоге зеркала.'
+  checked: '2026-11-01'
+  order: 5
+  feature: true
+- id: bianbu
+  name: Bianbu
+  vendor: ''
+  upstream: downstream
+  upstream_note: 'Дистрибутив с доработками от производителя: официальная OS от SpacemiT, явно указано «собрана на основе исходников сообщества Ubuntu», формат пакетов APT + deb; K1 — Ubuntu 24.04(2.x)/25.04(3.x),
+    K3 — Ubuntu 26.04(4.x).'
+  kind: distro
+  based_on: Ubuntu 24.04 LTS (Bianbu 2.x, K1) / Ubuntu 25.04 (Bianbu 3.x, K1) / Ubuntu 26.04 (Bianbu 4.x, K3; по данным форума производителя, в официальной документации по версиям не отмечено) + ядро BSP
+    производителя 6.6 LTS / 6.18
+  audience: recommended
+  versions:
+  - Bianbu 2.3.5 (K1, база Ubuntu 24.04, сборка 2026-06 / загрузка 2026-08-27)
+  - Bianbu 3.0.1 (K1, база Ubuntu 25.04, 2025-08-15)
+  - Bianbu 4.0.8 (K3, база Ubuntu 26.04, 2026-10-22)
+  boards:
+  - board: bpi-f3
+    level: official
+    note: Banana Pi BPI-F3 (K1), входит в официальный список поддержки; в той же серии также Milk-V Jupiter, MUSE Card/Pi/Pi Pro/Box/Book
+  - board: k3
+    level: official
+    note: 'Платформа K3: Pico ITX и CoM260 Kit, только для Bianbu 4.x'
+  downloads:
+  - label: Индекс образов K1 (официальный сайт archive, все версии и даты)
+    url: https://archive.spacemit.com/image/k1/version/bianbu/
+  - label: Индекс образов K3
+    url: https://archive.spacemit.com/image/k3/version/bianbu/
+  - label: K1 v2.3.5 (GNOME/LXQt/Minimal, линия долгосрочной поддержки)
+    url: https://archive.spacemit.com/image/k1/version/bianbu/v2.3.5/
+  - label: K1 v3.0.1 (линия Ubuntu 25.04)
+    url: https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
+  - label: K3 v4.0.8 (LXQt / Minimal / UEFI)
+    url: https://archive.spacemit.com/image/k3/version/bianbu/v4.0.8/
+  guides:
+  - label: Введение в Bianbu (со списком поддерживаемых устройств)
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/root_overview.md
+    type: doc
+    lang: zh
+  - label: Образы и инструкция по записи
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/image.md
+    type: doc
+    lang: zh
+  - label: Руководство по работе с рабочим столом LXQt
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/user_guide/LXQt/desktop_introduction.md
+    type: doc
+    lang: zh
+  - label: Описание обновлений Bianbu 4.0 (только K3)
+    url: https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/release_notes/bianbu_4.0.md
+    type: doc
+    lang: zh
+  - label: Bianbu Introduction (English)
+    url: https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/bianbu/root_overview.md
+    type: doc
+    lang: en
+  gotchas:
+  - 'Версии K1 и K3 совершенно разные: K1 — долгосрочная поддержка 2.x (Ubuntu 24.04), 3.x на не-LTS Ubuntu 25.04; K3 — только 4.x (Ubuntu 26.04)'
+  - K1 с RVA22 не запустит Ubuntu 26.04/Bianbu 4.x, собранные для RVA23; K3 обратно совместим с кодом RVA22
+  - Образы в .zip (внутри .img), нужно распаковать и записать через dd / Etcher; для некоторых плат есть вариант UEFI — не прошейте не тот
+  - Ядро BSP производителя (6.6 LTS / 6.18), а не mainline; при смене ядра собирайте по официальному репозиторию kernel
+  - Образы для серии MUSE, BPI-F3, Milk-V Jupiter различаются по платам; при ошибке прошивки не загрузится; образ около 2~2.6GB
+  doc_langs:
+  - zh
+  - en
+  derivatives: []
+  note: K1/K3 платы (BPI-F3, Milk-V Jupiter, MUSE, Pico ITX) — единственная система с официальным десктоп-опытом, GNOME/LXQt из коробки, полная документация на китайском; наиболее подходящий для новичков
+    дистрибутив от производителя.
+  checked: '2026-11-01'
+  order: 6
+  feature: true
+- id: armbian
+  name: Armbian
+  vendor: ''
+  upstream: official
+  upstream_note: Официальный фреймворк сборки (armbian/build) напрямую собирает образы riscv64, платы классифицируются по уровням Platinum/Standard/Community; для плат RISC-V на официальном сайте есть отдельная
+    страница загрузки и список образов.
+  kind: distro
+  based_on: Debian/Ubuntu (фреймворк сборки Armbian)
+  audience: recommended
+  versions:
+  - 26.8.9（MusePi Pro）
+  - 26.8.3（BPI-F3 / K3 Pico-ITX）
+  boards:
+  - board: k3
+    level: official
+    note: MusePi Pro — уровень Platinum (ядро 6.18.55 current / 6.6.100 legacy); K3 Pico-ITX также Platinum
+  - board: bpi-f3
+    level: official
+    note: Уровень Standard, ядро 6.18.45; есть также вариант Bianbu
+  - board: orangepi-rv2
+    level: community
+    note: Уровень Community, только Debian 13 minimal (6.18.58)
+  - board: visionfive2
+    level: community
+    note: Уровень Community, ядро производителя 6.6.20, три образа Ubuntu/Debian
+  downloads:
+  - label: Скачать образ MusePi Pro (SpaceMiT K3)
+    url: https://armbian.com/boards/musepipro
+  - label: Скачать образ Banana Pi BPI-F3 (SpaceMiT K1)
+    url: https://armbian.com/boards/bananapif3
+  - label: Скачать образ K3 Pico-ITX (SpaceMiT K3)
+    url: https://armbian.com/boards/k3picoitx
+  - label: Скачать образ Orange Pi RV2 (Ky X1)
+    url: https://armbian.com/boards/orangepirv2
+  - label: Скачать образ StarFive VisionFive2
+    url: https://armbian.com/boards/visionfive2
+  guides:
+  - label: Официальная документация Armbian (сборка/запись/использование)
+    url: https://docs.armbian.com/
+    type: doc
+    lang: en
+  - label: Страница платы VisionFive2 (с командой воспроизведения compile.sh)
+    url: https://armbian.com/boards/visionfive2
+    type: doc
+    lang: en
+  gotchas:
+  - Многие платы всё ещё привязаны к ядру производителя (6.6.x Bianbu), степень перехода на mainline различается
+  - Платы уровня Community имеют только один CLI-образ, десктоп/обновления — за счёт сообщества
+  - Нет плат Meles / Pioneer / Megrez / K230 и др.
+  - Один и тот же номер версии на разных платах соответствует разным версиям ядра — не указывайте жёстко в документации
+  doc_langs:
+  - en
+  derivatives:
+  - Производные от Armbian/Debian, такие как DietPi, имеют неофициальную поддержку VisionFive 2
+  note: Во многом благодаря ему китайские платы RISC-V «работают из коробки»; для новых плат вроде K3/BPI-F3 смотрите в первую очередь на него.
+  checked: '2026-11-01'
+  order: 7
+  feature: false
+- id: alpine
+  name: Alpine Linux
+  vendor: ''
+  upstream: official
+  upstream_note: 'riscv64 — официально поддерживаемая архитектура Alpine: на официальной странице downloads наравне с x86_64/aarch64 предоставляются standard ISO, minirootfs, образ uboot, в репозиториях
+    пакетов main/community есть сборки для riscv64.'
+  kind: distro
+  based_on: Независимый
+  audience: recommended
+  versions:
+  - 3.24.3 (текущая стабильная, alpine-standard-3.24.3-riscv64.iso)
+  - edge (ветка разработки)
+  boards:
+  - board: qemu
+    level: official
+    note: Официально предоставляется пакет u-boot-qemu; QEMU — стандартный путь разработки
+  - board: unmatched
+    level: official
+    note: Официально предоставляются пакеты u-boot-unmatched / u-boot-unleashed
+  - board: visionfive2
+    level: official
+    note: Официально предоставляется пакет u-boot-starfive (семейство StarFive JH7110)
+  - board: licheepi-4a
+    level: partial
+    note: Официального пакета типа u-boot-th1520 нет, загрузчик нужно готовить самостоятельно
+  - board: meles
+    level: partial
+    note: Платформа TH1520, то же самое
+  - board: k3
+    level: community
+    note: Официально есть пакет u-boot-spacemit (платформа SpacemiT, в основном семейство K1); покрывается ли K3 отдельно — не подтверждено
+  - board: a210
+    level: partial
+    note: Официального пакета u-boot нет
+  - board: k230
+    level: partial
+    note: Официального пакета u-boot нет
+  - board: megrez
+    level: partial
+    note: Официального пакета u-boot нет
+  - board: titan
+    level: partial
+    note: Официального пакета u-boot нет
+  - board: pioneer
+    level: partial
+    note: Официального пакета u-boot нет
+  - board: orangepi-rv2
+    level: partial
+    note: Плата SpacemiT K1, возможно, использует u-boot-spacemit — не подтверждено
+  - board: bpi-f3
+    level: partial
+    note: Плата SpacemiT K1, возможно, использует u-boot-spacemit — не подтверждено
+  downloads:
+  - label: Официальная страница загрузок Alpine (все типы образов riscv64)
+    url: https://alpinelinux.org/downloads/
+  - label: Каталог релиза v3.24 riscv64
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
+  - label: alpine-standard-3.24.3-riscv64.iso
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  guides:
+  - label: Руководство пользователя Alpine · раздел установки
+    url: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
+    type: doc
+    lang: en
+  - label: Ветки релизов Alpine и сроки поддержки
+    url: https://alpinelinux.org/releases/
+    type: doc
+    lang: en
+  gotchas:
+  - 'Официальный u-boot покрывает только пять категорий: qemu / starfive / spacemit / unleashed / unmatched; для остальных плат загрузчик нужно готовить самостоятельно'
+  - 'musl libc + busybox: предварительно собранные бинарники, зависящие от glibc, не запустятся'
+  - Официальная wiki (wiki.alpinelinux.org) возвращает 403 при автоматизированном доступе; детали RISC-V можно вывести только из страниц packages/downloads
+  doc_langs:
+  - en
+  derivatives:
+  - postmarketOS
+  note: riscv64 в Alpine — официальная архитектура, но поддержка на уровне плат узкая — пакетов u-boot всего пять, платы вне этого списка требуют самостоятельного портирования.
+  checked: '2026-11-01'
+  order: 8
+  feature: false
+- id: arch
+  name: Arch Linux RISC-V
+  vendor: ''
+  upstream: community
+  upstream_note: 'Arch Linux RISC-V — это портирование сообществом (archriscv.felixc.at, поддерживают Felix Yan и др.): сборка с наложением патчей на исходные пакеты Arch, в официальные репозитории Arch
+    пока не вошла. На сайте заявлена долгосрочная цель — "riscv64 can be added to Arch Linux itself as an alternative architecture".'
+  kind: distro
+  based_on: Arch Linux
+  audience: advanced
+  versions:
+  - rolling (ISO archlinux-2026.08.27-riscv64.iso, rootfs archriscv-2026-08-27.tar.zst)
+  boards:
+  - board: qemu
+    level: official
+    note: 'Официально указано "tested": QEMU входит в список поддерживаемых пакетом mainline linux'
+  - board: unmatched
+    level: official
+    note: HiFive Unmatched / Unleashed входят в список tested
+  - board: visionfive2
+    level: official
+    note: VisionFive v2 (и Milk-V Mars) входят в список tested
+  - board: licheepi-4a
+    level: partial
+    note: Только в репозитории [unsupported] предоставляется экспериментальное ядро TH1520
+  - board: meles
+    level: partial
+    note: Платформа TH1520 идёт по пути экспериментального ядра [unsupported], отдельно не выделена
+  - board: k3
+    level: partial
+    note: Нет в списке поддержки; официально заявлено, что платам, кроме AX45MP, может потребоваться BSP/собственное ядро
+  - board: a210
+    level: partial
+    note: Нет в списке поддержки, требуется BSP/собственное ядро
+  - board: k230
+    level: partial
+    note: Упомянута лишь как спонсорская тестовая плата, официальной записи о поддержке нет
+  - board: megrez
+    level: community
+    note: ESWIN EIC7700 упомянута как тестовая плата, официальной записи о поддержке нет
+  - board: titan
+    level: partial
+    note: Нет в списке поддержки
+  - board: pioneer
+    level: partial
+    note: Только в репозитории [unsupported] предоставляется экспериментальное ядро SG2042
+  - board: orangepi-rv2
+    level: partial
+    note: Нет в списке поддержки, требуется BSP/собственное ядро
+  - board: bpi-f3
+    level: community
+    note: BananaPi F3 упомянута как тестовая плата, официальной записи о поддержке нет
+  downloads:
+  - label: Каталог образов и rootfs (archriscv.felixc.at/images)
+    url: https://archriscv.felixc.at/images/
+  - label: Репозиторий бинарных пакетов (core/extra/unsupported)
+    url: https://archriscv.felixc.at/repo/
+  - label: Официальное зеркало riscv.mirror.pkgbuild.com
+    url: https://riscv.mirror.pkgbuild.com/
+  guides:
+  - label: Главная страница проекта Arch Linux RISC-V (поддержка оборудования/образы/репозитории/руководство по участию)
+    url: https://archriscv.felixc.at/
+    type: doc
+    lang: en
+  - label: Репозиторий patch и руководство по участию (GitHub)
+    url: https://github.com/felixonmars/archriscv-packages
+    type: doc
+    lang: en
+  gotchas:
+  - 'Не чистый upstream: все пакеты собираются с patch поверх исходных пакетов Arch, patch поддерживаются в репозитории archriscv-packages'
+  - LicheePi 4A (TH1520), Milk-V Pioneer (SG2042) имеют только экспериментальное ядро в репозитории [unsupported]
+  - Платы серии AX45MP в основном не работают напрямую; в оригинале официально сказано "Other boards, except those with AX45MP, may work with a BSP or custom kernel"
+  - Учётная запись rootfs по умолчанию root/archriscv, после установки обязательно сменить
+  - По-прежнему цель alt-архитектуры, не входит в официальные репозитории Arch
+  doc_langs:
+  - en
+  derivatives: []
+  note: '"Официальность" Arch — это лишь список tested самого проекта портирования, а не официальная поддержка Arch — на странице нужно указать, что это community port.'
+  checked: '2026-11-01'
+  order: 9
+  feature: false
+- id: opensuse
+  name: openSUSE
+  vendor: ''
+  upstream: community
+  upstream_note: RISC-V находится в порт-дереве download.opensuse.org/ports/ (ports/riscv/), это community-портирование, а не основная архитектура openSUSE; есть только Tumbleweed и MicroOS, версии riscv64
+    для Leap нет.
+  kind: distro
+  based_on: Независимый
+  audience: recommended
+  versions:
+  - Tumbleweed (rolling, текущий ISO Snapshot20260924)
+  - MicroOS 16.0.0 (riscv64, Snapshot20260924)
+  boards:
+  - board: qemu
+    level: official
+    note: Tumbleweed riscv64 DVD/NET ISO можно установить напрямую в QEMU (универсальный образ)
+  - board: unmatched
+    level: community
+    note: Образов для конкретных плат нет, универсальный ISO + UEFI/U-Boot на стороне платы
+  - board: visionfive2
+    level: community
+    note: Есть сторонняя видеозапись установки на реальном железе, но у openSUSE нет официальных образов для конкретных плат
+  - board: licheepi-4a
+    level: partial
+    note: Официальной поддержки TH1520 нет
+  - board: meles
+    level: partial
+    note: Официальной поддержки TH1520 нет
+  - board: k3
+    level: partial
+    note: Официальной поддержки SpacemiT K3 нет
+  - board: a210
+    level: partial
+    note: Официальной поддержки нет
+  - board: k230
+    level: partial
+    note: Официальной поддержки нет
+  - board: megrez
+    level: community
+    note: Универсальный образ + UEFI на стороне платы, не подтверждено
+  - board: titan
+    level: community
+    note: Универсальный образ + UEFI на стороне платы, не подтверждено
+  - board: pioneer
+    level: community
+    note: Универсальный образ + UEFI на стороне платы, не подтверждено
+  - board: orangepi-rv2
+    level: community
+    note: Универсальный образ + UEFI на стороне платы, не подтверждено
+  - board: bpi-f3
+    level: community
+    note: Универсальный образ + UEFI на стороне платы, не подтверждено
+  downloads:
+  - label: Каталог ISO Tumbleweed для ports/riscv (DVD/NET)
+    url: https://download.opensuse.org/ports/riscv/tumbleweed/iso/
+  - label: openSUSE-Tumbleweed-DVD-riscv64-Current.iso
+    url: https://download.opensuse.org/ports/riscv/tumbleweed/iso/openSUSE-Tumbleweed-DVD-riscv64-Current.iso
+  - label: Корневой каталог ports/riscv
+    url: https://download.opensuse.org/ports/riscv/
+  guides:
+  - label: Портал документации openSUSE (общая документация по установке, отдельной страницы для RISC-V нет)
+    url: https://doc.opensuse.org/
+    type: doc
+    lang: en
+  - label: 'RISC-V Use Case 3: openSUSE Tumbleweed on VisionFive 2 (официальный канал StarFive)'
+    url: https://www.youtube.com/watch?v=qrly2gV-wMA
+    type: video
+    lang: en
+  gotchas:
+  - 'ISO публикуются автоматически как снапшоты, без тестирования перед выпуском; в официальном README.FIRST сказано: "They haven''t seen any kind of testing before publishing... there are times when they
+    are broken"'
+  - Доступна только rolling-версия (Tumbleweed/MicroOS), стабильной Leap нет
+  - Образов для конкретных плат нет, всё зависит от прошивки UEFI/U-Boot на стороне платы
+  - Официальная документация по RISC-V в основном на wiki en.opensuse.org; этот сайт возвращает 403 на автоматический сбор, машинная проверка невозможна
+  doc_langs:
+  - en
+  derivatives: []
+  note: MicroOS — вариант riscv64 того же проекта (есть образ kvm-and-xen qcow2), не считается downstream-производным.
+  checked: '2026-11-01'
+  order: 10
+  feature: false
+- id: gentoo
+  name: Gentoo
+  vendor: ''
+  upstream: official
+  upstream_note: 'Официальная архитектура: ARCH=riscv, keyword ~riscv, release engineering выпускает stage3 rv64gc/rv32gc (все комбинации lp64d/lp64/multilib, openrc/systemd, glibc/musl); официально заявлено,
+    что планов на stable keyword пока нет.'
+  kind: distro
+  based_on: Независимый (сборка из исходников, OpenRC/systemd на выбор)
+  audience: advanced
+  versions:
+  - rolling（stage3 rv64_lp64d-openrc 20261026T164559Z）
+  boards:
+  - board: qemu
+    level: official
+    note: Работает и qemu-system-riscv64, и qemu-riscv64 user-mode; на официальной wiki есть отдельная страница установки в QEMU
+  - board: unmatched
+    level: community
+    note: Есть у участника сообщества и зарегистрирована в списке оборудования на wiki (SiFive FU740)
+  - board: visionfive2
+    level: community
+    note: JH7110, на wiki отмечен Active / отслеживание в upstream-ядре
+  - board: licheepi-4a
+    level: community
+    note: TH1520 (C910), в реестре сообщества отмечена возможность запуска стандартной установки
+  - board: pioneer
+    level: community
+    note: Milk-V Pioneer Box (SG2042, 64 ядра) — есть реальные экземпляры у разработчиков
+  - board: orangepi-rv2
+    level: community
+    note: Ky X1 (X60), в реестре сообщества
+  - board: bpi-f3
+    level: community
+    note: SpacemiT K1 (RVV 1.0), в реестре сообщества
+  downloads:
+  - label: Официальная страница загрузки riscv на Gentoo (список stage3/di)
+    url: https://www.gentoo.org/downloads/riscv/
+  - label: Каталог riscv autobuilds (содержит stage3 для различных ABI и install CD)
+    url: https://distfiles.gentoo.org/releases/riscv/autobuilds/current-stage3-rv64_lp64d-openrc/
+  guides:
+  - label: 'Gentoo Wiki: Project:RISC-V (статус/политика keyword/ABI)'
+    url: https://wiki.gentoo.org/wiki/Project:RISC-V
+    type: doc
+    lang: en
+  - label: 'Gentoo Wiki: руководство по установке RISC-V QEMU'
+    url: https://wiki.gentoo.org/wiki/RISC-V_Qemu_setup
+    type: doc
+    lang: en
+  gotchas:
+  - Только keyword ~riscv (тестирование), stable нет; после установки придётся постоянно мириться с unstable-пакетами
+  - Готовых образов для прямой записи нет, необходимо вручную устанавливать через stage3 (в официальном TODO до сих пор значится создание bootable image)
+  - rv32 в qemu user-mode всё ещё имеет баги, при кросс-/эмуляционном тестировании будут подводные камни
+  - При смешивании multilib и ABI lp64d/lp64 легко ошибиться с выбором stage3; сначала нужно убедиться, есть ли у платы расширение D
+  doc_langs:
+  - en
+  derivatives: []
+  note: 'Дружелюбно к опытным, отпугивает новичков: документация полная, но установка полностью ручная; подходит тем, кто хочет глубокой кастомизации или собрать встраиваемый rootfs.'
+  checked: '2026-11-01'
+  order: 11
+  feature: false
+- id: nixos
+  name: NixOS
+  vendor: ''
+  upstream: community
+  upstream_note: 'Ни nixpkgs-unstable, ни stable channel в nixpkgs не имеют официальной поддержки riscv64-linux; официальный wiki прямо указывает: «все платформы RISC-V на данный момент экспериментальны»,
+    образы предоставляются сообществом.'
+  kind: distro
+  based_on: Независимый (Nix/nixpkgs, systemd)
+  audience: advanced
+  versions:
+  - 26.05 (официально только x86_64/aarch64)
+  - unstable (сборка сообщества для riscv64)
+  boards:
+  - board: qemu
+    level: community
+    note: Можно эмулировать, но wiki прямо предупреждает, что некоторые программы под QEMU падают с segfault
+  - board: unmatched
+    level: community
+    note: Самая ранняя цель портирования сообществом (zhaofengli/nixos-riscv64)
+  - board: visionfive2
+    level: community
+    note: JH7110, образы сообщества + flake misuzu/nixos-vf2
+  - board: licheepi-4a
+    level: community
+    note: flake сообщества ryan4yin/nixos-licheepi4a
+  downloads:
+  - label: Официальная загрузка NixOS (ISO для riscv64 отсутствует)
+    url: https://nixos.org/download/
+  - label: 'Образы/overlay сообщества: zhaofengli/nixos-riscv64 (начиналось с HiFive Unmatched)'
+    url: https://github.com/zhaofengli/nixos-riscv64
+  guides:
+  - label: 'NixOS Wiki: RISC-V (поддерживаемые устройства, образы сообщества, сторонние binary cache)'
+    url: https://wiki.nixos.org/wiki/RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - Официального ISO нет, нужно использовать образы сообщества или собирать cross-compile самостоятельно
+  - В официальном cache.nixos.org нет пакетов riscv64, нужно подключать сторонний substituter (например, cache.ztier.in / beam.attic.rs), иначе почти всё собирается локально
+  - Под QEMU работает нестабильно (segfault)
+  - Образы сообщества чаще всего привязаны к конкретным версиям ядра/прошивки, обновление легко ломает систему
+  doc_langs:
+  - en
+  derivatives:
+  - nixos-riscv64 (набор образов сообщества)
+  - nixos-licheepi4a / nixos-vf2 (flake для конкретных плат)
+  note: Декларативная конфигурация удобна, но riscv64 находится в состоянии «запускается, но на безоблачную работу не рассчитывайте».
+  checked: '2026-11-01'
+  order: 12
+  feature: false
+- id: freebsd
+  name: FreeBSD
+  vendor: ''
+  upstream: official
+  upstream_note: riscv64 — официальная архитектура Tier 2 (14.x/15.x/16.x все планируются как Tier 2), предоставляются официальные установочные образы RELEASE, в описании оборудования перечислены поддерживаемые
+    платформы.
+  kind: distro
+  based_on: Независимая (BSD, ядро FreeBSD + pkg)
+  audience: advanced
+  versions:
+  - 15.1-RELEASE（production，2026-06-16）
+  - 14.5-RELEASE（legacy）
+  boards:
+  - board: qemu
+    level: official
+    note: В описании оборудования указаны QEMU и Spike
+  - board: unmatched
+    level: official
+    note: SiFive HiFive Unmatched (FU740) официально поддерживается
+  - board: visionfive2
+    level: official
+    note: StarFive VisionFive 2 (JH7110) официально поддерживается
+  downloads:
+  - label: Официальные образы riscv64 15.1-RELEASE (disc1/memstick/bootonly/GENERICSD)
+    url: https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/15.1/
+  guides:
+  - label: FreeBSD Handbook, глава 2 «Установка FreeBSD»
+    url: https://docs.freebsd.org/en/books/handbook/bsdinstall/
+    type: doc
+    lang: en
+  - label: Описание оборудования FreeBSD 15.1 (список поддерживаемых платформ RISC-V)
+    url: https://www.freebsd.org/releases/15.1R/hardware/
+    type: doc
+    lang: en
+  - label: 'FreeBSD Foundation: Getting Started With FreeBSD/RISC-V (2020, PDF)'
+    url: https://freebsdfoundation.org/wp-content/uploads/2020/03/Getting-Started-With-FreeBSD-RISC-V.pdf
+    type: doc
+    lang: en
+  - label: 'Видео: Introduction to RISC-V on FreeBSD'
+    url: https://www.youtube.com/watch?v=QGW3l_Bz04I
+    type: video
+    lang: en
+  gotchas:
+  - 'Tier 2: команда безопасности не гарантирует своевременное исправление, поддержка нового оборудования запаздывает'
+  - Официально поддерживаемые платформы — только Unmatched/Unleashed/VisionFive 2/QEMU/Spike, новых отечественных плат практически нет
+  - riscv64sf (программная плавающая точка) прекратил поддержку после 13.5, не применяйте старую документацию
+  - На RISC-V охват драйверов GPU/беспроводных и т.п. гораздо хуже, чем на x86/arm64, опыт работы с рабочим столом ограничен
+  doc_langs:
+  - en
+  derivatives: []
+  note: Если нужно «полноценная Unix-подобная система + официальные образы», FreeBSD — самый стабильный не-Linux выбор на RISC-V.
+  checked: '2026-11-01'
+  order: 13
+  feature: false
+- id: netbsd
+  name: NetBSD
+  vendor: ''
+  upstream: official
+  upstream_note: Официальный port (tier 2), NetBSD 11.0 предоставляет установочные наборы riscv64 и предварительно скомпилированные пакеты pkgsrc, поддерживает RV64/SV39.
+  kind: distro
+  based_on: Независимая (BSD, ядро NetBSD + pkgsrc)
+  audience: advanced
+  versions:
+  - 11.0 (текущий релиз)
+  boards:
+  - board: qemu
+    level: official
+    note: В официальной документации есть отдельный раздел о запуске в qemu
+  - board: visionfive2
+    level: official
+    note: На странице порта перечислены StarFive VisionFive 2 / Milk-V Mars CM
+  downloads:
+  - label: Установочный набор riscv64 11.0 (instkernel/misc)
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
+  - label: Предварительно скомпилированные пакеты pkgsrc для riscv64 11.0 (также 2026Q2)
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  guides:
+  - label: Страница порта NetBSD/riscv (поддерживаемое оборудование, информация о release)
+    url: https://wiki.netbsd.org/ports/riscv/
+    type: doc
+    lang: en
+  - label: Руководство NetBSD/riscv under QEMU
+    url: https://wiki.netbsd.org/ports/qemu_riscv/
+    type: doc
+    lang: en
+  gotchas:
+  - Для большинства плат сначала нужно подготовить U-Boot уровня платы, с универсального образа не загрузится
+  - Только RV64/SV39, rv32 — это другой port
+  - 'tier 2: уровень выпуска и поддержки ниже, чем у x86/arm'
+  - Документация по платам разрозненна, многое приходится искать в списках рассылки
+  doc_langs:
+  - en
+  derivatives: []
+  note: В QEMU работает гладко; на реальном железе зависит от того, есть ли у вас готовый U-Boot.
+  checked: '2026-11-01'
+  order: 14
+  feature: false
+- id: openbsd
+  name: OpenBSD
+  vendor: ''
+  upstream: official
+  upstream_note: riscv64 — официальный порт (openbsd.org/riscv64.html), текущая целевая платформа — SiFive HiFive Unmatched, с каждым release выходит установочный образ riscv64 и регулярно выпускаются snapshot.
+  kind: distro
+  based_on: Независимая (BSD, ядро OpenBSD + ports/packages)
+  audience: advanced
+  versions:
+  - 8.0 (текущий релиз)
+  boards:
+  - board: unmatched
+    level: official
+    note: Единственная текущая «основная целевая» платформа
+  - board: visionfive2
+    level: official
+    note: На странице платформы указаны VisionFive / VisionFive 2, но для загрузки требуется предварительная корректировка прошивки
+  downloads:
+  - label: Официальный образ riscv64 8.0 (install/miniroot/base)
+    url: https://cdn.openbsd.org/pub/OpenBSD/8.0/riscv64/
+  - label: snapshots riscv64 (ежедневные сборки -current)
+    url: https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  guides:
+  - label: Страница платформы OpenBSD/riscv64 (поддерживаемое оборудование, инструкции по установке)
+    url: https://www.openbsd.org/riscv64.html
+    type: doc
+    lang: en
+  - label: Глава 4 OpenBSD FAQ, руководство по установке
+    url: https://www.openbsd.org/faq/faq4.html
+    type: doc
+    lang: en
+  gotchas:
+  - Основная цель по-прежнему — снятый с производства HiFive Unmatched, новые платы тянут за счёт сообщества
+  - VisionFive 2 требует изменения конфигурации прошивки для загрузки
+  - Поддержка PolarFire Icicle Kit неполная
+  - Графика и беспроводные интерфейсы на RISC-V очень ограничены, на десктоп не рассчитывайте
+  doc_langs:
+  - en
+  derivatives: []
+  note: Ориентирован на безопасность, минималистичен; при наличии Unmatched — самый аутентичный опыт, иначе новичкам входить не рекомендуется.
+  checked: '2026-11-01'
+  order: 15
+  feature: false
+- id: alt
+  name: ALT Linux
+  vendor: ''
+  upstream: official
+  upstream_note: 'Официальное портирование riscv64: репозиторий riscv64 Sisyphus + тестовые образы Regular riscv64 (jeos-systemd/lxqt/mate/xfce, rv64gc), поддерживается командой ALT, есть почтовая рассылка
+    riscv-devel.'
+  kind: distro
+  based_on: Независимый (RPM/apt-rpm, собственный инструментарий ALT)
+  audience: advanced
+  versions:
+  - Sisyphus（rolling，riscv64 port）
+  - p11 (ветка stable, riscv64 есть только в Sisyphus)
+  boards:
+  - board: qemu
+    level: official
+    note: Образы рассчитаны на прямой запуск в qemu, в wiki есть отдельная страница QEMU
+  - board: unmatched
+    level: official
+    note: В wiki приведены инструкции по записи на диск и загрузке для HiFive Unmatched/Unleashed
+  downloads:
+  - label: Образы Regular riscv64 (nightly, iso/tar.xz)
+    url: https://nightly.altlinux.org/sisyphus-riscv64/current/
+  - label: Репозиторий ПО riscv64 Sisyphus (RPM)
+    url: https://mirror.yandex.ru/altlinux/ports/riscv64/Sisyphus/riscv64/
+  guides:
+  - label: 'ALT Wiki: Regular/riscv64 (загрузка, QEMU, Unmatched/Unleashed, VNC)'
+    url: https://en.altlinux.org/Regular/riscv64
+    type: doc
+    lang: en
+  - label: 'ALT Wiki: Ports/riscv64 (на русском)'
+    url: https://www.altlinux.org/Ports/riscv64
+    type: doc
+    lang: ru
+  gotchas:
+  - Официально образы riscv64 позиционируются как «тестирование и разработка порта Sisyphus», а не продукт с долгосрочной поддержкой
+  - 'Wiki и весь ftp-сайт закрыты антиботом Anubis: при скриптовом обращении придёт страница-заглушка с кодом 200 вместо содержимого (нужен браузер или зеркало)'
+  - При первом запуске графического образа нужно пройти alterator-setup; на платах без видеокарты придётся использовать VNC
+  - Только rv64gc, без rv32
+  doc_langs:
+  - en
+  - ru
+  derivatives:
+  - Simply Linux / ALT Mobile (та же система репозиториев, сборок riscv64 нет)
+  note: Наиболее полная поддержка RISC-V среди российских систем, образы готовы к использованию, подходят для QEMU и владельцев Unmatched.
+  checked: '2026-11-01'
+  order: 16
+  feature: false
+- id: buildroot
+  name: Buildroot
+  vendor: ''
+  upstream: official
+  upstream_note: 'Система сборки (не готовый дистрибутив): в дереве есть defconfig для qemu_riscv32/64_virt, spike, hifive_unmatched, visionfive/visionfive2, sipeed_licheepi_4a и др., RISC-V — полноправная
+    архитектура.'
+  kind: buildsystem
+  based_on: Собственная сборка (BusyBox/glibc/musl + опциональные пакеты)
+  audience: advanced
+  versions:
+  - 2026.08.1（stable，2026-10-22）
+  - 2025.02.x LTS (последний точечный выпуск 2025.02.19, поддержка до 2028-03)
+  boards:
+  - board: qemu
+    level: official
+    note: qemu_riscv64_virt / _efi / nommu, тот же набор для rv32
+  - board: visionfive2
+    level: official
+    note: visionfive2_defconfig (в дереве)
+  - board: unmatched
+    level: official
+    note: hifive_unmatched_defconfig (в дереве)
+  - board: licheepi-4a
+    level: official
+    note: sipeed_licheepi_4a_defconfig (в дереве)
+  downloads:
+  - label: Официальная загрузка Buildroot (tarball + подпись PGP)
+    url: https://buildroot.org/download.html
+  guides:
+  - label: Руководство пользователя Buildroot (включая разделы RISC-V/QEMU)
+    url: https://buildroot.org/downloads/manual/manual.html
+    type: doc
+    lang: en
+  gotchas:
+  - 'Это система сборки: нет бинарного репозитория, нет пакетного менеджера, установка ПО = пересборка прошивки'
+  - Первая полная сборка занимает от десятков минут до нескольких часов и требует десятков ГБ
+  - По умолчанию BusyBox без рабочего стола; для графики нужно включать пакеты самостоятельно
+  - Результат — wic/img, обновление только полной перезаписью диска
+  doc_langs:
+  - en
+  derivatives:
+  - Многие SDK производителей основаны на Buildroot (например, часть SDK для D1/K230)
+  note: 'Чётко обозначить новичкам: это не дистрибутив, а инструментарий, чтобы «сделать свой дистрибутив».'
+  checked: '2026-11-01'
+  order: 17
+  feature: false
+- id: yocto
+  name: Yocto / OpenEmbedded
+  vendor: ''
+  upstream: official
+  upstream_note: 'Система сборки: oe-core содержит machine qemuriscv32/qemuriscv64 и riscv64 tune; конкретные платы обеспечиваются официальным слоем RISC-V meta-riscv (в организации riscv/) с конфигурациями
+    machine.'
+  kind: buildsystem
+  based_on: Собственная сборка (BitBake + oe-core + meta-riscv)
+  audience: advanced
+  versions:
+  - 6.1 Blacksail (текущая серия)
+  - 6.0 Wrynose (LTS, поддержка до 2030-04)
+  boards:
+  - board: qemu
+    level: official
+    note: Родные qemuriscv64/qemuriscv32 в oe-core
+  - board: bpi-f3
+    level: community
+    note: bananapi-f3 из meta-riscv (mainline-ядро/U-Boot, но всё ещё нужен FSBL от производителя)
+  - board: k3
+    level: community
+    note: k3-com260 / k3-pico-itx из meta-riscv (включая варианты -mainline)
+  - board: licheepi-4a
+    level: community
+    note: licheepi-4a из meta-riscv
+  - board: visionfive2
+    level: community
+    note: visionfive2 из meta-riscv
+  - board: orangepi-rv2
+    level: community
+    note: orangepi-rv2 из meta-riscv (mainline-ядро/U-Boot + FSBL от производителя)
+  - board: a210
+    level: community
+    note: 'meta-riscv для zhihe-a210: ядро mainline от OSU-OSL, только TFTP netboot, без recipe для загрузчика'
+  downloads:
+  - label: Скачивание версий Yocto (release tarball)
+    url: https://www.yoctoproject.org/development/releases/
+  guides:
+  - label: Yocto Project Quick Build
+    url: https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
+    type: doc
+    lang: en
+  - label: meta-riscv Quick Start (платы и шаги сборки)
+    url: https://github.com/riscv/meta-riscv/blob/master/docs/QUICK_START.md
+    type: doc
+    lang: en
+  - label: Репозиторий meta-riscv (список machine)
+    url: https://github.com/riscv/meta-riscv
+    type: doc
+    lang: en
+  gotchas:
+  - 'Самая крутая кривая обучения: синтаксис BitBake + версии layer должны строго совпадать (meta-riscv следует за master)'
+  - При первой сборке скачиваются десятки ГБ, сборка занимает несколько часов
+  - Готовых образов нет, нужно самому собирать wic/sdimg
+  - FSBL/TEE от производителя всё равно нужно получать отдельно, чисто открытый процесс не проходит
+  doc_langs:
+  - en
+  derivatives:
+  - Yocto BSP производителей SpacemiT / StarFive / T-Head построены по схеме oe-core + meta-riscv
+  note: Для промышленности/серийного производства; частным пользователям рекомендуется сначала попробовать Armbian или Buildroot.
+  checked: '2026-11-01'
+  order: 18
+  feature: false
+- id: openeuler
+  name: openEuler
+  vendor: ''
+  upstream: official
+  upstream_note: 'Независимый дистрибутив (сам является upstream): официальная сборка сообщества openEuler (OpenAtom Foundation) для нескольких архитектур из одного источника, RISC-V портирован и поддерживается
+    OERV SIG, а не кастомизация Debian/Ubuntu.'
+  kind: distro
+  based_on: 'openEuler 24.03 LTS (RPM/dnf, собственные репозитории) + ядро RVCK 6.6; для RISC-V две сборки: RVA20 и RVA23'
+  audience: vendor
+  versions:
+  - 24.03 LTS SP4 (выпущен 2026-06-30; RISC-V RVA23 ISO 2026-09-08)
+  - 24.03 LTS SP3 (с 2026-03-09 в долгосрочной поддержке; две версии RVA20 + RVA23)
+  boards:
+  - board: pioneer
+    level: official
+    note: Milk-V Pioneer (SG2042), официальная документация по установке RISC-V-Pioneer1.3
+  - board: licheepi-4a
+    level: official
+    note: Официальная документация по установке выделена отдельно, платформа TH1520
+  - board: k3
+    level: official
+    note: Начиная с SP3 поддерживается SpacemiT K3 (проверено на COM260, SD + GMAC), первый RVA23 SoC, вошедший в LTS
+  - board: qemu
+    level: official
+    note: Официальная документация по установке в QEMU, лучше всего подходит для первого знакомства
+  - board: visionfive2
+    level: community
+    note: Начиная с 23.03 поддерживается VisionFive 2, в документации 24.03 отдельно не указан
+  downloads:
+  - label: Официальная страница загрузки (выбрать 24.03 LTS SP4)
+    url: https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - label: Каталог ISO SP4 RISC-V RVA23 (dvd/netinst/everything)
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
+  - label: Каталог ISO SP3 RISC-V RVA20
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
+  - label: Каталог ISO SP3 RISC-V RVA23
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
+  guides:
+  - label: Установка openEuler RISC-V на LicheePi 4A
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: zh
+  - label: Установка на Pioneer Box (SG2042)
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
+    type: doc
+    lang: zh
+  - label: Установка openEuler RISC-V в QEMU
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-QEMU.html
+    type: doc
+    lang: zh
+  - label: 24.03 LTS SP3 RISC-V переходит на долгосрочную поддержку (включая пояснение о поддержке K3)
+    url: https://www.openeuler.org/zh/blog/20260317-RISC-V/20260317-RISC-V.html
+    type: doc
+    lang: zh
+  - label: Install on LicheePi 4A (English)
+    url: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: en
+  gotchas:
+  - Образы RVA20 и RVA23 выпускаются отдельно; для RISC-V в 24.03 LTS SP4 доступен только ISO RVA23 (каталог rva20 отсутствует)
+  - Требуется прошивка UEFI/EDK2 и соответствующий DTB платы; на старых платах с U-Boot может не загрузиться
+  - 'Документация разложена по путям версий: страница установки RISC-V доступна только по пути 24.03_LTS, по путям SP3/SP4 будет 404'
+  - 'Ориентация на серверы: по умолчанию минимальная установка, поддержка рабочего стола и мультимедиа слабее, чем у настольных дистрибутивов производителей'
+  - ISO everything — порядка 20 ГБ; обычному пользователю достаточно dvd/netinst
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - EulixOS
+  - Eulaceura
+  note: База RISC-V для серверных/корпоративных сценариев, быстрее всех продвигается RVA23 + спецификация Server Platform; пользователям персональных плат разработчика, если только не нужна серверная проверка,
+    проще с RevyOS/Bianbu.
+  checked: '2026-11-01'
+  order: 19
+  feature: false
+- id: openkylin
+  name: openKylin
+  vendor: ''
+  upstream: official
+  upstream_note: 'Независимый дистрибутив: сообщество openKylin само создаёт репозиторий deb и рабочий стол UKUI, официально позиционируется как независимая корневая ОС сообщества, а не прямой производный
+    от Ubuntu/Debian; RISC-V адаптируется силами openKylin RISC-V SIG.'
+  kind: distro
+  based_on: Собственная сборка (deb/APT + собственные репозитории, рабочий стол UKUI); в 3.0 используется ядро Linux 7.0, 2.0 SP2 — долгосрочная стабильная версия
+  audience: advanced
+  versions:
+  - openKylin 3.0 (выпущен 2026-08-31; зеркало на странице загрузки 2026-09-18, образ RISC-V 2026-08-28 / 2026-10-29)
+  - openKylin 2.0 SP2 (долгосрочная стабильная версия с 2026-08-13; образ RISC-V 2025-08-26)
+  boards:
+  - board: k3
+    level: official
+    note: В 3.0 предоставляются образы SpacemiT K3 Server / Embedded
+  - board: licheepi-4a
+    level: official
+    note: В 2.0 SP2 предоставляется образ LicheePi4A (2.5G, 2025-08-26)
+  - board: pioneer
+    level: official
+    note: В 2.0 SP2 предоставляется образ Milk-V Pioneer (3.0G)
+  - board: qemu
+    level: official
+    note: В 2.0 SP2 предоставляется образ RVA23 QEMU (1.8G)
+  - board: bpi-f3
+    level: community
+    note: В 2.0 SP2 есть образ SpacemiT K1 (BPI-F3 не указан, требуется самостоятельная проверка)
+  downloads:
+  - label: Центр загрузки системы (фильтр RISC-V по архитектуре)
+    url: https://www.openkylin.top/downloads/
+  - label: '3.0 RISC-V: SpacemiT K3 Server (zip)'
+    url: https://cdimage.openkylin.top/3.0/openKylin-Server-V3.0-Release-spacemit-k3-riscv64.zip
+  - label: '3.0 RISC-V: SpacemiT V100 Server (iso)'
+    url: https://cdimage.openkylin.top/3.0/openKylin-V100-Server-V3.0-20261012-riscv64.iso
+  - label: 2.0 SP2 страница загрузки (образы LicheePi4A / Pioneer / K1 / qemu в разделе «Все версии»)
+    url: https://www.openkylin.top/downloads/index-cn.html
+  - label: Зеркало cdimage.openkylin.top
+    url: https://cdimage.openkylin.top/
+  guides:
+  - label: Установка openKylin на RISC-V
+    url: https://docs.openkylin.top/zh/1%E5%85%A5%E9%97%A8%E4%B8%8E%E5%8F%82%E4%B8%8E/1_3%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/03_%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    type: doc
+    lang: zh
+  - label: Примечания к выпуску openKylin 3.0 (оптимизация RISC-V / RVA23)
+    url: https://www.openkylin.top/news/4011-cn.html
+    type: doc
+    lang: zh
+  gotchas:
+  - Образы RISC-V в 3.0 охватывают только SpacemiT K3 (Server/Embedded) и V100; LicheePi 4A / Pioneer остаются на 2.0 SP2
+  - Образы RISC-V собираются под конкретную плату, а не как универсальный ISO, поэтому нужно выбирать соответствующий; только 2.0 SP2 предоставляет образ RVA23 qemu
+  - Образы RISC-V в 3.0 ориентированы на серверы/встраиваемые системы (Server, Embedded) и не равны настольному опыту
+  - Ссылки на скачивание ведут через download-smp.php?id=xxx, реальные файлы находятся на cdimage.openkylin.top
+  - Документация в основном на китайском, англоязычный сайт документации практически пустой; вопросы по RISC-V решаются в основном через китайское сообщество/SIG
+  doc_langs:
+  - zh
+  derivatives: []
+  note: RISC-V-ветка китайской настольной ОС, покрытие плат разорвано по версиям (3.0 поддерживает только K3/V100). Подходит для оценки китайского настольного стека, не подходит как повседневная система
+    для старых плат TH1520/K1.
+  checked: '2026-11-01'
+  order: 20
+  feature: false
+- id: deepin
+  name: deepin
+  vendor: ''
+  upstream: downstream
+  upstream_note: 'Дистрибутив с downstream-кастомизацией: общественная версия deepin наследует пакеты Debian и добавляет собственные репозитории и систему пакетов Linglong; RISC-V поддерживается SIG deepin-ports,
+    официально помечен как «технический предпросмотр».'
+  kind: distro
+  based_on: На базе Debian + собственные репозитории deepin (deepin 25 «crimson»); ядро по платам 6.6/6.12/6.16, для DP1000 используется mainline-ядро
+  audience: advanced
+  versions:
+  - deepin 25.2.0 (универсальный ISO для RISC-V, 2026-07-07)
+  - deepin 25 crimson preview (образы по платам, последний для K3 2026-05-22)
+  - deepin next-crimson preview（K3，2026-09-14）
+  boards:
+  - board: licheepi-4a
+    level: community
+    note: Кастомный образ для устройств TH1520 (загрузка u-boot, ядро 6.6)
+  - board: k3
+    level: community
+    note: Кастомный образ для устройств K3, последний 25-crimson-preview
+  - board: pioneer
+    level: community
+    note: SG2042 (MilkV Pioneer), загрузка linuxboot, ядро 6.6/6.12/6.16
+  - board: visionfive2
+    level: community
+    note: JH7110, ядро 5.15/6.6/6.12, загрузка u-boot
+  - board: titan
+    level: community
+    note: UltraRISC DP1000 (MilkV Titan), mainline-ядро + UEFI
+  - board: megrez
+    level: community
+    note: ESWIN EIC7700 (MilkV Megrez), загрузка u-boot
+  - board: qemu
+    level: community
+    note: QEMU mainline-ядро + UEFI
+  - board: bpi-f3
+    level: community
+    note: Кастомный образ для устройств SpacemiT K1
+  downloads:
+  - label: Официальная страница загрузки (технический предпросмотр RISC-V)
+    url: https://www.deepin.org/zh/download/
+  - label: Универсальный ISO deepin 25.2.0 RISC-V
+    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: Список образов deepin-ports RISC-V (tar.xz по платам)
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  guides:
+  - label: Руководство по установке deepin 25
+    url: https://www.deepin.org/zh/deepin-25-installation/
+    type: doc
+    lang: zh
+  - label: deepin 25 Installation Guide (English)
+    url: https://www.deepin.org/en/deepin-25-installation/
+    type: doc
+    lang: en
+  - label: Матрица поддержки устройств deepin-ports (RISC-V)
+    url: https://deepin-community.github.io/sig-deepin-ports/matrix/riscv64
+    type: doc
+    lang: zh
+  - label: 'Ядро mainline + универсальный ISO: адаптация deepin RISC-V для DP1000 от Chaorui'
+    url: https://www.deepin.org/en/dp1000
+    type: doc
+    lang: zh
+  gotchas:
+  - RISC-V по-прежнему в статусе технического предпросмотра (официально явно указано), стабильность и полнота недостаточны
+  - 'Образы по платам — это tar.xz, а не ISO: нужно вручную распаковать и записать на носитель; универсальный ISO 25.2.0 требует загрузки через UEFI'
+  - liveimage-desktop с установщиком не создаёт пользователя по умолчанию, пароль root по умолчанию — deepin
+  - Есть вариант immutable (только для чтения корень), способ модификации системы отличается от обычного
+  - deepin RISC-V поддерживается только на уровне сообщества; коммерческая поддержка — через UnionTech UOS
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - UnionTech UOS
+  note: 'Самый красивый по оформлению рабочего стола китайский дистрибутив, но ветка RISC-V — это общественный предпросмотр с tar.xz по платам: подходит для оценки/первого знакомства, не рекомендуется как
+    единственная повседневная система.'
+  checked: '2026-11-01'
+  order: 21
+  feature: false
+- id: openruyi
+  name: openRuyi
+  vendor: ''
+  upstream: official
+  upstream_note: 'Независимый дистрибутив: RISC-V-нативный дистрибутив, инициированный и долго поддерживаемый Институтом программного обеспечения Китайской академии наук (ISCAS), с собственным набором RPM-пакетов
+    и сборочным конвейером (SPECS/dnf), не основан на бинарных пакетах Debian/Ubuntu/openEuler.'
+  kind: distro
+  based_on: Собственная сборка (RPM + dnf, rolling release); ядро 7.2.6 / LTS 6.18.54, тулчейн GCC 16.2 / glibc в комплекте
+  audience: vendor
+  versions:
+  - 2026.09 (сборка 2026-09-29)
+  - 2026.08（2026-08-26）
+  - 2026.07（2026-07-23）
+  boards:
+  - board: qemu
+    level: official
+    note: Официально предоставляются образы QEMU/virt и описание виртуализации RVA23 — самый простой способ попробовать
+  - board: k3
+    level: community
+    note: Ruyi Firmware (coreboot+OpenSBI+EDK2) проверена на SpacemiT K3 Pico ITX по всему процессу от прошивки до рабочего стола
+  downloads:
+  - label: Общий каталог сайта загрузки (линейка версий Creek)
+    url: https://releases.openruyi.cn/creek/
+  - label: Каталог версии 2026.09 (два набора RVA20/RVA23)
+    url: https://releases.openruyi.cn/creek/2026.09/
+  - label: 2026.09 RVA23 (Server ISO / Workstation KDE / labwc / Zero / rootfs)
+    url: https://releases.openruyi.cn/creek/2026.09/rva23/
+  - label: 2026.09 RVA20
+    url: https://releases.openruyi.cn/creek/2026.09/rva20/
+  guides:
+  - label: Как установить openRuyi Server
+    url: https://openruyi.cn/docs/guide/how-to-install/server/
+    type: doc
+    lang: en
+  - label: Как установить openRuyi Workstation
+    url: https://openruyi.cn/docs/guide/how-to-install/workstation
+    type: doc
+    lang: en
+  - label: Установка на QEMU
+    url: https://openruyi.cn/docs/guide/how-to-install/qemu
+    type: doc
+    lang: en
+  - label: Примечания к выпуску 2026.09
+    url: https://openruyi.cn/news/2026-09/release
+    type: doc
+    lang: en
+  gotchas:
+  - 'Rolling-релиз без LTS: ежемесячные версии могут сильно меняться и не подходят в качестве стабильной производственной основы'
+  - Образы выпускаются в двух вариантах — RVA20 и RVA23; при неверном выборе система не загрузится на ядрах, не поддерживающих соответствующий profile
+  - Для K3 требуется комплект Ruyi Firmware (coreboot+OpenSBI+EDK2); у большинства обычных плат разработчика с U-Boot готовых образов нет
+  - Установщик форматирует весь диск и по умолчанию ориентирован на серверы/рабочие станции, а не на готовый к использованию китайский рабочий стол
+  - Документация полностью на английском, материалов на китайском очень мало; сообщество небольшое
+  doc_langs:
+  - en
+  derivatives: []
+  note: 'В основном предназначен для тестирования производителями/экосистемой: официальная позиция — «ранняя проверка» — как можно раньше выявить проблемы совместимости прошивки, семантики платформы и ядра,
+    чтобы у производителей было меньше форков. Обычным пользователям устанавливать его обычно не нужно; для повседневного использования выбирайте дистрибутивы производителей, такие как Bianbu / RevyOS /
+    openKylin; для бесплатного знакомства можно сначала воспользоваться его образом для QEMU.'
+  checked: '2026-11-01'
+  order: 22
+  feature: false
+- id: void
+  name: Void Linux
+  vendor: ''
+  upstream: community
+  upstream_note: 'Нет цели riscv64: в официальных репозиториях только x86_64/i686/aarch64/armv6l/armv7l (включая варианты с musl), ни на странице загрузки, ни в /live/current нет образов RISC-V.'
+  kind: distro
+  based_on: Независимый (XBPS + runit + musl/glibc)
+  audience: advanced
+  versions:
+  - rolling（live/ROOTFS 20250202）
+  boards: []
+  downloads:
+  - label: Официальная страница загрузки (записи riscv64 отсутствуют)
+    url: https://voidlinux.org/download/
+  guides:
+  - label: 'Void Handbook: глава об установке'
+    url: https://docs.voidlinux.org/installation/index.html
+    type: doc
+    lang: en
+  gotchas:
+  - 'В настоящее время нет ни одного репозитория пакетов riscv64: ни установить, ни обновить'
+  - В сообществе есть только записи о статусе личных сборок (saeziae/voidriscv), это неофициальные продукты
+  - Если нужно использовать, придётся самостоятельно кросс-собирать из исходников через xbps-src; официальной документации по этому нет
+  doc_langs:
+  - en
+  derivatives: []
+  note: На текущем этапе не подходит ни для одного сценария RISC-V; приведён только чтобы показать, что «маленький и быстрый» ≠ «есть RISC-V».
+  checked: '2026-11-01'
+  order: 23
+  feature: false
+- id: pld
+  name: PLD Linux
+  vendor: ''
+  upstream: community
+  upstream_note: 'Нет портирования на RISC-V: бинарные репозитории ветки th/3.0 на ftp содержат только i686/x86_64/x32/noarch; на официальном сайте, странице Machines и в списке образов нет ничего связанного
+    с riscv64.'
+  kind: distro
+  based_on: Независимый (RPM + poldek, дистрибутив польского сообщества)
+  audience: advanced
+  versions:
+  - Th 2025 snapshot (линия 3.0)
+  boards: []
+  downloads:
+  - label: Официальный бинарный репозиторий (каталога riscv64 нет)
+    url: https://ftp.pld-linux.org/dists/3.0/
+  guides:
+  - label: Официальная точка входа в документацию PLD
+    url: https://www.pld-linux.org/
+    type: doc
+    lang: en
+  gotchas:
+  - Нет ни репозиториев riscv64, ни образов, ни установочных носителей
+  - Проект ориентирован в основном на x86 (i686/x86_64/x32), активность в последние годы низкая
+  - Информация на сайте устарела (страница Machines застряла на 2012 году)
+  doc_langs:
+  - en
+  - pl
+  derivatives: []
+  note: Можно считать, что «поддержки RISC-V нет»; в портале рекомендуется помечать как временно не поддерживаемый, чтобы не вводить в заблуждение.
+  checked: '2026-11-01'
+  order: 24
+  feature: false
+- id: slackware
+  name: Slackware
+  vendor: ''
+  upstream: community
+  upstream_note: Официальный Slackware 15.0 выпускается только для x86_64 (на slackware.com есть отдельный официальный ARM-проект arm.slackware.com); RISC-V обеспечивается неофициальным портом slarm64 (sndwvs),
+    который следует за 15.0/current и предоставляет пакеты и образы для конкретных плат.
+  kind: distro
+  based_on: Независимый (pkgtools + slackpkg, init в стиле BSD)
+  audience: advanced
+  versions:
+  - 15.0 (официальный, x86_64)
+  - slarm64-riscv64-current / slarm64-riscv64-15.0 (неофициальный порт)
+  boards:
+  - board: visionfive2
+    level: community
+    note: slarm64 предоставляет каталог образов visionfive_2
+  - board: licheepi-4a
+    level: community
+    note: slarm64 предоставляет каталог образов lichee_pi_4a
+  downloads:
+  - label: Дерево пакетов slarm64 riscv64 (current)
+    url: http://dl.slarm64.org/slackware/slarm64-riscv64-current/
+  - label: Каталог образов для конкретных плат slarm64 (visionfive_2 / lichee_pi_4a / star64 / nezha и др.)
+    url: http://dl.slarm64.org/slackware/images/
+  guides:
+  - label: Репозиторий проекта slarm64 (скрипты сборки и описание)
+    url: https://github.com/sndwvs/slarm64-current
+    type: doc
+    lang: en
+  - label: 'Форум RVSpace: slarm64 (неофициальный порт Slackware для aarch64/riscv64)'
+    url: http://forum.rvspace.org/t/slarm64-aarch64-riscv64-unofficial-slackware-linux-port/108
+    type: doc
+    lang: en
+  gotchas:
+  - Официальной поддержки нет, всё зависит от slarm64, поддерживаемого одним человеком
+  - 'Нет installer: нужно вручную устанавливать из дерева пакетов через chroot или напрямую записывать образ для конкретной платы'
+  - slackware.com возвращает 403 на скриптовые запросы (Akamai), версию нужно смотреть через зеркала
+  - Документация — только README и сообщения на форуме, материалов на китайском почти нет
+  doc_langs:
+  - en
+  derivatives:
+  - slarm64 (неофициальный порт для aarch64/riscv64)
+  - Slackware ARM (официальный ARM-проект, без RISC-V)
+  note: Старым пользователям Slack, желающим продлить жизнь на RISC-V, можно попробовать slarm64; новичкам не стоит браться.
+  checked: '2026-11-01'
+  order: 25
+  feature: false
+- id: android
+  name: Android (AOSP)
+  vendor: ''
+  upstream: official
+  upstream_note: AOSP mainline сохраняет riscv64 target (build/target/product/aosp_riscv64.mk, module_riscv64.mk), но проверяется только на виртуальном устройстве Cuttlefish; в 2024 году из Android Common
+    Kernel/GKI удалена поддержка RISC-V, Google заявляет, что в AOSP она продолжается.
+  kind: distro
+  based_on: AOSP (ядро Linux + фреймворк Android)
+  audience: advanced
+  versions:
+  - Android 17（AOSP，2026-06）
+  - main（trunk_staging）
+  boards:
+  - board: qemu
+    level: official
+    note: Cuttlefish (cvd) — единственный официальный способ запуска, требуется qemu ≥ 8.1 (9.0+ стабильнее для расширения V)
+  downloads:
+  - label: Скачивание исходников AOSP (riscv64 только сборка из исходников, официальных образов нет)
+    url: https://source.android.com/docs/setup/download
+  guides:
+  - label: google/android-riscv64 (статус, цели lunch, шаги Cuttlefish)
+    url: https://github.com/google/android-riscv64
+    type: doc
+    lang: en
+  - label: 'AOSP: Building Android'
+    url: https://source.android.com/docs/setup/build/building
+    type: doc
+    lang: en
+  - label: 'AOSP: инструкция по Cuttlefish (единственный способ запуска riscv64)'
+    url: https://source.android.com/docs/devices/cuttlefish/get-started
+    type: doc
+    lang: en
+  gotchas:
+  - Официальных образов для телефонов/плат разработчика нет, только эмулятор
+  - ABI riscv64 в NDK ещё не утверждён (provisional), скомпилированные сейчас .so могут быть несовместимы в будущем
+  - Загрузка до рабочего стола даже на быстрой машине занимает около 10 минут
+  - После удаления RISC-V из ACK/GKI производители не получают долгосрочной поддержки ядра, серийное производство бесперспективно
+  doc_langs:
+  - en
+  derivatives: []
+  note: Подходит только для проверочных экспериментов «запустить фреймворк Android на RISC-V», не стоит считать это рабочей системой.
+  checked: '2026-11-01'
+  order: 26
+  feature: false

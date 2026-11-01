@@ -1,0 +1,61 @@
+<!doctype html><html lang=ru data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Виртуальная машина QEMU virt · Дистрибутивы RISC-V</title><meta name=description content="Какие дистрибутивы RISC-V работают на каких платах, где брать образы и какие подводные камни ждут."><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/ru/boards/qemu/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/boards/qemu/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/boards/qemu/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/boards/qemu/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/boards/qemu/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/boards/qemu/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/ru/boards/qemu/><link rel=alternate type=application/rss+xml href=/ru/boards/qemu/index.xml title="Дистрибутивы RISC-V — Виртуальная машина QEMU virt"><link rel=stylesheet href=/css/main.min.77e4f9e0d824cdd434a5fec86acea6f709a97cb062d717122ff798f7840ee440.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>Перейти к содержимому</a><header class=site-head><div class=wrap><a class=brand href=/ru/><span class=brand-mark aria-hidden=true>RV</span>
+<span>Дистрибутивы RISC-V</span></a><nav class=nav aria-label="Основная навигация"><a href=/ru/start/>С чего начать</a>
+<a href=/ru/distros/>Дистрибутивы</a>
+<a href=/ru/boards/ class=active>Платы</a>
+<a href=/ru/matrix/>Матрица</a>
+<a href=/ru/ai/>ИИ-софт</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label="Тёмная тема">☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label="Сменить язык" aria-expanded=false>Р</button><ul class=lang-menu id=langMenu><li><a href=/boards/qemu/ lang=zh-CN>简体中文</a></li><li><a href=/en/boards/qemu/ lang=en>English</a></li><li><a href=/ja/boards/qemu/ lang=ja>日本語</a></li><li><a href=/ru/boards/qemu/ class=active lang=ru>Русский</a></li><li><a href=/ko/boards/qemu/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>Виртуальная машина QEMU virt</h1><div class=sub><span class="badge soft">нет (универсальная виртуальная платформа QEMU, настраивается RV32/RV64, до 512 ядер)</span>
+<span class="badge soft">Виртуальная платформа</span>
+<span class="badge soft">QEMU Project</span></div></div></header><aside class=subscribe aria-label="Подписаться на обновления"><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>Подписаться на обновления</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder="Ваш адрес электронной почты" disabled>
+<input type=hidden name=lang value=ru>
+<button class="btn btn-primary sub-btn" type=submit disabled>Подписаться</button></div><p class=sub-note>Сервер рассылки ещё не подключён, поэтому поле недоступно. После подключения форма будет отправляться напрямую.</p></form><div class=sub-rss><span class=sub-label>RSS-подписка</span><div class=sub-rss-links><a href=/ru/index.xml>Все обновления</a>
+<a href=/ru/distros/index.xml>Дистрибутивы</a>
+<a href=/ru/boards/index.xml>Платы</a>
+<a href=/ru/ai/index.xml>ИИ-софт</a></div></div></div></aside><div class=wrap><section class=block><dl class=specs><dt>Характеристики</dt><dd>Чисто виртуальная платформа: до 512 ядер RV64GC, CLINT/PLIC, хост-мост PCIe, 8 virtio-mmio, NS16550 UART, опционально AIA/IOMMU; ОЗУ, накопитель и сеть полностью виртуализируются параметрами командной строки, реальных GPU/VPU/NPU нет.</dd><dt>Цена</dt><dd>Бесплатно, с открытым исходным кодом (GPLv2), поставляется в репозиториях дистрибутивов</dd><dt>Официальная ОС</dt><dd>debian / ubuntu</dd><dt>Языки документации</dt><dd>en</dd><dt>Проверено</dt><dd>2026-11-01</dd></dl></section><section class="block prose"><p>Общая отправная точка для всех плат: сначала проверить ядро/rootfs на virt, затем переходить на реальное железо — это экономит массу времени на отладку прошивки.</p></section><section class=block><div class=block-head><h2>Дистрибутивы</h2></div><ul class=support-list><li><a href=/ru/distros/debian/>Debian</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>Начиная с Debian 13 riscv64 — официальная архитектура, официальный netinst ISO можно напрямую установить в virt</span></li><li><a href=/ru/distros/ubuntu/>Ubuntu</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>Официальный cloud image riscv64, запуск с EDK2(pflash) или -kernel</span></li><li><a href=/ru/distros/fedora/>Fedora</a>
+<span class="badge lv-community">Сообщество</span>
+<span class=muted>Fedora RISC-V предоставляет инструкцию по установке QEMU и образы</span></li><li><a href=/ru/distros/alpine/>Alpine Linux</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>Есть только riscv64 minirootfs, без virt ISO, нужны собственные ядро/initramfs</span></li><li><a href=/ru/distros/arch/>Arch Linux RISC-V</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>archriscv предоставляет riscv64 ISO, можно загрузить в QEMU</span></li><li><a href=/ru/distros/opensuse/>openSUSE</a>
+<span class="badge lv-community">Сообщество</span>
+<span class=muted>openSUSE Ports предоставляет riscv64; официальный сайт возвращает 403 на curl, прямые ссылки не проверены</span></li><li><a href=/ru/distros/gentoo/>Gentoo</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>stage3 riscv64 + руководство по поддержке системы QEMU</span></li><li><a href=/ru/distros/void/>Void Linux</a>
+<span class="badge lv-partial">Частично</span>
+<span class=muted>Есть порт riscv64, образ QEMU нужно собирать самостоятельно</span></li><li><a href=/ru/distros/nixos/>NixOS</a>
+<span class="badge lv-community">Сообщество</span>
+<span class=muted>riscv64 — неофициальный уровень поддержки, требуется кросс-сборка</span></li><li><a href=/ru/distros/alt/>ALT Linux</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>ALT Ports riscv64 предоставляет образ QEMU</span></li><li><a href=/ru/distros/freebsd/>FreeBSD</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>riscv64 поддерживает QEMU virt</span></li><li><a href=/ru/distros/netbsd/>NetBSD</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>Порт riscv64 поддерживает QEMU</span></li><li><a href=/ru/distros/openbsd/>OpenBSD</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>riscv64 поддерживает QEMU virt</span></li><li><a href=/ru/distros/openeuler/>openEuler</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>openEuler RISC-V SIG предоставляет образ QEMU</span></li><li><a href=/ru/distros/buildroot/>Buildroot</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>qemu_riscv64_virt_defconfig, система поднимается одной командой make</span></li><li><a href=/ru/distros/yocto/>Yocto / OpenEmbedded</a>
+<span class="badge lv-official">Официально</span>
+<span class=muted>Машина qemuriscv64 официально поддерживается</span></li></ul></section><section class=block><div class=block-head><h2>Скачать</h2></div><div class=links><a href=https://www.qemu.org/docs/master/system/riscv/virt.html rel=noopener>Официальная документация QEMU: машина RISC-V virt</a><a href=https://www.qemu.org/download/ rel=noopener>Страница загрузки QEMU</a><a href=https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img rel=noopener>Облачный образ Ubuntu 24.04 riscv64</a><a href=https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/ rel=noopener>ISO netinst Debian 13.7 riscv64</a><a href=https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso rel=noopener>ISO Arch Linux RISC-V</a><a href=https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz rel=noopener>minirootfs Alpine riscv64</a><a href=https://buildroot.org/downloads/ rel=noopener>Загрузка Buildroot</a></div></section><section class=block><div class=block-head><h2>Документация и видео</h2></div><ul class=support-list><li><a href=https://wiki.qemu.org/Documentation/Platforms/RISCV rel=noopener>QEMU wiki: описание платформы RISC-V</a>
+<span class="badge soft">Документ</span>
+<span class=muted>en</span></li><li><a href=https://wiki.debian.org/RISC-V rel=noopener>Debian wiki: порт RISC-V</a>
+<span class="badge soft">Документ</span>
+<span class=muted>en</span></li><li><a href=https://fedoraproject.org/wiki/Architectures/RISC-V/Installing rel=noopener>Fedora: руководство по установке RISC-V</a>
+<span class="badge soft">Документ</span>
+<span class=muted>en</span></li><li><a href=https://wiki.gentoo.org/wiki/Project:RISC-V rel=noopener>Проект Gentoo RISC-V</a>
+<span class="badge soft">Документ</span>
+<span class=muted>en</span></li><li><a href=https://www.openeuler.org/en/sig/sig-RISC-V rel=noopener>openEuler RISC-V SIG</a>
+<span class="badge soft">Документ</span>
+<span class=muted>en</span></li></ul></section><section class=block><div class=block-head><h2>Подводные камни</h2></div><ul class=pitfalls><li>-bios default загружает только OpenSBI, без U-Boot/EDK2; для загрузки облачного образа Ubuntu/Fedora нужно загрузить 32MiB прошивку EDK2 через pflash, иначе будет чёрный экран</li><li>В virt нет GPU/VPU/NPU, не используйте его для проверки графики, аппаратного декодирования видео или AI-ускорения</li><li>Последовательный порт фиксирован — ttyS0; для выхода из режима -nographic нажмите Ctrl-A, затем X</li><li>Начиная с Ubuntu 26.04 требуется RVA23S64, старые версии QEMU без нужных расширений не запустятся; 24.04 всё ещё использует базовый уровень RVA20</li><li>Alpine riscv64 выпускает только minirootfs, без virt ISO; ядро и initramfs нужно готовить самостоятельно</li></ul></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>Дистрибутивы RISC-V · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>Контент под CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/ru/start/>С чего начать</a>
+<a href=/ru/distros/>Дистрибутивы</a>
+<a href=/ru/matrix/>Матрица</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>Исходники</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"Тёмная тема":"Светлая тема")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

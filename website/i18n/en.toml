@@ -1,0 +1,151 @@
+[nav]
+start = "Start"
+distros = "Distros"
+boards = "Boards"
+matrix = "Matrix"
+ai = "AI software"
+
+[home]
+h1 = "Start here if this is your first RISC-V machine"
+lede = "Which distribution runs on which board, where the images live, and where the traps are. Scattered vendor wikis, gathered in one place: get it booting first, worry about speed later."
+cta_start = "Start here"
+cta_distros = "Browse distros"
+cta_boards = "Browse boards"
+cta_ai = "AI support"
+sec_distros = "Distributions that actually support RISC-V"
+sec_boards = "The boards people actually use"
+sec_ai = "How far the AI stack gets"
+sec_matrix = "Distro by board at a glance"
+
+[label]
+matrix_hint = "Open a distro for images and pitfalls"
+sources = "Sources"
+checked_on = "Last checked"
+all = "All"
+home = "Home"
+versions = "Versions"
+downloads = "Download"
+guides = "Docs and videos"
+gotchas = "Pitfalls"
+derivatives = "Derivatives"
+official_os = "Preinstalled / official OS"
+soc = "SoC"
+spec = "Specs"
+status = "Status"
+doc_langs = "Doc languages"
+boards = "Boards"
+distros = "Distros"
+based_on = "Based on"
+upstream = "Upstream"
+kind = "Type"
+audience = "Who it is for"
+checked = "Checked"
+note = "Notes"
+video = "Video"
+doc = "Doc"
+pros = "Bottom line"
+price = "Price"
+
+[upstream]
+official = "Upstream architecture"
+community = "Community port"
+downstream = "Vendor derivative"
+
+[level]
+official = "Official"
+community = "Community"
+partial = "Partial"
+none = "Not supported"
+
+[kind]
+distro = "Distribution"
+buildsystem = "Build system"
+simulator = "Emulator"
+
+[audience]
+recommended = "Good for newcomers"
+advanced = "Needs some effort"
+vendor = "Vendor testing"
+
+[status]
+virtual = "Virtual platform"
+on_sale = "On sale"
+eol = "End of life"
+hard = "Hard to buy"
+announced = "Announced"
+unknown = "Unknown"
+
+[run]
+works = "Works"
+partial = "Partial"
+no = "Does not work"
+unknown = "No public evidence"
+
+[subscribe]
+title = "Subscribe for updates"
+placeholder = "Your email address"
+button = "Subscribe"
+pending = "The mailing-list backend is not connected yet, so this field is disabled. Once it is, this form will submit directly."
+rss = "RSS feeds"
+rss_all = "All updates"
+rss_distros = "Distros"
+rss_boards = "Boards"
+rss_ai = "AI software"
+
+[feed]
+all = "All updates"
+distros = "Distros"
+boards = "Boards"
+ai = "AI software"
+
+[matrix]
+scroll_hint = "Scroll sideways to see every distribution"
+own_source = "Our own notes (not tested by RuyiSDK)"
+title = "Support matrix"
+sub = "Boards down the side, distros across the top. Each cell links to the distribution page with images and pitfalls."
+legend = "Legend"
+
+[ai]
+title = "AI software support"
+sub = "Only what has public evidence behind it: official repos, vendor docs, credible hands-on reports. No evidence, no claim."
+npu = "NPU / accelerator"
+evidence = "Evidence"
+ruyisdk = "RuyiSDK test matrix"
+
+[a11y]
+theme_light = "Switch to light"
+theme_dark = "Switch to dark"
+lang = "Switch language"
+skip = "Skip to content"
+nav = "Main navigation"
+
+[footer]
+updated = "Each entry lists when it was checked"
+source = "Source"
+license = "Content licensed CC BY-SA 4.0"
+
+[site]
+tagline = "For your first RISC-V machine"
+
+[ruyisdk]
+no_page = "not covered here"
+legend_note = "Status meanings: good — fully usable (desktop boots); basic — basic system (serial console works); part — partial functionality; cft — image exists, needs verification; cfh — documented as supported but fails to boot; cfi — claimed supported, no image; wip — announced only."
+source = "Source"
+open_report = "Open report"
+col_report = "Report"
+col_date = "Last tested"
+col_status = "Status"
+board_sub = "Systems RuyiSDK actually tested on this board. Open a report for install steps and the verdict."
+distro_sub = "Hands-on records from RuyiSDK, board by board. Open a report for the full install steps and verdict."
+tested = "Tested by RuyiSDK"
+title = "RuyiSDK test reports"
+
+[ruyisdk.status]
+unknown = "Unspecified"
+wip = "Announced only"
+cfi = "No image yet"
+cfh = "Fails to boot"
+cft = "Needs verification"
+part = "Partial"
+basic = "Basic"
+good = "Good"

@@ -1,0 +1,599 @@
+# Generated from website/data/i18n/zh/ai.yaml; keep structure identical.
+ruyisdk:
+  url: https://matrix.ruyisdk.org/
+  fetched_at: '2026-11-01'
+  note: RuyiSDK's official "RISC-V Board and OS Support Matrix". The front end is a static Astro site whose /table/ content is rendered by JS, and the data comes straight from the GitHub repo ruyisdk/support-matrix (one README.md per board/distro directory, with YAML frontmatter as the data source). This snapshot was parsed from all 951 markdown files pulled with a git sparse clone, which is equivalent to the site data. The matrix records support level — whether it boots and whether it reaches a desktop — not per-package availability; for "RuyiSDK can flash it directly" see ruyi_provisioning.
+items:
+- board: qemu
+  board_name: QEMU virt (virtual machine)
+  soc: QEMU-emulated rv64 (vlen=256, RVV 1.0)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://github.com/kriznaw/llama.cpp-riscv64-qemu
+    - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
+    note: Upstream builds run with qemu-riscv64 -cpu max,vlen=256; SpacemiT's docs give the full command to run llama-cli in QEMU. Functional validation only — the speed means nothing.
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: build_riscv64.sh uses QEMU to validate cross-compiled artifacts; it runs, but very slowly.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: The RISE wheels explicitly say they are not built for QEMU; under QEMU you can only check that things work.
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Runs in emulation; performance figures are meaningless.
+  - item: ncnn
+    state: works
+    evidence:
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: CI passes on riscv64.
+  npu: None (emulation only)
+  note: Only for validating compilation and functionality without hardware; it says nothing about performance.
+  checked: '2026-11-01'
+  order: 1
+- board: unmatched
+  board_name: SiFive HiFive Unmatched
+  soc: SiFive FU740 (4x U74, RV64GC, no V)
+  runs:
+  - item: llama.cpp
+    state: unknown
+    evidence:
+    - https://github.com/ggml-org/llama.cpp
+    - https://github.com/ggml-org/llama.cpp/issues/20988
+    note: No public Unmatched-specific benchmark found; upstream only ships source (no riscv64 binaries in releases), and U74 has no RVV, so it is scalar-only and expected to be slow.
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    - https://github.com/microsoft/onnxruntime
+    note: Upstream includes an MLAS RVV kernel and tools/scripts/build_riscv64.sh (contributed by SiFive), but there are no riscv64 prebuilt packages, so cross-compile yourself; the RVV kernel targets RVV 1.0.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    - https://pypi.riseproject.dev/simple/torch/
+    note: PyPI has no riscv64 wheels; RISE provides a torch 2.13.0 manylinux_2_39_riscv64 wheel (needs glibc >= 2.39, e.g. Ubuntu 24.04/Bianbu).
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Upstream 4.x supports RISC-V and the RVV HAL; most distros can install it or build it with the RVV backend. No per-board performance validation.
+  - item: ncnn
+    state: partial
+    evidence:
+    - https://github.com/Tencent/ncnn
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: Upstream has linux-riscv64 CI and RVV implementations; U74 has no RVV, so ncnn runs scalar-only.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: tengine-lite provides RVV convolution kernels for risc-v/lp64dv and an rv64-c906 toolchain; only some operators are optimised, so support is experimental.
+  npu: No NPU
+  note: ruyi provides OpenBSD/Ubuntu/openKylin/openWrt images; a long-standing ecosystem, but with no AI accelerator.
+  checked: '2026-11-01'
+  order: 2
+- board: visionfive2
+  board_name: StarFive VisionFive 2
+  soc: StarFive JH7110 (4x U74, RV64GC, no V)
+  runs:
+  - item: llama.cpp
+    state: partial
+    evidence:
+    - https://github.com/ggml-org/llama.cpp/issues/14926
+    - https://github.com/ggml-org/llama.cpp
+    note: 'The community can build and run it, but issue #14926 reports Illegal instruction on the VF2, so set the RVV/CPU build flags correctly; with no V extension it is pure scalar inference and very slow.'
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    - https://github.com/microsoft/onnxruntime
+    note: Upstream includes an MLAS RVV kernel and tools/scripts/build_riscv64.sh (contributed by SiFive), but there are no riscv64 prebuilt packages, so cross-compile yourself; the RVV kernel targets RVV 1.0.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    - https://pypi.riseproject.dev/simple/torch/
+    note: PyPI has no riscv64 wheels; RISE provides a torch 2.13.0 manylinux_2_39_riscv64 wheel (needs glibc >= 2.39, e.g. Ubuntu 24.04/Bianbu).
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Upstream 4.x supports RISC-V and the RVV HAL; most distros can install it or build it with the RVV backend. No per-board performance validation.
+  - item: ncnn
+    state: partial
+    evidence:
+    - https://github.com/Tencent/ncnn
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: Upstream has linux-riscv64 CI and RVV implementations; JH7110 has no RVV, so ncnn runs scalar-only.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/OAID/Tengine/tengine-lite/README_EN.md
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: tengine-lite provides RVV convolution kernels for risc-v/lp64dv and an rv64-c906 toolchain; only some operators are optimised, so support is experimental.
+  npu: No NPU (GPU/video codec only)
+  note: One of the most mature starter boards (ruyi offers Armbian/openEIC/OpenBSD images), but the SoC has no vector extension, so LLMs are "it runs, slowly".
+  checked: '2026-11-01'
+  order: 3
+- board: licheepi-4a
+  board_name: LicheePi 4A
+  soc: T-HEAD TH1520 (4x C910 @1.85GHz, RV64GCV 0.7.1)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md
+    - https://github.com/ggml-org/llama.cpp
+    note: 'Sipeed''s official wiki has a llama.cpp section: about 6s/token for a 7B model (without the V extension). C910 is RVV 0.7.1, so upstream''s RVV 1.0 optimisation path does not apply and it stays scalar.'
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: Upstream's riscv64 MLAS RVV kernel targets RVV 1.0; the TH1520's 0.7.1 vectors can't use it, so it falls back to scalar.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: RISE wheels need glibc >= 2.39 and are optimised for RVV 1.0; they install on RevyOS/Debian but give no vector acceleration.
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Works as usual; the RVV HAL has limited 0.7.1 support.
+  - item: ncnn
+    state: partial
+    evidence:
+    - https://github.com/Tencent/ncnn
+    note: Builds, but the RVV optimisations target 1.0 and degrade to scalar on 0.7.1.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: tengine-lite ships an rv64-c906 toolchain and RVV convolution kernels built for 0.7.1 cores like the C906/C910, but only some operators are covered.
+  - item: npu-sdk (HHB)
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md
+    note: 'The official wiki documents the NPU flow: the T-Head HHB compiler turns ONNX into NPU executables (int8/int16 fixed point) inside a dedicated Docker image; the toolchain is closed source and fixed-point only, so it is unsuitable for LLMs.'
+  npu: 4 TOPS@INT8, vendor closed-source HHB toolchain only (int8/int16 fixed point), no upstream open-source driver
+  note: Running an LLM on the CPU works but is slow (~6s/token); the NPU only has the closed T-Head HHB path and cannot run Transformer LLMs.
+  checked: '2026-11-01'
+  order: 4
+- board: meles
+  board_name: Milk-V Meles
+  soc: T-HEAD TH1520 (4x C910 @1.85GHz, RV64GCV 0.7.1)
+  runs:
+  - item: llama.cpp
+    state: partial
+    evidence:
+    - https://milkv.io/docs/meles/overview
+    - https://raw.githubusercontent.com/sipeed/sipeed_wiki/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md
+    - https://revyos.github.io/docs/
+    note: Same TH1520 as the LicheePi 4A and officially supported by RevyOS; llama.cpp follows the same 0.7.1 vector/scalar path (about 6s/token measured on the LPi4A). No Meles-specific public benchmark found.
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: 'Same TH1520 story: upstream''s RVV kernel targets 1.0, so it degrades to scalar here.'
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: RISE wheels install (RevyOS is Debian-based), with no vector acceleration.
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Works as usual.
+  - item: ncnn
+    state: partial
+    evidence:
+    - https://github.com/Tencent/ncnn
+    note: Builds, with the RVV optimisations degrading on 0.7.1.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: The rv64-c906 toolchain matches these cores, covering only some operators.
+  - item: npu-sdk (HHB)
+    state: partial
+    evidence:
+    - https://milkv.io/docs/meles/overview
+    note: Milk-V's specs confirm a 4TOPS@INT8 NPU with TensorFlow/ONNX/Caffe support, but it goes through the closed T-Head toolchain with no open-source driver.
+  npu: 4 TOPS@INT8 (TH1520), closed-source HHB toolchain
+  note: ruyi can flash RevyOS directly (with 4G/8G/16G uboot packages); the AI situation matches the LPi4A.
+  checked: '2026-11-01'
+  order: 5
+- board: k3
+  board_name: SpacemiT K3 (Pico-ITX / CoM260)
+  soc: SpacemiT K3 (A100 cores, RV64GCV + RVV 1.0)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
+    note: 'Upstream llama.cpp has a dedicated build-riscv64-spacemit.md: A100 cores use RISCV64_SPACEMIT_IME2, and the measured qwen3 0.6B Q4_0 reaches pp128 565.8 / tg128 55.8 t/s while qwen3 4B Q4_0 reaches pp128 79.7 / tg128 11.3 t/s (8 threads).'
+  - item: spacemit-llama.cpp (vendor)
+    state: works
+    evidence:
+    - https://archive.spacemit.com/spacemit-ai/llama.cpp/
+    - https://docs.bit-brick.com/docs/k1/ml/llama-cpp
+    note: SpacemiT ships a prebuilt spacemit-llama.cpp.riscv64 (now 0.0.9) with the model library on archive.spacemit.com; Bit-Brick's docs show llama-cli/llama-server usage.
+  - item: onnxruntime
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: The RVV 1.0 cores fully use upstream's MLAS RVV kernel, but you must build it yourself.
+  - item: pytorch
+    state: works
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    - https://pypi.riseproject.dev/simple/torch/
+    note: glibc >= 2.39 distros such as Bianbu can install RISE's torch 2.13.0 riscv64 wheel directly (it is manylinux_2_39_riscv64).
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: RVV 1.0 plus the RVV HAL — the best combination.
+  - item: ncnn
+    state: works
+    evidence:
+    - https://github.com/Tencent/ncnn
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: RVV 1.0, covered by upstream CI.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: Works, but the optimisations target the 0.7.1 C906 and give little on 1.0.
+  - item: spacemit-ai-sdk
+    state: works
+    evidence:
+    - https://archive.spacemit.com/spacemit-ai/
+    note: archive.spacemit.com/spacemit-ai/ offers ModelZoo, llama.cpp, localai, dify and more — one of the most complete vendor AI stacks on RISC-V today.
+  npu: K3 leans on CPU+AI cores (SpacemiT IME extensions) with no standalone general-purpose NPU programming model; acceleration goes through SpacemiT's proprietary instructions and AI SDK
+  note: 'Currently the most complete AI software stack among RISC-V SBCs: upstream llama.cpp ships its kernels directly.'
+  checked: '2026-11-01'
+  order: 6
+- board: a210
+  board_name: Zhihe A210 (XuanTie MelonPi dev board)
+  soc: Zhihe A210 (4x C920 @2.3GHz + 4x C908, RV64GCV)
+  runs:
+  - item: llama.cpp
+    state: unknown
+    evidence:
+    - https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board
+    note: No public llama.cpp benchmark on the A210; the C920 is RVV 0.7.1, so upstream's 1.0 optimisation path is unavailable.
+  - item: onnxruntime
+    state: unknown
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: No public evidence for this board (the chip is new, with upstream support only in 2026).
+  - item: pytorch
+    state: unknown
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: No public evidence for this board.
+  - item: opencv
+    state: partial
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: RVV 0.7.1, so scalar/limited vector only; no benchmarks for this board.
+  - item: ncnn
+    state: unknown
+    evidence:
+    - https://github.com/Tencent/ncnn
+    note: No public evidence for this board.
+  - item: tengine
+    state: unknown
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: No public evidence for this board.
+  - item: torq-toolkit (vendor)
+    state: partial
+    evidence:
+    - https://www.cnx-software.com/2026/06/17/zhihe-a210-octa-core-risc-v-soc-with-12-tops-npu-powers-som-based-development-board
+    note: 'CNX reports: the official Linux SDK plus TORQ-Toolkit handle model conversion and deployment, the NPU supports INT4/INT8/INT16/FP8/FP16/BF16, and DeepSeek-7B is claimed at 8 tok/s; the toolchain is closed and its docs are not publicly available.'
+  npu: 12 TOPS@INT8 (supports FP16/BF16/FP8), via the vendor's closed-source TORQ-Toolkit
+  note: ruyi already offers Debian/buildroot images for zhihe-a210, but on the AI side there are only vendor claims and no publicly reproducible benchmark.
+  checked: '2026-11-01'
+  order: 7
+- board: k230
+  board_name: Canaan K230 (Kendryte K230 / CanMV-K230)
+  soc: Canaan K230 (C908 + KPU)
+  runs:
+  - item: llama.cpp
+    state: unknown
+    evidence:
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: The K230 targets vision inference (KPU) and no public llama.cpp benchmark exists; with 512MB/1GB of RAM an LLM is unrealistic.
+  - item: onnxruntime
+    state: unknown
+    evidence:
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: No public evidence (the vendor pushes nncase).
+  - item: pytorch
+    state: unknown
+    evidence:
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: No public evidence; not applicable for training.
+  - item: opencv
+    state: works
+    evidence:
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: The CanMV/K230 SDK includes image processing and a camera pipeline, and OpenCV-style APIs work.
+  - item: ncnn
+    state: unknown
+    evidence:
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: No public evidence.
+  - item: nncase + KPU
+    state: works
+    evidence:
+    - https://github.com/kendryte/nncase
+    - https://www.kendryte.com/ai_docs/en/main/Development_Basics.html
+    note: kendryte/nncase is the official open-source deep-learning compiler that turns ONNX/TFLite into KPU kmodels; the K230 SDK docs cover the whole AI workflow.
+  npu: KPU (about 1 TOPS class); kmodels are compiled with nncase, and the driver comes from the vendor SDK (not upstream)
+  note: 'A textbook "strong at vision AI, unsuited to LLMs" board: nncase is open source, but the runtime is still tied to the vendor SDK.'
+  checked: '2026-11-01'
+  order: 8
+- board: megrez
+  board_name: Milk-V Megrez (ESWIN EIC7700X)
+  soc: ESWIN EIC7700X (4x SiFive P550 @1.8GHz, RV64GBCH)
+  runs:
+  - item: llama.cpp
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/megrez/overview
+    note: The P550 has no RVV and there is no public llama.cpp benchmark on the Megrez; the official AI path is the NPU, not the CPU.
+  - item: onnxruntime
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/megrez/overview
+    note: No public evidence.
+  - item: pytorch
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/megrez/overview
+    note: No public evidence.
+  - item: opencv
+    state: partial
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: No RVV, so scalar only; RockOS can install it but there is no public benchmark.
+  - item: ncnn
+    state: unknown
+    evidence:
+    - https://github.com/Tencent/ncnn
+    note: No public evidence.
+  - item: ennp-sdk (vendor)
+    state: works
+    evidence:
+    - https://milkv.io/docs/megrez/development-guide/ENNP-SDK/introduction
+    - https://milkv.io/docs/megrez/development-guide/runtime-sample/qwen2
+    note: The ESWIN ENNP platform (closed source) provides EsQuant quantisation, EsAAC compilation and EsSimulator emulation; the official runtime sample gives Qwen2 and DeepSeek-R1 examples on the NPU (apt install es-sdk-sample-npu-qwen, model ZIFENG278/Qwen2-0.5B_ENNP).
+  npu: 19.95 TOPS@INT8 (INT16/FP16) through the closed-source ENNP SDK, though official Qwen2/DeepSeek-R1 samples exist
+  note: Rare on RISC-V in that its NPU can run LLMs and the vendor ships samples; the cost is total lock-in to ESWIN's closed stack.
+  checked: '2026-11-01'
+  order: 9
+- board: titan
+  board_name: Milk-V Titan (UltraRISC DP1000)
+  soc: UltraRISC UR-DP1000 (8x RISC-V RV64GCBH)
+  runs:
+  - item: llama.cpp
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/titan/overview
+    note: No public llama.cpp benchmark on the Titan; the board is new and ships in small numbers.
+  - item: onnxruntime
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/titan/overview
+    note: No public evidence.
+  - item: pytorch
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/titan/overview
+    note: No public evidence.
+  - item: opencv
+    state: partial
+    evidence:
+    - https://milkv.io/docs/titan/overview
+    note: No RVV, so scalar only; no public benchmark.
+  - item: ncnn
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/titan/overview
+    note: No public evidence.
+  npu: No onboard NPU; it is designed to take a GPU/AI accelerator over PCIe Gen4 x16
+  note: Positioned as a Mini-ITX workstation (dual DDR4 ECC up to 64GB, BMC), so AI needs a PCIe card — but there is no public evidence of a working GPU/NPU driver stack on RISC-V yet.
+  checked: '2026-11-01'
+  order: 10
+- board: pioneer
+  board_name: Milk-V Pioneer (SG2042, server-oriented)
+  soc: Sophgo SG2042 (64x XuanTie C920, RVV 0.7.1)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://arxiv.org/abs/2503.17422
+    - https://milkv.io/docs/pioneer/resources/inferllm
+    note: 'arXiv 2503.17422 (V-Seek) optimises LLM inference on the SG2042: DeepSeek R1 Distill Llama 8B / QWEN 14B reach 4.32 / 2.29 token/s generation and 6.54 / 3.68 token/s prefill. Milk-V also has its own InferLLM docs.'
+  - item: onnxruntime
+    state: partial
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: 64 cores run in parallel, but RVV 0.7.1 can't use upstream's 1.0 kernel.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: RISE wheels install, but there is no 0.7.1 vector acceleration.
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: Multi-core scalar works.
+  - item: ncnn
+    state: partial
+    evidence:
+    - https://github.com/Tencent/ncnn
+    note: Builds, degrading to scalar on 0.7.1.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: The rv64-c906 kernel targets 0.7.1, covering only some operators.
+  - item: inferllm
+    state: works
+    evidence:
+    - https://milkv.io/docs/pioneer/resources/inferllm
+    note: Milk-V's docs cover deploying InferLLM (MegEngine) on the Pioneer.
+  npu: No NPU (64-core CPU only)
+  note: The only RISC-V board with both large memory (up to 128GB) and 64 cores, so 70B-class models fit — but throughput is single-digit token/s.
+  checked: '2026-11-01'
+  order: 11
+- board: orangepi-rv2
+  board_name: Orange Pi RV2 (Ky X1)
+  soc: SpacemiT K1 (8x X60, RV64GCV + RVV 1.0)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
+    - https://github.com/Cauacs/riscv-ai-inference-lab
+    note: 'The X60 is the same core as the BPI-F3; upstream''s build-riscv64-spacemit.md has an X60 results table (qwen3 0.6B Q4_0: pp128 49.15 / tg128 11.73 t/s). There is also an experimental llama.cpp repo for the Orange Pi RV2.'
+  - item: spacemit-llama.cpp (vendor)
+    state: works
+    evidence:
+    - https://archive.spacemit.com/spacemit-ai/llama.cpp/
+    note: SpacemiT's prebuilt packages work (same K1 silicon).
+  - item: onnxruntime
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: RVV 1.0, upstream kernel usable.
+  - item: pytorch
+    state: partial
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    note: glibc >= 2.39 (e.g. Ubuntu 24.04 / recent Armbian) can install RISE wheels; older images have too old a glibc.
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: RVV 1.0 plus the RVV HAL.
+  - item: ncnn
+    state: works
+    evidence:
+    - https://github.com/Tencent/ncnn
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: RVV 1.0, covered by upstream CI.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: Works; the optimisations are not 1.0-specific.
+  npu: No standalone NPU (K1's AI comes from SpacemiT's proprietary vector/AI extensions)
+  note: ruyi provides an armbian-orangepi-rv2-minimal image; one of the best value boards that genuinely runs LLMs.
+  checked: '2026-11-01'
+  order: 12
+- board: bpi-f3
+  board_name: Banana Pi BPI-F3 (SpacemiT K1)
+  soc: SpacemiT K1 (8x X60, RV64GCV + RVV 1.0)
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
+    - https://docs.bit-brick.com/docs/k1/ml/llama-cpp
+    note: Upstream llama.cpp's riscv64-spacemit docs give a measured X60 (K1) table and a quantisation support matrix (Q4_0/Q4_1/Q4_K/Q8_0 work); Bit-Brick's docs cover full usage on Bianbu.
+  - item: spacemit-llama.cpp (vendor)
+    state: works
+    evidence:
+    - https://archive.spacemit.com/spacemit-ai/llama.cpp/
+    - https://docs.bit-brick.com/docs/k1/ml/llama-cpp
+    note: SpacemiT's prebuilt spacemit-llama.cpp.riscv64.0.0.4+ (0.0.9 on the archive) supports llama-cli / llama-server / an OpenAI-compatible API.
+  - item: onnxruntime
+    state: works
+    evidence:
+    - https://raw.githubusercontent.com/microsoft/onnxruntime/main/tools/scripts/build_riscv64.sh
+    note: RVV 1.0, upstream MLAS RVV kernel works (self-built).
+  - item: pytorch
+    state: works
+    evidence:
+    - https://riseproject.dev/2026/08/18/pytorch-is-available-on-riscv64/
+    - https://pypi.riseproject.dev/simple/torch/
+    note: glibc >= 2.39 distros such as Bianbu can install the RISE torch 2.13.0 riscv64 wheel (manylinux_2_39_riscv64).
+  - item: opencv
+    state: works
+    evidence:
+    - https://github.com/opencv/opencv/wiki/OpenCV-RISC-V
+    note: RVV 1.0, the OpenCV RVV HAL is active.
+  - item: ncnn
+    state: works
+    evidence:
+    - https://github.com/Tencent/ncnn
+    - https://github.com/Tencent/ncnn/actions/workflows/linux-riscv64.yml
+    note: RVV 1.0, covered by upstream CI.
+  - item: tengine
+    state: partial
+    evidence:
+    - https://github.com/OAID/Tengine/tree/tengine-lite/source/device/cpu/op/conv/risc-v
+    note: Works, but not optimal.
+  - item: spacemit-ai-sdk
+    state: works
+    evidence:
+    - https://archive.spacemit.com/spacemit-ai/
+    note: SpacemiT's AI artifact repository (ModelZoo/llama.cpp/localai/dify) is ready to use.
+  npu: No standalone NPU; AI runs on the X60's vector/AI extensions plus the proprietary AI SDK
+  note: 'The current poster board for "LLMs that just run": upstream llama.cpp, vendor prebuilt packages and Bianbu are all in place.'
+  checked: '2026-11-01'
+  order: 13
+- board: milkv-duo
+  board_name: Milk-V Duo series (Duo / Duo 256M / Duo S)
+  soc: Sophgo CV1800B (C906 @1GHz, 64/256MB)
+  runs:
+  - item: llama.cpp
+    state: 'no'
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: With 64MB/256MB of RAM, no RVV and no FPU headroom, LLMs are not practically feasible; no public success report was found.
+  - item: onnxruntime
+    state: 'no'
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: Not enough memory or compute; the official AI path is the TPU rather than a general runtime.
+  - item: pytorch
+    state: 'no'
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: Not applicable.
+  - item: opencv
+    state: partial
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: Basic image processing works, but memory is limited and the official samples go through the TDL SDK.
+  - item: ncnn
+    state: unknown
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: No public evidence (not enough memory to load common models).
+  - item: cvitek-tpu / tdl-sdk
+    state: works
+    evidence:
+    - https://milkv.io/docs/duo/application-development/tpu/tpu-introduction
+    note: 'Milk-V''s docs: the Duo series SoCs include a CVITEK TPU and the TDL SDK is recommended; YOLOv5/v8/11/12, MobileNetV2, ResNet18 and other samples are provided. The TPU stack is closed source.'
+  npu: CVITEK TPU (about 0.5 TOPS) with the closed-source TDL SDK / cvitek toolchain
+  note: 'A classic MCU-class vision board: fine for small YOLO-style models, thoroughly unsuited to LLMs.'
+  checked: '2026-11-01'
+  order: 14

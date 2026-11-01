@@ -1,0 +1,3 @@
+{{- /* RuyiSDK 实测状态 → 符号 */ -}}
+{{- $s := . -}}
+{{- if eq $s "good" }}●{{ else if eq $s "basic" }}◐{{ else if eq $s "part" }}◔{{ else if eq $s "cft" }}◌{{ else if eq $s "cfh" }}✕{{ else if eq $s "cfi" }}◇{{ else if eq $s "wip" }}…{{ else }}?{{ end -}}

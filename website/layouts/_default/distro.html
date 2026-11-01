@@ -1,0 +1,127 @@
+{{ define "main" }}
+{{ $d := partial "site-data.html" . }}
+{{ $bids := slice }}
+{{ range $d.boards.items }}{{ $bids = $bids | append .id }}{{ end }}
+{{ $id := .Params.distro }}
+{{ $x := dict }}
+{{ range $d.distros.items }}{{ if eq .id $id }}{{ $x = . }}{{ end }}{{ end }}
+{{ $boards := $d.boards.items }}
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ $x.name | default .Title }}</h1>
+    <div class="sub">
+      <span class="badge soft">{{ i18n (printf "upstream.%s" ($x.upstream | default "community")) }}</span>
+      {{ with $x.kind }}<span class="badge soft">{{ i18n (printf "kind.%s" .) }}</span>{{ end }}
+      {{ with $x.audience }}<span class="badge">{{ i18n (printf "audience.%s" .) }}</span>{{ end }}
+    </div>
+  </div>
+</header>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  {{ with $x.note }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.pros" }}</h2></div>
+    <p>{{ . }}</p>
+  </section>
+  {{ end }}
+
+  <section class="block">
+    <dl class="specs">
+      {{ with $x.vendor }}<dt>vendor</dt><dd>{{ . }}</dd>{{ end }}
+      {{ with $x.based_on }}<dt>{{ i18n "label.based_on" }}</dt><dd>{{ . }}</dd>{{ end }}
+      {{ with $x.upstream_note }}<dt>{{ i18n "label.upstream" }}</dt><dd>{{ . }}</dd>{{ end }}
+      {{ with $x.versions }}<dt>{{ i18n "label.versions" }}</dt><dd>{{ delimit . " · " }}</dd>{{ end }}
+      {{ with $x.doc_langs }}<dt>{{ i18n "label.doc_langs" }}</dt><dd>{{ delimit . " / " }}</dd>{{ end }}
+      {{ with $x.derivatives }}<dt>{{ i18n "label.derivatives" }}</dt><dd>{{ delimit . "、" }}</dd>{{ end }}
+      {{ with $x.checked }}<dt>{{ i18n "label.checked" }}</dt><dd>{{ . }}</dd>{{ end }}
+    </dl>
+  </section>
+
+  {{ with $x.boards }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.boards" }}</h2></div>
+    <ul class="support-list">
+      {{ range . }}
+      {{ $bid := .board }}
+      {{ $bname := $bid }}
+      {{ range $boards }}{{ if eq .id $bid }}{{ $bname = .name }}{{ end }}{{ end }}
+      <li>
+        <a href="{{ printf "boards/%s/" $bid | relLangURL }}">{{ $bname }}</a>
+        <span class="badge lv-{{ .level }}">{{ i18n (printf "level.%s" .level) }}</span>
+        {{ with .note }}<span class="muted">{{ . }}</span>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with $x.downloads }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.downloads" }}</h2></div>
+    <div class="links">{{ range . }}<a href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}</div>
+  </section>
+  {{ end }}
+
+  {{ with $x.guides }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.guides" }}</h2></div>
+    <ul class="support-list">
+      {{ range . }}
+      <li>
+        <a href="{{ .url }}" rel="noopener">{{ .label }}</a>
+        <span class="badge soft">{{ i18n (printf "label.%s" (.type | default "doc")) }}</span>
+        {{ with .lang }}<span class="muted">{{ . }}</span>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with $x.gotchas }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.gotchas" }}</h2></div>
+    <ul class="pitfalls">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  </section>
+  {{ end }}
+
+  {{- $ruyi := slice }}
+  {{- range $d.ruyisdk.items }}{{ if eq .distro $id }}{{ $ruyi = $ruyi | append . }}{{ end }}{{ end }}
+  {{ with $ruyi }}
+  <section class="block">
+    <div class="block-head">
+      <h2>{{ i18n "ruyisdk.title" }}<span class="count">{{ len . }}</span></h2>
+    </div>
+    <p class="muted">{{ i18n "ruyisdk.distro_sub" }}</p>
+    <table class="ruyi-table">
+      <thead>
+        <tr>
+          <th>{{ i18n "label.boards" }}</th>
+          <th>{{ i18n "ruyisdk.col_status" }}</th>
+          <th>{{ i18n "label.versions" }}</th>
+          <th>{{ i18n "ruyisdk.col_date" }}</th>
+          <th>{{ i18n "ruyisdk.col_report" }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range . }}
+        {{ $bid := .board }}
+        {{ $bname := .board_name | default $bid }}
+        {{ range $d.boards.items }}{{ if eq .id $bid }}{{ $bname = .name }}{{ end }}{{ end }}
+        {{ $first := index .reports 0 }}
+        <tr>
+          <td>{{ if in $bids $bid }}<a href="{{ printf "boards/%s/" $bid | relLangURL }}">{{ $bname }}</a>{{ else }}{{ $bname }}<span class="muted">（{{ i18n "ruyisdk.no_page" }}）</span>{{ end }}</td>
+          <td><span class="badge st-{{ .status }}">{{ partial "ruyi-symbol.html" .status }} {{ i18n (printf "ruyisdk.status.%s" .status) }}</span></td>
+          <td>{{ range $i, $r := .reports }}{{ if $i }} · {{ end }}{{ with $r.ver }}{{ . }}{{ else }}—{{ end }}{{ with $r.var }}({{ . }}){{ end }}{{ end }}</td>
+          <td class="muted">{{ .last_update }}</td>
+          <td><a href="{{ $first.url }}" rel="noopener">{{ i18n "ruyisdk.open_report" }}</a></td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+    <p class="muted">{{ i18n "ruyisdk.legend_note" }}</p>
+  </section>
+  {{ end }}
+
+  <section class="block prose">{{ .Content }}</section>
+</div>
+{{ end }}

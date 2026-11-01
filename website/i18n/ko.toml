@@ -1,0 +1,151 @@
+[nav]
+start = "시작하기"
+distros = "배포판"
+boards = "보드"
+matrix = "지원 매트릭스"
+ai = "AI 소프트웨어"
+
+[home]
+h1 = "RISC-V가 처음이라면 여기서 시작하세요"
+lede = "어떤 배포판이 어떤 보드에서 돌아가는지, 이미지는 어디서 받는지, 어디서 막히는지. 흩어진 위키를 한곳에 모았습니다. 먼저 부팅부터."
+cta_start = "첫 걸음"
+cta_distros = "배포판 보기"
+cta_boards = "보드 보기"
+cta_ai = "AI 지원"
+sec_distros = "RISC-V를 실제로 지원하는 배포판"
+sec_boards = "사람들이 실제로 쓰는 보드"
+sec_ai = "AI 소프트웨어는 어디까지"
+sec_matrix = "배포판 × 보드 한눈에"
+
+[label]
+matrix_hint = "배포판을 열면 다운로드와 주의점"
+sources = "출처"
+checked_on = "최종 확인"
+all = "전체"
+home = "홈"
+versions = "버전"
+downloads = "다운로드"
+guides = "설치 문서와 영상"
+gotchas = "주의할 점"
+derivatives = "파생 배포판"
+official_os = "공식 OS"
+soc = "SoC"
+spec = "사양"
+status = "상태"
+doc_langs = "문서 언어"
+boards = "지원 보드"
+distros = "사용 가능한 배포판"
+based_on = "기반"
+upstream = "업스트림"
+kind = "유형"
+audience = "대상"
+checked = "확인일"
+note = "설명"
+video = "영상"
+doc = "문서"
+pros = "결론부터"
+price = "가격"
+
+[upstream]
+official = "업스트림 아키텍처"
+community = "커뮤니티 포팅"
+downstream = "벤더 파생"
+
+[level]
+official = "공식 지원"
+community = "커뮤니티 지원"
+partial = "부분 지원"
+none = "미지원"
+
+[kind]
+distro = "배포판"
+buildsystem = "빌드 시스템"
+simulator = "에뮬레이터"
+
+[audience]
+recommended = "초보자 추천"
+advanced = "손이 좀 필요"
+vendor = "벤더 테스트용"
+
+[status]
+virtual = "가상 플랫폼"
+on_sale = "판매 중"
+eol = "단종"
+hard = "구하기 어려움"
+announced = "발표됨"
+unknown = "미상"
+
+[run]
+works = "동작"
+partial = "부분 동작"
+no = "동작 안 함"
+unknown = "공개 자료 없음"
+
+[subscribe]
+title = "업데이트 구독"
+placeholder = "이메일 주소"
+button = "구독"
+pending = "메일 구독 백엔드가 아직 연결되지 않아 입력란을 사용할 수 없습니다. 연결되면 이 양식에서 바로 신청됩니다."
+rss = "RSS 구독"
+rss_all = "모든 업데이트"
+rss_distros = "배포판"
+rss_boards = "보드"
+rss_ai = "AI 소프트웨어"
+
+[feed]
+all = "모든 업데이트"
+distros = "배포판"
+boards = "보드"
+ai = "AI 소프트웨어"
+
+[matrix]
+scroll_hint = "표를 좌우로 스크롤하면 모든 배포판을 볼 수 있습니다"
+own_source = "자체 조사(RuyiSDK 실측 아님)"
+title = "지원 매트릭스"
+sub = "행은 보드, 열은 배포판. 각 칸에서 다운로드와 주의점으로 이동합니다."
+legend = "범례"
+
+[ai]
+title = "AI 소프트웨어 지원"
+sub = "공개된 근거만 담았습니다. 공식 저장소, 벤더 문서, 신뢰할 수 있는 실측. 근거가 없으면 없다고 씁니다."
+npu = "NPU / 가속기"
+evidence = "근거"
+ruyisdk = "RuyiSDK 테스트 매트릭스"
+
+[a11y]
+theme_light = "밝은 테마로"
+theme_dark = "어두운 테마로"
+lang = "언어 전환"
+skip = "본문으로 건너뛰기"
+nav = "주요 메뉴"
+
+[footer]
+updated = "확인일은 각 항목에 표기"
+source = "소스"
+license = "콘텐츠 라이선스 CC BY-SA 4.0"
+
+[site]
+tagline = "처음 쓰는 RISC-V를 위해"
+
+[ruyisdk]
+no_page = "사이트 미수록"
+legend_note = "상태 의미: good 완전 사용 가능(데스크톱 부팅), basic 기본 사용 가능(시리얼 동작), part 일부 기능, cft 이미지는 있으나 검증 필요, cfh 지원 문서는 있으나 부팅 실패, cfi 지원만 표기되고 이미지 없음, wip 발표만 됨."
+source = "데이터 출처"
+open_report = "보고서 열기"
+col_report = "보고서"
+col_date = "최근 검증"
+col_status = "상태"
+board_sub = "이 보드에서 RuyiSDK가 실측한 시스템. 보고서에서 설치 절차와 결론을 확인하세요."
+distro_sub = "RuyiSDK가 보드별로 실기에서 검증한 기록입니다. 보고서에서 설치 절차와 결론을 볼 수 있습니다."
+tested = "RuyiSDK 실측"
+title = "RuyiSDK 실측 보고서"
+
+[ruyisdk.status]
+unknown = "미표기"
+wip = "발표만"
+cfi = "이미지 없음"
+cfh = "부팅 실패"
+cft = "검증 필요"
+part = "부분"
+basic = "기본"
+good = "양호"

@@ -1,0 +1,51 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Fedora-V Force (FVF) · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/distros/fvf/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/distros/fvf/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/distros/fvf/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/distros/fvf/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/distros/fvf/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/distros/fvf/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/distros/fvf/><link rel=alternate type=application/rss+xml href=/distros/fvf/index.xml title="RISC-V 发行版 — Fedora-V Force (FVF)"><link rel=stylesheet href=/css/main.min.77e4f9e0d824cdd434a5fec86acea6f709a97cb062d717122ff798f7840ee440.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
+<a href=/distros/ class=active>发行版</a>
+<a href=/boards/>开发板</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/ai/>AI 软件</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=切换到深色>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=切换语言 aria-expanded=false>简</button><ul class=lang-menu id=langMenu><li><a href=/distros/fvf/ class=active lang=zh-CN>简体中文</a></li><li><a href=/en/distros/fvf/ lang=en>English</a></li><li><a href=/ja/distros/fvf/ lang=ja>日本語</a></li><li><a href=/ru/distros/fvf/ lang=ru>Русский</a></li><li><a href=/ko/distros/fvf/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>Fedora-V Force (FVF)</h1><div class=sub><span class="badge soft">厂商下游发行版</span>
+<span class="badge soft">成品发行版</span>
+<span class=badge>新人可直接用</span></div></div></header><aside class=subscribe aria-label=订阅更新><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>订阅更新</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=你的邮箱地址 disabled>
+<input type=hidden name=lang value=zh>
+<button class="btn btn-primary sub-btn" type=submit disabled>订阅</button></div><p class=sub-note>邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。</p></form><div class=sub-rss><span class=sub-label>RSS 订阅</span><div class=sub-rss-links><a href=/index.xml>全部更新</a>
+<a href=/distros/index.xml>发行版</a>
+<a href=/boards/index.xml>开发板</a>
+<a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><section class=block><div class=block-head><h2>先说结论</h2></div><p>FVF 是独立团队基于 Fedora 源码重编的 RISC-V 镜像，不是 Fedora 官方发布；覆盖的板子比官方 SIG 镜像多，想用 Fedora 用户空间又要开箱即用就选它。</p></section><section class=block><dl class=specs><dt>基于</dt><dd>Fedora</dd><dt>上游状态</dt><dd>Fedora-V Force（多啦V盟）是独立团队/社区项目，自行编译 Fedora 36→rawhide 的 riscv64 构建并适配板卡；官网自述 "independently compiling releases from Fedora 36 to rawhide"，与 Fedora 官方发布流程无隶属关系。</dd><dt>版本</dt><dd>Fedora 36 → rawhide（自主构建，覆盖多个 Fedora 版本）</dd><dt>文档语言</dt><dd>en / zh</dd><dt>核查日期</dt><dd>2026-11-01</dd></dl></section><section class=block><div class=block-head><h2>支持的开发板</h2></div><ul class=support-list><li><a href=/boards/qemu/>QEMU virt 虚拟机型</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>FVF 自称适配市面主流 RISC-V 开发板；未逐板核实</span></li><li><a href=/boards/unmatched/>SiFive HiFive Unmatched</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/visionfive2/>StarFive VisionFive 2</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/licheepi-4a/>荔枝派 4A（LicheePi 4A）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/meles/>Milk-V Meles</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/k3/>进迭时空 SpacemiT K3（Pico-ITX / CoM260）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/a210/>知合计算 A210（玄铁 MelonPi 开发板）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/k230/>嘉楠 Canaan K230（Kendryte K230 / CanMV-K230）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/megrez/>Milk-V Megrez（ESWIN EIC7700X）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/titan/>Milk-V Titan（UltraRISC DP1000）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/pioneer/>Milk-V Pioneer（SG2042 服务器向）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/orangepi-rv2/>Orange Pi RV2（Ky X1）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li><li><a href=/boards/bpi-f3/>Banana Pi BPI-F3（SpacemiT K1）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>同上，未逐板核实</span></li></ul></section><section class=block><div class=block-head><h2>下载</h2></div><div class=links><a href=https://images.fedoravforce.org rel=noopener>FVF 镜像站 (images.fedoravforce.org)</a><a href=https://www.fedoravforce.org rel=noopener>FVF 官网下载入口</a></div></section><section class=block><div class=block-head><h2>安装文档与视频</h2></div><ul class=support-list><li><a href=https://www.fedoravforce.org rel=noopener>FVF 官网（About/资源，含中英切换）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://www.fedoravforce.org/zh rel=noopener>FVF 中文首页</a>
+<span class="badge soft">文档</span>
+<span class=muted>zh</span></li><li><a href=https://blog.fedoravforce.com rel=noopener>FVF 博客（文档/教程）</a>
+<span class="badge soft">文档</span>
+<span class=muted>zh</span></li></ul></section><section class=block><div class=block-head><h2>坑</h2></div><ul class=pitfalls><li>镜像为社区独立构建，不走 Fedora 官方签名/发布流程，版本与上游 Fedora 不完全同步</li><li>镜像站是 JS 单页应用，脚本抓不到板卡清单，选板要人工在页面上点</li></ul></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容许可 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>源码</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"切换到深色":"切换到浅色")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

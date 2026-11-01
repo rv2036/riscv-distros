@@ -1,0 +1,61 @@
+<!doctype html><html lang=ko data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>QEMU virt 가상 머신 · RISC-V 배포판</title><meta name=description content="어떤 RISC-V 배포판이 어떤 보드에서 돌아가는지, 이미지는 어디서 받고 무엇을 조심해야 하는지 정리했습니다."><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/ko/boards/qemu/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/boards/qemu/><link rel=alternate hreflang=en href=https://riscv-distros.org/en/boards/qemu/><link rel=alternate hreflang=ja href=https://riscv-distros.org/ja/boards/qemu/><link rel=alternate hreflang=ru href=https://riscv-distros.org/ru/boards/qemu/><link rel=alternate hreflang=ko href=https://riscv-distros.org/ko/boards/qemu/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/ko/boards/qemu/><link rel=alternate type=application/rss+xml href=/ko/boards/qemu/index.xml title="RISC-V 배포판 — QEMU virt 가상 머신"><link rel=stylesheet href=/css/main.min.77e4f9e0d824cdd434a5fec86acea6f709a97cb062d717122ff798f7840ee440.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>본문으로 건너뛰기</a><header class=site-head><div class=wrap><a class=brand href=/ko/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 배포판</span></a><nav class=nav aria-label="주요 메뉴"><a href=/ko/start/>시작하기</a>
+<a href=/ko/distros/>배포판</a>
+<a href=/ko/boards/ class=active>보드</a>
+<a href=/ko/matrix/>지원 매트릭스</a>
+<a href=/ko/ai/>AI 소프트웨어</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label="어두운 테마로">☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label="언어 전환" aria-expanded=false>한</button><ul class=lang-menu id=langMenu><li><a href=/boards/qemu/ lang=zh-CN>简体中文</a></li><li><a href=/en/boards/qemu/ lang=en>English</a></li><li><a href=/ja/boards/qemu/ lang=ja>日本語</a></li><li><a href=/ru/boards/qemu/ lang=ru>Русский</a></li><li><a href=/ko/boards/qemu/ class=active lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>QEMU virt 가상 머신</h1><div class=sub><span class="badge soft">없음(QEMU 범용 가상 플랫폼, RV32/RV64 구성 가능, 최대 512코어)</span>
+<span class="badge soft">가상 플랫폼</span>
+<span class="badge soft">QEMU Project</span></div></div></header><aside class=subscribe aria-label="업데이트 구독"><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>업데이트 구독</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder="이메일 주소" disabled>
+<input type=hidden name=lang value=ko>
+<button class="btn btn-primary sub-btn" type=submit disabled>구독</button></div><p class=sub-note>메일 구독 백엔드가 아직 연결되지 않아 입력란을 사용할 수 없습니다. 연결되면 이 양식에서 바로 신청됩니다.</p></form><div class=sub-rss><span class=sub-label>RSS 구독</span><div class=sub-rss-links><a href=/ko/index.xml>모든 업데이트</a>
+<a href=/ko/distros/index.xml>배포판</a>
+<a href=/ko/boards/index.xml>보드</a>
+<a href=/ko/ai/index.xml>AI 소프트웨어</a></div></div></div></aside><div class=wrap><section class=block><dl class=specs><dt>사양</dt><dd>순수 가상 플랫폼: 최대 512개 RV64GC 코어, CLINT/PLIC, PCIe 호스트 브리지, virtio-mmio 8개, NS16550 UART, 선택적 AIA/IOMMU. 메모리·디스크·네트워크는 전부 명령행 인자로 가상화되고 실제 GPU/VPU/NPU는 없습니다.</dd><dt>가격</dt><dd>무료 오픈소스(GPLv2), 각 배포판 소프트웨어 저장소로 제공</dd><dt>공식 OS</dt><dd>debian / ubuntu</dd><dt>문서 언어</dt><dd>en</dd><dt>확인일</dt><dd>2026-11-01</dd></dl></section><section class="block prose"><p>모든 보드의 공통 출발점입니다. virt에서 커널/rootfs를 먼저 검증하고 실기로 넘어가면 플래싱과 디버깅 시간을 크게 줄일 수 있습니다.</p></section><section class=block><div class=block-head><h2>사용 가능한 배포판</h2></div><ul class=support-list><li><a href=/ko/distros/debian/>Debian</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>Debian 13부터 riscv64가 정식 아키텍처라 공식 netinst ISO를 virt에 바로 설치할 수 있습니다.</span></li><li><a href=/ko/distros/ubuntu/>Ubuntu</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>공식 riscv64 cloud image. EDK2(pflash) 또는 -kernel로 부팅합니다.</span></li><li><a href=/ko/distros/fedora/>Fedora</a>
+<span class="badge lv-community">커뮤니티 지원</span>
+<span class=muted>Fedora RISC-V가 QEMU 설치 안내와 이미지를 제공합니다.</span></li><li><a href=/ko/distros/alpine/>Alpine Linux</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>riscv64 minirootfs만 있고 virt ISO가 없어 커널/initramfs를 직접 준비해야 합니다.</span></li><li><a href=/ko/distros/arch/>Arch Linux RISC-V</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>archriscv가 riscv64 ISO를 제공하며 QEMU에서 부팅할 수 있습니다.</span></li><li><a href=/ko/distros/opensuse/>openSUSE</a>
+<span class="badge lv-community">커뮤니티 지원</span>
+<span class=muted>openSUSE Ports가 riscv64를 제공하지만 공식 사이트가 curl에 403을 돌려줘 직링크는 검증하지 못했습니다.</span></li><li><a href=/ko/distros/gentoo/>Gentoo</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>stage3 riscv64 + 핸드북이 QEMU 시스템을 지원합니다.</span></li><li><a href=/ko/distros/void/>Void Linux</a>
+<span class="badge lv-partial">부분 지원</span>
+<span class=muted>riscv64 포트는 있지만 QEMU 이미지는 직접 빌드해야 합니다.</span></li><li><a href=/ko/distros/nixos/>NixOS</a>
+<span class="badge lv-community">커뮤니티 지원</span>
+<span class=muted>riscv64는 비공식 지원 등급이라 크로스 빌드가 필요합니다.</span></li><li><a href=/ko/distros/alt/>ALT Linux</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>ALT Ports riscv64가 QEMU 이미지를 제공합니다.</span></li><li><a href=/ko/distros/freebsd/>FreeBSD</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>riscv64가 QEMU virt를 지원합니다.</span></li><li><a href=/ko/distros/netbsd/>NetBSD</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>riscv64 포트가 QEMU를 지원합니다.</span></li><li><a href=/ko/distros/openbsd/>OpenBSD</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>riscv64가 QEMU virt를 지원합니다.</span></li><li><a href=/ko/distros/openeuler/>openEuler</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>openEuler RISC-V SIG가 QEMU 이미지를 제공합니다.</span></li><li><a href=/ko/distros/buildroot/>Buildroot</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>qemu_riscv64_virt_defconfig, make 한 줄로 시스템이 뜹니다.</span></li><li><a href=/ko/distros/yocto/>Yocto / OpenEmbedded</a>
+<span class="badge lv-official">공식 지원</span>
+<span class=muted>qemuriscv64 machine 공식 지원.</span></li></ul></section><section class=block><div class=block-head><h2>다운로드</h2></div><div class=links><a href=https://www.qemu.org/docs/master/system/riscv/virt.html rel=noopener>QEMU 공식 문서: RISC-V virt 머신</a><a href=https://www.qemu.org/download/ rel=noopener>QEMU 다운로드 페이지</a><a href=https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img rel=noopener>Ubuntu 24.04 riscv64 cloud image</a><a href=https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/ rel=noopener>Debian 13.7 riscv64 netinst ISO</a><a href=https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso rel=noopener>Arch Linux RISC-V ISO</a><a href=https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz rel=noopener>Alpine riscv64 minirootfs</a><a href=https://buildroot.org/downloads/ rel=noopener>Buildroot 다운로드</a></div></section><section class=block><div class=block-head><h2>설치 문서와 영상</h2></div><ul class=support-list><li><a href=https://wiki.qemu.org/Documentation/Platforms/RISCV rel=noopener>QEMU wiki: RISC-V 플랫폼 설명</a>
+<span class="badge soft">문서</span>
+<span class=muted>en</span></li><li><a href=https://wiki.debian.org/RISC-V rel=noopener>Debian wiki: RISC-V 포트</a>
+<span class="badge soft">문서</span>
+<span class=muted>en</span></li><li><a href=https://fedoraproject.org/wiki/Architectures/RISC-V/Installing rel=noopener>Fedora: RISC-V 설치 가이드</a>
+<span class="badge soft">문서</span>
+<span class=muted>en</span></li><li><a href=https://wiki.gentoo.org/wiki/Project:RISC-V rel=noopener>Gentoo RISC-V 프로젝트</a>
+<span class="badge soft">문서</span>
+<span class=muted>en</span></li><li><a href=https://www.openeuler.org/en/sig/sig-RISC-V rel=noopener>openEuler RISC-V SIG</a>
+<span class="badge soft">문서</span>
+<span class=muted>en</span></li></ul></section><section class=block><div class=block-head><h2>주의할 점</h2></div><ul class=pitfalls><li>-bios default는 OpenSBI만 올리고 U-Boot/EDK2는 없습니다. Ubuntu/Fedora cloud image를 부팅하려면 pflash로 32MiB EDK2 펌웨어를 올려야 하고, 아니면 화면이 검게 나옵니다.</li><li>virt에는 GPU/VPU/NPU가 없으니 그래픽, 영상 하드웨어 디코딩, AI 가속 검증에 쓰면 안 됩니다.</li><li>시리얼은 ttyS0으로 고정입니다. -nographic 모드에서 나가려면 Ctrl-A 다음 X를 누릅니다.</li><li>Ubuntu 26.04부터 RVA23S64가 필요해 확장이 없는 구버전 QEMU에서는 부팅되지 않습니다. 24.04는 여전히 RVA20 베이스라인입니다.</li><li>Alpine riscv64는 minirootfs만 내고 virt ISO가 없어 커널과 initramfs를 직접 준비해야 합니다.</li></ul></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 배포판 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>콘텐츠 라이선스 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/ko/start/>시작하기</a>
+<a href=/ko/distros/>배포판</a>
+<a href=/ko/matrix/>지원 매트릭스</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>소스</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"어두운 테마로":"밝은 테마로")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>
