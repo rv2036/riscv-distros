@@ -1,4 +1,4 @@
-# boards (ja)
+# ja board entries
 items:
 - id: qemu
   name: QEMU virt 仮想マシン
@@ -1279,4 +1279,148 @@ items:
   note: US$5 クラスの入門の定番で、組み込み Linux/RTOS の学習に向いています。デスクトップには向きません。買う前に 64M か 256M/S かを必ず確認してください。イメージはまったく互換がありません。ほかに openwrt などのコミュニティ派生版もあります（標準のディストリビューション id には入れていません）。
   checked: '2026-11-01'
   order: 17
+  feature: false
+- id: mars
+  name: Mars
+  soc: JH7110：SiFive U74 + SiFive S7 + SiFive E24
+  vendor: Milk-V
+  spec: メモリ 1G/2G/4G/8G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: star64
+  name: STAR64
+  soc: JH7110：SiFive U74 + SiFive S7 + SiFive E24
+  vendor: PINE64
+  spec: メモリ 4G/8G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: visionfive
+  name: VisionFive
+  soc: JH7100：SiFive U74 + SiFive E24
+  vendor: StarFive
+  spec: メモリ 8G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: jupiter
+  name: Milk-V Jupiter
+  soc: Key Stone K1/M1：SpacemiT X60
+  vendor: Milk-V
+  spec: メモリ 4G/8G/16G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: muse-pi-pro
+  name: Muse Pi Pro
+  soc: Key Stone M1：SpacemiT X60
+  vendor: SpacemiT
+  spec: メモリ LPDDR4X 8G/16G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: k3-som260
+  name: SpacemiT K3 CoM260 Kit
+  soc: SpacemiT K3：SpacemiT X100 + A100
+  vendor: SpacemiT
+  spec: メモリ 16GB LPDDR5 + 128GB UFS（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: bit-brick-k1
+  name: BIT-BRICK K1
+  soc: Key Stone K1：SpacemiT X60
+  vendor: BIT-BRICK
+  spec: メモリ 4G/8G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
+  feature: false
+- id: lichee-cluster-4a
+  name: Lichee Cluster 4A
+  soc: TH1520：XuanTie C910 + XuanTie C906 + XuanTie E902
+  vendor: Sipeed
+  spec: メモリ 8G/16G（RuyiSDK に記録された検証構成）
+  status: unknown
+  price_note: ''
+  forms: []
+  official_os: []
+  distros: []
+  downloads: []
+  guides: []
+  gotchas: []
+  doc_langs: []
+  note: ボード情報は RuyiSDK テストマトリクスの記録に基づきます。販売状況と価格は別途確認していません。
+  checked: '2026-11-01'
+  order: 900
   feature: false

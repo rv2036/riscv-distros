@@ -1,4 +1,4 @@
-# distros (ko)
+# ko distro entries
 items:
 - id: debian
   name: Debian
@@ -483,6 +483,269 @@ items:
   checked: '2026-11-01'
   order: 6
   feature: true
+- id: openeuler
+  name: openEuler
+  vendor: ''
+  upstream: official
+  upstream_note: 독립 배포판(자신이 곧 업스트림)입니다. openEuler 커뮤니티(OpenAtom 재단)가 공식으로 다중 아키텍처 동일 소스 빌드를 하며 RISC-V는 OERV SIG가 포팅·유지합니다. Debian/Ubuntu 커스터마이즈가 아닙니다.
+  kind: distro
+  based_on: openEuler 24.03 LTS (RPM/dnf, 자체 저장소) + RVCK 6.6 커널. RISC-V는 RVA20과 RVA23 두 세트로 빌드
+  audience: advanced
+  versions:
+  - 24.03 LTS SP4(2026-06-30 릴리스; RISC-V RVA23 ISO 2026-09-08)
+  - 24.03 LTS SP3(2026-03-09 장기 유지보수로 전환; RVA20 + RVA23 두 버전)
+  boards:
+  - board: k3
+    level: official
+    note: SP3부터 SpacemiT K3 지원(COM260 검증, SD + GMAC). LTS에 들어온 첫 RVA23 SoC입니다.
+  - board: k3-som260
+    level: partial
+    note: ''
+  - board: lichee-cluster-4a
+    level: community
+    note: ''
+  - board: licheepi-4a
+    level: official
+    note: 공식 설치 문서에 별도 항목으로 있고 TH1520 플랫폼입니다.
+  - board: milkv-duo
+    level: community
+    note: ''
+  - board: muse-pi-pro
+    level: community
+    note: ''
+  - board: pioneer
+    level: official
+    note: Milk-V Pioneer(SG2042), 공식 설치 문서 RISC-V-Pioneer1.3.
+  - board: qemu
+    level: official
+    note: 공식 QEMU 설치 문서가 있어 먼저 시험하기 가장 좋습니다.
+  - board: unmatched
+    level: community
+    note: ''
+  - board: visionfive
+    level: community
+    note: ''
+  - board: visionfive2
+    level: community
+    note: 23.03부터 VisionFive 2를 지원했고 24.03 문서에는 별도 항목이 없습니다.
+  downloads:
+  - label: 공식 다운로드 페이지 (24.03 LTS SP4 선택)
+    url: https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - label: SP4 RISC-V RVA23 ISO 디렉터리 (dvd/netinst/everything)
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
+  - label: SP3 RISC-V RVA20 ISO 디렉터리
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
+  - label: SP3 RISC-V RVA23 ISO 디렉터리
+    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
+  guides:
+  - label: LicheePi 4A에 openEuler RISC-V 설치
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: zh
+  - label: Pioneer Box(SG2042)에 설치
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
+    type: doc
+    lang: zh
+  - label: QEMU에 openEuler RISC-V 설치
+    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-QEMU.html
+    type: doc
+    lang: zh
+  - label: 24.03 LTS SP3 RISC-V 장기 유지보수 전환 (K3 지원 설명 포함)
+    url: https://www.openeuler.org/zh/blog/20260317-RISC-V/20260317-RISC-V.html
+    type: doc
+    lang: zh
+  - label: Install on LicheePi 4A (English)
+    url: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+    type: doc
+    lang: en
+  gotchas:
+  - RVA20과 RVA23 이미지가 따로 나옵니다. 24.03 LTS SP4의 RISC-V는 RVA23 ISO만 제공합니다(rva20 디렉터리 없음).
+  - UEFI/EDK2 펌웨어와 보드에 맞는 DTB가 필요해 구형 U-Boot 보드는 부팅되지 않을 수 있습니다.
+  - 문서가 버전별 경로로 나뉘고 RISC-V 설치 페이지는 24.03_LTS 경로에만 있어 SP3/SP4 경로는 404가 납니다.
+  - 서버 지향이라 기본이 최소 설치이고 데스크톱·멀티미디어 지원은 벤더 데스크톱 배포판보다 약합니다.
+  - everything ISO는 20GB급이니 일반 사용자는 dvd/netinst면 충분합니다.
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - EulixOS
+  - Eulaceura
+  note: 서버/엔터프라이즈 영역의 RISC-V 기반입니다. RVA23 + Server Platform 규격 추진이 가장 빠르지만, 개인 개발 보드 사용자라면 서버 검증이 목적이 아닌 한 RevyOS/Bianbu가 더 편합니다.
+  checked: '2026-11-01'
+  order: 7
+  feature: true
+- id: openkylin
+  name: openKylin
+  vendor: ''
+  upstream: official
+  upstream_note: 독립 배포판입니다. openKylin 커뮤니티가 자체 deb 저장소와 UKUI 데스크톱을 만들고 공식적으로 독립 루트 커뮤니티 OS를 표방합니다. Ubuntu/Debian 직접 파생이 아니며 RISC-V는 openKylin RISC-V SIG가 적응합니다.
+  kind: distro
+  based_on: 독립 빌드 (deb/APT + 자체 저장소, UKUI 데스크톱). 3.0은 Linux 7.0 커널, 2.0 SP2는 장기 안정판
+  audience: advanced
+  versions:
+  - openKylin 3.0(2026-08-31 릴리스; 다운로드 페이지 미러 2026-09-18, RISC-V 이미지 2026-08-28 / 2026-10-29)
+  - openKylin 2.0 SP2(2026-08-13 장기 안정판; RISC-V 이미지 2025-08-26)
+  boards:
+  - board: bit-brick-k1
+    level: community
+    note: ''
+  - board: bpi-f3
+    level: community
+    note: 2.0 SP2에 SpacemiT K1 이미지가 있습니다(BPI-F3를 명시하지 않아 직접 확인이 필요).
+  - board: k3
+    level: official
+    note: 3.0에서 SpacemiT K3 Server / Embedded 이미지를 제공합니다.
+  - board: lichee-cluster-4a
+    level: community
+    note: ''
+  - board: licheepi-4a
+    level: official
+    note: 2.0 SP2에서 LicheePi4A 이미지(2.5G, 2025-08-26)를 제공합니다.
+  - board: mars
+    level: community
+    note: ''
+  - board: pioneer
+    level: official
+    note: 2.0 SP2에서 Milk-V Pioneer 이미지(3.0G)를 제공합니다.
+  - board: qemu
+    level: official
+    note: 2.0 SP2에서 RVA23 QEMU 이미지(1.8G)를 제공합니다.
+  - board: unmatched
+    level: community
+    note: ''
+  - board: visionfive
+    level: community
+    note: ''
+  - board: visionfive2
+    level: community
+    note: ''
+  downloads:
+  - label: 시스템 다운로드 센터 (아키텍처로 RISC-V 필터)
+    url: https://www.openkylin.top/downloads/
+  - label: '3.0 RISC-V: SpacemiT K3 Server (zip)'
+    url: https://cdimage.openkylin.top/3.0/openKylin-Server-V3.0-Release-spacemit-k3-riscv64.zip
+  - label: '3.0 RISC-V: SpacemiT V100 Server (iso)'
+    url: https://cdimage.openkylin.top/3.0/openKylin-V100-Server-V3.0-20261012-riscv64.iso
+  - label: 2.0 SP2 다운로드 페이지 (LicheePi4A / Pioneer / K1 / qemu 이미지는 ‘모든 버전’에 있음)
+    url: https://www.openkylin.top/downloads/index-cn.html
+  - label: 미러 cdimage.openkylin.top
+    url: https://cdimage.openkylin.top/
+  guides:
+  - label: RISC-V에 openKylin 설치
+    url: https://docs.openkylin.top/zh/1%E5%85%A5%E9%97%A8%E4%B8%8E%E5%8F%82%E4%B8%8E/1_3%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/03_%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    type: doc
+    lang: zh
+  - label: openKylin 3.0 릴리스 노트 (RISC-V / RVA23 최적화)
+    url: https://www.openkylin.top/news/4011-cn.html
+    type: doc
+    lang: zh
+  gotchas:
+  - 3.0의 RISC-V 이미지는 SpacemiT K3(Server/Embedded)와 V100만 커버합니다. LicheePi 4A / Pioneer는 아직 2.0 SP2입니다.
+  - RISC-V 이미지는 범용 ISO가 아니라 보드별 맞춤이라 자기 보드에 맞는 것을 골라야 합니다. RVA23 qemu 이미지는 2.0 SP2에만 있습니다.
+  - 3.0의 RISC-V 이미지는 서버/임베디드(Server, Embedded) 성격이라 데스크톱 경험과는 다릅니다.
+  - 다운로드 링크가 download-smp.php?id=xxx로 넘어가고 실제 파일은 cdimage.openkylin.top에 있습니다.
+  - 문서가 중국어 중심이고 영문 문서 사이트는 거의 비어 있습니다. RISC-V 문제는 주로 중국어 커뮤니티/SIG가 대응합니다.
+  doc_langs:
+  - zh
+  derivatives: []
+  note: 중국산 데스크톱 OS의 RISC-V 갈래인데 보드 지원이 버전마다 끊깁니다(3.0은 K3/V100만). 중국산 데스크톱 스택을 평가하려는 사람에게 맞고, TH1520/K1 구형 보드의 일상용으로는 맞지 않습니다.
+  checked: '2026-11-01'
+  order: 8
+  feature: true
+- id: deepin
+  name: deepin
+  vendor: ''
+  upstream: downstream
+  upstream_note: 다운스트림 맞춤 배포판입니다. deepin 커뮤니티판이 Debian 패키지를 이어받고 자체 저장소와 Linglong 패키지 체계를 얹습니다. RISC-V는 deepin-ports SIG가 유지하며 공식 표기는 ‘기술 프리뷰’입니다.
+  kind: distro
+  based_on: Debian 계열 + deepin 자체 저장소(deepin 25 ‘crimson’). 커널은 보드별 6.6/6.12/6.16, DP1000은 메인라인 커널
+  audience: advanced
+  versions:
+  - deepin 25.2.0(RISC-V 범용 ISO, 2026-07-07)
+  - deepin 25 crimson preview(보드별 이미지, K3 최신 2026-05-22)
+  - deepin next-crimson preview(K3, 2026-09-14)
+  boards:
+  - board: bpi-f3
+    level: community
+    note: SpacemiT K1 기기 맞춤 이미지.
+  - board: k3
+    level: community
+    note: K3 기기 맞춤 이미지, 최신 25-crimson-preview.
+  - board: licheepi-4a
+    level: community
+    note: TH1520 기기 맞춤 이미지(u-boot 부팅, 커널 6.6).
+  - board: mars
+    level: community
+    note: ''
+  - board: megrez
+    level: community
+    note: ESWIN EIC7700(MilkV Megrez), u-boot 부팅.
+  - board: meles
+    level: community
+    note: ''
+  - board: p550
+    level: community
+    note: ''
+  - board: pioneer
+    level: community
+    note: SG2042(MilkV Pioneer), linuxboot 부팅, 커널 6.6/6.12/6.16.
+  - board: qemu
+    level: community
+    note: QEMU 메인라인 커널 + UEFI.
+  - board: star64
+    level: community
+    note: ''
+  - board: titan
+    level: community
+    note: UltraRISC DP1000(MilkV Titan), 메인라인 커널 + UEFI.
+  - board: unmatched
+    level: community
+    note: ''
+  - board: visionfive
+    level: community
+    note: ''
+  - board: visionfive2
+    level: community
+    note: JH7110, 커널 5.15/6.6/6.12, u-boot 부팅.
+  downloads:
+  - label: 공식 다운로드 페이지 (RISC-V 기술 프리뷰)
+    url: https://www.deepin.org/zh/download/
+  - label: deepin 25.2.0 RISC-V 범용 ISO
+    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: deepin-ports RISC-V 이미지 목록 (보드별 tar.xz)
+    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
+  guides:
+  - label: deepin 25 설치 가이드
+    url: https://www.deepin.org/zh/deepin-25-installation/
+    type: doc
+    lang: zh
+  - label: deepin 25 Installation Guide (English)
+    url: https://www.deepin.org/en/deepin-25-installation/
+    type: doc
+    lang: en
+  - label: deepin-ports 기기 지원 매트릭스 (RISC-V)
+    url: https://deepin-community.github.io/sig-deepin-ports/matrix/riscv64
+    type: doc
+    lang: zh
+  - label: '메인라인 커널 + 범용 ISO: deepin RISC-V, UltraRISC DP1000 지원'
+    url: https://www.deepin.org/en/dp1000
+    type: doc
+    lang: zh
+  gotchas:
+  - RISC-V는 아직 기술 프리뷰(공식 표기)라 안정성과 완성도가 부족합니다.
+  - 보드별 이미지는 ISO가 아니라 tar.xz라 직접 풀어서 기록해야 합니다. 범용 ISO 25.2.0은 UEFI 부팅이 필요합니다.
+  - 설치 프로그램이 있는 liveimage-desktop은 기본 사용자를 만들지 않으며 root 기본 비밀번호는 deepin입니다.
+  - immutable(읽기 전용 루트) 변형이 있어 시스템을 고치는 방식이 일반적이지 않습니다.
+  - deepin RISC-V는 커뮤니티 수준 지원뿐이고 상용 지원은 통신(UnionTech) UOS를 거쳐야 합니다.
+  doc_langs:
+  - zh
+  - en
+  derivatives:
+  - 통신 UOS
+  note: 데스크톱이 가장 예쁜 중국산 배포판이지만 RISC-V 갈래는 커뮤니티 프리뷰 성격에 보드별 tar.xz 배포라, 평가·체험용으로 맞고 유일한 일상 시스템으로는 권하지 않습니다.
+  checked: '2026-11-01'
+  order: 9
+  feature: true
 - id: armbian
   name: Armbian
   vendor: ''
@@ -538,7 +801,7 @@ items:
   - DietPi 등 Armbian/Debian 기반 파생판이 VisionFive 2를 비공식 지원합니다.
   note: 중국 RISC-V 보드가 “개봉 후 바로 쓸 수 있게” 된 데 가장 크게 기여한 프로젝트입니다. K3/BPI-F3 같은 새 보드는 여기를 먼저 보세요.
   checked: '2026-11-01'
-  order: 7
+  order: 10
   feature: false
 - id: alpine
   name: Alpine Linux
@@ -617,7 +880,7 @@ items:
   - postmarketOS
   note: Alpine의 riscv64는 정식 아키텍처이지만 보드 지원 범위가 좁습니다. u-boot 패키지가 다섯 종뿐이라 그 밖의 보드는 사실상 직접 포팅해야 합니다.
   checked: '2026-11-01'
-  order: 8
+  order: 11
   feature: false
 - id: arch
   name: Arch Linux RISC-V
@@ -697,7 +960,7 @@ items:
   derivatives: []
   note: Arch의 “공식”은 이 포팅 프로젝트 자체의 tested 목록일 뿐 Arch 공식 지원이 아닙니다. 페이지에는 커뮤니티 port임을 분명히 표시해야 합니다.
   checked: '2026-11-01'
-  order: 9
+  order: 12
   feature: false
 - id: opensuse
   name: openSUSE
@@ -776,7 +1039,7 @@ items:
   derivatives: []
   note: MicroOS는 같은 프로젝트의 riscv64 변형(kvm-and-xen qcow2 이미지 제공)이라 다운스트림 파생으로 보지 않습니다.
   checked: '2026-11-01'
-  order: 10
+  order: 13
   feature: false
 - id: gentoo
   name: Gentoo
@@ -834,7 +1097,7 @@ items:
   derivatives: []
   note: 숙련자에게는 편하고 초보자에게는 진입장벽이 높습니다. 문서는 충실하지만 전 과정 수동 설치라 깊게 커스터마이즈하거나 임베디드 rootfs를 만들 사람에게 맞습니다.
   checked: '2026-11-01'
-  order: 11
+  order: 14
   feature: false
 - id: nixos
   name: NixOS
@@ -882,7 +1145,7 @@ items:
   - nixos-licheepi4a / nixos-vf2 (보드별 flake)
   note: 선언형 설정은 매력적이지만 riscv64는 “돌긴 돌아가지만 편하리라 기대하면 안 되는” 상태입니다.
   checked: '2026-11-01'
-  order: 12
+  order: 15
   feature: false
 - id: freebsd
   name: FreeBSD
@@ -935,7 +1198,7 @@ items:
   derivatives: []
   note: “제대로 된 유닉스 계열 시스템 + 공식 이미지”를 원한다면 FreeBSD가 RISC-V에서 가장 안정적인 비Linux 선택입니다.
   checked: '2026-11-01'
-  order: 13
+  order: 16
   feature: false
 - id: netbsd
   name: NetBSD
@@ -978,7 +1241,7 @@ items:
   derivatives: []
   note: QEMU에서는 매끄럽습니다. 실기는 기존 U-Boot가 있는지에 달려 있습니다.
   checked: '2026-11-01'
-  order: 14
+  order: 17
   feature: false
 - id: openbsd
   name: OpenBSD
@@ -1021,7 +1284,7 @@ items:
   derivatives: []
   note: 보안 지향에 극히 미니멀합니다. Unmatched가 있으면 가장 정통적인 경험이지만, 없으면 초보자에게 권하지 않습니다.
   checked: '2026-11-01'
-  order: 15
+  order: 18
   feature: false
 - id: alt
   name: ALT Linux
@@ -1067,7 +1330,7 @@ items:
   - Simply Linux / ALT Mobile (같은 저장소 체계, riscv64 빌드 없음)
   note: 러시아권에서 RISC-V 지원이 가장 완성도 높은 갈래입니다. 이미지가 바로 쓸 만하고 QEMU·Unmatched 사용자에게 맞습니다.
   checked: '2026-11-01'
-  order: 16
+  order: 19
   feature: false
 - id: buildroot
   name: Buildroot
@@ -1112,7 +1375,7 @@ items:
   - '다수 벤더 SDK가 Buildroot 기반입니다(예: 일부 D1/K230 SDK).'
   note: 초보자에게 분명히 표시해야 합니다. 배포판이 아니라 “배포판을 직접 만드는” 도구 상자입니다.
   checked: '2026-11-01'
-  order: 17
+  order: 20
   feature: false
 - id: yocto
   name: Yocto / OpenEmbedded
@@ -1173,215 +1436,6 @@ items:
   derivatives:
   - SpacemiT / StarFive / T-Head 등 벤더의 Yocto BSP가 모두 oe-core + meta-riscv 방식을 따릅니다.
   note: 산업/양산 지향입니다. 개인 사용자는 Armbian이나 Buildroot로 먼저 감을 잡는 편이 좋습니다.
-  checked: '2026-11-01'
-  order: 18
-  feature: false
-- id: openeuler
-  name: openEuler
-  vendor: ''
-  upstream: official
-  upstream_note: 독립 배포판(자신이 곧 업스트림)입니다. openEuler 커뮤니티(OpenAtom 재단)가 공식으로 다중 아키텍처 동일 소스 빌드를 하며 RISC-V는 OERV SIG가 포팅·유지합니다. Debian/Ubuntu 커스터마이즈가 아닙니다.
-  kind: distro
-  based_on: openEuler 24.03 LTS (RPM/dnf, 자체 저장소) + RVCK 6.6 커널. RISC-V는 RVA20과 RVA23 두 세트로 빌드
-  audience: vendor
-  versions:
-  - 24.03 LTS SP4(2026-06-30 릴리스; RISC-V RVA23 ISO 2026-09-08)
-  - 24.03 LTS SP3(2026-03-09 장기 유지보수로 전환; RVA20 + RVA23 두 버전)
-  boards:
-  - board: pioneer
-    level: official
-    note: Milk-V Pioneer(SG2042), 공식 설치 문서 RISC-V-Pioneer1.3.
-  - board: licheepi-4a
-    level: official
-    note: 공식 설치 문서에 별도 항목으로 있고 TH1520 플랫폼입니다.
-  - board: k3
-    level: official
-    note: SP3부터 SpacemiT K3 지원(COM260 검증, SD + GMAC). LTS에 들어온 첫 RVA23 SoC입니다.
-  - board: qemu
-    level: official
-    note: 공식 QEMU 설치 문서가 있어 먼저 시험하기 가장 좋습니다.
-  - board: visionfive2
-    level: community
-    note: 23.03부터 VisionFive 2를 지원했고 24.03 문서에는 별도 항목이 없습니다.
-  downloads:
-  - label: 공식 다운로드 페이지 (24.03 LTS SP4 선택)
-    url: https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
-  - label: SP4 RISC-V RVA23 ISO 디렉터리 (dvd/netinst/everything)
-    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
-  - label: SP3 RISC-V RVA20 ISO 디렉터리
-    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
-  - label: SP3 RISC-V RVA23 ISO 디렉터리
-    url: https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
-  guides:
-  - label: LicheePi 4A에 openEuler RISC-V 설치
-    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-    type: doc
-    lang: zh
-  - label: Pioneer Box(SG2042)에 설치
-    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
-    type: doc
-    lang: zh
-  - label: QEMU에 openEuler RISC-V 설치
-    url: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-QEMU.html
-    type: doc
-    lang: zh
-  - label: 24.03 LTS SP3 RISC-V 장기 유지보수 전환 (K3 지원 설명 포함)
-    url: https://www.openeuler.org/zh/blog/20260317-RISC-V/20260317-RISC-V.html
-    type: doc
-    lang: zh
-  - label: Install on LicheePi 4A (English)
-    url: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-    type: doc
-    lang: en
-  gotchas:
-  - RVA20과 RVA23 이미지가 따로 나옵니다. 24.03 LTS SP4의 RISC-V는 RVA23 ISO만 제공합니다(rva20 디렉터리 없음).
-  - UEFI/EDK2 펌웨어와 보드에 맞는 DTB가 필요해 구형 U-Boot 보드는 부팅되지 않을 수 있습니다.
-  - 문서가 버전별 경로로 나뉘고 RISC-V 설치 페이지는 24.03_LTS 경로에만 있어 SP3/SP4 경로는 404가 납니다.
-  - 서버 지향이라 기본이 최소 설치이고 데스크톱·멀티미디어 지원은 벤더 데스크톱 배포판보다 약합니다.
-  - everything ISO는 20GB급이니 일반 사용자는 dvd/netinst면 충분합니다.
-  doc_langs:
-  - zh
-  - en
-  derivatives:
-  - EulixOS
-  - Eulaceura
-  note: 서버/엔터프라이즈 영역의 RISC-V 기반입니다. RVA23 + Server Platform 규격 추진이 가장 빠르지만, 개인 개발 보드 사용자라면 서버 검증이 목적이 아닌 한 RevyOS/Bianbu가 더 편합니다.
-  checked: '2026-11-01'
-  order: 19
-  feature: false
-- id: openkylin
-  name: openKylin
-  vendor: ''
-  upstream: official
-  upstream_note: 독립 배포판입니다. openKylin 커뮤니티가 자체 deb 저장소와 UKUI 데스크톱을 만들고 공식적으로 독립 루트 커뮤니티 OS를 표방합니다. Ubuntu/Debian 직접 파생이 아니며 RISC-V는 openKylin RISC-V SIG가 적응합니다.
-  kind: distro
-  based_on: 독립 빌드 (deb/APT + 자체 저장소, UKUI 데스크톱). 3.0은 Linux 7.0 커널, 2.0 SP2는 장기 안정판
-  audience: advanced
-  versions:
-  - openKylin 3.0(2026-08-31 릴리스; 다운로드 페이지 미러 2026-09-18, RISC-V 이미지 2026-08-28 / 2026-10-29)
-  - openKylin 2.0 SP2(2026-08-13 장기 안정판; RISC-V 이미지 2025-08-26)
-  boards:
-  - board: k3
-    level: official
-    note: 3.0에서 SpacemiT K3 Server / Embedded 이미지를 제공합니다.
-  - board: licheepi-4a
-    level: official
-    note: 2.0 SP2에서 LicheePi4A 이미지(2.5G, 2025-08-26)를 제공합니다.
-  - board: pioneer
-    level: official
-    note: 2.0 SP2에서 Milk-V Pioneer 이미지(3.0G)를 제공합니다.
-  - board: qemu
-    level: official
-    note: 2.0 SP2에서 RVA23 QEMU 이미지(1.8G)를 제공합니다.
-  - board: bpi-f3
-    level: community
-    note: 2.0 SP2에 SpacemiT K1 이미지가 있습니다(BPI-F3를 명시하지 않아 직접 확인이 필요).
-  downloads:
-  - label: 시스템 다운로드 센터 (아키텍처로 RISC-V 필터)
-    url: https://www.openkylin.top/downloads/
-  - label: '3.0 RISC-V: SpacemiT K3 Server (zip)'
-    url: https://cdimage.openkylin.top/3.0/openKylin-Server-V3.0-Release-spacemit-k3-riscv64.zip
-  - label: '3.0 RISC-V: SpacemiT V100 Server (iso)'
-    url: https://cdimage.openkylin.top/3.0/openKylin-V100-Server-V3.0-20261012-riscv64.iso
-  - label: 2.0 SP2 다운로드 페이지 (LicheePi4A / Pioneer / K1 / qemu 이미지는 ‘모든 버전’에 있음)
-    url: https://www.openkylin.top/downloads/index-cn.html
-  - label: 미러 cdimage.openkylin.top
-    url: https://cdimage.openkylin.top/
-  guides:
-  - label: RISC-V에 openKylin 설치
-    url: https://docs.openkylin.top/zh/1%E5%85%A5%E9%97%A8%E4%B8%8E%E5%8F%82%E4%B8%8E/1_3%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/03_%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-    type: doc
-    lang: zh
-  - label: openKylin 3.0 릴리스 노트 (RISC-V / RVA23 최적화)
-    url: https://www.openkylin.top/news/4011-cn.html
-    type: doc
-    lang: zh
-  gotchas:
-  - 3.0의 RISC-V 이미지는 SpacemiT K3(Server/Embedded)와 V100만 커버합니다. LicheePi 4A / Pioneer는 아직 2.0 SP2입니다.
-  - RISC-V 이미지는 범용 ISO가 아니라 보드별 맞춤이라 자기 보드에 맞는 것을 골라야 합니다. RVA23 qemu 이미지는 2.0 SP2에만 있습니다.
-  - 3.0의 RISC-V 이미지는 서버/임베디드(Server, Embedded) 성격이라 데스크톱 경험과는 다릅니다.
-  - 다운로드 링크가 download-smp.php?id=xxx로 넘어가고 실제 파일은 cdimage.openkylin.top에 있습니다.
-  - 문서가 중국어 중심이고 영문 문서 사이트는 거의 비어 있습니다. RISC-V 문제는 주로 중국어 커뮤니티/SIG가 대응합니다.
-  doc_langs:
-  - zh
-  derivatives: []
-  note: 중국산 데스크톱 OS의 RISC-V 갈래인데 보드 지원이 버전마다 끊깁니다(3.0은 K3/V100만). 중국산 데스크톱 스택을 평가하려는 사람에게 맞고, TH1520/K1 구형 보드의 일상용으로는 맞지 않습니다.
-  checked: '2026-11-01'
-  order: 20
-  feature: false
-- id: deepin
-  name: deepin
-  vendor: ''
-  upstream: downstream
-  upstream_note: 다운스트림 맞춤 배포판입니다. deepin 커뮤니티판이 Debian 패키지를 이어받고 자체 저장소와 Linglong 패키지 체계를 얹습니다. RISC-V는 deepin-ports SIG가 유지하며 공식 표기는 ‘기술 프리뷰’입니다.
-  kind: distro
-  based_on: Debian 계열 + deepin 자체 저장소(deepin 25 ‘crimson’). 커널은 보드별 6.6/6.12/6.16, DP1000은 메인라인 커널
-  audience: advanced
-  versions:
-  - deepin 25.2.0(RISC-V 범용 ISO, 2026-07-07)
-  - deepin 25 crimson preview(보드별 이미지, K3 최신 2026-05-22)
-  - deepin next-crimson preview(K3, 2026-09-14)
-  boards:
-  - board: licheepi-4a
-    level: community
-    note: TH1520 기기 맞춤 이미지(u-boot 부팅, 커널 6.6).
-  - board: k3
-    level: community
-    note: K3 기기 맞춤 이미지, 최신 25-crimson-preview.
-  - board: pioneer
-    level: community
-    note: SG2042(MilkV Pioneer), linuxboot 부팅, 커널 6.6/6.12/6.16.
-  - board: visionfive2
-    level: community
-    note: JH7110, 커널 5.15/6.6/6.12, u-boot 부팅.
-  - board: titan
-    level: community
-    note: UltraRISC DP1000(MilkV Titan), 메인라인 커널 + UEFI.
-  - board: megrez
-    level: community
-    note: ESWIN EIC7700(MilkV Megrez), u-boot 부팅.
-  - board: qemu
-    level: community
-    note: QEMU 메인라인 커널 + UEFI.
-  - board: bpi-f3
-    level: community
-    note: SpacemiT K1 기기 맞춤 이미지.
-  downloads:
-  - label: 공식 다운로드 페이지 (RISC-V 기술 프리뷰)
-    url: https://www.deepin.org/zh/download/
-  - label: deepin 25.2.0 RISC-V 범용 ISO
-    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
-  - label: deepin-ports RISC-V 이미지 목록 (보드별 tar.xz)
-    url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
-  guides:
-  - label: deepin 25 설치 가이드
-    url: https://www.deepin.org/zh/deepin-25-installation/
-    type: doc
-    lang: zh
-  - label: deepin 25 Installation Guide (English)
-    url: https://www.deepin.org/en/deepin-25-installation/
-    type: doc
-    lang: en
-  - label: deepin-ports 기기 지원 매트릭스 (RISC-V)
-    url: https://deepin-community.github.io/sig-deepin-ports/matrix/riscv64
-    type: doc
-    lang: zh
-  - label: '메인라인 커널 + 범용 ISO: deepin RISC-V, UltraRISC DP1000 지원'
-    url: https://www.deepin.org/en/dp1000
-    type: doc
-    lang: zh
-  gotchas:
-  - RISC-V는 아직 기술 프리뷰(공식 표기)라 안정성과 완성도가 부족합니다.
-  - 보드별 이미지는 ISO가 아니라 tar.xz라 직접 풀어서 기록해야 합니다. 범용 ISO 25.2.0은 UEFI 부팅이 필요합니다.
-  - 설치 프로그램이 있는 liveimage-desktop은 기본 사용자를 만들지 않으며 root 기본 비밀번호는 deepin입니다.
-  - immutable(읽기 전용 루트) 변형이 있어 시스템을 고치는 방식이 일반적이지 않습니다.
-  - deepin RISC-V는 커뮤니티 수준 지원뿐이고 상용 지원은 통신(UnionTech) UOS를 거쳐야 합니다.
-  doc_langs:
-  - zh
-  - en
-  derivatives:
-  - 통신 UOS
-  note: 데스크톱이 가장 예쁜 중국산 배포판이지만 RISC-V 갈래는 커뮤니티 프리뷰 성격에 보드별 tar.xz 배포라, 평가·체험용으로 맞고 유일한 일상 시스템으로는 권하지 않습니다.
   checked: '2026-11-01'
   order: 21
   feature: false
