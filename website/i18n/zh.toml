@@ -1,0 +1,125 @@
+[nav]
+start = "入门"
+distros = "发行版"
+boards = "开发板"
+matrix = "支持矩阵"
+ai = "AI 软件"
+
+[home]
+h1 = "第一次玩 RISC-V，从这里开始"
+lede = "哪个系统配哪块板能用、镜像去哪下、哪里有坑——把散落在各家 wiki 里的东西收成一处，先跑起来再谈性能。"
+cta_start = "新手路线"
+cta_distros = "看发行版"
+cta_boards = "看开发板"
+cta_ai = "看 AI 支持"
+sec_distros = "哪些发行版真的支持 RISC-V"
+sec_boards = "几块最经典的开发板"
+sec_ai = "AI 软件能跑到什么程度"
+sec_matrix = "发行版 × 开发板 一览"
+
+[label]
+matrix_hint = "点开发行版看下载与坑"
+sources = "出处"
+checked_on = "最后核查"
+all = "全部"
+home = "首页"
+versions = "版本"
+downloads = "下载"
+guides = "安装文档与视频"
+gotchas = "坑"
+derivatives = "下游衍生"
+official_os = "官方系统"
+soc = "芯片"
+spec = "规格"
+status = "状态"
+doc_langs = "文档语言"
+boards = "支持的开发板"
+distros = "可用发行版"
+based_on = "基于"
+upstream = "上游状态"
+kind = "类型"
+audience = "适合谁"
+checked = "核查日期"
+note = "说明"
+video = "视频"
+doc = "文档"
+pros = "先说结论"
+price = "价格"
+
+[upstream]
+official = "上游官方架构"
+community = "社区移植"
+downstream = "厂商下游发行版"
+
+[level]
+official = "官方支持"
+community = "社区可用"
+partial = "部分可用"
+none = "未支持"
+
+[kind]
+distro = "成品发行版"
+buildsystem = "构建系统"
+simulator = "模拟器"
+
+[audience]
+recommended = "新人可直接用"
+advanced = "需要动手能力"
+vendor = "厂商测试用"
+
+[status]
+on_sale = "在售"
+eol = "已停产"
+hard = "不易买到"
+announced = "已发布待铺货"
+unknown = "不详"
+
+[run]
+works = "可用"
+partial = "部分可用"
+no = "不可用"
+unknown = "未找到公开证据"
+
+[subscribe]
+title = "订阅更新"
+placeholder = "你的邮箱地址"
+button = "订阅"
+pending = "邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。"
+rss = "RSS 订阅"
+rss_all = "全部更新"
+rss_distros = "发行版"
+rss_boards = "开发板"
+rss_ai = "AI 软件"
+
+[feed]
+all = "全部更新"
+distros = "发行版"
+boards = "开发板"
+ai = "AI 软件"
+
+[matrix]
+title = "支持矩阵"
+sub = "行是开发板、列是发行版。点进任意一格可以看该发行版的下载与坑。"
+legend = "图例"
+
+[ai]
+title = "AI 软件支持"
+sub = "只看有公开证据的：官方仓库说明、厂商文档、可信实测。没有证据就写没有，不替厂商猜。"
+npu = "NPU / 加速器"
+evidence = "证据"
+ruyisdk = "RuyiSDK 测试矩阵"
+
+[a11y]
+theme_light = "切换到浅色"
+theme_dark = "切换到深色"
+lang = "切换语言"
+skip = "跳到正文"
+nav = "主导航"
+
+[footer]
+updated = "核查日期见各条目"
+source = "源码"
+license = "内容许可 CC BY-SA 4.0"
+
+[site]
+tagline = "给第一次用 RISC-V 的人"

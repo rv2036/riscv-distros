@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.sub }}<div class="sub">{{ . }}</div>{{ end }}
+  </div>
+</header>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  <section class="block prose">{{ .Content }}</section>
+</div>
+{{ end }}

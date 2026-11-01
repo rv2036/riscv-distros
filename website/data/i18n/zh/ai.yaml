@@ -1,0 +1,18 @@
+ruyisdk:
+  url: https://ruyisdk.org/
+  fetched_at: '2026-11-01'
+  note: 占位
+items:
+- board: licheepi-4a
+  board_name: 荔枝派 4A
+  soc: TH1520
+  order: 1
+  checked: '2026-11-01'
+  runs:
+  - item: llama.cpp
+    state: works
+    evidence:
+    - https://github.com/ggml-org/llama.cpp
+    note: 占位
+  npu: 占位
+  note: 占位

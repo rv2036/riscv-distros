@@ -1,0 +1,62 @@
+items:
+- id: debian
+  name: Debian
+  vendor: Debian Project
+  upstream: official
+  upstream_note: 占位
+  kind: distro
+  based_on: 独立
+  audience: recommended
+  versions:
+  - 13 trixie
+  order: 1
+  feature: true
+  boards:
+  - board: unmatched
+    level: official
+    note: 占位
+  - board: qemu
+    level: official
+    note: 占位
+  downloads:
+  - label: debian.org
+    url: https://www.debian.org/ports/riscv/
+  guides:
+  - label: wiki
+    url: https://wiki.debian.org/RISC-V
+    type: doc
+    lang: en
+  gotchas:
+  - 占位：待调研
+  doc_langs:
+  - en
+  derivatives: []
+  note: 占位说明
+  checked: '2026-11-01'
+- id: revyos
+  name: RevyOS
+  vendor: T-Head
+  upstream: downstream
+  upstream_note: 占位
+  kind: distro
+  based_on: Debian rootfs + 定制 kernel
+  audience: recommended
+  versions:
+  - 占位
+  order: 2
+  feature: true
+  boards:
+  - board: licheepi-4a
+    level: official
+    note: 占位
+  downloads:
+  - label: 占位
+    url: https://github.com/revyos/revyos
+  guides: []
+  gotchas:
+  - 占位
+  doc_langs:
+  - zh
+  derivatives: []
+  note: 占位说明
+  checked: '2026-11-01'

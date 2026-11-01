@@ -1,0 +1,77 @@
+{{ define "main" }}
+{{ $d := partial "site-data.html" . }}
+{{ $distros := sort $d.distros.items "order" }}
+{{ $boards := sort $d.boards.items "order" }}
+<section class="hero">
+  <div class="wrap">
+    <h1>{{ i18n "home.h1" }}</h1>
+    <p class="lede">{{ i18n "home.lede" }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ "start/" | relLangURL }}">{{ i18n "home.cta_start" }}</a>
+      <a class="btn" href="{{ "distros/" | relLangURL }}">{{ i18n "home.cta_distros" }}</a>
+      <a class="btn" href="{{ "boards/" | relLangURL }}">{{ i18n "home.cta_boards" }}</a>
+      <a class="btn" href="{{ "ai/" | relLangURL }}">{{ i18n "home.cta_ai" }}</a>
+    </div>
+  </div>
+</section>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  <section class="block prose">{{ .Content }}</section>
+
+  <section class="block" id="distros">
+    <div class="block-head">
+      <h2>{{ i18n "home.sec_distros" }}</h2>
+      <a class="more" href="{{ "distros/" | relLangURL }}">{{ i18n "label.all" }} →</a>
+    </div>
+    <div class="grid cols-2">
+      {{ range first 6 $distros }}
+      <a class="card{{ if .feature }} feature{{ end }}" href="{{ printf "distros/%s/" .id | relLangURL }}">
+        <div class="card-top">
+          <h3>{{ .name }}</h3>
+          <span class="badge soft">{{ i18n (printf "upstream.%s" (.upstream | default "community")) }}</span>
+        </div>
+        {{ with .based_on }}<p>{{ i18n "label.based_on" }}{{ . }}</p>{{ end }}
+        {{ with .note }}<p>{{ . }}</p>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="block" id="boards">
+    <div class="block-head">
+      <h2>{{ i18n "home.sec_boards" }}</h2>
+      <a class="more" href="{{ "boards/" | relLangURL }}">{{ i18n "label.all" }} →</a>
+    </div>
+    <div class="grid cols-2">
+      {{ range first 4 $boards }}
+      <a class="card{{ if .feature }} feature{{ end }}" href="{{ printf "boards/%s/" .id | relLangURL }}">
+        <div class="card-top">
+          <h3>{{ .name }}</h3>
+          <span class="badge soft">{{ i18n (printf "status.%s" (.status | default "unknown")) }}</span>
+        </div>
+        <p>{{ .soc }}{{ with .vendor }} · {{ . }}{{ end }}</p>
+        {{ with .spec }}<p>{{ . }}</p>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="block" id="matrix">
+    <div class="block-head">
+      <h2>{{ i18n "home.sec_matrix" }}</h2>
+      <a class="more" href="{{ "matrix/" | relLangURL }}">{{ i18n "label.all" }} →</a>
+    </div>
+    <p class="muted">{{ i18n "matrix.sub" }}</p>
+    <div class="grid cols-2">
+      <a class="card" href="{{ "matrix/" | relLangURL }}">
+        <h3>{{ i18n "matrix.title" }} →</h3>
+        <p>{{ $boards | len }} {{ i18n "label.boards" }} × {{ $distros | len }} {{ i18n "label.distros" }}</p>
+      </a>
+      <a class="card" href="{{ "ai/" | relLangURL }}">
+        <h3>{{ i18n "ai.title" }} →</h3>
+        <p>{{ i18n "home.sec_ai" }}</p>
+      </a>
+    </div>
+  </section>
+</div>
+{{ end }}

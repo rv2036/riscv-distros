@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ $d := partial "site-data.html" . }}
+{{ $all := sort $d.boards.items "order" }}
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.sub }}<div class="sub">{{ . }}</div>{{ end }}
+  </div>
+</header>
+{{ partial "subscribe.html" . }}
+<div class="wrap">
+  <div class="grid cols-2">
+    {{ range $all }}
+    <article class="card{{ if .feature }} feature{{ end }}">
+      <div class="card-top">
+        <h3><a href="{{ printf "boards/%s/" .id | relLangURL }}">{{ .name }}</a></h3>
+        <span class="badge soft">{{ i18n (printf "status.%s" (.status | default "unknown")) }}</span>
+      </div>
+      <p>{{ .soc }}{{ with .vendor }} · {{ . }}{{ end }}</p>
+      {{ with .spec }}<p>{{ . }}</p>{{ end }}
+      {{ with .official_os }}<p class="muted">{{ i18n "label.official_os" }}{{ delimit . " / " }}</p>{{ end }}
+      {{ with .price_note }}<p class="muted">{{ i18n "label.price" }}{{ . }}</p>{{ end }}
+      {{ with .distros }}
+      <p class="muted">{{ i18n "label.distros" }}
+        {{- range $i, $x := first 6 . }}{{ if $i }}、{{ end }}{{ $x.distro }}（{{ i18n (printf "level.%s" $x.level) }}）{{ end -}}
+      </p>
+      {{ end }}
+      {{ with .downloads }}
+      <div class="links">{{ range . }}<a href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}</div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+
+  <section class="block prose">{{ .Content }}</section>
+</div>
+{{ end }}

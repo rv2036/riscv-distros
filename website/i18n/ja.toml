@@ -1,0 +1,125 @@
+[nav]
+start = "はじめかた"
+distros = "ディストロ"
+boards = "ボード"
+matrix = "対応表"
+ai = "AI ソフト"
+
+[home]
+h1 = "はじめての RISC-V はここから"
+lede = "どの板でどのディストロが動くのか、イメージの入手先、つまずきどころ。各社 wiki に散らばった情報を一か所に。まず起動、性能はあとで。"
+cta_start = "はじめの一歩"
+cta_distros = "ディストロ一覧"
+cta_boards = "ボード一覧"
+cta_ai = "AI 対応"
+sec_distros = "RISC-V に本当に対応しているディストロ"
+sec_boards = "実際によく使われるボード"
+sec_ai = "AI ソフトはどこまで動くか"
+sec_matrix = "ディストロ × ボード早見表"
+
+[label]
+matrix_hint = "ディストロを開くと入手先と注意点"
+sources = "出典"
+checked_on = "最終確認"
+all = "すべて"
+home = "ホーム"
+versions = "バージョン"
+downloads = "ダウンロード"
+guides = "導入ガイド"
+gotchas = "つまずきどころ"
+derivatives = "派生ディストロ"
+official_os = "公式 OS"
+soc = "SoC"
+spec = "仕様"
+status = "状態"
+doc_langs = "ドキュメント言語"
+boards = "対応ボード"
+distros = "使えるディストロ"
+based_on = "ベース"
+upstream = "アップストリーム"
+kind = "種類"
+audience = "対象"
+checked = "確認日"
+note = "補足"
+video = "動画"
+doc = "文書"
+pros = "結論から"
+price = "価格"
+
+[upstream]
+official = "アップストリーム対応"
+community = "コミュニティ移植"
+downstream = "ベンダー派生"
+
+[level]
+official = "公式対応"
+community = "コミュニティ対応"
+partial = "一部のみ"
+none = "未対応"
+
+[kind]
+distro = "ディストリビューション"
+buildsystem = "ビルドシステム"
+simulator = "エミュレータ"
+
+[audience]
+recommended = "初心者向け"
+advanced = "ある程度の知識が必要"
+vendor = "ベンダー検証用"
+
+[status]
+on_sale = "販売中"
+eol = "販売終了"
+hard = "入手困難"
+announced = "発表済み"
+unknown = "不明"
+
+[run]
+works = "動作可"
+partial = "一部可"
+no = "動作せず"
+unknown = "公開情報なし"
+
+[subscribe]
+title = "更新を購読"
+placeholder = "メールアドレス"
+button = "購読する"
+pending = "メール配信のバックエンドが未接続のため、入力欄は現在ご利用いただけません。接続後はここから直接登録できます。"
+rss = "RSS 購読"
+rss_all = "すべての更新"
+rss_distros = "ディストロ"
+rss_boards = "ボード"
+rss_ai = "AI ソフト"
+
+[feed]
+all = "すべての更新"
+distros = "ディストロ"
+boards = "ボード"
+ai = "AI ソフト"
+
+[matrix]
+title = "対応マトリクス"
+sub = "行がボード、列がディストロ。各セルからダウンロードと注意点へ。"
+legend = "凡例"
+
+[ai]
+title = "AI ソフト対応"
+sub = "公開されている証拠だけを載せます。公式リポジトリ、ベンダー文書、信頼できる実測。証拠がなければ「なし」と書きます。"
+npu = "NPU / アクセラレータ"
+evidence = "根拠"
+ruyisdk = "RuyiSDK テスト表"
+
+[a11y]
+theme_light = "ライトに切り替え"
+theme_dark = "ダークに切り替え"
+lang = "言語を切り替え"
+skip = "本文へスキップ"
+nav = "メインナビ"
+
+[footer]
+updated = "確認日は各項目に記載"
+source = "ソース"
+license = "内容は CC BY-SA 4.0"
+
+[site]
+tagline = "はじめての RISC-V のために"

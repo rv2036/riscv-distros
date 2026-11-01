@@ -1,0 +1,49 @@
+items:
+- id: unmatched
+  name: SiFive HiFive Unmatched
+  soc: FU740
+  vendor: SiFive
+  spec: 占位
+  status: eol
+  official_os:
+  - debian
+  order: 1
+  feature: true
+  distros:
+  - distro: debian
+    level: official
+    note: 占位
+  downloads:
+  - label: 占位
+    url: https://www.sifive.com/boards/hifive-unmatched
+  guides: []
+  gotchas:
+  - 占位
+  doc_langs:
+  - en
+  note: 占位
+  checked: '2026-11-01'
+- id: licheepi-4a
+  name: 荔枝派 4A（LicheePi 4A）
+  soc: T-Head TH1520
+  vendor: Sipeed
+  spec: 占位
+  status: hard
+  official_os:
+  - revyos
+  order: 2
+  feature: true
+  distros:
+  - distro: revyos
+    level: official
+    note: 占位
+  downloads:
+  - label: 占位
+    url: https://sipeed.com/licheepi4a
+  guides: []
+  gotchas:
+  - 占位
+  doc_langs:
+  - zh
+  note: 占位
+  checked: '2026-11-01'
