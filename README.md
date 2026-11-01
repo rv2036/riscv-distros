@@ -3,8 +3,7 @@
 给**第一次测试或使用 RISC-V 的人**看的门户站：哪个发行版能在哪块板子上跑、镜像去哪下、有哪些坑。
 
 - 站点：<https://riscv-distros.org>
-- 本仓（内网 GitLab）：`https://github.com/rv2036/riscv-distros`
-- GitHub 镜像（部署在这里）：<https://github.com/rv2036/riscv-distros>
+- 仓库（部署在这里）：<https://github.com/rv2036/riscv-distros>
 - 语言：简体中文（根路径）/ English / 日本語 / Русский / 한국어
 - 明暗两套配色，跟随系统并可手动切换
 
