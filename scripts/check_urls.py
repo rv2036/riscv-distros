@@ -24,13 +24,22 @@ DIRECT = ('debian.org', 'ubuntu.com', 'canonical.com', 'cdimage.', 'archive.spac
           'deepin', 'bianbu', 'xrvm', 'zhcomputing', 'lanxin', 'tenstorrent')
 
 
+THROTTLED = ('github.com', 'raw.githubusercontent.com', 'api.github.com', 'codeload.github.com')
+
+
 def is_direct(url):
     return any(d in url for d in DIRECT)
 
 
+def attempts_for(url):
+    """GitHub 系走共享代理出口，容易被限流丢连接（实测 10 条 200 的仓库被判 000），多给几次机会。"""
+    return 6 if any(h in url for h in THROTTLED) else 3
+
+
 def check(url, timeout=45):
     code = '000'
-    for attempt in range(3):
+    tries = attempts_for(url)
+    for attempt in range(tries):
         cmd = ['curl', '-sS', '-o', '/dev/null', '-w', '%{http_code}', '-L',
                '--max-time', str(timeout), '-A', 'Mozilla/5.0']
         env = dict(os.environ)
@@ -50,7 +59,9 @@ def check(url, timeout=45):
         if code in ('200', '206', '301', '302', '304'):
             return url, code
         if code in ('000', '403', '412', '429', '502', '503'):
-            time.sleep(1.5 * (attempt + 1))
+            # GitHub 系退避拉长，避免把限流误判成死链
+            base = 4.0 if any(h in url for h in THROTTLED) else 1.5
+            time.sleep(base * (attempt + 1))
             continue
         return url, code
     return url, code
@@ -93,7 +104,7 @@ def main():
         urls = urls[:a.limit]
     print(f'  待检查 {len(urls)} 个唯一 URL')
     bad = []
-    with ThreadPoolExecutor(max_workers=10) as ex:
+    with ThreadPoolExecutor(max_workers=6) as ex:
         for url, code in ex.map(check, urls):
             if code not in ('200', '206', '301', '302', '304'):
                 bad.append((code, url))
