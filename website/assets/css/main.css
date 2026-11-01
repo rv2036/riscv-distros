@@ -690,3 +690,27 @@ table.matrix td.lv-none { color: var(--fg-mute); }
 .run-badge-unknown { background: var(--badge-bg); color: var(--fg-mute); border-color: var(--line); }
 .ev { display: flex; gap: .4rem; }
 .ev a { font-size: .8rem; color: var(--fg-mute); }
+
+/* ---------- RuyiSDK 实测状态与报告表 ---------- */
+.badge.st-good { background: var(--badge-bg); color: var(--accent); border-color: var(--accent); }
+.badge.st-basic { background: var(--badge-bg); color: var(--fg); border-color: var(--line); }
+.badge.st-part { background: var(--badge-bg); color: var(--warn); border-color: var(--line); }
+.badge.st-cft { background: var(--badge-bg); color: var(--fg-dim); border-color: var(--line); }
+.badge.st-cfh { background: var(--badge-bg); color: var(--warn); border-color: var(--warn); }
+.badge.st-cfi, .badge.st-wip, .badge.st-unknown { background: var(--badge-bg); color: var(--fg-mute); border-color: var(--line); }
+
+table.matrix td.st-good a { color: var(--accent); }
+table.matrix td.st-basic a { color: var(--fg); }
+table.matrix td.st-part a { color: var(--warn); }
+table.matrix td.st-cft a { color: var(--fg-dim); }
+table.matrix td.st-cfh a { color: var(--warn); }
+table.matrix td.st-cfi a, table.matrix td.st-wip a { color: var(--fg-mute); }
+table.matrix td.mx-own a { color: var(--fg-mute); }
+.matrix-note { margin: .35rem 0 0; font-size: .82rem; }
+.matrix-legend .badge.mx-own { color: var(--fg-mute); }
+
+.ruyi-table { border-collapse: collapse; width: 100%; margin-top: .8rem; font-size: .9rem; }
+.ruyi-table th, .ruyi-table td { padding: .45rem .55rem; border-bottom: 1px solid var(--line-soft); text-align: left; }
+.ruyi-table thead th { color: var(--fg-mute); font-weight: 600; font-size: .82rem; white-space: nowrap; }
+.ruyi-table tbody tr:hover { background: var(--bg-soft); }
+.ruyi-table td.muted { color: var(--fg-mute); white-space: nowrap; }

@@ -98,6 +98,7 @@ boards = "보드"
 ai = "AI 소프트웨어"
 
 [matrix]
+own_source = "자체 조사(RuyiSDK 실측 아님)"
 title = "지원 매트릭스"
 sub = "행은 보드, 열은 배포판. 각 칸에서 다운로드와 주의점으로 이동합니다."
 legend = "범례"
@@ -123,3 +124,25 @@ license = "콘텐츠 라이선스 CC BY-SA 4.0"
 
 [site]
 tagline = "처음 쓰는 RISC-V를 위해"
+
+[ruyisdk]
+legend_note = "상태 의미: good 완전 사용 가능(데스크톱 부팅), basic 기본 사용 가능(시리얼 동작), part 일부 기능, cft 이미지는 있으나 검증 필요, cfh 지원 문서는 있으나 부팅 실패, cfi 지원만 표기되고 이미지 없음, wip 발표만 됨."
+source = "데이터 출처"
+open_report = "보고서 열기"
+col_report = "보고서"
+col_date = "최근 검증"
+col_status = "상태"
+board_sub = "이 보드에서 RuyiSDK가 실측한 시스템. 보고서에서 설치 절차와 결론을 확인하세요."
+distro_sub = "RuyiSDK가 보드별로 실기에서 검증한 기록입니다. 보고서에서 설치 절차와 결론을 볼 수 있습니다."
+tested = "RuyiSDK 실측"
+title = "RuyiSDK 실측 보고서"
+
+[ruyisdk.status]
+unknown = "미표기"
+wip = "발표만"
+cfi = "이미지 없음"
+cfh = "부팅 실패"
+cft = "검증 필요"
+part = "부분"
+basic = "기본"
+good = "양호"

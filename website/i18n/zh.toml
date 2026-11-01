@@ -98,6 +98,7 @@ boards = "开发板"
 ai = "AI 软件"
 
 [matrix]
+own_source = "本站资料（未经 RuyiSDK 实测）"
 title = "支持矩阵"
 sub = "行是开发板、列是发行版。点进任意一格可以看该发行版的下载与坑。"
 legend = "图例"
@@ -123,3 +124,25 @@ license = "内容许可 CC BY-SA 4.0"
 
 [site]
 tagline = "给第一次用 RISC-V 的人"
+
+[ruyisdk]
+legend_note = "状态含义：good 完整可用（能进桌面）、basic 基本可用（串口能起来）、part 部分功能、cft 有镜像待验证、cfh 文档称支持但启动失败、cfi 官方称支持但无镜像、wip 只有宣称。"
+source = "数据来源"
+open_report = "查看报告"
+col_report = "报告"
+col_date = "最近测试"
+col_status = "状态"
+board_sub = "这块板被 RuyiSDK 实测过的系统，点开报告看安装步骤与结论。"
+distro_sub = "RuyiSDK 在真机上逐块板测过的记录，点开报告能看完整安装步骤与结论。"
+tested = "RuyiSDK 实测"
+title = "RuyiSDK 实测报告"
+
+[ruyisdk.status]
+unknown = "未标注"
+wip = "仅有宣称"
+cfi = "无镜像"
+cfh = "启动失败"
+cft = "待验证"
+part = "部分功能"
+basic = "基本可用"
+good = "完整可用"

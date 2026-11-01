@@ -1,0 +1,2776 @@
+# RuyiSDK 支持矩阵（自动生成，勿手改）
+# 来源：https://github.com/ruyisdk/support-matrix → https://matrix.ruyisdk.org
+# 生成于 2026-11-01
+
+source:
+  site: "https://matrix.ruyisdk.org"
+  repo: "https://github.com/ruyisdk/support-matrix"
+  fetched_at: "2026-11-01"
+  note: "RuyiSDK 官方测试矩阵：逐板逐系统在真机上的实测报告"
+
+# status 枚举（取自仓库 CONTRIBUTING.md）
+status_legend:
+  - "good"
+  - "basic"
+  - "part"
+  - "cft"
+  - "cfh"
+  - "cfi"
+  - "wip"
+
+items:
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2025-04-08"
+    reports:
+      - ver: "3.21"
+        var: ""
+        status: "basic"
+        date: "2025-04-08"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/"
+        downloads:
+          - "https://dev.alpinelinux.org/~mps/riscv64/"
+          - "https://archive.spacemit.com/image/k1/version/bianbu/"
+        docs:
+          - "https://arvanta.net/alpine/alpine-on-spacemit/"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2025-03-13"
+    reports:
+      - ver: "25.2.1"
+        var: "minimal"
+        status: "basic"
+        date: "2025-03-13"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Armbian/README/"
+        downloads:
+          - "https://www.armbian.com/bananapi-f3/"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: basic
+    last_update: "2025-11-02"
+    reports:
+      - ver: "3.0.1"
+        var: "minimal"
+        status: "basic"
+        date: "2025-11-02"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/minimal/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+        docs:
+          - "https://docs.bit-brick.com/docs/k1/getting-started/preparation"
+      - ver: "3.0 beta1"
+        var: "Star"
+        status: "good"
+        date: "2025-11-02"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/star/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu-computer/v3.0beta1/"
+        docs:
+          - "https://docs.bit-brick.com/docs/k1/getting-started/preparation"
+      - ver: "3.0"
+        var: "Desktop Lite"
+        status: "good"
+        date: "2025-08-13"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/desktop-lite/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0/"
+        docs:
+          - "https://docs.bit-brick.com/docs/k1/getting-started/preparation"
+      - ver: "3.0"
+        var: "desktop"
+        status: "good"
+        date: "2025-08-13"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Bianbu/desktop/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0/"
+        docs:
+          - "https://docs.bit-brick.com/docs/k1/getting-started/preparation"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: bredos
+    distro_name: "BredOS"
+    status: good
+    last_update: "2025-08-13"
+    reports:
+      - ver: "2025-07-16"
+        var: ""
+        status: "good"
+        date: "2025-08-13"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/BredOS/README/"
+        downloads:
+          - "https://bredos.org/download.html"
+          - "https://archive.spacemit.com/image/k1/version/bianbu/"
+        docs:
+          - "https://wiki.bredos.org/en/installation"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2025-02-26"
+    reports:
+      - ver: "42"
+        var: "minimal"
+        status: "basic"
+        date: "2025-02-26"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Fedora/README/"
+        downloads:
+          - "https://images.fedoravforce.org/Banana%20Pi%20BPI-F3"
+        docs:
+          - "https://images.fedoravforce.org/how-to-burn-images-to-sd-cards"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: basic
+    last_update: "2025-09-18"
+    reports:
+      - ver: "2.0 SP2"
+        var: ""
+        status: "basic"
+        date: "2025-09-18"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index.html"
+  - board: bit-brick-k1
+    board_name: "BIT-BRICK K1"
+    distro: tizen
+    distro_name: "Tizen"
+    status: basic
+    last_update: "2025-09-19"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-09-19"
+        url: "https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Tizen/README/"
+        docs:
+          - "https://docs.tizen.org/platform/developing/flashing-rpi/"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2024-12-10"
+    reports:
+      - ver: "edge"
+        var: ""
+        status: "basic"
+        date: "2024-12-10"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Alpine/README/"
+        downloads:
+          - "https://dev.alpinelinux.org/~mps/riscv64/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2025-01-20"
+    reports:
+      - ver: "25.2.0"
+        var: "noble"
+        status: "basic"
+        date: "2025-01-20"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Armbian/README_noble/"
+        downloads:
+          - "https://www.armbian.com/bananapi-f3/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+      - ver: "24.5.0"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Armbian/README/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: basic
+    last_update: "2025-09-29"
+    reports:
+      - ver: "3.0.1"
+        var: "Desktop"
+        status: "good"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Bianbu/desktop/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+      - ver: "3.0.1"
+        var: "Desktop Lite"
+        status: "good"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Bianbu/desktop_lite/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+      - ver: "3.0.1"
+        var: "minimal"
+        status: "basic"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Bianbu/minimal/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-02-16"
+    reports:
+      - ver: ""
+        var: ""
+        status: "good"
+        date: "2025-02-16"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240913/riscv64/deepin-23-beige-preview-riscv64-k1-20240913-124401.tar.xz"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-10-28"
+    reports:
+      - ver: "40"
+        var: ""
+        status: "basic"
+        date: "2024-10-28"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Fedora/README/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: cfh
+    last_update: "2025-04-05"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/openEuler/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241231/v0.5/k1/"
+        docs:
+          - "https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-01-20"
+    reports:
+      - ver: "2.0-SP1"
+        var: ""
+        status: "good"
+        date: "2025-01-20"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index.html"
+        docs:
+          - "https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2024-10-31"
+    reports:
+      - ver: "23.05.2"
+        var: ""
+        status: "basic"
+        date: "2024-10-31"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/OpenWrt/README/"
+        downloads:
+          - "https://archive.spacemit.com/openwrt/releases/bl-v2.0.y/targets/spacemit/DEVICE_debX/"
+        docs:
+          - "https://bianbu-linux.spacemit.com/openwrt-docs/"
+  - board: bpi-f3
+    board_name: "Banana Pi BPI-F3"
+    distro: tizen
+    distro_name: "Tizen"
+    status: cft
+    last_update: "2025-09-18"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cft"
+        date: "2025-09-18"
+        url: "https://matrix.ruyisdk.org/reports/BPI-F3/Tizen/README/"
+        docs:
+          - "https://docs.tizen.org/platform/developing/flashing-rpi/"
+  - board: jupiter
+    board_name: "Milk-V Jupiter"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: basic
+    last_update: "2025-09-29"
+    reports:
+      - ver: "3.0.1"
+        var: "Desktop"
+        status: "good"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/Jupiter/Bianbu/desktop/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+          - "https://github.com/milkv-jupiter/jupiter-tools/releases/tag/titanflasher"
+      - ver: "3.0.1"
+        var: "Desktop Lite"
+        status: "good"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/Jupiter/Bianbu/lite/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+          - "https://github.com/milkv-jupiter/jupiter-tools/releases/tag/titanflasher"
+      - ver: "3.0.1"
+        var: "minimal"
+        status: "basic"
+        date: "2025-09-29"
+        url: "https://matrix.ruyisdk.org/reports/Jupiter/Bianbu/minimal/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/"
+          - "https://github.com/milkv-jupiter/jupiter-tools/releases/tag/titanflasher"
+  - board: jupiter
+    board_name: "Milk-V Jupiter"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: cfh
+    last_update: "2025-04-05"
+    reports:
+      - ver: "2.0-SP1"
+        var: ""
+        status: "cfh"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Jupiter/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index-cn.html"
+  - board: k230
+    board_name: "CanMV K230"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/K230/Debian/README/"
+        downloads:
+          - "https://kendryte-download.canaan-creative.com/developer/k230/canmv_debian_sdcard_sdk_1.3.img.gz"
+        docs:
+          - "https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html"
+  - board: k230
+    board_name: "CanMV K230"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "38"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/K230/Fedora/README/"
+        downloads:
+          - "https://github.com/ruyisdk/mkimg-k230-rv64ilp32/releases"
+        docs:
+          - "https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html"
+  - board: k230
+    board_name: "CanMV K230"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/K230/Ubuntu/README/"
+        downloads:
+          - "https://kendryte-download.canaan-creative.com/developer/k230/canmv_ubuntu_sdcard_1.3.img.gz"
+        docs:
+          - "https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html"
+  - board: k3
+    board_name: "SpacemiT K3 Pico-ITX"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: good
+    last_update: "2026-10-16"
+    reports:
+      - ver: "4.0.8"
+        var: "LXQt"
+        status: "good"
+        date: "2026-10-16"
+        url: "https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/"
+        downloads:
+          - "https://www.spacemit.com/community/resources-download/Images%20Collects/K3/Bianbu"
+        docs:
+          - "https://www.spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_pico/pico_user_guide.md"
+  - board: k3-som260
+    board_name: "SpacemiT K3 CoM260 Kit"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: good
+    last_update: "2026-09-15"
+    reports:
+      - ver: "4.0.6"
+        var: "LXQt"
+        status: "good"
+        date: "2026-09-15"
+        url: "https://matrix.ruyisdk.org/reports/CoM260_Kit/Bianbu/README/"
+        downloads:
+          - "https://archive.spacemit.com/image/k3/version/bianbu/v4.0.6/Bianbu-LXQt-K3-v4.0.6-20260819145902.tar.gz"
+          - "https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE"
+        docs:
+          - "https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_com260/com260_user_guide.md"
+  - board: k3-som260
+    board_name: "SpacemiT K3 CoM260 Kit"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: good
+    last_update: "2026-09-14"
+    reports:
+      - ver: "1.0.7"
+        var: ""
+        status: "good"
+        date: "2026-09-14"
+        url: "https://matrix.ruyisdk.org/reports/CoM260_Kit/BuildRoot/README/"
+        downloads:
+          - "https://archive.spacemit.com/image/k3/version/buildroot/v1.0.7/Buildroot-K3-v1.0.7-20260819142006.zip"
+          - "https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE"
+        docs:
+          - "https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_com260/com260_user_guide.md"
+  - board: k3-som260
+    board_name: "SpacemiT K3 CoM260 Kit"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: cft
+    last_update: "2026-09-15"
+    reports:
+      - ver: "24.03-LTS-SP4"
+        var: "RVA23-OLK-generic"
+        status: "cft"
+        date: "2026-09-15"
+        url: "https://matrix.ruyisdk.org/reports/CoM260_Kit/openEuler/README/"
+        docs:
+          - "https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_com260/com260_user_guide.md"
+  - board: k3-som260
+    board_name: "SpacemiT K3 CoM260 Kit"
+    distro: openharmony
+    distro_name: "OpenHarmony"
+    status: cfh
+    last_update: "2026-09-15"
+    reports:
+      - ver: "6.1"
+        var: "normal"
+        status: "cfh"
+        date: "2026-09-15"
+        url: "https://matrix.ruyisdk.org/reports/CoM260_Kit/OpenHarmony/README/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/openharmony/k3_oh6.1/com260/spacemit-k3-oh61-com260-normal-V1.0-20260515.zip"
+          - "https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE"
+        docs:
+          - "https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_com260/com260_user_guide.md"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "20.04"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/Armbian/README/"
+        downloads:
+          - "https://github.com/chainsx/armbian-riscv-build/tree/main"
+          - "https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch"
+        docs:
+          - "https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "38"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/Fedora/README/"
+        downloads:
+          - "https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/"
+          - "https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch"
+        docs:
+          - "https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/openEuler/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/"
+          - "https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch"
+        docs:
+          - "https://revyos.github.io/"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "2.0-alpha"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index-cn.html"
+          - "https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch"
+        docs:
+          - "https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/OpenWrt/README/"
+        downloads:
+          - "https://github.com/chainsx/openwrt-th1520/releases"
+          - "https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch"
+        docs:
+          - "https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md"
+  - board: lichee-cluster-4a
+    board_name: "Lichee Cluster 4A"
+    distro: revyos
+    distro_name: "RevyOS"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "20240127"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/RevyOS/README/"
+        docs:
+          - "https://docs.revyos.dev"
+      - ver: "12"
+        var: "sipeed"
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/RevyOS/README_Sipeed/"
+        downloads:
+          - "https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin"
+        docs:
+          - "https://wiki.sipeed.com/hardware/zh/lichee/th1520/lc4a/lc4a.html"
+      - ver: "12"
+        var: "lpi4a"
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheeCluster4A/RevyOS/README_lpi4a/"
+        docs:
+          - "https://docs.revyos.dev"
+  - board: lichee-console-4a
+    board_name: "Lichee Console 4A"
+    distro: revyos
+    distro_name: "RevyOS"
+    status: good
+    last_update: "2025-04-17"
+    reports:
+      - ver: "20240720"
+        var: ""
+        status: "good"
+        date: "2025-04-17"
+        url: "https://matrix.ruyisdk.org/reports/LicheeConsole4A/RevyOS/README/"
+        docs:
+          - "https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: good
+    last_update: "2025-01-14"
+    reports:
+      - ver: ""
+        var: ""
+        status: "good"
+        date: "2025-01-14"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/ArchLinux/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/archriscv/images/"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2024-03-04"
+    reports:
+      - ver: "23.09.15"
+        var: ""
+        status: "basic"
+        date: "2024-03-04"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/Armbian/README/"
+        downloads:
+          - "https://github.com/chainsx/armbian-riscv-build/releases"
+        docs:
+          - "https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-01-24"
+    reports:
+      - ver: "25-beige-preview"
+        var: ""
+        status: "good"
+        date: "2025-01-24"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: fedora
+    distro_name: "Fedora"
+    status: good
+    last_update: "2025-08-13"
+    reports:
+      - ver: "42"
+        var: "fvf"
+        status: "good"
+        date: "2025-08-13"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/"
+        downloads:
+          - "https://images.fedoravforce.org/LicheePi%204A"
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: irradium
+    distro_name: "irradium"
+    status: good
+    last_update: "2025-06-16"
+    reports:
+      - ver: "3.8"
+        var: ""
+        status: "good"
+        date: "2025-06-16"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/irradium/README/"
+        downloads:
+          - "https://dl.irradium.org/irradium/images/lichee_pi_4a/"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-03-04"
+    reports:
+      - ver: "23.05"
+        var: ""
+        status: "basic"
+        date: "2025-03-04"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/NixOS/README/"
+        downloads:
+          - "https://github.com/ryan4yin/nixos-licheepi4a/releases"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: good
+    last_update: "2025-07-30"
+    reports:
+      - ver: "24.03-sp2"
+        var: "LTS"
+        status: "good"
+        date: "2025-07-30"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/openEuler/README/"
+        downloads:
+          - "https://www.openeuler.openatom.cn/en/download/#openEuler%2024.03%20LTS%20SP2"
+        docs:
+          - "https://docs.openeuler.openatom.cn/en/docs/24.03_LTS_SP2/server/installation_upgrade/installation/risc_v_licheepi4a.html"
+      - ver: "25.03"
+        var: "Innovation"
+        status: "good"
+        date: "2025-04-07"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/openEuler/Innovation/"
+        downloads:
+          - "https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/"
+        docs:
+          - "https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-09-19"
+    reports:
+      - ver: "v2.0-SP2"
+        var: ""
+        status: "good"
+        date: "2025-09-19"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index.html"
+        docs:
+          - "https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/OpenWrt/README/"
+        downloads:
+          - "https://github.com/chainsx/openwrt-th1520/releases"
+        docs:
+          - "https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: revyos
+    distro_name: "RevyOS"
+    status: good
+    last_update: "2026-03-17"
+    reports:
+      - ver: "20251226"
+        var: ""
+        status: "good"
+        date: "2026-03-17"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/RevyOS/README/"
+        downloads:
+          - "https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20251226/"
+        docs:
+          - "https://revyos.github.io/docs/"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: slackware
+    distro_name: "Slackware"
+    status: good
+    last_update: "2025-07-11"
+    reports:
+      - ver: "15"
+        var: ""
+        status: "good"
+        date: "2025-07-11"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/Slackware/README/"
+        downloads:
+          - "http://dl.slarm64.org/slackware/images/lichee_pi_4a/"
+        docs:
+          - "http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT"
+  - board: licheepi-4a
+    board_name: "Lichee Pi 4A"
+    distro: tizen
+    distro_name: "Tizen"
+    status: basic
+    last_update: "2025-09-20"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-09-20"
+        url: "https://matrix.ruyisdk.org/reports/LicheePi4A/Tizen/README/"
+        docs:
+          - "https://docs.tizen.org/platform/developing/flashing-rpi/"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2025-05-16"
+    reports:
+      - ver: "3.20.0_alpha20231219 (edge)"
+        var: ""
+        status: "basic"
+        date: "2025-05-16"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Alpine/README/"
+        downloads:
+          - "https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2025-05-10"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-05-10"
+        url: "https://matrix.ruyisdk.org/reports/Mars/ArchLinux/README/"
+        downloads:
+          - "https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2025-05-24"
+    reports:
+      - ver: "25.8.0"
+        var: ""
+        status: "basic"
+        date: "2025-05-24"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Armbian/README/"
+        downloads:
+          - "https://www.armbian.com/visionfive2"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "1.0.6"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Mars/BuildRoot/README/"
+        docs:
+          - "https://github.com/milkv-mars/mars-buildroot-sdk"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2025-09-14"
+    reports:
+      - ver: "13.1"
+        var: ""
+        status: "basic"
+        date: "2025-09-14"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Debian/README/"
+        docs:
+          - "https://wiki.debian.org/InstallingDebianOn/StarFive/VisionFiveV2"
+      - ver: "12"
+        var: ""
+        status: "good"
+        date: "2025-03-31"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Debian/README_vendor/"
+        downloads:
+          - "https://github.com/milkv-mars/mars-buildroot-sdk/releases/"
+        docs:
+          - "https://milkv.io/zh/docs/mars/getting-started/boot"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-03-24"
+    reports:
+      - ver: "25"
+        var: ""
+        status: "good"
+        date: "2025-03-24"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Deepin/README/"
+        downloads:
+          - "https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-milkv-mars-20240613-123442.tar.xz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: dietpi
+    distro_name: "DietPi"
+    status: basic
+    last_update: "2025-05-24"
+    reports:
+      - ver: "9.12.1"
+        var: ""
+        status: "basic"
+        date: "2025-05-24"
+        url: "https://matrix.ruyisdk.org/reports/Mars/DietPi/README/"
+        downloads:
+          - "https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Trixie.img.xz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: eweos
+    distro_name: "eweOS"
+    status: basic
+    last_update: "2025-03-28"
+    reports:
+      - ver: "6.13.8"
+        var: ""
+        status: "basic"
+        date: "2025-03-28"
+        url: "https://matrix.ruyisdk.org/reports/Mars/eweOS/README/"
+        downloads:
+          - "https://github.com/panglars/eweos-vf2-mainline"
+        docs:
+          - "https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: fedora
+    distro_name: "Fedora"
+    status: good
+    last_update: "2025-03-31"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "good"
+        date: "2025-03-31"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Fedora/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: guix
+    distro_name: "Guix"
+    status: basic
+    last_update: "2025-04-12"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-04-12"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Guix/README/"
+        downloads:
+          - "https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image"
+        docs:
+          - "https://milkv.io/zh/docs/mars/getting-started/boot"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: irradium
+    distro_name: "irradium"
+    status: basic
+    last_update: "2025-05-30"
+    reports:
+      - ver: "3.8"
+        var: ""
+        status: "basic"
+        date: "2025-05-30"
+        url: "https://matrix.ruyisdk.org/reports/Mars/irradium/README/"
+        downloads:
+          - "https://mirror.serverion.com/irradium/images/visionfive_2/irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img.zst"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-04-18"
+    reports:
+      - ver: "25.05"
+        var: ""
+        status: "basic"
+        date: "2025-04-18"
+        url: "https://matrix.ruyisdk.org/reports/Mars/NixOS/README/"
+        downloads:
+          - "https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-05-29"
+    reports:
+      - ver: "2.0 SP1"
+        var: ""
+        status: "good"
+        date: "2025-05-29"
+        url: "https://matrix.ruyisdk.org/reports/Mars/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: opensuse
+    distro_name: "openSUSE"
+    status: basic
+    last_update: "2025-05-29"
+    reports:
+      - ver: "20250527"
+        var: ""
+        status: "basic"
+        date: "2025-05-29"
+        url: "https://matrix.ruyisdk.org/reports/Mars/openSUSE/README/"
+        downloads:
+          - "https://downloadcontent.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw.xz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-04-26"
+    reports:
+      - ver: "24.10.1"
+        var: ""
+        status: "basic"
+        date: "2025-04-26"
+        url: "https://matrix.ruyisdk.org/reports/Mars/OpenWrt/README/"
+        downloads:
+          - "https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz"
+  - board: mars
+    board_name: "Milk-V Mars"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2025-04-22"
+    reports:
+      - ver: "25.04"
+        var: ""
+        status: "basic"
+        date: "2025-04-22"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Ubuntu/README/"
+        downloads:
+          - "https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz"
+      - ver: "24.04.2"
+        var: "LTS"
+        status: "basic"
+        date: "2025-03-24"
+        url: "https://matrix.ruyisdk.org/reports/Mars/Ubuntu/README_LTS/"
+        downloads:
+          - "https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz"
+        docs:
+          - "https://milkv.io/zh/docs/mars/getting-started/boot"
+  - board: megrez
+    board_name: "Milk-V Megrez"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-05-27"
+    reports:
+      - ver: "eic7700-riscv64-25"
+        var: ""
+        status: "good"
+        date: "2025-05-27"
+        url: "https://matrix.ruyisdk.org/reports/Megrez/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz"
+        docs:
+          - "https://milkv.io/zh/docs/megrez/getting-started/boot"
+  - board: megrez
+    board_name: "Milk-V Megrez"
+    distro: fedora
+    distro_name: "Fedora"
+    status: cft
+    last_update: "2025-08-01"
+    reports:
+      - ver: "42"
+        var: "Workstation"
+        status: "cft"
+        date: "2025-08-01"
+        url: "https://matrix.ruyisdk.org/reports/Megrez/Fedora/README/"
+        downloads:
+          - "https://images.fedoravforce.org/Megrez"
+        docs:
+          - "https://milkv.io/zh/docs/megrez/getting-started/boot"
+  - board: megrez
+    board_name: "Milk-V Megrez"
+    distro: guix
+    distro_name: "Guix"
+    status: cft
+    last_update: "2025-04-10"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cft"
+        date: "2025-04-10"
+        url: "https://matrix.ruyisdk.org/reports/Megrez/Guix/README/"
+        downloads:
+          - "https://github.com/Z572/guix-riscv-channel/releases"
+  - board: megrez
+    board_name: "Milk-V Megrez"
+    distro: opencloudos
+    distro_name: "OpenCloudOS"
+    status: basic
+    last_update: "2025-08-24"
+    reports:
+      - ver: "23"
+        var: ""
+        status: "basic"
+        date: "2025-08-24"
+        url: "https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/"
+        downloads:
+          - "https://mirrors.opencloudos.tech/opencloudos-stream/releases/23/images/riscv64/sdcard/ocs_developer_sdcard-megrez.img.xz"
+  - board: megrez
+    board_name: "Milk-V Megrez"
+    distro: rockos
+    distro_name: "RockOS"
+    status: good
+    last_update: "2025-05-02"
+    reports:
+      - ver: "20250423"
+        var: ""
+        status: "good"
+        date: "2025-05-02"
+        url: "https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/"
+        downloads:
+          - "https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/"
+  - board: meles
+    board_name: "Milk-V Meles"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-04-05"
+    reports:
+      - ver: "20250122"
+        var: ""
+        status: "good"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Meles/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz"
+        docs:
+          - "https://milkv.io/zh/docs/meles/getting-started/boot"
+  - board: meles
+    board_name: "Milk-V Meles"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: cfh
+    last_update: "2025-04-05"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Meles/openEuler/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/meles/"
+        docs:
+          - "https://milkv.io/zh/docs/meles/getting-started/boot"
+  - board: meles
+    board_name: "Milk-V Meles"
+    distro: revyos
+    distro_name: "RevyOS"
+    status: good
+    last_update: "2025-07-08"
+    reports:
+      - ver: "20250526"
+        var: ""
+        status: "good"
+        date: "2025-07-08"
+        url: "https://matrix.ruyisdk.org/reports/Meles/RevyOS/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250526/"
+        docs:
+          - "https://milkv.io/zh/docs/meles/getting-started/boot"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2025-05-01"
+    reports:
+      - ver: "3.21.3"
+        var: ""
+        status: "basic"
+        date: "2025-05-01"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Alpine/README/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Duo/ArchLinux/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1Qf8ioR29KCsvt2MIWre168Um9Q8ot_z5/view?usp=sharing"
+        docs:
+          - "https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#ArchLinux_Disk_Image"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2025-08-22"
+    reports:
+      - ver: "v2.0.1"
+        var: "v2"
+        status: "basic"
+        date: "2025-08-22"
+        url: "https://matrix.ruyisdk.org/reports/Duo/BuildRoot/README_v2/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/v2.0.1/milkv-duo-musl-riscv64-sd_v2.0.1.img.zip"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2"
+      - ver: "v1.1.4"
+        var: "v1"
+        status: "basic"
+        date: "2025-04-07"
+        url: "https://matrix.ruyisdk.org/reports/Duo/BuildRoot/README/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk/releases"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Debian/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing"
+        docs:
+          - "https://github.com/hongwenjun/riscv64/tree/main/milkv-duo"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Fedora/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/milkv-duo-fedora-minimal.img.gz"
+        docs:
+          - "https://fedoraproject.org/wiki/Architectures/RISC-V/Installing"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-01-27"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-01-27"
+        url: "https://matrix.ruyisdk.org/reports/Duo/NixOS/README/"
+        docs:
+          - "https://github.com/NickCao/nixos-riscv/README.md"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo/openEuler/README/"
+        docs:
+          - "https://blog.inuyasha.love/linuxeveryday/33.html"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-03-31"
+    reports:
+      - ver: "23.05"
+        var: "VizOS"
+        status: "basic"
+        date: "2025-03-31"
+        url: "https://matrix.ruyisdk.org/reports/Duo/OpenWrt/README/"
+        docs:
+          - "https://community.milkv.io/t/milk-v-duo-openwrt/2399"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-11-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-13"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Ubuntu/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1y1NQamzUDzot_kVT2yKkbusoJmtvH5tD/view?usp=sharing"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: xv6
+    distro_name: "xv6"
+    status: basic
+    last_update: "2025-04-15"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-04-15"
+        url: "https://matrix.ruyisdk.org/reports/Duo/xv6/README/"
+        downloads:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img"
+        docs:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/"
+  - board: milkv-duo
+    board_name: "Milk-V Duo (64M)"
+    distro: yocto
+    distro_name: "Yocto"
+    status: basic
+    last_update: "2024-11-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-25"
+        url: "https://matrix.ruyisdk.org/reports/Duo/Yocto/README/"
+        docs:
+          - "https://github.com/kinsamanka/meta-milkv/blob/master/README.md"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2024-11-05"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-05"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Alpine/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2024-10-09"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-10-09"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/ArchLinux/README/"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2025-04-07"
+    reports:
+      - ver: "v1.1.4"
+        var: "v1"
+        status: "basic"
+        date: "2025-04-07"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/BuildRoot/README/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk/releases"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk"
+      - ver: "v2.0.0"
+        var: ""
+        status: "basic"
+        date: "2025-01-08"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/BuildRoot/README_v2/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2025-05-28"
+    reports:
+      - ver: "13.0"
+        var: ""
+        status: "basic"
+        date: "2025-05-28"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Debian/README/"
+        downloads:
+          - "https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.23/duo256-e_sd.img.lz4"
+        docs:
+          - "https://github.com/scpcom/sophgo-sg200x-debian/"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-11-06"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "basic"
+        date: "2024-11-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Fedora/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz"
+        docs:
+          - "https://github.com/chainsx/fedora-riscv-builder"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-01-27"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-01-27"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/NixOS/README/"
+        docs:
+          - "https://github.com/NickCao/nixos-riscv/README.md"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2024-10-29"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "basic"
+        date: "2024-10-29"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/openEuler/README/"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-11-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-13"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Ubuntu/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view?usp=drive_link"
+        docs:
+          - "https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: xv6
+    distro_name: "xv6"
+    status: cfh
+    last_update: "2025-04-15"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-04-15"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/xv6/README/"
+        downloads:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img"
+        docs:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/"
+  - board: milkv-duo-256m
+    board_name: "Milk-V Duo (256M)"
+    distro: yocto
+    distro_name: "Yocto"
+    status: basic
+    last_update: "2024-11-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-11-25"
+        url: "https://matrix.ruyisdk.org/reports/Duo256m/Yocto/README/"
+        docs:
+          - "https://github.com/kinsamanka/meta-milkv/blob/master/README.md"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2026-09-06"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2026-09-06"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/ArchLinux/README/"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2025-07-03"
+    reports:
+      - ver: "v2.0.1"
+        var: "v2"
+        status: "basic"
+        date: "2025-07-03"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/BuildRoot/README_v2/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk-v2"
+      - ver: "v1.1.4"
+        var: "v1"
+        status: "basic"
+        date: "2025-04-14"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/BuildRoot/README/"
+        downloads:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk/releases/"
+        docs:
+          - "https://github.com/milkv-duo/duo-buildroot-sdk/"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2026-09-08"
+    reports:
+      - ver: "1.9.6"
+        var: ""
+        status: "basic"
+        date: "2026-09-08"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/Debian/README/"
+        downloads:
+          - "https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.9.6"
+        docs:
+          - "https://github.com/scpcom/sophgo-sg200x-debian"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-11-24"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "basic"
+        date: "2024-11-24"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/Fedora/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/DuoS/images/latest/"
+        docs:
+          - "https://fedoraproject.org/wiki/Architectures/RISC-V/Installing"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2025-04-14"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-04-14"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/NixOS/README/"
+        docs:
+          - "https://github.com/NickCao/nixos-riscv/README.md"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-03-24"
+    reports:
+      - ver: "23.05"
+        var: ""
+        status: "basic"
+        date: "2025-03-24"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/OpenWrt/README/"
+        downloads:
+          - "https://github.com/draftbottle/Milkv-duo-openwrt/releases/download/v4.0/milkv-duos.img"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2026-09-14"
+    reports:
+      - ver: "24.04"
+        var: ""
+        status: "basic"
+        date: "2026-09-14"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/Ubuntu/README/"
+        downloads:
+          - "https://github.com/queenkjuul/milkv-duo-ubuntu/releases/tag/v7.0.6-qkj1"
+        docs:
+          - "https://github.com/queenkjuul/milkv-duo-ubuntu/wiki/Building-the-System"
+  - board: milkv-duo-s
+    board_name: "Milk-V Duo S"
+    distro: xv6
+    distro_name: "xv6"
+    status: basic
+    last_update: "2026-09-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2026-09-21"
+        url: "https://matrix.ruyisdk.org/reports/Duo_S/xv6/README/"
+        downloads:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img"
+        docs:
+          - "https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/"
+  - board: muse-pi-pro
+    board_name: "Muse Pi Pro"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: good
+    last_update: "2025-08-13"
+    reports:
+      - ver: "v1.3"
+        var: "bianbu-computer"
+        status: "good"
+        date: "2025-08-13"
+        url: "https://matrix.ruyisdk.org/reports/Muse_Pi_Pro/Bianbu/README/"
+        downloads:
+          - "https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.3/"
+  - board: muse-pi-pro
+    board_name: "Muse Pi Pro"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2025-05-21"
+    reports:
+      - ver: "24.03-LTS-SP1"
+        var: ""
+        status: "basic"
+        date: "2025-05-21"
+        url: "https://matrix.ruyisdk.org/reports/Muse_Pi_Pro/openEuler/README/"
+        downloads:
+          - "https://images.oerv.ac.cn/board?uri=products/spacemit/muse_pi_pro.json&name=MUSE+Pi+Pro"
+  - board: orangepi-rv2
+    board_name: "OrangePi RV2"
+    distro: bredos
+    distro_name: "BredOS"
+    status: good
+    last_update: "2025-08-12"
+    reports:
+      - ver: ""
+        var: ""
+        status: "good"
+        date: "2025-08-12"
+        url: "https://matrix.ruyisdk.org/reports/OrangePi-RV2/BredOS/README/"
+        downloads:
+          - "https://bredos.org/download.html"
+  - board: orangepi-rv2
+    board_name: "OrangePi RV2"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2025-08-19"
+    reports:
+      - ver: "13"
+        var: ""
+        status: "basic"
+        date: "2025-08-19"
+        url: "https://matrix.ruyisdk.org/reports/OrangePi-RV2/Debian/README/"
+        downloads:
+          - "https://dl.romanrm.net/risc-v/Orangepirv2_1.0.0_debian_trixie_minimal_linux6.6.63.img.bz2"
+  - board: orangepi-rv2
+    board_name: "OrangePi RV2"
+    distro: irradium
+    distro_name: "irradium"
+    status: basic
+    last_update: "2025-05-29"
+    reports:
+      - ver: "3.8"
+        var: ""
+        status: "basic"
+        date: "2025-05-29"
+        url: "https://matrix.ruyisdk.org/reports/OrangePi-RV2/irradium/README/"
+        downloads:
+          - "https://mirror.serverion.com/irradium/images/orange_pi_rv2/irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img.zst"
+  - board: orangepi-rv2
+    board_name: "OrangePi RV2"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-05-22"
+    reports:
+      - ver: "24.10.0"
+        var: ""
+        status: "basic"
+        date: "2025-05-22"
+        url: "https://matrix.ruyisdk.org/reports/OrangePi-RV2/OpenWrt/README/"
+        downloads:
+          - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
+        docs:
+          - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
+  - board: orangepi-rv2
+    board_name: "OrangePi RV2"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: good
+    last_update: "2025-05-22"
+    reports:
+      - ver: "24.04.01"
+        var: "LTS"
+        status: "good"
+        date: "2025-05-22"
+        url: "https://matrix.ruyisdk.org/reports/OrangePi-RV2/Ubuntu/README_LTS/"
+        downloads:
+          - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
+        docs:
+          - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-04-05"
+    reports:
+      - ver: "23"
+        var: ""
+        status: "good"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/Deepin/README/"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: fedora
+    distro_name: "Fedora"
+    status: good
+    last_update: "2024-06-21"
+    reports:
+      - ver: "38"
+        var: "Workstation"
+        status: "good"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/Fedora/README/"
+        downloads:
+          - "https://drive.google.com/file/d/1IjxeKiwtyDTmc2YGbn7yvpbCx0B1kkBh/view"
+        docs:
+          - "https://milkv.io/zh/docs/pioneer/getting-started/InstallOS"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: opencloudos
+    distro_name: "openCloudOS"
+    status: good
+    last_update: "2025-05-25"
+    reports:
+      - ver: "23"
+        var: "uefi"
+        status: "good"
+        date: "2025-05-25"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/openCloudOS/README_uefi/"
+        downloads:
+          - "https://mirrors.opencloudos.tech/opencloudos-stream/releases/23/images/riscv64/sdcard/"
+          - "https://mirrors.opencloudos.tech/opencloudos-stream/releases/23/images/riscv64/sdcard/ocs_developer_sdcard-uefi.img.xz"
+      - ver: "23"
+        var: "linuxboot"
+        status: "good"
+        date: "2025-05-20"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/openCloudOS/README_linuxboot/"
+        downloads:
+          - "https://mirrors.opencloudos.tech/opencloudos-stream/releases/23/images/riscv64/sdcard/"
+          - "https://mirrors.opencloudos.tech/opencloudos-stream/releases/23/images/riscv64/sdcard/ocs_developer_sdcard-linuxboot.img.xz"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: good
+    last_update: "2025-04-09"
+    reports:
+      - ver: "25.03"
+        var: ""
+        status: "good"
+        date: "2025-04-09"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/openEuler/README/"
+        downloads:
+          - "https://www.openeuler.org/en/download/"
+      - ver: "24.03-LTS-SP1"
+        var: "LTS"
+        status: "good"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/openEuler/README_lts/"
+        downloads:
+          - "https://www.openeuler.org/en/download/"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-03-03"
+    reports:
+      - ver: "2.0-SP1"
+        var: ""
+        status: "good"
+        date: "2025-03-03"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/openKylin/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openkylin-cdimage/2.0-SP1/openKylin-Embedded-V2.0-SP1-milk-v-pioneer-riscv64.img.xz"
+        docs:
+          - "https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8Sophgo_sg2042%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: pioneer
+    board_name: "Milk-V Pioneer"
+    distro: revyos
+    distro_name: "RevyOS"
+    status: good
+    last_update: "2025-10-29"
+    reports:
+      - ver: "20251030"
+        var: ""
+        status: "good"
+        date: "2025-10-29"
+        url: "https://matrix.ruyisdk.org/reports/Pioneer/RevyOS/README/"
+        downloads:
+          - "https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/"
+        docs:
+          - "https://docs.revyos.dev/docs/Installation/milkv-pioneer/"
+  - board: premier-p550
+    board_name: "HiFive Premier P550"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2026-09-07"
+    reports:
+      - ver: "1.0.0-20250730"
+        var: "minimal"
+        status: "basic"
+        date: "2026-09-07"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Debian/README/"
+        downloads:
+          - "https://github.com/eswincomputing/eic7x-images/releases/tag/Debian-v1.0.0-20250730"
+  - board: premier-p550
+    board_name: "HiFive Premier P550"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-05-26"
+    reports:
+      - ver: "eic7700-riscv64-25"
+        var: ""
+        status: "good"
+        date: "2025-05-26"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz"
+  - board: premier-p550
+    board_name: "HiFive Premier P550"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2026-09-12"
+    reports:
+      - ver: "44"
+        var: "server"
+        status: "basic"
+        date: "2026-09-12"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Fedora/README/"
+  - board: premier-p550
+    board_name: "HiFive Premier P550"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: good
+    last_update: "2026-07-07"
+    reports:
+      - ver: "24.04.3"
+        var: "LTS"
+        status: "good"
+        date: "2026-07-07"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Ubuntu/REAMDE_LTS/"
+        downloads:
+          - "https://github.com/sifiveinc/hifive-premier-p550-ubuntu/releases/tag/2025.11.00"
+        docs:
+          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
+  - board: premier-p550
+    board_name: "HiFive Premier P550"
+    distro: yocto
+    distro_name: "Yocto"
+    status: cft
+    last_update: "2025-04-09"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cft"
+        date: "2025-04-09"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Yocto/REAMDE/"
+        downloads:
+          - "https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550"
+        docs:
+          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
+  - board: star64
+    board_name: "Star64"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: cfh
+    last_update: "2025-05-26"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-05-26"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/ArchLinux/README/"
+        docs:
+          - "https://github.com/yogo1212/arch-linux-star64"
+  - board: star64
+    board_name: "Star64"
+    distro: armbian
+    distro_name: "Armbian"
+    status: cfh
+    last_update: "2025-10-02"
+    reports:
+      - ver: "25.2.0-trunk.124"
+        var: ""
+        status: "cfh"
+        date: "2025-10-02"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/"
+        downloads:
+          - "https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz"
+        docs:
+          - "https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429"
+  - board: star64
+    board_name: "Star64"
+    distro: deepin
+    distro_name: "Deepin"
+    status: basic
+    last_update: "2025-07-13"
+    reports:
+      - ver: "23"
+        var: ""
+        status: "basic"
+        date: "2025-07-13"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/Deepin/README/"
+        downloads:
+          - "https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-visionfive-2-20221208180420.img.zst.0"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt"
+  - board: star64
+    board_name: "Star64"
+    distro: dietpi
+    distro_name: "DietPi"
+    status: basic
+    last_update: "2025-07-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-07-13"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/DietPi/README/"
+        downloads:
+          - "https://dietpi.com/downloads/images/DietPi_Star64-RISC-V-Trixie.img.xz"
+        docs:
+          - "https://dietpi.com/blog/?p=2629"
+  - board: star64
+    board_name: "Star64"
+    distro: irradium
+    distro_name: "irradium"
+    status: basic
+    last_update: "2025-07-13"
+    reports:
+      - ver: "3.8"
+        var: ""
+        status: "basic"
+        date: "2025-07-13"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/irradium/README/"
+        downloads:
+          - "https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img.zst"
+        docs:
+          - "https://dl.irradium.org/irradium/images/star64/"
+  - board: star64
+    board_name: "Star64"
+    distro: netbsd
+    distro_name: "NetBSD"
+    status: basic
+    last_update: "2025-07-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-07-13"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/"
+        downloads:
+          - "https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/"
+  - board: star64
+    board_name: "Star64"
+    distro: nixos
+    distro_name: "NixOS"
+    status: cfh
+    last_update: "2025-05-29"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cfh"
+        date: "2025-05-29"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/NixOS/README/"
+        docs:
+          - "https://git.sr.ht/~fgaz/nixos-star64"
+  - board: star64
+    board_name: "Star64"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2025-05-25"
+    reports:
+      - ver: "25.04"
+        var: ""
+        status: "basic"
+        date: "2025-05-25"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/Ubuntu/README/"
+        downloads:
+          - "https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz"
+        docs:
+          - "https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/"
+  - board: star64
+    board_name: "Star64"
+    distro: yocto
+    distro_name: "Yocto"
+    status: basic
+    last_update: "2025-07-13"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-07-13"
+        url: "https://matrix.ruyisdk.org/reports/STAR64/Yocto/README/"
+        downloads:
+          - "https://github.com/Fishwaldo/meta-pine64/releases/tag/v2.1"
+        docs:
+          - "https://github.com/Fishwaldo/meta-pine64"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: armbian
+    distro_name: "Armbian"
+    status: cfh
+    last_update: "2025-04-14"
+    reports:
+      - ver: "25.2.0-trunk.266"
+        var: "noble"
+        status: "cfh"
+        date: "2025-04-14"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Armbian/README/"
+        downloads:
+          - "https://www.armbian.com/sifive-unmatched/"
+        docs:
+          - "https://docs.armbian.com/User-Guide_Getting-Started/"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2025-04-10"
+    reports:
+      - ver: "trixie/sid"
+        var: ""
+        status: "basic"
+        date: "2025-04-10"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Debian/README/"
+        downloads:
+          - "https://github.com/yuzibo/Unmatched-Debian-image/releases/tag/0.0.5-beta"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-04-05"
+    reports:
+      - ver: ""
+        var: ""
+        status: "good"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Deepin/README/"
+        downloads:
+          - "https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "38"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Fedora/README/"
+        downloads:
+          - "https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz"
+        docs:
+          - "https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README.md"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: freebsd
+    distro_name: "FreeBSD"
+    status: basic
+    last_update: "2025-04-11"
+    reports:
+      - ver: "14.2"
+        var: ""
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/FreeBSD/README/"
+        downloads:
+          - "https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/14.2/FreeBSD-14.2-RELEASE-riscv-riscv64-mini-memstick.img.xz"
+          - "https://github.com/sifive/freedom-u-sdk/releases/latest"
+        docs:
+          - "https://wiki.freebsd.org/riscv/HiFiveUnmatched"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: openbsd
+    distro_name: "OpenBSD"
+    status: basic
+    last_update: "2025-04-11"
+    reports:
+      - ver: "7.6"
+        var: ""
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/OpenBSD/README/"
+        downloads:
+          - "https://cdn.openbsd.org/pub/OpenBSD/7.6/riscv64/install76.img"
+          - "https://github.com/sifive/freedom-u-sdk/releases/latest"
+        docs:
+          - "https://cdn.openbsd.org/pub/OpenBSD/7.6/riscv64/INSTALL.riscv64"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: basic
+    last_update: "2025-10-24"
+    reports:
+      - ver: "24.03-LTS-SP2"
+        var: "LTS"
+        status: "basic"
+        date: "2025-10-24"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/openEuler/README/"
+        downloads:
+          - "https://www.openeuler.openatom.cn/en/download/#openEuler%2024.03%20LTS%20SP2"
+      - ver: "24.09"
+        var: ""
+        status: "good"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/openEuler/README_testing/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/"
+        docs:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-04-05"
+    reports:
+      - ver: "1.0"
+        var: ""
+        status: "good"
+        date: "2025-04-05"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/openKylin/README/"
+        downloads:
+          - "https://mirrors.163.com/openkylin-cd/1.0/openKylin-1.0-hifive-unmatched-riscv64.img.xz"
+        docs:
+          - "https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: opensuse
+    distro_name: "openSUSE"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/openSUSE/README/"
+        downloads:
+          - "https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz"
+        docs:
+          - "https://en.opensuse.org/HCL:HiFive_Unmatched"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2025-04-11"
+    reports:
+      - ver: "24.10.0"
+        var: ""
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/OpenWrt/README/"
+        downloads:
+          - "https://firmware-selector.openwrt.org/?version=24.10.0&target=sifiveu%2Fgeneric&id=sifive_unmatched"
+        docs:
+          - "https://openwrt.org/docs/techref/hardware/soc/soc.sifive"
+  - board: unmatched
+    board_name: "HiFive Unmatched"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2025-04-11"
+    reports:
+      - ver: "24.10"
+        var: ""
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Ubuntu/README/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v"
+        docs:
+          - "https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched"
+      - ver: "24.04.2"
+        var: "LTS"
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/Unmatched/Ubuntu/README_LTS/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v"
+        docs:
+          - "https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2025-06-04"
+    reports:
+      - ver: "3.20.0_alpha20231219 (edge)"
+        var: ""
+        status: "basic"
+        date: "2025-06-04"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/Alpine/README/"
+        downloads:
+          - "https://dev.alpinelinux.org/~mps/riscv64/visionfive-v1-mmc.img.xz"
+        docs:
+          - "https://arvanta.net/alpine/alpine-on-visionfive/"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: armbian
+    distro_name: "Armbian"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/Armbian/README/"
+        downloads:
+          - "https://www.armbian.com/vision-five/"
+          - "https://github.com/starfive-tech/Fedora_on_StarFive/releases"
+        docs:
+          - "https://docs.armbian.com/User-Guide_Getting-Started/"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/BuildRoot/README/"
+        downloads:
+          - "https://buildroot.org/download.html"
+        docs:
+          - "https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: deepin
+    distro_name: "Deepin"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "23"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/Deepin/README/"
+        downloads:
+          - "https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/deepin-visionfive.7z"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/README.txt"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: fedora
+    distro_name: "Fedora"
+    status: good
+    last_update: "2024-06-21"
+    reports:
+      - ver: "33"
+        var: ""
+        status: "good"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/Fedora/README/"
+        downloads:
+          - "https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst"
+        docs:
+          - "https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: openbsd
+    distro_name: "OpenBSD"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/OpenBSD/README/"
+        downloads:
+          - "https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/"
+        docs:
+          - "https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: good
+    last_update: "2024-06-21"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "good"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/openEuler/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive/"
+        docs:
+          - "https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/Visionfive"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2024-06-21"
+    reports:
+      - ver: "0.9.5"
+        var: ""
+        status: "good"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/old_releases.html"
+        docs:
+          - "https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: opensuse
+    distro_name: "openSUSE"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/openSUSE/README/"
+        downloads:
+          - "https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive/images/"
+        docs:
+          - "https://en.opensuse.org/HCL:VisionFive"
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/OpenWrt/README/"
+        downloads:
+          - "https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1"
+          - "https://github.com/starfive-tech/Fedora_on_StarFive/releases"
+        docs:
+          - "https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s["
+  - board: visionfive
+    board_name: "VisionFive"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "23.10"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive/Ubuntu/README/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v"
+        docs:
+          - "https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: alpine
+    distro_name: "Alpine"
+    status: basic
+    last_update: "2024-10-22"
+    reports:
+      - ver: "3.20.0_alpha20231219 (edge)"
+        var: ""
+        status: "basic"
+        date: "2024-10-22"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Alpine/README/"
+        downloads:
+          - "https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz"
+        docs:
+          - "https://arvanta.net/alpine/alpine-on-visionfive/"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: arch
+    distro_name: "ArchLinux"
+    status: basic
+    last_update: "2024-10-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-10-25"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/ArchLinux/README/"
+        downloads:
+          - "https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23"
+        docs:
+          - "https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: armbian
+    distro_name: "Armbian"
+    status: good
+    last_update: "2024-06-21"
+    reports:
+      - ver: "24.5.0"
+        var: ""
+        status: "good"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Armbian/README/"
+        downloads:
+          - "https://www.armbian.com/visionfive2/"
+        docs:
+          - "https://www.armbian.com/visionfive2/"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: buildroot
+    distro_name: "BuildRoot"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "5.11.3"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/BuildRoot/README/"
+        downloads:
+          - "https://github.com/starfive-tech/VisionFive2/releases"
+        docs:
+          - "https://doc.rvspace.org/VisionFive2/SDK_Quick_Start_Guide/VisionFive2_SDK_QSG/running_sdk_on_visionfive_2.html"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: debian
+    distro_name: "Debian"
+    status: good
+    last_update: "2025-03-16"
+    reports:
+      - ver: ""
+        var: ""
+        status: "good"
+        date: "2025-03-16"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Debian/README/"
+        downloads:
+          - "https://debian.starfivetech.com/"
+        docs:
+          - "https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: deepin
+    distro_name: "Deepin"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "23"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Deepin/README/"
+        downloads:
+          - "https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz"
+        docs:
+          - "https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: dietpi
+    distro_name: "DietPi"
+    status: basic
+    last_update: "2024-10-25"
+    reports:
+      - ver: "v9.7.1 (MichaIng/master)"
+        var: ""
+        status: "basic"
+        date: "2024-10-25"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/DietPi/README/"
+        downloads:
+          - "https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz"
+        docs:
+          - "https://dietpi.com/blog/?p=2629"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: eweos
+    distro_name: "eweOS"
+    status: basic
+    last_update: "2025-03-02"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-03-02"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/eweOS/README/"
+        downloads:
+          - "https://github.com/panglars/eweos-vf2-mainline"
+        docs:
+          - "https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: fedora
+    distro_name: "Fedora"
+    status: good
+    last_update: "2025-01-19"
+    reports:
+      - ver: "41"
+        var: ""
+        status: "good"
+        date: "2025-01-19"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Fedora/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/latest/fedora-disk-multi-desktops_starfive_vf2-sda.raw.gz"
+        docs:
+          - "https://images.fedoravforce.com/how-to-burn-images-to-sd-cards"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: freebsd
+    distro_name: "FreeBSD"
+    status: basic
+    last_update: "2026-05-02"
+    reports:
+      - ver: "15.1-BETA1"
+        var: ""
+        status: "basic"
+        date: "2026-05-02"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/FreeBSD/README/"
+        downloads:
+          - "https://download.freebsd.org/releases/ISO-IMAGES/15.1/FreeBSD-15.1-BETA1-riscv-riscv64-GENERICSD.img.xz"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: gentoo
+    distro_name: "Gentoo"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "2.13"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Gentoo/README/"
+        downloads:
+          - "https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing"
+        docs:
+          - "https://forum.rvspace.org/t/experimental-gentoo-image/1807"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: guix
+    distro_name: "Guix"
+    status: basic
+    last_update: "2025-04-11"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Guix/README/"
+        downloads:
+          - "https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: irradium
+    distro_name: "irradium"
+    status: basic
+    last_update: "2025-03-06"
+    reports:
+      - ver: "3.7"
+        var: "core"
+        status: "basic"
+        date: "2025-03-06"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/irradium/README/"
+        downloads:
+          - "https://dl.irradium.org/irradium/images/visionfive_2/"
+        docs:
+          - "https://dl.irradium.org/irradium/images/visionfive_2/README.TXT"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: netbsd
+    distro_name: "NetBSD"
+    status: basic
+    last_update: "2024-10-07"
+    reports:
+      - ver: "10.99.12"
+        var: ""
+        status: "basic"
+        date: "2024-10-07"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/NetBSD/README/"
+        downloads:
+          - "https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: nixos
+    distro_name: "NixOS"
+    status: basic
+    last_update: "2024-12-22"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-12-22"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/NixOS/README/"
+        docs:
+          - "https://github.com/NickCao/nixos-riscv/README.md"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: openbsd
+    distro_name: "OpenBSD"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: "7.5"
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/OpenBSD/README/"
+        downloads:
+          - "https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/"
+        docs:
+          - "https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: openeuler
+    distro_name: "openEuler"
+    status: good
+    last_update: "2025-04-11"
+    reports:
+      - ver: "23.09"
+        var: ""
+        status: "good"
+        date: "2025-04-11"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/openEuler/README/"
+        downloads:
+          - "https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive2/"
+        docs:
+          - "https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: openkylin
+    distro_name: "openKylin"
+    status: good
+    last_update: "2025-01-15"
+    reports:
+      - ver: "2.0-SP1"
+        var: ""
+        status: "good"
+        date: "2025-01-15"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/openKylin/README/"
+        downloads:
+          - "https://www.openkylin.top/downloads/index-en.html"
+        docs:
+          - "https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: opensuse
+    distro_name: "openSUSE"
+    status: basic
+    last_update: "2024-10-25"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-10-25"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/openSUSE/README/"
+        downloads:
+          - "https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/"
+        docs:
+          - "https://en.opensuse.org/HCL:VisionFive2"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: openwrt
+    distro_name: "OpenWrt"
+    status: basic
+    last_update: "2024-06-21"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2024-06-21"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/OpenWrt/README/"
+        downloads:
+          - "https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive2-v1.3b"
+        docs:
+          - "https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: tizen
+    distro_name: "Tizen"
+    status: basic
+    last_update: "2025-09-18"
+    reports:
+      - ver: ""
+        var: ""
+        status: "basic"
+        date: "2025-09-18"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Tizen/README/"
+        docs:
+          - "https://docs.tizen.org/platform/developing/flashing-rpi/"
+  - board: visionfive2
+    board_name: "VisionFive 2"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2025-04-19"
+    reports:
+      - ver: "25.04"
+        var: ""
+        status: "basic"
+        date: "2025-04-19"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Ubuntu/README/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v"
+        docs:
+          - "https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202"
+      - ver: "24.04.2"
+        var: "LTS"
+        status: "basic"
+        date: "2025-02-24"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2/Ubuntu/Ubuntu_LTS/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v"
+        docs:
+          - "https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202"

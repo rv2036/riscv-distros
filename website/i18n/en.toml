@@ -98,6 +98,7 @@ boards = "Boards"
 ai = "AI software"
 
 [matrix]
+own_source = "Our own notes (not tested by RuyiSDK)"
 title = "Support matrix"
 sub = "Boards down the side, distros across the top. Each cell links to the distribution page with images and pitfalls."
 legend = "Legend"
@@ -123,3 +124,25 @@ license = "Content licensed CC BY-SA 4.0"
 
 [site]
 tagline = "For your first RISC-V machine"
+
+[ruyisdk]
+legend_note = "Status meanings: good — fully usable (desktop boots); basic — basic system (serial console works); part — partial functionality; cft — image exists, needs verification; cfh — documented as supported but fails to boot; cfi — claimed supported, no image; wip — announced only."
+source = "Source"
+open_report = "Open report"
+col_report = "Report"
+col_date = "Last tested"
+col_status = "Status"
+board_sub = "Systems RuyiSDK actually tested on this board. Open a report for install steps and the verdict."
+distro_sub = "Hands-on records from RuyiSDK, board by board. Open a report for the full install steps and verdict."
+tested = "Tested by RuyiSDK"
+title = "RuyiSDK test reports"
+
+[ruyisdk.status]
+unknown = "Unspecified"
+wip = "Announced only"
+cfi = "No image yet"
+cfh = "Fails to boot"
+cft = "Needs verification"
+part = "Partial"
+basic = "Basic"
+good = "Good"

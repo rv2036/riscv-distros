@@ -9,7 +9,7 @@
 {{- $fallback := dict -}}
 {{- with index site.Data "i18n" -}}{{- with index . "zh" -}}{{- $fallback = . -}}{{- end -}}{{- end -}}
 {{- $out := dict -}}
-{{- range $k := slice "distros" "boards" "ai" -}}
+{{- range $k := slice "distros" "boards" "ai" "ruyisdk" -}}
   {{- $v := index $cur $k -}}
   {{- if not $v -}}{{- $v = index $fallback $k -}}{{- end -}}
   {{- if not $v -}}{{- $v = index site.Data $k -}}{{- end -}}

@@ -98,6 +98,7 @@ boards = "ボード"
 ai = "AI ソフト"
 
 [matrix]
+own_source = "当サイト調べ（RuyiSDK 実測ではない）"
 title = "対応マトリクス"
 sub = "行がボード、列がディストロ。各セルからダウンロードと注意点へ。"
 legend = "凡例"
@@ -123,3 +124,25 @@ license = "内容は CC BY-SA 4.0"
 
 [site]
 tagline = "はじめての RISC-V のために"
+
+[ruyisdk]
+legend_note = "状態の意味：good 完全に利用可（デスクトップ起動可）、basic 基本利用可（シリアルで起動可）、part 一部機能のみ、cft イメージはあるが要検証、cfh 対応記載があるが起動失敗、cfi 対応記載のみでイメージなし、wip 発表のみ。"
+source = "データ出典"
+open_report = "レポートを開く"
+col_report = "レポート"
+col_date = "最終検証"
+col_status = "状態"
+board_sub = "このボードで RuyiSDK が実測したシステム。レポートで導入手順と結論を確認できます。"
+distro_sub = "RuyiSDK が実機でボードごとに検証した記録です。レポートで導入手順と結論を確認できます。"
+tested = "RuyiSDK 実測"
+title = "RuyiSDK 実測レポート"
+
+[ruyisdk.status]
+unknown = "未記載"
+wip = "発表のみ"
+cfi = "イメージ未提供"
+cfh = "起動不可"
+cft = "要検証"
+part = "一部のみ"
+basic = "基本"
+good = "良好"

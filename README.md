@@ -87,6 +87,25 @@ make site-check
 
 新增条目只改中文，其余语言会**回退显示中文**（刻意的回退设计，不是 bug），所以四语要同步翻译。
 
+## RuyiSDK 实测矩阵（权威数据源）
+
+[RuyiSDK 支持矩阵](https://matrix.ruyisdk.org) 是 RuyiSDK 官方在真机上逐板逐系统跑出来的测试记录（源仓：[ruyisdk/support-matrix](https://github.com/ruyisdk/support-matrix)）。本站把它当作**可信实测层**直接引用，不自己复述数字。
+
+```bash
+git clone --depth 1 https://github.com/ruyisdk/support-matrix.git /tmp/support-matrix
+~/.hermes/hermes-agent/venv/bin/python scripts/gen_ruyisdk_data.py /tmp/support-matrix
+```
+
+产出 `website/data/ruyisdk.yaml`（语言中立：只有 id / 枚举 / URL / 日期），站内三处消费它：
+
+- **支持矩阵**：格子里有 RuyiSDK 报告就用它的实测状态（实心符号 ● ◐ ◔ ◌ ✕），点击直达该份报告；没有报告但本站有资料时退化成灰色小点 `·`，图例明确区分两个来源
+- **发行版页**：`RuyiSDK 实测报告` 表 —— 板 / 状态 / 版本 / 最近测试 / 报告链接
+- **开发板页**：同样的表，行换成系统
+
+RuyiSDK 的状态枚举（取自其 CONTRIBUTING）：`good` 完整可用（能进桌面）、`basic` 基本可用（串口能起来）、`part` 部分功能、`cft` 有镜像待验证、`cfh` 文档称支持但启动失败、`cfi` 官方称支持但无镜像、`wip` 只有宣称。RTOS（RT-Thread / FreeRTOS / Zephyr / NuttX 等）与 MCU 板不进本站矩阵。
+
+当前抓取结果：RuyiSDK 侧 94 块板、382 份报告；映射到本站 **23 块板 × 31 个发行版 = 169 个实测组合**。
+
 ## RSS
 
 每个语言四份 + 每个明细页一份：

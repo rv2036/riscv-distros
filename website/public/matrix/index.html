@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>支持矩阵 · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/matrix/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/matrix/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/matrix/><link rel=alternate type=application/rss+xml href=/index.xml title="RISC-V 发行版"><link rel=stylesheet href=/css/main.min.25439f54b89ff1f1192d3d66fbe464343dcaec7e003b828d4938ec84c2c5a671.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>支持矩阵 · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/matrix/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/matrix/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/matrix/><link rel=alternate type=application/rss+xml href=/index.xml title="RISC-V 发行版"><link rel=stylesheet href=/css/main.min.5337c8559339de8d89fd94049b25697f538615617bb1e2f823d6ae0314f12e86.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
 <span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
 <a href=/distros/>发行版</a>
 <a href=/boards/>开发板</a>
@@ -9,12 +9,17 @@
 <a href=/distros/index.xml>发行版</a>
 <a href=/boards/index.xml>开发板</a>
 <a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><div class=matrix-wrap><table class=matrix><thead><tr><th class=mx-corner>开发板 \ 发行版</th><th><a href=/distros/debian/>Debian</a></th><th><a href=/distros/revyos/>RevyOS</a></th></tr></thead><tbody><tr><th class=mx-row><a href=/boards/unmatched/>SiFive HiFive Unmatched</a>
-<span class=mx-soc>FU740</span></th><td class=lv-official><a href=/distros/debian/ title=官方支持><span aria-hidden=true>●</span><span class=sr-only>官方支持</span></a></td><td class=lv-none></td></tr><tr><th class=mx-row><a href=/boards/licheepi-4a/>荔枝派 4A（LicheePi 4A）</a>
-<span class=mx-soc>T-Head TH1520</span></th><td class=lv-none></td><td class=lv-official><a href=/distros/revyos/ title=官方支持><span aria-hidden=true>●</span><span class=sr-only>官方支持</span></a></td></tr></tbody></table></div><p class=matrix-legend><strong>图例</strong>
-<span class="badge lv-official">● 官方支持</span>
-<span class="badge lv-community">◐ 社区可用</span>
-<span class="badge lv-partial">○ 部分可用</span>
-<span class=muted>行是开发板、列是发行版。点进任意一格可以看该发行版的下载与坑。</span></p><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span class=mx-soc>FU740</span></th><td class=st-basic><a href=https://matrix.ruyisdk.org/reports/Unmatched/Debian/README/ rel=noopener title="RuyiSDK 实测 · 基本可用 · 2025-04-10"><span aria-hidden=true>◐</span><span class=sr-only>基本可用</span></a></td><td class=lv-none></td></tr><tr><th class=mx-row><a href=/boards/licheepi-4a/>荔枝派 4A（LicheePi 4A）</a>
+<span class=mx-soc>T-Head TH1520</span></th><td class=lv-none></td><td class=st-good><a href=https://matrix.ruyisdk.org/reports/LicheePi4A/RevyOS/README/ rel=noopener title="RuyiSDK 实测 · 完整可用 · 2026-03-17"><span aria-hidden=true>●</span><span class=sr-only>完整可用</span></a></td></tr></tbody></table></div><div class=matrix-legend><strong>图例</strong>
+<span class="badge st-good">● 完整可用</span>
+<span class="badge st-basic">◐ 基本可用</span>
+<span class="badge st-part">◔ 部分功能</span>
+<span class="badge st-cft">◌ 待验证</span>
+<span class="badge st-cfh">✕ 启动失败</span>
+<span class="badge mx-own lv-official">· 本站资料（未经 RuyiSDK 实测）</span></div><p class="muted matrix-note">状态含义：good 完整可用（能进桌面）、basic 基本可用（串口能起来）、part 部分功能、cft 有镜像待验证、cfh 文档称支持但启动失败、cfi 官方称支持但无镜像、wip 只有宣称。</p><p class="muted matrix-note">数据来源
+<a href=https://matrix.ruyisdk.org rel=noopener>https://matrix.ruyisdk.org</a> ·
+核查日期 2026-11-01 ·
+<a href=https://github.com/ruyisdk/support-matrix rel=noopener>support-matrix</a></p><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
 <span>内容许可 CC BY-SA 4.0</span>
 <span class=spacer></span>
 <a href=/start/>入门</a>
