@@ -41,6 +41,7 @@ DOMAINS = {
     'openeuler.org': 'https://www.openeuler.org/zh/download/',
     'docs.openeuler.org': 'https://docs.openeuler.org/',
     'openkylin.top': 'https://www.openkylin.top/downloads/',
+    'docs.openkylin.top': 'http://docs.openkylin.top/',
     'deepin.org': 'https://www.deepin.org/',
     'deepin-community.github.io': 'https://deepin-community.github.io/sig-deepin-ports/images/riscv64',
     'armbian.com': 'https://www.armbian.com/download/',
