@@ -1,4 +1,5 @@
 [nav]
+sources = "来源与致谢"
 start = "入门"
 distros = "发行版"
 boards = "开发板"
@@ -149,3 +150,7 @@ cft = "待验证"
 part = "部分功能"
 basic = "基本可用"
 good = "完整可用"
+
+[sources]
+title = "来源与致谢"
+more = "完整来源清单与判定方法见"

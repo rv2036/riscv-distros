@@ -116,6 +116,20 @@
   </section>
   {{ end }}
 
+  {{ with $x.sources }}
+  <section class="block">
+    <div class="block-head"><h2>{{ i18n "label.sources" }}<span class="count">{{ len . }}</span></h2></div>
+    <ul class="source-list">
+      {{ range . }}
+      {{ $u := urls.Parse . }}
+      {{ $host := strings.TrimPrefix "www." $u.Host }}
+      <li><a href="{{ . }}" rel="noopener">{{ $host }}{{ $u.Path }}</a></li>
+      {{ end }}
+    </ul>
+    <p class="muted">{{ i18n "sources.more" }} <a href="{{ "sources/" | relLangURL }}">{{ i18n "nav.sources" }}</a></p>
+  </section>
+  {{ end }}
+
   <section class="block prose">{{ .Content }}</section>
 </div>
 {{ end }}
