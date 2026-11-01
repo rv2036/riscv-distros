@@ -639,6 +639,7 @@ items:
     type: doc
     lang: en
   gotchas:
+  - "创新版本 26.09（2026-09-30 发布）没有 riscv64 ISO：ISO/OS/everything 目录只有 aarch64 与 x86_64，RISC-V 仍以 24.03 LTS SP4 为准"
   - RVA20 与 RVA23 镜像分开发布；24.03 LTS SP4 的 RISC-V 只提供 RVA23 ISO（rva20 目录不存在）
   - 需要 UEFI/EDK2 固件与对应板卡 DTB，老 U-Boot 板卡可能起不来
   - 文档按版本分路径，RISC-V 安装页只挂在 24.03_LTS 路径下，SP3/SP4 路径会 404
@@ -651,11 +652,12 @@ items:
   - EulixOS
   - Eulaceura
   note: 服务器/企业场景的 RISC-V 底座，RVA23 + Server Platform 规范推进最快；个人开发板用户除非要做服务器验证，否则不如 RevyOS/Bianbu 省事。
-  checked: '2026-11-01'
+  checked: '2026-11-02'
   order: 7
   feature: true
   sources:
   - https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - https://dl-cdn.openeuler.openatom.cn/openEuler-26.09/ISO/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
