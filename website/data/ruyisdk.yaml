@@ -1739,6 +1739,78 @@ items:
           - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
         docs:
           - "http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html"
+  - board: p550
+    board_name: "HiFive Premier P550"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2026-09-07"
+    reports:
+      - ver: "1.0.0-20250730"
+        var: "minimal"
+        status: "basic"
+        date: "2026-09-07"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Debian/README/"
+        downloads:
+          - "https://github.com/eswincomputing/eic7x-images/releases/tag/Debian-v1.0.0-20250730"
+  - board: p550
+    board_name: "HiFive Premier P550"
+    distro: deepin
+    distro_name: "Deepin"
+    status: good
+    last_update: "2025-05-26"
+    reports:
+      - ver: "eic7700-riscv64-25"
+        var: ""
+        status: "good"
+        date: "2025-05-26"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Deepin/README/"
+        downloads:
+          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz"
+  - board: p550
+    board_name: "HiFive Premier P550"
+    distro: fedora
+    distro_name: "Fedora"
+    status: basic
+    last_update: "2026-09-12"
+    reports:
+      - ver: "44"
+        var: "server"
+        status: "basic"
+        date: "2026-09-12"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Fedora/README/"
+  - board: p550
+    board_name: "HiFive Premier P550"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: good
+    last_update: "2026-07-07"
+    reports:
+      - ver: "24.04.3"
+        var: "LTS"
+        status: "good"
+        date: "2026-07-07"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Ubuntu/REAMDE_LTS/"
+        downloads:
+          - "https://github.com/sifiveinc/hifive-premier-p550-ubuntu/releases/tag/2025.11.00"
+        docs:
+          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
+  - board: p550
+    board_name: "HiFive Premier P550"
+    distro: yocto
+    distro_name: "Yocto"
+    status: cft
+    last_update: "2025-04-09"
+    reports:
+      - ver: ""
+        var: ""
+        status: "cft"
+        date: "2025-04-09"
+        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Yocto/REAMDE/"
+        downloads:
+          - "https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550"
+        docs:
+          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
   - board: pioneer
     board_name: "Milk-V Pioneer"
     distro: deepin
@@ -1843,78 +1915,6 @@ items:
           - "https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/"
         docs:
           - "https://docs.revyos.dev/docs/Installation/milkv-pioneer/"
-  - board: premier-p550
-    board_name: "HiFive Premier P550"
-    distro: debian
-    distro_name: "Debian"
-    status: basic
-    last_update: "2026-09-07"
-    reports:
-      - ver: "1.0.0-20250730"
-        var: "minimal"
-        status: "basic"
-        date: "2026-09-07"
-        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Debian/README/"
-        downloads:
-          - "https://github.com/eswincomputing/eic7x-images/releases/tag/Debian-v1.0.0-20250730"
-  - board: premier-p550
-    board_name: "HiFive Premier P550"
-    distro: deepin
-    distro_name: "Deepin"
-    status: good
-    last_update: "2025-05-26"
-    reports:
-      - ver: "eic7700-riscv64-25"
-        var: ""
-        status: "good"
-        date: "2025-05-26"
-        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Deepin/README/"
-        downloads:
-          - "https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz"
-  - board: premier-p550
-    board_name: "HiFive Premier P550"
-    distro: fedora
-    distro_name: "Fedora"
-    status: basic
-    last_update: "2026-09-12"
-    reports:
-      - ver: "44"
-        var: "server"
-        status: "basic"
-        date: "2026-09-12"
-        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Fedora/README/"
-  - board: premier-p550
-    board_name: "HiFive Premier P550"
-    distro: ubuntu
-    distro_name: "Ubuntu"
-    status: good
-    last_update: "2026-07-07"
-    reports:
-      - ver: "24.04.3"
-        var: "LTS"
-        status: "good"
-        date: "2026-07-07"
-        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Ubuntu/REAMDE_LTS/"
-        downloads:
-          - "https://github.com/sifiveinc/hifive-premier-p550-ubuntu/releases/tag/2025.11.00"
-        docs:
-          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
-  - board: premier-p550
-    board_name: "HiFive Premier P550"
-    distro: yocto
-    distro_name: "Yocto"
-    status: cft
-    last_update: "2025-04-09"
-    reports:
-      - ver: ""
-        var: ""
-        status: "cft"
-        date: "2025-04-09"
-        url: "https://matrix.ruyisdk.org/reports/Premier_P550/Yocto/REAMDE/"
-        downloads:
-          - "https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550"
-        docs:
-          - "https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure"
   - board: star64
     board_name: "Star64"
     distro: arch
@@ -2774,3 +2774,33 @@ items:
           - "https://ubuntu.com/download/risc-v"
         docs:
           - "https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202"
+  - board: visionfive2-lite
+    board_name: "VisionFive 2 Lite"
+    distro: debian
+    distro_name: "Debian"
+    status: basic
+    last_update: "2026-08-30"
+    reports:
+      - ver: "202510"
+        var: ""
+        status: "basic"
+        date: "2026-08-30"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2_Lite/Debian/README/"
+        downloads:
+          - "https://github.com/starfive-tech/Debian/"
+        docs:
+          - "https://doc-en.rvspace.org/VisionFive2Lite/VisionFive2LiteQSG/VisionFive2_QSGLite/flashing_os_to_onboard_emmc_emmc_version.html"
+  - board: visionfive2-lite
+    board_name: "VisionFive 2 Lite"
+    distro: ubuntu
+    distro_name: "Ubuntu"
+    status: basic
+    last_update: "2026-10-26"
+    reports:
+      - ver: "24.04.5"
+        var: ""
+        status: "basic"
+        date: "2026-10-26"
+        url: "https://matrix.ruyisdk.org/reports/VisionFive2_Lite/Ubuntu/README/"
+        downloads:
+          - "https://ubuntu.com/download/risc-v/canonical-built#starfive-visionfive-2-lite"

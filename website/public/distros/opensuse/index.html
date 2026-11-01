@@ -1,0 +1,49 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>openSUSE · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/distros/opensuse/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/distros/opensuse/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/distros/opensuse/><link rel=alternate type=application/rss+xml href=/distros/opensuse/index.xml title="RISC-V 发行版 — openSUSE"><link rel=stylesheet href=/css/main.min.5337c8559339de8d89fd94049b25697f538615617bb1e2f823d6ae0314f12e86.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
+<a href=/distros/ class=active>发行版</a>
+<a href=/boards/>开发板</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/ai/>AI 软件</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=切换到深色>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=切换语言 aria-expanded=false>简</button><ul class=lang-menu id=langMenu><li><a href=/distros/opensuse/ class=active lang=zh-CN>简体中文</a></li><li><a href=/en/ lang=en>English</a></li><li><a href=/ja/ lang=ja>日本語</a></li><li><a href=/ru/ lang=ru>Русский</a></li><li><a href=/ko/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>openSUSE</h1><div class=sub><span class="badge soft">社区移植</span>
+<span class="badge soft">成品发行版</span>
+<span class=badge>新人可直接用</span></div></div></header><aside class=subscribe aria-label=订阅更新><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>订阅更新</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=你的邮箱地址 disabled>
+<input type=hidden name=lang value=zh>
+<button class="btn btn-primary sub-btn" type=submit disabled>订阅</button></div><p class=sub-note>邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。</p></form><div class=sub-rss><span class=sub-label>RSS 订阅</span><div class=sub-rss-links><a href=/index.xml>全部更新</a>
+<a href=/distros/index.xml>发行版</a>
+<a href=/boards/index.xml>开发板</a>
+<a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><section class=block><div class=block-head><h2>先说结论</h2></div><p>MicroOS 是同项目的 riscv64 变体（有 kvm-and-xen qcow2 镜像），不算下游衍生。</p></section><section class=block><dl class=specs><dt>基于</dt><dd>独立</dd><dt>上游状态</dt><dd>RISC-V 在 download.opensuse.org/ports/ 端口树（ports/riscv/），属社区移植，不是 openSUSE 主架构；只有 Tumbleweed 与 MicroOS，没有 Leap 的 riscv64 版本。</dd><dt>版本</dt><dd>Tumbleweed (rolling, 当前 ISO Snapshot20260924) · MicroOS 16.0.0 (riscv64, Snapshot20260924)</dd><dt>文档语言</dt><dd>en</dd><dt>核查日期</dt><dd>2026-11-01</dd></dl></section><section class=block><div class=block-head><h2>支持的开发板</h2></div><ul class=support-list><li><a href=/boards/qemu/>QEMU virt 虚拟机型</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>Tumbleweed riscv64 DVD/NET ISO 可在 QEMU 直接安装（通用镜像）</span></li><li><a href=/boards/unmatched/>SiFive HiFive Unmatched</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>无板级镜像，通用 ISO + 板端 UEFI/U-Boot</span></li><li><a href=/boards/visionfive2/>StarFive VisionFive 2</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>有第三方实机安装录像，但 openSUSE 无官方板级镜像</span></li><li><a href=/boards/licheepi-4a/>荔枝派 4A（LicheePi 4A）</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>TH1520 无官方支持</span></li><li><a href=/boards/meles/>Milk-V Meles</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>TH1520 无官方支持</span></li><li><a href=/boards/k3/>进迭时空 SpacemiT K3（Pico-ITX / CoM260）</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>SpacemiT K3 无官方支持</span></li><li><a href=/boards/a210/>知合计算 A210（玄铁 MelonPi 开发板）</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>无官方支持</span></li><li><a href=/boards/k230/>嘉楠 Canaan K230（Kendryte K230 / CanMV-K230）</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>无官方支持</span></li><li><a href=/boards/megrez/>Milk-V Megrez（ESWIN EIC7700X）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>通用镜像 + 板端 UEFI，未确认</span></li><li><a href=/boards/titan/>Milk-V Titan（UltraRISC DP1000）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>通用镜像 + 板端 UEFI，未确认</span></li><li><a href=/boards/pioneer/>Milk-V Pioneer（SG2042 服务器向）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>通用镜像 + 板端 UEFI，未确认</span></li><li><a href=/boards/orangepi-rv2/>Orange Pi RV2（Ky X1）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>通用镜像 + 板端 UEFI，未确认</span></li><li><a href=/boards/bpi-f3/>Banana Pi BPI-F3（SpacemiT K1）</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>通用镜像 + 板端 UEFI，未确认</span></li></ul></section><section class=block><div class=block-head><h2>下载</h2></div><div class=links><a href=https://download.opensuse.org/ports/riscv/tumbleweed/iso/ rel=noopener>ports/riscv Tumbleweed ISO 目录 (DVD/NET)</a><a href=https://download.opensuse.org/ports/riscv/tumbleweed/iso/openSUSE-Tumbleweed-DVD-riscv64-Current.iso rel=noopener>openSUSE-Tumbleweed-DVD-riscv64-Current.iso</a><a href=https://download.opensuse.org/ports/riscv/ rel=noopener>ports/riscv 根目录</a></div></section><section class=block><div class=block-head><h2>安装文档与视频</h2></div><ul class=support-list><li><a href=https://doc.opensuse.org/ rel=noopener>openSUSE 文档门户（通用安装文档，无 RISC-V 专页）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href="https://www.youtube.com/watch?v=qrly2gV-wMA" rel=noopener>RISC-V Use Case 3: openSUSE Tumbleweed on VisionFive 2 (StarFive 官方频道)</a>
+<span class="badge soft">视频</span>
+<span class=muted>en</span></li></ul></section><section class=block><div class=block-head><h2>坑</h2></div><ul class=pitfalls><li>ISO 是快照自动发布、发布前零测试，官方 README.FIRST 原文："They haven't seen any kind of testing before publishing... there are times when they are broken"</li><li>只有滚动版（Tumbleweed/MicroOS），没有 Leap 稳定版可用</li><li>无板级镜像，全部依赖板端 UEFI/U-Boot 固件</li><li>官方 RISC-V 文档主要在 en.opensuse.org wiki，该站对自动化抓取返回 403，机器校验不了</li></ul></section><section class=block><div class=block-head><h2>RuyiSDK 实测报告<span class=count>4</span></h2></div><p class=muted>RuyiSDK 在真机上逐块板测过的记录，点开报告能看完整安装步骤与结论。</p><table class=ruyi-table><thead><tr><th>支持的开发板</th><th>状态</th><th>版本</th><th>最近测试</th><th>报告</th></tr></thead><tbody><tr><td><a href=/boards/mars/>Milk-V Mars</a></td><td><span class="badge st-basic">◐ 基本可用</span></td><td>20250527</td><td class=muted>2025-05-29</td><td><a href=https://matrix.ruyisdk.org/reports/Mars/openSUSE/README/ rel=noopener>查看报告</a></td></tr><tr><td><a href=/boards/unmatched/>SiFive HiFive Unmatched</a></td><td><span class="badge st-basic">◐ 基本可用</span></td><td>—</td><td class=muted>2024-06-21</td><td><a href=https://matrix.ruyisdk.org/reports/Unmatched/openSUSE/README/ rel=noopener>查看报告</a></td></tr><tr><td><a href=/boards/visionfive/>VisionFive</a></td><td><span class="badge st-basic">◐ 基本可用</span></td><td>—</td><td class=muted>2024-06-21</td><td><a href=https://matrix.ruyisdk.org/reports/VisionFive/openSUSE/README/ rel=noopener>查看报告</a></td></tr><tr><td><a href=/boards/visionfive2/>StarFive VisionFive 2</a></td><td><span class="badge st-basic">◐ 基本可用</span></td><td>—</td><td class=muted>2024-10-25</td><td><a href=https://matrix.ruyisdk.org/reports/VisionFive2/openSUSE/README/ rel=noopener>查看报告</a></td></tr></tbody></table><p class=muted>状态含义：good 完整可用（能进桌面）、basic 基本可用（串口能起来）、part 部分功能、cft 有镜像待验证、cfh 文档称支持但启动失败、cfi 官方称支持但无镜像、wip 只有宣称。</p></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容许可 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>源码</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"切换到深色":"切换到浅色")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

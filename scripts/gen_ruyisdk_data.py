@@ -27,6 +27,7 @@ BOARD_MAP = {
     'Meles': 'meles',
     'LicheePi4A': 'licheepi-4a',
     'VisionFive2': 'visionfive2',
+    'VisionFive2_Lite': 'visionfive2-lite',
     'VisionFive': 'visionfive',
     'Unmatched': 'unmatched',
     'Megrez': 'megrez',
@@ -46,7 +47,7 @@ BOARD_MAP = {
     'Bit-Brick_K1': 'bit-brick-k1',
     'LicheeCluster4A': 'lichee-cluster-4a',
     'LicheeConsole4A': 'lichee-console-4a',
-    'Premier_P550': 'premier-p550',
+    'Premier_P550': 'p550',
 }
 
 # RuyiSDK 系统目录名 → 本站 distro id

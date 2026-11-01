@@ -1,0 +1,47 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>进迭时空 SpacemiT K3（Pico-ITX / CoM260） · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/boards/k3/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/boards/k3/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/boards/k3/><link rel=alternate type=application/rss+xml href=/boards/k3/index.xml title="RISC-V 发行版 — 进迭时空 SpacemiT K3（Pico-ITX / CoM260）"><link rel=stylesheet href=/css/main.min.5337c8559339de8d89fd94049b25697f538615617bb1e2f823d6ae0314f12e86.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/boards/ class=active>开发板</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/ai/>AI 软件</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=切换到深色>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=切换语言 aria-expanded=false>简</button><ul class=lang-menu id=langMenu><li><a href=/boards/k3/ class=active lang=zh-CN>简体中文</a></li><li><a href=/en/ lang=en>English</a></li><li><a href=/ja/ lang=ja>日本語</a></li><li><a href=/ru/ lang=ru>Русский</a></li><li><a href=/ko/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>进迭时空 SpacemiT K3（Pico-ITX / CoM260）</h1><div class=sub><span class="badge soft">SpacemiT K3（Key Stone K3）</span>
+<span class="badge soft">在售</span>
+<span class="badge soft">SpacemiT 进迭时空</span></div></div></header><aside class=subscribe aria-label=订阅更新><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>订阅更新</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=你的邮箱地址 disabled>
+<input type=hidden name=lang value=zh>
+<button class="btn btn-primary sub-btn" type=submit disabled>订阅</button></div><p class=sub-note>邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。</p></form><div class=sub-rss><span class=sub-label>RSS 订阅</span><div class=sub-rss-links><a href=/index.xml>全部更新</a>
+<a href=/distros/index.xml>发行版</a>
+<a href=/boards/index.xml>开发板</a>
+<a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><section class=block><dl class=specs><dt>规格</dt><dd>8×X100@2.4GHz + 8×A100 AI 核，RVA23/RVV1.0（最高 1024bit），60 TOPS 通用 AI 算力，130 KDMIPS。Pico-ITX：16/32GB LPDDR5-6400、UFS2.2 128/256GB、10GbE SFP+ + 1GbE、2×M.2（M-Key Gen3 x4 / B-Key）、2×USB3.2 Type-C（含全功能 65W PD + 4K DP）+ 4×USB2.0、100×86mm。CoM260：260pin 核心板 + 参考载板，载板与 Jetson Orin Nano 硬件兼容。</dd><dt>form factor</dt><dd>Pico-ITX / CoM260（任务中的 SOM260）</dd><dt>价格</dt><dd>Sipeed 首发价 Pico-ITX 8GB $299、CoM260 套件 $309；32GB/128GB 渠道价 $595–889（Firefly 出货，TinyComputers 评测含税$1175）；国内 Milk-V Jupiter2 8GB 预售约 ¥1799。渠道与关税差异大，属媒体/渠道报价。</dd><dt>官方系统</dt><dd>bianbu / ubuntu / debian / buildroot</dd><dt>文档语言</dt><dd>zh / en</dd><dt>核查日期</dt><dd>2026-11-01</dd></dl></section><section class="block prose"><p>官方命名为 K3-CoM260（260pin SO-DIMM 核心板），任务中的 SOM260 即此形态；Pico-ITX 与 CoM260 共用 SoC/SDK 与系统镜像。K3 于 2026-04-30 全球开卖，2026-05 进入量产公售。</p></section><section class=block><div class=block-head><h2>可用发行版</h2></div><ul class=support-list><li><a href=/distros/bianbu/>Bianbu</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>出厂预装 Bianbu Desktop 3.0；archive 已到 4.0.8（2026-10-16 构建，LXQt/Minimal，含 UEFI 变体）</span></li><li><a href=/distros/ubuntu/>Ubuntu</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>SpacemiT archive 提供 ubuntu-26.04-preinstalled-desktop-riscv64 镜像；官网规格页列 Ubuntu 26.04</span></li><li><a href=/distros/debian/>Debian</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>Debian 13 GNOME/XFCE/Minimal 镜像（2026-07-30 构建）</span></li><li><a href=/distros/buildroot/>Buildroot</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>官方 SDK 提供 buildroot 配置与镜像</span></li><li><a href=/distros/openkylin/>openKylin</a>
+<span class="badge lv-vendor-claim"></span>
+<span class=muted>官网规格页称支持 OpenKylin，未见公开镜像下载</span></li><li><a href=/distros/deepin/>deepin</a>
+<span class="badge lv-vendor-claim"></span>
+<span class=muted>官网规格页称支持 Deepin，未见公开镜像下载</span></li><li><a href=/distros/fedora/>Fedora</a>
+<span class="badge lv-vendor-claim"></span>
+<span class=muted>官网规格页称支持 Fedora，未见 K3 专用官方镜像</span></li></ul></section><section class=block><div class=block-head><h2>下载</h2></div><div class=links><a href=https://archive.spacemit.com/image/k3/version/bianbu/ rel=noopener>Bianbu K3 镜像（含 4.0.8）</a><a href=https://archive.spacemit.com/image/k3/version/debian/ rel=noopener>Debian 13 K3 镜像</a><a href=https://archive.spacemit.com/image/k3/version/ubuntu/26.04/ rel=noopener>Ubuntu 26.04 K3 镜像</a><a href=https://archive.spacemit.com/image/k3/version/buildroot/ rel=noopener>Buildroot K3 镜像</a></div></section><section class=block><div class=block-head><h2>安装文档与视频</h2></div><ul class=support-list><li><a href=https://www.spacemit.com/community/development-kit/k3-pico-itx rel=noopener>K3 Pico-ITX 官方产品页（规格含 OS 列表）</a>
+<span class="badge soft">文档</span>
+<span class=muted>zh</span></li><li><a href=https://www.spacemit.com/community/development-kit/k3-com260 rel=noopener>K3-CoM260 官方产品页</a>
+<span class="badge soft">文档</span>
+<span class=muted>zh</span></li><li><a href="https://www.spacemit.com/community/document/info?lang=zh&amp;nodepath=hardware/key_stone/k3" rel=noopener>SpacemiT K3 芯片文档入口</a>
+<span class="badge soft">文档</span>
+<span class=muted>zh</span></li><li><a href=https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX rel=noopener>Banana Pi K3 Pico-ITX 规格与上手（英文）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://forum.spacemit.com/t/topic/963 rel=noopener>K3 参考设计与 SDK 发布计划（官方论坛）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279 rel=noopener>Banana Pi K3 公售公告（2026-05）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html rel=noopener>TinyComputers K3 Pico-ITX 深度评测（含坑）</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li></ul></section><section class=block><div class=block-head><h2>坑</h2></div><ul class=pitfalls><li>出厂 Bianbu 4.0.4 用厂商内核 6.18.3-generic，非 mainline；K3 参考设计与 SDK 自 2026-05 起分批释放，文档与硬件验证同步推进</li><li>16 核枚举但单任务最多调度 8 核，KVM/虚拟机实测不可用（TinyComputers 2026-09 评测）</li><li>评测中万兆 SFP+ 未 link，仅千兆口可用；10GbE 驱动/光模块兼容需实测</li><li>渠道价差极大且需自付关税；Milk-V Jupiter2 文档目前仍是 stub，主要靠 SpacemiT 官方文档</li></ul></section><section class=block><div class=block-head><h2>RuyiSDK 实测报告<span class=count>1</span></h2></div><p class=muted>这块板被 RuyiSDK 实测过的系统，点开报告看安装步骤与结论。</p><table class=ruyi-table><thead><tr><th>可用发行版</th><th>状态</th><th>版本</th><th>最近测试</th><th>报告</th></tr></thead><tbody><tr><td><a href=/distros/bianbu/>Bianbu</a></td><td><span class="badge st-good">● 完整可用</span></td><td>4.0.8(LXQt)</td><td class=muted>2026-10-16</td><td><a href=https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/ rel=noopener>查看报告</a></td></tr></tbody></table><p class=muted>状态含义：good 完整可用（能进桌面）、basic 基本可用（串口能起来）、part 部分功能、cft 有镜像待验证、cfh 文档称支持但启动失败、cfi 官方称支持但无镜像、wip 只有宣称。</p></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容许可 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>源码</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"切换到深色":"切换到浅色")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>

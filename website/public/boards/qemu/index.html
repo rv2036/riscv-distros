@@ -1,0 +1,61 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>QEMU virt 虚拟机型 · RISC-V 发行版</title><meta name=description content="RISC-V 发行版与开发板的支持情况一览：哪个系统配哪块板能用、镜像去哪下、有哪些坑。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=canonical href=https://riscv-distros.org/boards/qemu/><link rel=alternate hreflang=zh-CN href=https://riscv-distros.org/boards/qemu/><link rel=alternate hreflang=x-default href=https://riscv-distros.org/boards/qemu/><link rel=alternate type=application/rss+xml href=/boards/qemu/index.xml title="RISC-V 发行版 — QEMU virt 虚拟机型"><link rel=stylesheet href=/css/main.min.5337c8559339de8d89fd94049b25697f538615617bb1e2f823d6ae0314f12e86.css><script>(function(){try{var e=localStorage.getItem("rvd-theme");e==="light"||e==="dark"?document.documentElement.dataset.theme=e:window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches&&(document.documentElement.dataset.theme="light")}catch{}})()</script></head><body><a class=skip href=#main>跳到正文</a><header class=site-head><div class=wrap><a class=brand href=/><span class=brand-mark aria-hidden=true>RV</span>
+<span>RISC-V 发行版</span></a><nav class=nav aria-label=主导航><a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/boards/ class=active>开发板</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=/ai/>AI 软件</a></nav><div class=head-tools><button class=icon-btn id=themeToggle type=button aria-label=切换到深色>☀</button><div class=lang-switch><button class=icon-btn id=langToggle type=button aria-label=切换语言 aria-expanded=false>简</button><ul class=lang-menu id=langMenu><li><a href=/boards/qemu/ class=active lang=zh-CN>简体中文</a></li><li><a href=/en/ lang=en>English</a></li><li><a href=/ja/ lang=ja>日本語</a></li><li><a href=/ru/ lang=ru>Русский</a></li><li><a href=/ko/ lang=ko>한국어</a></li></ul></div></div></div></header><main id=main><header class=page-head><div class=wrap><h1>QEMU virt 虚拟机型</h1><div class=sub><span class="badge soft">无（QEMU 通用虚拟平台，可配 RV32/RV64，最多 512 核）</span>
+<span class="badge soft">在售</span>
+<span class="badge soft">QEMU Project</span></div></div></header><aside class=subscribe aria-label=订阅更新><div class="wrap subscribe-inner"><form class=sub-form aria-disabled=true><label class=sub-label for=sub-email>订阅更新</label><div class=sub-row><input class=sub-input id=sub-email name=email type=email inputmode=email autocomplete=email placeholder=你的邮箱地址 disabled>
+<input type=hidden name=lang value=zh>
+<button class="btn btn-primary sub-btn" type=submit disabled>订阅</button></div><p class=sub-note>邮件订阅后端尚未接入，输入框暂时不可用。接好服务后这里会直接变成可提交。</p></form><div class=sub-rss><span class=sub-label>RSS 订阅</span><div class=sub-rss-links><a href=/index.xml>全部更新</a>
+<a href=/distros/index.xml>发行版</a>
+<a href=/boards/index.xml>开发板</a>
+<a href=/ai/index.xml>AI 软件</a></div></div></div></aside><div class=wrap><section class=block><dl class=specs><dt>规格</dt><dd>纯虚拟平台：最多 512 个 RV64GC 核、CLINT/PLIC、PCIe 主机桥、8 个 virtio-mmio、NS16550 UART、可选 AIA/IOMMU；内存、磁盘、网络全部由命令行参数虚拟，无真实 GPU/VPU/NPU。</dd><dt>价格</dt><dd>免费开源（GPLv2），随各发行版软件源提供</dd><dt>官方系统</dt><dd>debian / ubuntu</dd><dt>文档语言</dt><dd>en</dd><dt>核查日期</dt><dd>2026-11-01</dd></dl></section><section class="block prose"><p>所有板子的公共起点：先在 virt 上验证内核/rootfs，再上真机，能省掉大量刷机排错时间。</p></section><section class=block><div class=block-head><h2>可用发行版</h2></div><ul class=support-list><li><a href=/distros/debian/>Debian</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>Debian 13 起 riscv64 为正式架构，官方 netinst ISO 可直接装进 virt</span></li><li><a href=/distros/ubuntu/>Ubuntu</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>官方 riscv64 cloud image，配 EDK2(pflash) 或 -kernel 启动</span></li><li><a href=/distros/fedora/>Fedora</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>Fedora RISC-V 提供 QEMU 安装说明与镜像</span></li><li><a href=/distros/alpine/>Alpine Linux</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>只有 riscv64 minirootfs，无 virt ISO，需自备内核/initramfs</span></li><li><a href=/distros/arch/>Arch Linux RISC-V</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>archriscv 提供 riscv64 ISO，可在 QEMU 启动</span></li><li><a href=/distros/opensuse/>openSUSE</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>openSUSE Ports 提供 riscv64；官网对 curl 返回 403，未验证直链</span></li><li><a href=/distros/gentoo/>Gentoo</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>stage3 riscv64 + 手册支持 QEMU 系统</span></li><li><a href=/distros/void/>Void Linux</a>
+<span class="badge lv-partial">部分可用</span>
+<span class=muted>有 riscv64 端口，QEMU 镜像需自行构建</span></li><li><a href=/distros/nixos/>NixOS</a>
+<span class="badge lv-community">社区可用</span>
+<span class=muted>riscv64 非官方支持等级，需交叉构建</span></li><li><a href=/distros/alt/>ALT Linux</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>ALT Ports riscv64 提供 QEMU 镜像</span></li><li><a href=/distros/freebsd/>FreeBSD</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>riscv64 支持 QEMU virt</span></li><li><a href=/distros/netbsd/>NetBSD</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>riscv64 端口支持 QEMU</span></li><li><a href=/distros/openbsd/>OpenBSD</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>riscv64 支持 QEMU virt</span></li><li><a href=/distros/openeuler/>openEuler</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>openEuler RISC-V SIG 提供 QEMU 镜像</span></li><li><a href=/distros/buildroot/>Buildroot</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>qemu_riscv64_virt_defconfig，一行 make 起系统</span></li><li><a href=/distros/yocto/>Yocto / OpenEmbedded</a>
+<span class="badge lv-official">官方支持</span>
+<span class=muted>qemuriscv64 machine 官方支持</span></li></ul></section><section class=block><div class=block-head><h2>下载</h2></div><div class=links><a href=https://www.qemu.org/docs/master/system/riscv/virt.html rel=noopener>QEMU 官方文档：RISC-V virt 机型</a><a href=https://www.qemu.org/download/ rel=noopener>QEMU 下载页</a><a href=https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img rel=noopener>Ubuntu 24.04 riscv64 cloud image</a><a href=https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/ rel=noopener>Debian 13.7 riscv64 netinst ISO</a><a href=https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso rel=noopener>Arch Linux RISC-V ISO</a><a href=https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/riscv64/alpine-minirootfs-3.22.1-riscv64.tar.gz rel=noopener>Alpine riscv64 minirootfs</a><a href=https://buildroot.org/downloads/ rel=noopener>Buildroot 下载</a></div></section><section class=block><div class=block-head><h2>安装文档与视频</h2></div><ul class=support-list><li><a href=https://wiki.qemu.org/Documentation/Platforms/RISCV rel=noopener>QEMU wiki: RISC-V 平台说明</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://wiki.debian.org/RISC-V rel=noopener>Debian wiki: RISC-V 端口</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://fedoraproject.org/wiki/Architectures/RISC-V/Installing rel=noopener>Fedora: RISC-V 安装指南</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://wiki.gentoo.org/wiki/Project:RISC-V rel=noopener>Gentoo RISC-V 项目</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li><li><a href=https://www.openeuler.org/en/sig/sig-RISC-V rel=noopener>openEuler RISC-V SIG</a>
+<span class="badge soft">文档</span>
+<span class=muted>en</span></li></ul></section><section class=block><div class=block-head><h2>坑</h2></div><ul class=pitfalls><li>-bios default 只加载 OpenSBI，没有 U-Boot/EDK2；启动 Ubuntu/Fedora cloud image 需用 pflash 加载 32MiB EDK2 固件，否则黑屏</li><li>virt 没有 GPU/VPU/NPU，别用它验证图形、视频硬解或 AI 加速</li><li>串口固定是 ttyS0；-nographic 模式退出要按 Ctrl-A 再按 X</li><li>Ubuntu 26.04 起要求 RVA23S64，旧版 QEMU 缺扩展会起不来；24.04 仍是 RVA20 基线</li><li>Alpine riscv64 只发 minirootfs，没有 virt ISO，需要自己准备内核和 initramfs</li></ul></section><section class="block prose"></section></div></main><footer class=site-foot><div class=wrap><span>RISC-V 发行版 · <a href=https://riscv-distros.org>riscv-distros.org</a></span>
+<span>内容许可 CC BY-SA 4.0</span>
+<span class=spacer></span>
+<a href=/start/>入门</a>
+<a href=/distros/>发行版</a>
+<a href=/matrix/>支持矩阵</a>
+<a href=https://github.com/rv2036/riscv-distros rel=noopener>源码</a></div></footer><script>(function(){var e,n,o,t=document.documentElement,s=document.getElementById("themeToggle");s&&(o=function(){s.textContent=t.dataset.theme==="light"?"☾":"☀",s.setAttribute("aria-label",t.dataset.theme==="light"?"切换到深色":"切换到浅色")},o(),s.addEventListener("click",function(){t.dataset.theme=t.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("rvd-theme",t.dataset.theme)}catch{}o()})),e=document.getElementById("langToggle"),n=document.getElementById("langMenu"),e&&n&&(e.addEventListener("click",function(t){t.stopPropagation();var s=n.classList.toggle("open");e.setAttribute("aria-expanded",s?"true":"false")}),document.addEventListener("click",function(){n.classList.remove("open"),e.setAttribute("aria-expanded","false")}),document.addEventListener("keydown",function(t){t.key==="Escape"&&(n.classList.remove("open"),e.setAttribute("aria-expanded","false"))}))})()</script></body></html>
