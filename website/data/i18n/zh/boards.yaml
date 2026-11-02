@@ -498,7 +498,7 @@ items:
     note: 出厂预装 Bianbu Desktop 3.0；archive 已到 4.0.8（2026-10-16 构建，LXQt/Minimal，含 UEFI 变体）
   - distro: ubuntu
     level: official
-    note: SpacemiT archive 提供 ubuntu-26.04-preinstalled-desktop-riscv64 镜像；官网规格页列 Ubuntu 26.04
+    note: 官方支持自 Ubuntu 26.10 起：Canonical 覆盖 CoM260 / Pico-ITX / DeepComputing FML13V05，需先刷 EDK2 固件再从 U 盘安装；SpacemiT archive 的 26.04 预装镜像是厂商内核，不经 Canonical 支持
   - distro: debian
     level: official
     note: Debian 13 GNOME/XFCE/Minimal 镜像（2026-07-30 构建）
@@ -555,19 +555,26 @@ items:
     url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
     type: doc
     lang: en
+  - label: Ubuntu 官方 K3 安装指南（刷 EDK2 固件 + U 盘安装）
+    url: https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+    type: doc
+    lang: en
   gotchas:
   - 出厂 Bianbu 4.0.4 用厂商内核 6.18.3-generic，非 mainline；K3 参考设计与 SDK 自 2026-05 起分批释放，文档与硬件验证同步推进
-  - 16 核枚举但单任务最多调度 8 核，KVM/虚拟机实测不可用（TinyComputers 2026-09 评测）
+  - 16 核分 X100 / A100 两组、每组 8 个，单个进程一次只能用一组；主线内核（Ubuntu 26.10）只枚举 8 个 X100 核，A100 核不可见
+  - KVM：厂商内核实测 modprobe kvm 直接 oops（Bianbu 4.0.4 / 6.18.3，后续版本未复核）；换主线内核的 Ubuntu 26.10 后可跑 Linux 客体
   - 评测中万兆 SFP+ 未 link，仅千兆口可用；10GbE 驱动/光模块兼容需实测
   - 渠道价差极大且需自付关税；Milk-V Jupiter2 文档目前仍是 stub，主要靠 SpacemiT 官方文档
   doc_langs:
   - zh
   - en
   note: 官方命名为 K3-CoM260（260pin SO-DIMM 核心板），任务中的 SOM260 即此形态；Pico-ITX 与 CoM260 共用 SoC/SDK 与系统镜像。K3 于 2026-04-30 全球开卖，2026-05 进入量产公售。
-  checked: '2026-11-01'
+  checked: '2026-11-03'
   order: 5
   feature: true
   sources:
+  - https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+  - https://tinycomputers.io/posts/spacemit-k3-ubuntu-kvm-follow-up.html
   - https://archive.spacemit.com/image/k3/version/bianbu/
   - https://archive.spacemit.com/image/k3/version/debian/
   - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/

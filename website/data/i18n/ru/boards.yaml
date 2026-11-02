@@ -504,7 +504,7 @@ items:
     note: С завода предустановлен Bianbu Desktop 3.0; в archive уже доступна 4.0.8 (сборка 2026-10-16, LXQt/Minimal, включая вариант с UEFI)
   - distro: ubuntu
     level: official
-    note: В SpacemiT archive доступен образ ubuntu-26.04-preinstalled-desktop-riscv64; на странице спецификаций официального сайта указана Ubuntu 26.04
+    note: Официальная поддержка начинается с Ubuntu 26.10 — Canonical покрывает CoM260, Pico-ITX и DeepComputing FML13V05; сначала нужно прошить прошивку EDK2, затем ставить с USB-накопителя. Предустановленный образ 26.04 из архива SpacemiT использует вендорное ядро и не поддерживается Canonical
   - distro: debian
     level: official
     note: Образы Debian 13 GNOME/XFCE/Minimal (сборка 2026-07-30)
@@ -561,10 +561,15 @@ items:
     url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
     type: doc
     lang: en
+  - label: Официальное руководство по установке Ubuntu на K3 (прошивка EDK2, установка с USB)
+    url: https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+    type: doc
+    lang: en
   gotchas:
   - Заводской Bianbu 4.0.4 использует ядро производителя 6.18.3-generic, не mainline; референсный дизайн K3 и SDK выпускаются партиями с 2026-05, документация и проверка аппаратного обеспечения продвигаются
     синхронно
-  - Перечислено 16 ядер, но одна задача планируется максимум на 8 ядер; KVM/виртуальные машины по результатам практической проверки неработоспособны (обзор TinyComputers 2026-09)
+  - 16 ядер разбиты на два кластера по 8 (X100 и A100), и один процесс может использовать только один кластер за раз; mainline-ядро (Ubuntu 26.10) видит лишь 8 ядер X100, ядра A100 не видны
+  - KVM — на вендорном ядре modprobe kvm сразу падает в oops (Bianbu 4.0.4 / 6.18.3; более новые сборки не проверялись); на Ubuntu 26.10 с mainline-ядром Linux-гости работают
   - В обзоре 10-гигабитный SFP+ не установил link, работает только гигабитный порт; совместимость драйвера 10GbE и оптических модулей требует практической проверки
   - Разброс цен по каналам очень большой, и пошлину нужно платить самостоятельно; документация Milk-V Jupiter2 пока остаётся stub, в основном приходится полагаться на официальную документацию SpacemiT
   doc_langs:
@@ -572,10 +577,12 @@ items:
   - en
   note: Официальное название — K3-CoM260 (260-pin SO-DIMM, модуль-ядро), SOM260 в задании — именно эта форма; Pico-ITX и CoM260 используют общий SoC/SDK и системные образы. K3 поступил в глобальную продажу
     2026-04-30, с 2026-05 — серийное производство и открытая продажа.
-  checked: '2026-11-01'
+  checked: '2026-11-03'
   order: 5
   feature: true
   sources:
+  - https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+  - https://tinycomputers.io/posts/spacemit-k3-ubuntu-kvm-follow-up.html
   - https://archive.spacemit.com/image/k3/version/bianbu/
   - https://archive.spacemit.com/image/k3/version/debian/
   - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/
