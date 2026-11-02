@@ -654,6 +654,7 @@ items:
     type: doc
     lang: en
   gotchas:
+  - "В инновационном выпуске 26.09 (2026-09-30) нет ISO для riscv64: в деревьях ISO/OS/everything только aarch64 и x86_64, поэтому для RISC-V ориентируйтесь на 24.03 LTS SP4"
   - Образы RVA20 и RVA23 выпускаются отдельно; для RISC-V в 24.03 LTS SP4 доступен только ISO RVA23 (каталог rva20 отсутствует)
   - Требуется прошивка UEFI/EDK2 и соответствующий DTB платы; на старых платах с U-Boot может не загрузиться
   - 'Документация разложена по путям версий: страница установки RISC-V доступна только по пути 24.03_LTS, по путям SP3/SP4 будет 404'
@@ -667,11 +668,12 @@ items:
   - Eulaceura
   note: База RISC-V для серверных/корпоративных сценариев, быстрее всех продвигается RVA23 + спецификация Server Platform; пользователям персональных плат разработчика, если только не нужна серверная проверка,
     проще с RevyOS/Bianbu.
-  checked: '2026-11-01'
+  checked: '2026-11-02'
   order: 7
   feature: true
   sources:
   - https://www.openeuler.org/zh/download/?version=openEuler-24.03_LTS_SP4
+  - https://dl-cdn.openeuler.openatom.cn/openEuler-26.09/ISO/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP4/ISO/riscv64/rva23/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva20/
   - https://dl-cdn.openeuler.openatom.cn/openEuler-24.03-LTS-SP3/ISO/riscv64/rva23/
