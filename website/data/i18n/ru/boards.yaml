@@ -61,6 +61,15 @@ items:
   - distro: yocto
     level: official
     note: Машина qemuriscv64 официально поддерживается
+  - distro: almalinux
+    level: official
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
+  - distro: rhel
+    level: partial
+    note: ''
   downloads:
   - label: 'Официальная документация QEMU: машина RISC-V virt'
     url: https://www.qemu.org/docs/master/system/riscv/virt.html
@@ -184,6 +193,12 @@ items:
   - distro: openkylin
     level: community
     note: openKylin имеет образ для VF2
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: Официальный Debian 202510 от StarFive (v0.15.0)
     url: https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
@@ -505,6 +520,9 @@ items:
   - distro: fedora
     level: vendor-claim
     note: На странице спецификаций официального сайта заявлена поддержка Fedora, официального образа специально для K3 нет
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Образ Bianbu K3 (включая 4.0.8)
     url: https://archive.spacemit.com/image/k3/version/bianbu/
@@ -801,6 +819,9 @@ items:
   - distro: openkylin
     level: official
     note: openKylin 2.0 SP2 (ultrarisc-titan, сборка 2026-06-22)
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Ubuntu 24.04 (официальный от UltraRISC, многотомный 7z)
     url: https://github.com/milkv-titan/titan-ubuntu/releases
@@ -1131,6 +1152,15 @@ items:
   - distro: debian
     level: community
     note: В блоге SiFive сообщается о продвижении поддержки Debian, образ нужно подготовить самостоятельно
+  - distro: rhel
+    level: official
+    note: ''
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: Образы Ubuntu Releases (официальные от SiFive)
     url: https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1659,7 +1689,10 @@ items:
   price_note: ''
   forms: []
   official_os: []
-  distros: []
+  distros:
+  - distro: rhel
+    level: official
+    note: ''
   downloads: []
   guides: []
   gotchas: []

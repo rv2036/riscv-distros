@@ -1,4 +1,4 @@
-# zh distro entries
+# 发行版条目（中文母版）
 items:
 - id: debian
   name: Debian
@@ -639,7 +639,7 @@ items:
     type: doc
     lang: en
   gotchas:
-  - "创新版本 26.09（2026-09-30 发布）没有 riscv64 ISO：ISO/OS/everything 目录只有 aarch64 与 x86_64，RISC-V 仍以 24.03 LTS SP4 为准"
+  - 创新版本 26.09（2026-09-30 发布）没有 riscv64 ISO：ISO/OS/everything 目录只有 aarch64 与 x86_64，RISC-V 仍以 24.03 LTS SP4 为准
   - RVA20 与 RVA23 镜像分开发布；24.03 LTS SP4 的 RISC-V 只提供 RVA23 ISO（rva20 目录不存在）
   - 需要 UEFI/EDK2 固件与对应板卡 DTB，老 U-Boot 板卡可能起不来
   - 文档按版本分路径，RISC-V 安装页只挂在 24.03_LTS 路径下，SP3/SP4 路径会 404
@@ -1220,6 +1220,152 @@ items:
   - https://matrix.ruyisdk.org/reports/VisionFive/openSUSE/README/
   - https://matrix.ruyisdk.org/reports/VisionFive2/openSUSE/README/
   - https://matrix.ruyisdk.org/
+- id: rhel
+  name: RHEL RISC-V Developer Preview
+  vendor: Red Hat
+  upstream: official
+  upstream_note: Red Hat 自己发布的 RISC-V 开发者预览版（Developer Preview），基于 RHEL 10.2 代码基，只面向少数平台提供预构建镜像；Red Hat 明确它不是受支持的产品版本。
+  kind: distro
+  based_on: RHEL 10.2（Fedora / CentOS Stream 10 代码基）
+  audience: advanced
+  versions:
+  - 10.2 Developer Preview Update（2026-10-09；镜像 2.6 GB、源码 14.19 GB，需登录 Red Hat 账号下载）
+  - 10.2 Developer Preview
+  - 10.0 Developer Preview（2025-05 首发，平台为 P550）
+  boards:
+  - board: p550
+    level: official
+    note: 首个也是长期的主平台（SiFive HiFive Premier P550）
+  - board: k3
+    level: official
+    note: 10.2 Update 新增：SpacemiT K3 Pico-ITX
+  - board: k3-som260
+    level: official
+    note: 10.2 Update 新增：SpacemiT K3 CoM260
+  - board: titan
+    level: official
+    note: 10.2 Update 新增：UltraRISC UR-DP1000（Milk-V Titan）
+  - board: qemu
+    level: partial
+    note: 官方没有单独的 QEMU 镜像，镜像按板卡出
+  downloads:
+  - label: 官方下载页（RHEL 10.2 RISC-V Developer Preview Update，需 Red Hat 开发者账号）
+    url: https://developers.redhat.com/products/rhel/riscv
+  guides:
+  - label: Red Hat 博客：RISC-V Developer Preview 已更新到 10.2
+    url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+    type: doc
+    lang: en
+  gotchas:
+  - Developer Preview，不是生产支持版本：Red Hat 不提供支持，别拿去跑业务
+  - 下载要登录 Red Hat 开发者账号（免费），直接 curl 会被反爬挡成 403
+  - 镜像按平台出，没有通用的 RISC-V 安装介质；2.6 GB 那个是单平台磁盘镜像
+  - 10.2 Update 新增的 SpacemiT V100 是服务器级 CPU，目前没有对应的整机条目，只能当「芯片已进 RHEL」看
+  doc_langs:
+  - en
+  derivatives: []
+  note: 企业级取向的 RISC-V 预览系统：想验证「RHEL 用户态能不能跑起来」看它，日常用还是 Debian / Ubuntu / RevyOS 更省事。
+  checked: '2026-11-02'
+  order: 14
+  feature: false
+  sources:
+  - https://developers.redhat.com/products/rhel/riscv
+  - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+- id: almalinux
+  name: AlmaLinux OS Kitten 10
+  vendor: AlmaLinux OS Foundation
+  upstream: official
+  upstream_note: AlmaLinux 官方给出 riscv64 构建（Kitten 10 是 CentOS Stream 10 的下游预览版，2026-03-17 官方博客宣布）。它属于 AlmaLinux 官方发布，但不是稳定版产品线。
+  kind: distro
+  based_on: CentOS Stream 10（RHEL 10 代码基）
+  audience: advanced
+  versions:
+  - Kitten 10（riscv64；Docker 镜像与 GenericCloud VM 镜像已可用，VF2 / P550 板级镜像官方称「很快提供」）
+  boards:
+  - board: qemu
+    level: official
+    note: GenericCloud VM 镜像可直接在 QEMU 里启动，官方博客明确这一点
+  - board: visionfive2
+    level: partial
+    note: 官方称镜像「即将提供」，截至核查日无公开下载
+  - board: p550
+    level: partial
+    note: 官方称镜像「即将提供」，截至核查日无公开下载
+  downloads:
+  - label: 官方下载页（选 AlmaLinux OS Kitten 10 / RISC-V）
+    url: https://almalinux.org/get-almalinux/
+  guides:
+  - label: AlmaLinux 博客：AlmaLinux goes RISC-V（Kitten 10 riscv64 发布说明）
+    url: https://almalinux.org/blog/2026-03-17-almalinux-goes-riscv
+    type: doc
+    lang: en
+  - label: AlmaLinux Wiki：AlmaLinux OS Kitten 10
+    url: https://wiki.almalinux.org/development/almalinux-os-kitten-10.html
+    type: doc
+    lang: en
+  gotchas:
+  - Kitten 是 CentOS Stream 的下游预览，用来预看 RHEL 10 之后的走向，不适合当稳定系统
+  - 板级镜像（VisionFive 2 / P550）官方只说「很快提供」，现在真正能下的是 Docker 镜像与 QEMU 用的 GenericCloud 镜像
+  - 镜像站上没有独立的 10-kitten 目录，别去拼 /almalinux/10-kitten/ 这种路径（会 404）
+  doc_langs:
+  - en
+  derivatives: []
+  note: RHEL 系里第一个给出 riscv64 官方构建的下游发行版；手上没有板子时，用 GenericCloud 镜像配 QEMU 就能先试。
+  checked: '2026-11-02'
+  order: 15
+  feature: false
+  sources:
+  - https://almalinux.org/get-almalinux/
+  - https://almalinux.org/blog/2026-03-17-almalinux-goes-riscv
+  - https://wiki.almalinux.org/development/almalinux-os-kitten-10.html
+- id: rocky
+  name: Rocky Linux 10
+  vendor: Rocky Enterprise Software Foundation
+  upstream: official
+  upstream_note: Rocky Linux 10 官方支持 riscv64（riscv64gc 构建），由 Rocky AltArch SIG 与 Fedora RISC-V 社区推动。riscv64 被列为 Alternative Architecture：它的构建失败不阻塞其它架构的发布。
+  kind: distro
+  based_on: RHEL 10（CentOS Stream 10 代码基）
+  audience: advanced
+  versions:
+  - 10.2（riscv64 容器镜像已发布：Base / Minimal / Toolbox / UBI，2026-05-25 构建）
+  - 10.0（GA 公告把 riscv64 列为支持架构；安装镜像与软件仓库尚未上线）
+  boards:
+  - board: qemu
+    level: partial
+    note: 官方公告把 QEMU 列入目标平台，但还没有安装镜像
+  - board: visionfive2
+    level: partial
+    note: 官方公告把 VisionFive 2 列入目标平台，但还没有板级镜像
+  - board: p550
+    level: partial
+    note: 官方公告把 HiFive Premier P550 列入目标平台，但还没有板级镜像
+  downloads:
+  - label: Rocky 10 riscv64 容器镜像目录（Base / Minimal / Toolbox / UBI）
+    url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  guides:
+  - label: Rocky 官方公告：Rocky Linux 10 支持 RISC-V
+    url: https://rockylinux.org/news/rockylinux-support-for-riscv
+    type: doc
+    lang: en
+  - label: Rocky Linux 10.0 GA 发布说明（riscv64 列为支持架构）
+    url: https://rockylinux.org/news/rocky-linux-10-0-ga-release
+    type: doc
+    lang: en
+  gotchas:
+  - 现在能下的只有容器镜像：安装 ISO 与 dnf 仓库还没上线——/pub/rocky/10/BaseOS/riscv64/os/ 目录是空的，官方公告写「下载镜像即将提供」
+  - 板卡清单直接沿用 Fedora RISC-V（VisionFive 2 / QEMU / P550），Rocky 自己没有板级镜像
+  - riscv64 是 Alternative Architecture，构建失败不阻塞主架构发布，所以软件包齐不齐要看运气
+  doc_langs:
+  - en
+  derivatives: []
+  note: 想在 RISC-V 上用 RHEL 10 用户态、又不想碰 Red Hat 账号，Rocky 10 的 riscv64 容器镜像目前是现成可用的选项；做真机系统得等安装介质。
+  checked: '2026-11-02'
+  order: 16
+  feature: false
+  sources:
+  - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  - https://rockylinux.org/news/rockylinux-support-for-riscv
+  - https://rockylinux.org/news/rocky-linux-10-0-ga-release
 - id: gentoo
   name: Gentoo
   vendor: ''
@@ -1276,7 +1422,7 @@ items:
   derivatives: []
   note: 老手友好、新手劝退：文档齐全但全手工安装，适合想深度定制或做嵌入式 rootfs 的人。
   checked: '2026-11-01'
-  order: 14
+  order: 17
   feature: false
   sources:
   - https://www.gentoo.org/downloads/riscv/
@@ -1331,7 +1477,7 @@ items:
   - nixos-licheepi4a / nixos-vf2（板级 flake）
   note: 声明式配置很香，但 riscv64 属于“能跑、别指望省心”的状态。
   checked: '2026-11-01'
-  order: 15
+  order: 18
   feature: false
   sources:
   - https://nixos.org/download/
@@ -1395,7 +1541,7 @@ items:
   derivatives: []
   note: 想要“类 Unix 正经系统 + 官方镜像”的话，FreeBSD 是 RISC-V 上最稳的非 Linux 选择。
   checked: '2026-11-01'
-  order: 16
+  order: 19
   feature: false
   sources:
   - https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/15.1/
@@ -1447,7 +1593,7 @@ items:
   derivatives: []
   note: QEMU 上体验顺畅；实机取决于你有没有现成 U-Boot。
   checked: '2026-11-01'
-  order: 17
+  order: 20
   feature: false
   sources:
   - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
@@ -1498,7 +1644,7 @@ items:
   derivatives: []
   note: 安全取向、极简；有 Unmatched 的话体验最正统，否则不建议新手入。
   checked: '2026-11-01'
-  order: 18
+  order: 21
   feature: false
   sources:
   - https://cdn.openbsd.org/pub/OpenBSD/8.0/riscv64/
@@ -1553,7 +1699,7 @@ items:
   - Simply Linux / ALT Mobile（同仓库体系，无 riscv64 构建）
   note: 俄系里 RISC-V 支持最完整的一支，镜像开箱可用，适合 QEMU 与 Unmatched 玩家。
   checked: '2026-11-01'
-  order: 19
+  order: 22
   feature: false
   sources:
   - https://nightly.altlinux.org/sisyphus-riscv64/current/
@@ -1603,7 +1749,7 @@ items:
   - 大量厂商 SDK 基于 Buildroot（如部分 D1/K230 SDK）
   note: 给新人标注清楚：不是发行版，是“自己做发行版”的工具箱。
   checked: '2026-11-01'
-  order: 20
+  order: 23
   feature: false
   sources:
   - https://buildroot.org/download.html
@@ -1675,7 +1821,7 @@ items:
   - SpacemiT / StarFive / T-Head 等厂商的 Yocto BSP 均基于 oe-core + meta-riscv 模式
   note: 工业/量产向；个人玩家建议先用 Armbian 或 Buildroot 试水。
   checked: '2026-11-01'
-  order: 21
+  order: 24
   feature: false
   sources:
   - https://www.yoctoproject.org/development/releases/
@@ -1743,7 +1889,7 @@ items:
   derivatives: []
   note: 主要供厂商/生态测试用：官方定位就是『早期验证』——尽早暴露固件、平台语义与内核互操作问题，让厂商少的分叉。普通用户一般不需要装它，日常使用请选 Bianbu / RevyOS / openKylin 这类厂商发行版；想零成本体验可先用它的 QEMU 镜像。
   checked: '2026-11-01'
-  order: 22
+  order: 25
   feature: false
   sources:
   - https://releases.openruyi.cn/creek/
@@ -1782,7 +1928,7 @@ items:
   derivatives: []
   note: 现阶段不适合任何 RISC-V 场景，列出仅为说明“小而快”≠“有 RISC-V”。
   checked: '2026-11-01'
-  order: 23
+  order: 26
   feature: false
   sources:
   - https://voidlinux.org/download/
@@ -1816,7 +1962,7 @@ items:
   derivatives: []
   note: 可视为“无 RISC-V 支持”，门户里建议标注为暂不支持，避免误导。
   checked: '2026-11-01'
-  order: 24
+  order: 27
   feature: false
   sources:
   - https://ftp.pld-linux.org/dists/3.0/
@@ -1865,7 +2011,7 @@ items:
   - Slackware ARM（官方 ARM 项目，无 RISC-V）
   note: Slack 老用户想在 RISC-V 上续命可以试 slarm64，新人不要碰。
   checked: '2026-11-01'
-  order: 25
+  order: 28
   feature: false
   sources:
   - http://dl.slarm64.org/slackware/slarm64-riscv64-current/
@@ -1915,7 +2061,7 @@ items:
   derivatives: []
   note: 只适合想看“Android 框架在 RISC-V 上跑起来”的验证性实验，别当可用系统。
   checked: '2026-11-01'
-  order: 26
+  order: 29
   feature: false
   sources:
   - https://source.android.com/docs/setup/download

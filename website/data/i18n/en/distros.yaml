@@ -1238,6 +1238,180 @@ items:
   - https://matrix.ruyisdk.org/reports/VisionFive/openSUSE/README/
   - https://matrix.ruyisdk.org/reports/VisionFive2/openSUSE/README/
   - https://matrix.ruyisdk.org/
+- id: rhel
+  name: RHEL RISC-V Developer Preview
+  vendor: Red Hat
+  upstream: official
+  upstream_note: 'The RISC-V Developer Preview published by Red Hat itself, based on the RHEL 10.2
+    code base; prebuilt images are offered for only a few platforms, and Red Hat states explicitly
+    that it is not a supported product release.'
+  kind: distro
+  based_on: RHEL 10.2 (Fedora / CentOS Stream 10 code base)
+  audience: advanced
+  versions:
+  - 10.2 Developer Preview Update (2026-10-09; images 2.6 GB, sources 14.19 GB, requires a Red Hat
+    account to download)
+  - 10.2 Developer Preview
+  - 10.0 Developer Preview (first released 2025-05, platform was P550)
+  boards:
+  - board: p550
+    level: official
+    note: The first and long-term primary platform (SiFive HiFive Premier P550)
+  - board: k3
+    level: official
+    note: 'New in the 10.2 Update: SpacemiT K3 Pico-ITX'
+  - board: k3-som260
+    level: official
+    note: 'New in the 10.2 Update: SpacemiT K3 CoM260'
+  - board: titan
+    level: official
+    note: 'New in the 10.2 Update: UltraRISC UR-DP1000 (Milk-V Titan)'
+  - board: qemu
+    level: partial
+    note: There is no separate QEMU image; images are published per board
+  downloads:
+  - label: Official download page (RHEL 10.2 RISC-V Developer Preview Update, requires a Red Hat
+      developer account)
+    url: https://developers.redhat.com/products/rhel/riscv
+  guides:
+  - label: 'Red Hat blog: RISC-V Developer Preview updated to 10.2'
+    url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+    type: doc
+    lang: en
+  gotchas:
+  - 'Developer Preview, not a supported production release: Red Hat provides no support, so do not
+    run production workloads on it'
+  - 'Downloading requires signing in with a (free) Red Hat developer account; a plain curl is
+    blocked with 403 by anti-bot protection'
+  - 'Images are published per platform; there is no generic RISC-V installation medium — the 2.6 GB
+    one is a single-platform disk image'
+  - 'SpacemiT V100, added in the 10.2 Update, is a server-class CPU with no matching complete-system
+    entry yet, so it only shows that the chip has landed in RHEL'
+  doc_langs:
+  - en
+  derivatives: []
+  note: 'An enterprise-oriented RISC-V preview: use it to check whether the RHEL userland runs, but
+    for day-to-day use Debian / Ubuntu / RevyOS are less trouble.'
+  checked: '2026-11-02'
+  order: 14
+  feature: false
+  sources:
+  - https://developers.redhat.com/products/rhel/riscv
+  - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+- id: almalinux
+  name: AlmaLinux OS Kitten 10
+  vendor: AlmaLinux OS Foundation
+  upstream: official
+  upstream_note: 'AlmaLinux publishes official riscv64 builds (Kitten 10 is a downstream preview of
+    CentOS Stream 10, announced in the official blog on 2026-03-17). It is an official AlmaLinux
+    release, but not a stable product line.'
+  kind: distro
+  based_on: CentOS Stream 10 (RHEL 10 code base)
+  audience: advanced
+  versions:
+  - 'Kitten 10 (riscv64; Docker images and GenericCloud VM images are already available, while board
+    images for VF2 / P550 are described officially as "coming soon")'
+  boards:
+  - board: qemu
+    level: official
+    note: 'The GenericCloud VM image boots directly in QEMU, as the official blog states explicitly'
+  - board: visionfive2
+    level: partial
+    note: 'Officially described as "coming soon"; no public download as of the check date'
+  - board: p550
+    level: partial
+    note: 'Officially described as "coming soon"; no public download as of the check date'
+  downloads:
+  - label: Official download page (select AlmaLinux OS Kitten 10 / RISC-V)
+    url: https://almalinux.org/get-almalinux/
+  guides:
+  - label: 'AlmaLinux blog: AlmaLinux goes RISC-V (Kitten 10 riscv64 release notes)'
+    url: https://almalinux.org/blog/2026-03-17-almalinux-goes-riscv
+    type: doc
+    lang: en
+  - label: 'AlmaLinux Wiki: AlmaLinux OS Kitten 10'
+    url: https://wiki.almalinux.org/development/almalinux-os-kitten-10.html
+    type: doc
+    lang: en
+  gotchas:
+  - 'Kitten is a downstream preview of CentOS Stream, meant for previewing where RHEL 10 is heading;
+    it is not suitable as a stable system'
+  - 'Board images (VisionFive 2 / P550) are only described as "coming soon"; what can actually be
+    downloaded now is the Docker image and the GenericCloud image for QEMU'
+  - 'There is no separate 10-kitten directory on the mirrors, so do not try to compose paths such as
+    /almalinux/10-kitten/ — they return 404'
+  doc_langs:
+  - en
+  derivatives: []
+  note: 'The first downstream distribution in the RHEL family to publish official riscv64 builds;
+    without a board at hand, the GenericCloud image under QEMU lets you try it right away.'
+  checked: '2026-11-02'
+  order: 15
+  feature: false
+  sources:
+  - https://almalinux.org/get-almalinux/
+  - https://almalinux.org/blog/2026-03-17-almalinux-goes-riscv
+  - https://wiki.almalinux.org/development/almalinux-os-kitten-10.html
+- id: rocky
+  name: Rocky Linux 10
+  vendor: Rocky Enterprise Software Foundation
+  upstream: official
+  upstream_note: 'Rocky Linux 10 officially supports riscv64 (riscv64gc builds), driven by the Rocky
+    AltArch SIG and the Fedora RISC-V community. riscv64 is listed as an Alternative Architecture:
+    its build failures do not block the release of other architectures.'
+  kind: distro
+  based_on: RHEL 10 (CentOS Stream 10 code base)
+  audience: advanced
+  versions:
+  - '10.2 (riscv64 container images published: Base / Minimal / Toolbox / UBI, built 2026-05-25)'
+  - '10.0 (the GA announcement lists riscv64 as a supported architecture; installation images and
+    package repository are not online yet)'
+  boards:
+  - board: qemu
+    level: partial
+    note: The official announcement lists QEMU as a target platform, but there is no installation
+      image yet
+  - board: visionfive2
+    level: partial
+    note: The official announcement lists VisionFive 2 as a target platform, but there are no board
+      images yet
+  - board: p550
+    level: partial
+    note: The official announcement lists HiFive Premier P550 as a target platform, but there are no
+      board images yet
+  downloads:
+  - label: Rocky 10 riscv64 container image directory (Base / Minimal / Toolbox / UBI)
+    url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  guides:
+  - label: 'Rocky official announcement: Rocky Linux 10 supports RISC-V'
+    url: https://rockylinux.org/news/rockylinux-support-for-riscv
+    type: doc
+    lang: en
+  - label: Rocky Linux 10.0 GA release notes (riscv64 listed as a supported architecture)
+    url: https://rockylinux.org/news/rocky-linux-10-0-ga-release
+    type: doc
+    lang: en
+  gotchas:
+  - 'Only container images can be downloaded right now: the installation ISO and dnf repository are
+    not online yet — /pub/rocky/10/BaseOS/riscv64/os/ is empty, and the official announcement says
+    images are "coming soon"'
+  - 'The board list is inherited directly from Fedora RISC-V (VisionFive 2 / QEMU / P550); Rocky
+    itself has no board images'
+  - 'riscv64 is an Alternative Architecture, so build failures do not block releases of the primary
+    architectures — package completeness is a matter of luck'
+  doc_langs:
+  - en
+  derivatives: []
+  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account, the riscv64
+    container images of Rocky 10 are the ready-to-use option today; running a real system still
+    means waiting for installation media.'
+  checked: '2026-11-02'
+  order: 16
+  feature: false
+  sources:
+  - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  - https://rockylinux.org/news/rockylinux-support-for-riscv
+  - https://rockylinux.org/news/rocky-linux-10-0-ga-release
 - id: gentoo
   name: Gentoo
   vendor: ''
@@ -1295,7 +1469,7 @@ items:
   derivatives: []
   note: 'Friendly to veterans, discouraging for beginners: complete docs but a fully manual install, good for people who want deep customization or an embedded rootfs.'
   checked: '2026-11-01'
-  order: 14
+  order: 17
   feature: false
   sources:
   - https://www.gentoo.org/downloads/riscv/
@@ -1350,7 +1524,7 @@ items:
   - nixos-licheepi4a / nixos-vf2 (board-level flakes)
   note: Declarative config is nice, but riscv64 is in a "it runs, don't expect an easy ride" state.
   checked: '2026-11-01'
-  order: 15
+  order: 18
   feature: false
   sources:
   - https://nixos.org/download/
@@ -1414,7 +1588,7 @@ items:
   derivatives: []
   note: If you want a proper Unix-like system with official images, FreeBSD is the most solid non-Linux option on RISC-V.
   checked: '2026-11-01'
-  order: 16
+  order: 19
   feature: false
   sources:
   - https://download.freebsd.org/releases/riscv/riscv64/ISO-IMAGES/15.1/
@@ -1466,7 +1640,7 @@ items:
   derivatives: []
   note: Smooth under QEMU; on real hardware it depends on whether you already have a working U-Boot.
   checked: '2026-11-01'
-  order: 17
+  order: 20
   feature: false
   sources:
   - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
@@ -1517,7 +1691,7 @@ items:
   derivatives: []
   note: Security-focused and minimal; the experience is most orthodox on an Unmatched, otherwise not a beginner's pick.
   checked: '2026-11-01'
-  order: 18
+  order: 21
   feature: false
   sources:
   - https://cdn.openbsd.org/pub/OpenBSD/8.0/riscv64/
@@ -1572,7 +1746,7 @@ items:
   - Simply Linux / ALT Mobile (same repo family, no riscv64 builds)
   note: The most complete RISC-V support among Russian distros, with images that work out of the box; suited to QEMU and Unmatched users.
   checked: '2026-11-01'
-  order: 19
+  order: 22
   feature: false
   sources:
   - https://nightly.altlinux.org/sisyphus-riscv64/current/
@@ -1623,7 +1797,7 @@ items:
   - Many vendor SDKs are Buildroot-based (e.g. some D1/K230 SDKs)
   note: 'Make it clear to newcomers: this is not a distro but a toolbox for building your own.'
   checked: '2026-11-01'
-  order: 20
+  order: 23
   feature: false
   sources:
   - https://buildroot.org/download.html
@@ -1696,7 +1870,7 @@ items:
   - Vendor Yocto BSPs from SpacemiT / StarFive / T-Head follow the oe-core + meta-riscv pattern
   note: Aimed at industrial/production use; hobbyists should start with Armbian or Buildroot instead.
   checked: '2026-11-01'
-  order: 21
+  order: 24
   feature: false
   sources:
   - https://www.yoctoproject.org/development/releases/
@@ -1766,7 +1940,7 @@ items:
   note: 'Mostly for vendor/ecosystem testing: it is officially positioned as early validation — surfacing firmware, platform-semantics and kernel interop problems early so vendors fork less. Regular users
     normally don''t need it; for daily use pick a vendor distro such as Bianbu / RevyOS / openKylin, and try its QEMU image if you just want a zero-cost look.'
   checked: '2026-11-01'
-  order: 22
+  order: 25
   feature: false
   sources:
   - https://releases.openruyi.cn/creek/
@@ -1805,7 +1979,7 @@ items:
   derivatives: []
   note: Not usable for any RISC-V scenario right now; listed only to show that "small and fast" does not mean "has RISC-V".
   checked: '2026-11-01'
-  order: 23
+  order: 26
   feature: false
   sources:
   - https://voidlinux.org/download/
@@ -1839,7 +2013,7 @@ items:
   derivatives: []
   note: Treat it as "no RISC-V support"; mark it as unsupported on the portal rather than misleading readers.
   checked: '2026-11-01'
-  order: 24
+  order: 27
   feature: false
   sources:
   - https://ftp.pld-linux.org/dists/3.0/
@@ -1889,7 +2063,7 @@ items:
   - Slackware ARM (official ARM project, no RISC-V)
   note: Long-time Slackware users can try slarm64 to keep the habit alive on RISC-V; beginners should stay away.
   checked: '2026-11-01'
-  order: 25
+  order: 28
   feature: false
   sources:
   - http://dl.slarm64.org/slackware/slarm64-riscv64-current/
@@ -1940,7 +2114,7 @@ items:
   derivatives: []
   note: Only for experiments that check whether the Android framework boots on RISC-V — don't treat it as a usable system.
   checked: '2026-11-01'
-  order: 26
+  order: 29
   feature: false
   sources:
   - https://source.android.com/docs/setup/download
