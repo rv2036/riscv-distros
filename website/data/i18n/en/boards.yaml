@@ -61,6 +61,15 @@ items:
   - distro: yocto
     level: official
     note: qemuriscv64 machine officially supported
+  - distro: almalinux
+    level: official
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
+  - distro: rhel
+    level: partial
+    note: ''
   downloads:
   - label: 'QEMU docs: the RISC-V virt machine'
     url: https://www.qemu.org/docs/master/system/riscv/virt.html
@@ -184,6 +193,12 @@ items:
   - distro: openkylin
     level: community
     note: openKylin has a VF2 image
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: StarFive's official Debian 202510 (v0.15.0)
     url: https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
@@ -504,6 +519,9 @@ items:
   - distro: fedora
     level: vendor-claim
     note: The spec page says Fedora is supported, but there is no K3-specific official image
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Bianbu K3 images (including 4.0.8)
     url: https://archive.spacemit.com/image/k3/version/bianbu/
@@ -799,6 +817,9 @@ items:
   - distro: openkylin
     level: official
     note: openKylin 2.0 SP2 (ultrarisc-titan, built 2026-06-22)
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Ubuntu 24.04 (UltraRISC official, split 7z)
     url: https://github.com/milkv-titan/titan-ubuntu/releases
@@ -1127,6 +1148,15 @@ items:
   - distro: debian
     level: community
     note: A SiFive blog says Debian support is in progress; prepare the image yourself
+  - distro: rhel
+    level: official
+    note: ''
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: Ubuntu image releases (SiFive official)
     url: https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1655,7 +1685,10 @@ items:
   price_note: ''
   forms: []
   official_os: []
-  distros: []
+  distros:
+  - distro: rhel
+    level: official
+    note: ''
   downloads: []
   guides: []
   gotchas: []

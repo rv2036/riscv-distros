@@ -60,6 +60,15 @@ items:
   - distro: yocto
     level: official
     note: qemuriscv64 machine 공식 지원.
+  - distro: almalinux
+    level: official
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
+  - distro: rhel
+    level: partial
+    note: ''
   downloads:
   - label: 'QEMU 공식 문서: RISC-V virt 머신'
     url: https://www.qemu.org/docs/master/system/riscv/virt.html
@@ -183,6 +192,12 @@ items:
   - distro: openkylin
     level: community
     note: openKylin에 VF2 이미지가 있습니다.
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: StarFive 공식 Debian 202510 (v0.15.0)
     url: https://github.com/starfive-tech/Debian/releases/tag/v0.15.0-engineering-release-wayland
@@ -499,6 +514,9 @@ items:
   - distro: fedora
     level: vendor-claim
     note: 공식 사양 페이지에 Fedora 지원이 적혀 있지만 K3 전용 공식 이미지는 보이지 않습니다.
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Bianbu K3 이미지 (4.0.8 포함)
     url: https://archive.spacemit.com/image/k3/version/bianbu/
@@ -790,6 +808,9 @@ items:
   - distro: openkylin
     level: official
     note: openKylin 2.0 SP2(ultrarisc-titan, 2026-06-22 빌드).
+  - distro: rhel
+    level: official
+    note: ''
   downloads:
   - label: Ubuntu 24.04(UltraRISC 공식, 분할 7z)
     url: https://github.com/milkv-titan/titan-ubuntu/releases
@@ -1114,6 +1135,15 @@ items:
   - distro: debian
     level: community
     note: SiFive 블로그가 Debian 지원을 추진한다고 밝혔지만 이미지는 직접 준비해야 합니다.
+  - distro: rhel
+    level: official
+    note: ''
+  - distro: almalinux
+    level: partial
+    note: ''
+  - distro: rocky
+    level: partial
+    note: ''
   downloads:
   - label: Ubuntu 이미지 Releases(SiFive 공식)
     url: https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1638,7 +1668,10 @@ items:
   price_note: ''
   forms: []
   official_os: []
-  distros: []
+  distros:
+  - distro: rhel
+    level: official
+    note: ''
   downloads: []
   guides: []
   gotchas: []
