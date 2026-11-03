@@ -1,4 +1,4 @@
-# 发行版条目（中文母版）
+# zh distro entries
 items:
 - id: debian
   name: Debian
@@ -168,6 +168,9 @@ items:
   - board: bpi-f3
     level: partial
     note: 官方板卡列表无 Banana Pi BPI-F3
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Canonical 官方 RISC-V 下载页（按板卡选镜像）
     url: https://ubuntu.com/download/risc-v/canonical-built
@@ -261,6 +264,9 @@ items:
   - board: bpi-f3
     level: official
     note: SpacemiT M1/K1 条目官方支持（Banana Pi BPI-F3）
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: Fedora RISC-V 镜像总目录 (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
@@ -499,6 +505,9 @@ items:
   - board: k3
     level: official
     note: K3 平台：Pico ITX 与 CoM260 Kit，Bianbu 4.x 专属
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: K1 镜像索引（官网 archive，含全部版本与日期）
     url: https://archive.spacemit.com/image/k1/version/bianbu/
@@ -718,6 +727,9 @@ items:
   - board: visionfive2
     level: community
     note: ''
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: 系统下载中心（按架构筛选 RISC-V）
     url: https://www.openkylin.top/downloads/
@@ -821,6 +833,9 @@ items:
   - board: visionfive2
     level: community
     note: JH7110，内核 5.15/6.6/6.12，u-boot 启动
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: 官方下载页（RISC-V 技术预览）
     url: https://www.deepin.org/zh/download/

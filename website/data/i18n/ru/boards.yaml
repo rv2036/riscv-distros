@@ -504,7 +504,8 @@ items:
     note: С завода предустановлен Bianbu Desktop 3.0; в archive уже доступна 4.0.8 (сборка 2026-10-16, LXQt/Minimal, включая вариант с UEFI)
   - distro: ubuntu
     level: official
-    note: Официальная поддержка начинается с Ubuntu 26.10 — Canonical покрывает CoM260, Pico-ITX и DeepComputing FML13V05; сначала нужно прошить прошивку EDK2, затем ставить с USB-накопителя. Предустановленный образ 26.04 из архива SpacemiT использует вендорное ядро и не поддерживается Canonical
+    note: Официальная поддержка начинается с Ubuntu 26.10 — Canonical покрывает CoM260, Pico-ITX и DeepComputing FML13V05; сначала нужно прошить прошивку EDK2, затем ставить с USB-накопителя. Предустановленный
+      образ 26.04 из архива SpacemiT использует вендорное ядро и не поддерживается Canonical
   - distro: debian
     level: official
     note: Образы Debian 13 GNOME/XFCE/Minimal (сборка 2026-07-30)
@@ -595,6 +596,70 @@ items:
   - https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
   - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
   - https://matrix.ruyisdk.org/
+- id: jupiter2
+  name: Milk-V Jupiter2
+  soc: 'SpacemiT K3: SpacemiT X100 + A100'
+  vendor: Milk-V
+  spec: Память LPDDR5 8G/16G/32G (тестовая конфигурация по данным RuyiSDK); на плате UFS до 256GB, плюс M.2 M-Key 2280 (PCIe Gen3 x4)
+  status: on_sale
+  price_note: Цена зависит от конфигурации, на этом сайте не проверена; на официальной странице продукта цена не указана
+  forms:
+  - 'Одноплатный компьютер pico-ITX: 1× 10GbE SFP+ + 1× GbE RJ45, USB-C (DP Alt Mode) и eDP для двух дисплеев'
+  official_os:
+  - bianbu
+  - ubuntu
+  - openkylin
+  - deepin
+  - fedora
+  distros:
+  - distro: bianbu
+    level: official
+    note: 'Bianbu предустановлена с завода; по результатам реального теста RuyiSDK на железе: 4.0.1 Desktop — good (2026-10-25)'
+  - distro: fedora
+    level: official
+    note: На странице аппаратной поддержки Fedora RISC-V Milk-V Jupiter2 указана в записи SpacemiT K3
+  - distro: ubuntu
+    level: partial
+    note: На странице продукта производителя Ubuntu 26.04 указана как поддерживаемая система; на официальной странице загрузок RISC-V от Canonical отдельной версии для Jupiter2 не найдено
+  - distro: openkylin
+    level: partial
+    note: На странице продукта производителя указана OpenKylin 2.0; в официальных каналах openKylin запись Jupiter2 не найдена
+  - distro: deepin
+    level: partial
+    note: На странице продукта производителя указан deepin 25; в официальных каналах deepin запись Jupiter2 не найдена
+  downloads:
+  - label: Страница производителя (спецификации и список поддерживаемого ПО)
+    url: https://milkv.io/jupiter2
+  guides:
+  - label: Официальное руководство по быстрому старту (Jupiter2)
+    url: https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+    type: doc
+    lang: zh
+  - label: 'Отчёт о реальном тестировании RuyiSDK: Bianbu 4.0.1 Desktop, good (2026-10-25)'
+    url: https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+    type: doc
+    lang: en
+  - label: 'Fedora Wiki: Milk-V Jupiter2'
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
+    type: doc
+    lang: en
+  gotchas:
+  - '10GbE — это оптический порт SFP+, а не RJ45: в обычный коммутатор придётся вставлять оптический модуль либо использовать единственный электрический порт GbE'
+  - Вывод на два дисплея идёт через DP Alt Mode по USB-C и eDP, стандартного порта HDMI нет
+  - Bianbu предустановлена с завода (в RuyiSDK записано 4.0.1 Desktop); при переустановке сначала убедитесь, что образ предназначен для Jupiter2, а не универсальный образ для K3
+  - На официальной странице цена не указана, цена и розничные каналы не проверены
+  doc_langs:
+  - zh
+  - en
+  note: Первый одноплатный компьютер на K3, готовый к RVA23 (по заявлению производителя), форм-фактор pico-ITX плюс 10GbE SFP+, подходит как настольная платформа или платформа для сетевых экспериментов.
+  checked: '2026-11-03'
+  order: 6
+  feature: false
+  sources:
+  - https://milkv.io/jupiter2
+  - https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+  - https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
 - id: a210
   name: Zhihe A210 (плата разработки XuanTie MelonPi)
   soc: ZHIHE A210（4×C920 + 4×C908）
@@ -649,7 +714,7 @@ items:
   note: 'Уточнение модели: чип — Zhihe Computing A210 (серия «Архимед», ядра XuanTie C920/C908), бренд платы разработчика записывается как «XuanTie MelonPi». Образ Ubuntu покрывает только A200 (a200-evb),
     для A210 он несовместим.'
   checked: '2026-11-01'
-  order: 6
+  order: 7
   feature: true
   sources:
   - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
@@ -718,7 +783,7 @@ items:
   note: CanMV (прошивка MicroPython) — форма с наибольшим объёмом выпуска и самой полной документацией; на стороне Linux официально продвигается Buildroot. Для Apache NuttX также есть поддержка платы CanMV-K230
     (не дистрибутив); CanMV K230(D) уже включён в матрицу поддержки RuyiSDK, образ можно получить через ruyi device provision.
   checked: '2026-11-01'
-  order: 7
+  order: 8
   feature: false
   sources:
   - https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
@@ -787,7 +852,7 @@ items:
   - en
   note: Megrez — первая серийная плата Mini-ITX на EIC7700X; на том же чипе есть SiFive HiFive Premier P550 (дороже, официальная поддержка Ubuntu лучше).
   checked: '2026-11-01'
-  order: 8
+  order: 9
   feature: false
   sources:
   - https://github.com/milkv-megrez/megrez-build/releases/
@@ -859,7 +924,7 @@ items:
   - en
   note: Позиционирование — «RISC-V рабочая станция/лёгкий сервер с возможностью установки видеокарты», предпочтительная ОС — Ubuntu; начиная с Fedora 44 используется ядро Omni.
   checked: '2026-11-01'
-  order: 9
+  order: 10
   feature: false
   sources:
   - https://github.com/milkv-titan/titan-ubuntu/releases
@@ -956,7 +1021,7 @@ items:
   note: Исторический эталон RISC-V десктопа; сейчас он скорее для покупки б/у по случаю и для обучения. Порог входа для новичка высокий (последовательный порт + переключатели + питание), в качестве первой
     платы не рекомендуется. Есть также производные сборки сообщества, например openwrt (не входят в стандартный id дистрибутива).
   checked: '2026-11-01'
-  order: 10
+  order: 11
   feature: false
   sources:
   - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
@@ -1048,7 +1113,7 @@ items:
   note: K1 — один из чипов для высокопроизводительных RISC-V SBC с наибольшими поставками в 2024–2025 гг.; у BPI-F3 самая пёстрая экосистема (официальный Bianbu + образы сообщества Armbian/Fedora/openSUSE/Arch/Gentoo).
     BPI-F3 также включён в матрицу поддержки RuyiSDK.
   checked: '2026-11-01'
-  order: 11
+  order: 12
   feature: false
   sources:
   - https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
@@ -1118,7 +1183,7 @@ items:
   note: Ky X1 и SpacemiT K1 очень близки по происхождению (8 ядер класса X60, в отрасли широко считается переименованной версией), но производитель официально это не подтвердил; поэтому нельзя напрямую
     использовать образы Bianbu для K1.
   checked: '2026-11-01'
-  order: 12
+  order: 13
   feature: false
   sources:
   - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
@@ -1193,7 +1258,7 @@ items:
   - en
   note: Тот же чип, что у Milk-V Megrez (EIC7700X), но у P550 есть официальная предустановка Ubuntu + OTA, зрелость ПО выше, чем у Megrez; также есть поддержка Red Hat RHEL 10 developer preview.
   checked: '2026-11-01'
-  order: 13
+  order: 14
   feature: false
   sources:
   - https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1263,7 +1328,7 @@ items:
   note: 'VisionFive 3 не выпущена: новинка StarFive 2026 года — серверный RISC-V IP Dubhe-100, линейка SBC обновилась только до VisionFive 2 Lite (краудфандинг 2025-08, серийное производство 2025-10). RVSpace
     также заявляет о нативной поддержке OpenWrt (не id дистрибутива).'
   checked: '2026-11-01'
-  order: 14
+  order: 15
   feature: false
   sources:
   - https://debian.starfivetech.com/
@@ -1345,7 +1410,7 @@ items:
   - en
   note: 'Аппаратная сборка хорошая, экосистема cape сильная, но ПО — худшее среди трёх плат на TH1520: официальные образы не обновлялись три года, подходит только для коллекции или обучения.'
   checked: '2026-11-01'
-  order: 15
+  order: 16
   feature: false
   sources:
   - https://www.beagleboard.org/distros
@@ -1435,7 +1500,7 @@ items:
   note: Единственная плата, которую можно использовать как «RISC-V рабочую станцию/сервер»; цена и энергопотребление на порядок выше; подходит для 64-ядерной параллельной сборки, CI runner, не подходит
     для начинающих. Есть также производные версии сообщества, например opencloudos (не входят в id стандартных дистрибутивов).
   checked: '2026-11-01'
-  order: 16
+  order: 17
   feature: false
   sources:
   - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
@@ -1545,7 +1610,7 @@ items:
   note: Входной гаджет уровня US$5, подходит для изучения встраиваемого Linux/RTOS, не для использования в качестве десктопа; перед покупкой уточните, 64M или 256M/S — образы полностью несовместимы. Есть
     также производные версии сообщества, например openwrt (не входят в стандартный id дистрибутива).
   checked: '2026-11-01'
-  order: 17
+  order: 18
   feature: false
   sources:
   - https://milkv.io/docs/duo/getting-started/download

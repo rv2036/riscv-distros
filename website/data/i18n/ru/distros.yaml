@@ -170,6 +170,9 @@ items:
   - board: bpi-f3
     level: partial
     note: В официальном списке плат нет Banana Pi BPI-F3
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Официальная страница загрузки RISC-V от Canonical (выбор образа по плате)
     url: https://ubuntu.com/download/risc-v/canonical-built
@@ -266,6 +269,9 @@ items:
   - board: bpi-f3
     level: official
     note: Официальная поддержка SpacemiT M1/K1 (Banana Pi BPI-F3)
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: Общий каталог образов Fedora RISC-V (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
@@ -512,6 +518,9 @@ items:
   - board: k3
     level: official
     note: 'Платформа K3: Pico ITX и CoM260 Kit, только для Bianbu 4.x'
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: Индекс образов K1 (официальный сайт archive, все версии и даты)
     url: https://archive.spacemit.com/image/k1/version/bianbu/
@@ -735,6 +744,9 @@ items:
   - board: visionfive2
     level: community
     note: ''
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Центр загрузки системы (фильтр RISC-V по архитектуре)
     url: https://www.openkylin.top/downloads/
@@ -840,6 +852,9 @@ items:
   - board: visionfive2
     level: community
     note: JH7110, ядро 5.15/6.6/6.12, загрузка u-boot
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Официальная страница загрузки (технический предпросмотр RISC-V)
     url: https://www.deepin.org/zh/download/
