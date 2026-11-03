@@ -503,7 +503,7 @@ items:
     note: Ships with Bianbu Desktop 3.0; the archive is at 4.0.8 (built 2026-10-16, LXQt/Minimal, with a UEFI variant)
   - distro: ubuntu
     level: official
-    note: The SpacemiT archive provides an ubuntu-26.04-preinstalled-desktop-riscv64 image; the spec page lists Ubuntu 26.04
+    note: Official support starts with Ubuntu 26.10 — Canonical covers the CoM260, Pico-ITX and DeepComputing FML13V05; you must flash EDK2 firmware first and then install from a USB stick. The 26.04 preinstalled image in the SpacemiT archive uses the vendor kernel and is not supported by Canonical
   - distro: debian
     level: official
     note: Debian 13 GNOME/XFCE/Minimal images (built 2026-07-30)
@@ -560,9 +560,14 @@ items:
     url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
     type: doc
     lang: en
+  - label: Official Ubuntu install guide for K3 (flash EDK2 firmware, install from USB)
+    url: https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+    type: doc
+    lang: en
   gotchas:
   - The factory Bianbu 4.0.4 uses vendor kernel 6.18.3-generic, not mainline; K3 reference designs and SDKs have been released in batches since 2026-05, with docs and hardware validation moving together
-  - 16 cores are enumerated but a single task schedules on at most 8, and KVM/VMs did not work in testing (TinyComputers review, 2026-09)
+  - The 16 cores come as two 8-core clusters (X100 and A100) and a single process can use only one cluster at a time; the mainline kernel (Ubuntu 26.10) enumerates just the 8 X100 cores, with the A100 cores invisible
+  - KVM — on the vendor kernel modprobe kvm oopses outright (Bianbu 4.0.4 / 6.18.3; later builds were not re-checked); with the mainline-kernel Ubuntu 26.10 Linux guests do run
   - In the review the 10GbE SFP+ never linked and only the GbE port worked; 10GbE driver/transceiver compatibility needs testing
   - Reseller prices vary wildly and duty is extra; the Milk-V Jupiter2 docs are still a stub, so rely on SpacemiT's official docs
   doc_langs:
@@ -570,10 +575,12 @@ items:
   - en
   note: Officially named K3-CoM260 (a 260-pin SO-DIMM compute module), which is the SOM260 form factor in the brief; the Pico-ITX and CoM260 share the SoC/SDK and system images. K3 went on global sale on
     2026-04-30 and reached volume public sales in 2026-05.
-  checked: '2026-11-01'
+  checked: '2026-11-03'
   order: 5
   feature: true
   sources:
+  - https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+  - https://tinycomputers.io/posts/spacemit-k3-ubuntu-kvm-follow-up.html
   - https://archive.spacemit.com/image/k3/version/bianbu/
   - https://archive.spacemit.com/image/k3/version/debian/
   - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/

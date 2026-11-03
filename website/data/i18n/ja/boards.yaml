@@ -498,7 +498,7 @@ items:
     note: 出荷時は Bianbu Desktop 3.0 をプリインストール。archive は 4.0.8 まで来ています（2026-10-16 ビルド、LXQt/Minimal、UEFI 変体あり）
   - distro: ubuntu
     level: official
-    note: SpacemiT の archive が ubuntu-26.04-preinstalled-desktop-riscv64 イメージを提供。公式仕様ページにも Ubuntu 26.04 が記載されています
+    note: Ubuntu 26.10 から公式サポート。Canonical が CoM260 / Pico-ITX / DeepComputing FML13V05 を対象にしており、先に EDK2 ファームウェアを書き込んでから USB メモリでインストールします。SpacemiT archive の 26.04 プリインストールイメージはベンダーカーネルで、Canonical のサポート対象外です
   - distro: debian
     level: official
     note: Debian 13 の GNOME/XFCE/Minimal イメージ（2026-07-30 ビルド）
@@ -555,19 +555,26 @@ items:
     url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
     type: doc
     lang: en
+  - label: K3 向け Ubuntu 公式インストールガイド（EDK2 書き込み＋USB インストール）
+    url: https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+    type: doc
+    lang: en
   gotchas:
   - 出荷時の Bianbu 4.0.4 はベンダーカーネル 6.18.3-generic で、メインラインではありません。K3 のリファレンス設計と SDK は 2026-05 から段階的に公開され、ドキュメントとハードウェア検証が並行して進んでいます
-  - 16 コアと列挙されますが、1 タスクが同時に使えるのは最大 8 コアです。KVM／仮想マシンは実測で使えませんでした（TinyComputers 2026-09 のレビュー）
+  - 16 コアは X100 と A100 の 2 グループ各 8 コアで、1 プロセスが同時に使えるのは片方だけです。メインラインカーネル（Ubuntu 26.10）では X100 の 8 コアしか列挙されず、A100 コアは見えません
+  - KVM：ベンダーカーネルでは modprobe kvm がそのまま oops します（Bianbu 4.0.4 / 6.18.3、以降の版は未確認）。メインラインカーネルの Ubuntu 26.10 なら Linux ゲストが動きます
   - レビューでは 10 ギガビット SFP+ が link せず、使えたのはギガビットポートだけでした。10GbE のドライバ／光モジュールの互換性は実測が必要です
   - 流通価格の差が非常に大きく、関税も自己負担です。Milk-V Jupiter2 のドキュメントは現状スタブで、主に SpacemiT 公式ドキュメントに頼ることになります
   doc_langs:
   - zh
   - en
   note: 公式名称は K3-CoM260（260pin SO-DIMM コアボード）で、タスク中の SOM260 はこの形態を指します。Pico-ITX と CoM260 は SoC/SDK とシステムイメージを共有します。K3 は 2026-04-30 に世界発売、2026-05 から量産販売に入りました。
-  checked: '2026-11-01'
+  checked: '2026-11-03'
   order: 5
   feature: true
   sources:
+  - https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+  - https://tinycomputers.io/posts/spacemit-k3-ubuntu-kvm-follow-up.html
   - https://archive.spacemit.com/image/k3/version/bianbu/
   - https://archive.spacemit.com/image/k3/version/debian/
   - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/

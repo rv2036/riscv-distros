@@ -498,7 +498,7 @@ items:
     note: 출하 시 Bianbu Desktop 3.0 프리인스톨. archive에는 이미 4.0.8(2026-10-16 빌드, LXQt/Minimal, UEFI 변형 포함)이 올라 있습니다.
   - distro: ubuntu
     level: official
-    note: SpacemiT archive가 ubuntu-26.04-preinstalled-desktop-riscv64 이미지를 제공하고, 공식 사양 페이지에 Ubuntu 26.04가 올라 있습니다.
+    note: Ubuntu 26.10부터 공식 지원합니다. Canonical이 CoM260 / Pico-ITX / DeepComputing FML13V05를 대상으로 하며, EDK2 펌웨어를 먼저 플래시한 뒤 USB 메모리로 설치해야 합니다. SpacemiT archive의 26.04 프리인스톨 이미지는 벤더 커널이라 Canonical 지원 대상이 아닙니다
   - distro: debian
     level: official
     note: Debian 13 GNOME/XFCE/Minimal 이미지(2026-07-30 빌드).
@@ -555,19 +555,26 @@ items:
     url: https://tinycomputers.io/posts/spacemit-k3-pico-itx-review.html
     type: doc
     lang: en
+  - label: K3용 Ubuntu 공식 설치 가이드 (EDK2 펌웨어 플래시 + USB 설치)
+    url: https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+    type: doc
+    lang: en
   gotchas:
   - 출하 Bianbu 4.0.4는 벤더 커널 6.18.3-generic이라 mainline이 아닙니다. K3 레퍼런스 디자인과 SDK는 2026-05부터 순차 공개돼 문서와 하드웨어 검증이 같이 진행 중입니다.
-  - 코어는 16개로 열거되지만 한 작업에는 최대 8코어까지만 스케줄되고 KVM/가상머신은 실측상 쓸 수 없습니다(TinyComputers 2026-09 리뷰).
+  - 16개 코어는 X100과 A100 두 그룹 각 8개이고 한 프로세스는 한 번에 한 그룹만 쓸 수 있습니다. 메인라인 커널(Ubuntu 26.10)은 X100 8코어만 열거하고 A100 코어는 보이지 않습니다.
+  - KVM — 벤더 커널에서는 modprobe kvm이 곧바로 oops가 납니다(Bianbu 4.0.4 / 6.18.3, 이후 빌드는 미확인). 메인라인 커널의 Ubuntu 26.10에서는 Linux 게스트가 동작합니다.
   - 리뷰에서 10GbE SFP+가 link되지 않고 기가비트 포트만 동작했습니다. 10GbE 드라이버와 광모듈 호환은 실측이 필요합니다.
   - 채널 가격 차이가 크고 관세도 직접 부담해야 합니다. Milk-V Jupiter2 문서는 아직 stub이라 주로 SpacemiT 공식 문서에 의존합니다.
   doc_langs:
   - zh
   - en
   note: 공식 명칭은 K3-CoM260(260pin SO-DIMM 코어 보드)이고 과제의 SOM260이 이 형태입니다. Pico-ITX와 CoM260은 SoC/SDK와 시스템 이미지를 공유합니다. K3는 2026-04-30 글로벌 판매를 시작해 2026-05부터 양산 공개 판매에 들어갔습니다.
-  checked: '2026-11-01'
+  checked: '2026-11-03'
   order: 5
   feature: true
   sources:
+  - https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/spacemit-k3
+  - https://tinycomputers.io/posts/spacemit-k3-ubuntu-kvm-follow-up.html
   - https://archive.spacemit.com/image/k3/version/bianbu/
   - https://archive.spacemit.com/image/k3/version/debian/
   - https://archive.spacemit.com/image/k3/version/ubuntu/26.04/
