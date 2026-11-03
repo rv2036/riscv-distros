@@ -225,7 +225,7 @@ items:
   audience: recommended
   versions:
   - 44 (stable, RISC-V images available)
-  - 45 (Beta/RC, RISC-V images labelled "non-official, community-contributed")
+  - 45 (released 2026-11-03; riscv64 images live in the alt tree, Server / Cloud / Container builds dated 2026-10-22)
   - rawhide
   boards:
   - board: qemu
@@ -273,6 +273,8 @@ items:
   downloads:
   - label: Fedora RISC-V image root (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - label: Fedora 45 RISC-V image directory (Server / Cloud / Container)
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/45/
   - label: Fedora Remix for RISC-V
     url: https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
   guides:
@@ -301,7 +303,7 @@ items:
   - Fedora Remix for RISC-V
   note: Fedora runs an official RISC-V SIG with continuous builds, but the project still labels riscv64 "not officially supported" and ships images through the alt channel. It works fine day to day; its
     support level is simply not the same as Debian or Ubuntu.
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 3
   feature: true
   sources:
@@ -317,6 +319,7 @@ items:
   - https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
+  - https://fedoramagazine.org/announcing-fedora-linux-45/
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1414,7 +1417,7 @@ items:
   based_on: Independent (built from source, OpenRC/systemd optional)
   audience: advanced
   versions:
-  - rolling (stage3 rv64_lp64d-openrc 20261026T164559Z)
+  - rolling (stage3 rv64_lp64d-openrc 20261102T160056Z)
   boards:
   - board: qemu
     level: official
@@ -1460,7 +1463,7 @@ items:
   - en
   derivatives: []
   note: 'Friendly to veterans, discouraging for beginners: complete docs but a fully manual install, good for people who want deep customization or an embedded rootfs.'
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 17
   feature: false
   sources:

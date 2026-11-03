@@ -227,7 +227,7 @@ items:
   audience: recommended
   versions:
   - 44 (стабильная версия, образ RISC-V уже есть)
-  - 45 (Beta/RC, образ RISC-V помечен как "non-official, community-contributed")
+  - 45 (выпуск 2026-11-03; образы riscv64 в alt-дереве, сборки Server / Cloud / Container от 2026-10-22)
   - rawhide
   boards:
   - board: qemu
@@ -275,6 +275,8 @@ items:
   downloads:
   - label: Общий каталог образов Fedora RISC-V (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - label: Каталог образов Fedora 45 для RISC-V (Server / Cloud / Container)
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/45/
   - label: Fedora Remix for RISC-V
     url: https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
   guides:
@@ -304,7 +306,7 @@ items:
   - Fedora Remix for RISC-V
   note: У Fedora есть официальный SIG RISC-V с непрерывными сборками, но riscv64 по-прежнему помечен как «not officially supported», а образы публикуются в канале alt. В повседневной работе это не мешает,
     однако уровень поддержки не тот же, что у Debian или Ubuntu.
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 3
   feature: true
   sources:
@@ -320,6 +322,7 @@ items:
   - https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
+  - https://fedoramagazine.org/announcing-fedora-linux-45/
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1421,7 +1424,7 @@ items:
   based_on: Независимый (сборка из исходников, OpenRC/systemd на выбор)
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261026T164559Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261102T160056Z）
   boards:
   - board: qemu
     level: official
@@ -1467,7 +1470,7 @@ items:
   - en
   derivatives: []
   note: 'Дружелюбно к опытным, отпугивает новичков: документация полная, но установка полностью ручная; подходит тем, кто хочет глубокой кастомизации или собрать встраиваемый rootfs.'
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 17
   feature: false
   sources:
