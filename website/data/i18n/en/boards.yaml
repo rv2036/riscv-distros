@@ -503,7 +503,8 @@ items:
     note: Ships with Bianbu Desktop 3.0; the archive is at 4.0.8 (built 2026-10-16, LXQt/Minimal, with a UEFI variant)
   - distro: ubuntu
     level: official
-    note: Official support starts with Ubuntu 26.10 — Canonical covers the CoM260, Pico-ITX and DeepComputing FML13V05; you must flash EDK2 firmware first and then install from a USB stick. The 26.04 preinstalled image in the SpacemiT archive uses the vendor kernel and is not supported by Canonical
+    note: Official support starts with Ubuntu 26.10 — Canonical covers the CoM260, Pico-ITX and DeepComputing FML13V05; you must flash EDK2 firmware first and then install from a USB stick. The 26.04 preinstalled
+      image in the SpacemiT archive uses the vendor kernel and is not supported by Canonical
   - distro: debian
     level: official
     note: Debian 13 GNOME/XFCE/Minimal images (built 2026-07-30)
@@ -566,7 +567,8 @@ items:
     lang: en
   gotchas:
   - The factory Bianbu 4.0.4 uses vendor kernel 6.18.3-generic, not mainline; K3 reference designs and SDKs have been released in batches since 2026-05, with docs and hardware validation moving together
-  - The 16 cores come as two 8-core clusters (X100 and A100) and a single process can use only one cluster at a time; the mainline kernel (Ubuntu 26.10) enumerates just the 8 X100 cores, with the A100 cores invisible
+  - The 16 cores come as two 8-core clusters (X100 and A100) and a single process can use only one cluster at a time; the mainline kernel (Ubuntu 26.10) enumerates just the 8 X100 cores, with the A100 cores
+    invisible
   - KVM — on the vendor kernel modprobe kvm oopses outright (Bianbu 4.0.4 / 6.18.3; later builds were not re-checked); with the mainline-kernel Ubuntu 26.10 Linux guests do run
   - In the review the 10GbE SFP+ never linked and only the GbE port worked; 10GbE driver/transceiver compatibility needs testing
   - Reseller prices vary wildly and duty is extra; the Milk-V Jupiter2 docs are still a stub, so rely on SpacemiT's official docs
@@ -593,6 +595,70 @@ items:
   - https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
   - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
   - https://matrix.ruyisdk.org/
+- id: jupiter2
+  name: Milk-V Jupiter2
+  soc: 'SpacemiT K3: SpacemiT X100 + A100'
+  vendor: Milk-V
+  spec: Memory LPDDR5 8G/16G/32G (the configuration RuyiSDK tested); on-board UFS up to 256GB, plus an M.2 M-Key 2280 slot (PCIe Gen3 x4)
+  status: on_sale
+  price_note: Price varies with configuration and has not been verified; the official product page lists no price
+  forms:
+  - 'pico-ITX single-board computer: 1× 10GbE SFP+ + 1× GbE RJ45, dual display over USB-C (DP Alt Mode) and eDP'
+  official_os:
+  - bianbu
+  - ubuntu
+  - openkylin
+  - deepin
+  - fedora
+  distros:
+  - distro: bianbu
+    level: official
+    note: Ships with Bianbu; RuyiSDK's on-device test rated 4.0.1 Desktop as good (2026-10-25)
+  - distro: fedora
+    level: official
+    note: The Fedora RISC-V hardware page lists the Milk-V Jupiter2 under the SpacemiT K3 entry
+  - distro: ubuntu
+    level: partial
+    note: The vendor product page lists Ubuntu 26.04 as a supported OS; Canonical's official RISC-V download page has no Jupiter2-specific build
+  - distro: openkylin
+    level: partial
+    note: The vendor product page lists OpenKylin 2.0; this site found no Jupiter2 entry in OpenKylin's official channels
+  - distro: deepin
+    level: partial
+    note: The vendor product page lists deepin 25; this site found no Jupiter2 entry in deepin's official channels
+  downloads:
+  - label: Official product page (specs and software support list)
+    url: https://milkv.io/jupiter2
+  guides:
+  - label: Official quick start (Jupiter2)
+    url: https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+    type: doc
+    lang: zh
+  - label: 'RuyiSDK test report: Bianbu 4.0.1 Desktop, good (2026-10-25)'
+    url: https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+    type: doc
+    lang: en
+  - label: 'Fedora Wiki: Milk-V Jupiter2'
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
+    type: doc
+    lang: en
+  gotchas:
+  - 'The 10GbE port is an SFP+ optical port, not RJ45: on an ordinary switch you either fit an optical module or use the single GbE copper port'
+  - Dual display runs over USB-C DP Alt Mode and eDP; there is no standard HDMI port
+  - Ships with Bianbu (RuyiSDK records 4.0.1 Desktop); before reinstalling, make sure the image is for the Jupiter2 and not a generic K3 image
+  - The official page lists no price; the price and retail channels have not been verified
+  doc_langs:
+  - zh
+  - en
+  note: The first RVA23-ready K3 single-board computer (per the vendor), in pico-ITX form with 10GbE SFP+, suited to desktop use or as a network test platform.
+  checked: '2026-11-03'
+  order: 6
+  feature: false
+  sources:
+  - https://milkv.io/jupiter2
+  - https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+  - https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
 - id: a210
   name: Zhihe A210 (XuanTie MelonPi dev board)
   soc: ZHIHE A210 (4×C920 + 4×C908)
@@ -647,7 +713,7 @@ items:
   note: 'Model disambiguation: the chip is Zhihe A210 (Archimedes series, XuanTie C920/C908 cores), while the board brand is written "XuanTie MelonPi". The Ubuntu image only covers the A200 (a200-evb) and
     does not work on the A210.'
   checked: '2026-11-01'
-  order: 6
+  order: 7
   feature: true
   sources:
   - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
@@ -716,7 +782,7 @@ items:
   note: CanMV (MicroPython firmware) is the highest-volume, best-documented form; on the Linux side the vendor pushes Buildroot. Apache NuttX has separate CanMV-K230 board support (not a distro), and the
     RuyiSDK support matrix already covers the CanMV K230(D), so `ruyi device provision` can fetch images.
   checked: '2026-11-01'
-  order: 7
+  order: 8
   feature: false
   sources:
   - https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
@@ -785,7 +851,7 @@ items:
   - en
   note: Megrez was the first EIC7700X board in volume production (Mini-ITX); the same chip also appears in the SiFive HiFive Premier P550, which is dearer but has better official Ubuntu support.
   checked: '2026-11-01'
-  order: 8
+  order: 9
   feature: false
   sources:
   - https://github.com/milkv-megrez/megrez-build/releases/
@@ -857,7 +923,7 @@ items:
   - en
   note: Positioned as a RISC-V workstation/light server that takes a GPU, with Ubuntu as the first-choice OS; from Fedora 44 it uses the Omni kernel.
   checked: '2026-11-01'
-  order: 9
+  order: 10
   feature: false
   sources:
   - https://github.com/milkv-titan/titan-ubuntu/releases
@@ -953,7 +1019,7 @@ items:
   note: The historic RISC-V desktop reference, now better suited to second-hand bargains or teaching; the setup cost for newcomers (serial + DIP switches + power) is high, so it is not recommended as a
     first board. Community derivatives such as openwrt exist too (not listed as standard distro ids).
   checked: '2026-11-01'
-  order: 10
+  order: 11
   feature: false
   sources:
   - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
@@ -1045,7 +1111,7 @@ items:
   note: K1 was one of the highest-volume high-performance RISC-V SBC chips in 2024-2025, and the BPI-F3 has the most varied ecosystem (official Bianbu plus community Armbian/Fedora/openSUSE/Arch/Gentoo
     images). The RuyiSDK support matrix covers the BPI-F3 too.
   checked: '2026-11-01'
-  order: 11
+  order: 12
   feature: false
   sources:
   - https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
@@ -1114,7 +1180,7 @@ items:
   - en
   note: Ky X1 is closely related to SpacemiT K1 (8× X60-class cores, widely believed to be a rebrand, though the vendor has not confirmed it), so Bianbu K1 images cannot simply be reused.
   checked: '2026-11-01'
-  order: 12
+  order: 13
   feature: false
   sources:
   - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
@@ -1189,7 +1255,7 @@ items:
   - en
   note: Same chip as the Milk-V Megrez (EIC7700X), but the P550 ships official Ubuntu with OTA, so its software is more mature; there is also Red Hat RHEL 10 developer preview support.
   checked: '2026-11-01'
-  order: 13
+  order: 14
   feature: false
   sources:
   - https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1259,7 +1325,7 @@ items:
   note: 'There is no VisionFive 3: StarFive''s 2026 launch is the server-oriented Dubhe-100 RISC-V IP, and the SBC line only moved to the VisionFive 2 Lite (crowdfunded 2025-08, in production 2025-10).
     rvspace separately claims native OpenWrt support (not a distro id).'
   checked: '2026-11-01'
-  order: 14
+  order: 15
   feature: false
   sources:
   - https://debian.starfivetech.com/
@@ -1341,7 +1407,7 @@ items:
   - en
   note: 'Good build quality and a strong cape ecosystem, but the worst software of the three TH1520 boards: the official image has not been updated in three years, so it is only good for collecting or teaching.'
   checked: '2026-11-01'
-  order: 15
+  order: 16
   feature: false
   sources:
   - https://www.beagleboard.org/distros
@@ -1431,7 +1497,7 @@ items:
   note: The only board that works as a RISC-V workstation/server, at a completely different price and power level; good for 64-core parallel builds and CI runners, not for beginners. Community derivatives
     such as opencloudos exist too (not listed as standard distro ids).
   checked: '2026-11-01'
-  order: 16
+  order: 17
   feature: false
   sources:
   - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
@@ -1541,7 +1607,7 @@ items:
   note: A US$5-class starter board, good for learning embedded Linux/RTOS and useless as a desktop; check whether you have a 64M or a 256M/S before buying, since the images are completely incompatible.
     Community derivatives such as openwrt exist too (not listed as standard distro ids).
   checked: '2026-11-01'
-  order: 17
+  order: 18
   feature: false
   sources:
   - https://milkv.io/docs/duo/getting-started/download

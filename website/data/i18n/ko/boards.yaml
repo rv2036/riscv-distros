@@ -587,6 +587,70 @@ items:
   - https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
   - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
   - https://matrix.ruyisdk.org/
+- id: jupiter2
+  name: Milk-V Jupiter2
+  soc: 'SpacemiT K3: SpacemiT X100 + A100'
+  vendor: Milk-V
+  spec: 메모리 LPDDR5 8G/16G/32G(RuyiSDK 기록 기준 테스트 구성). 온보드 UFS 최대 256GB, 추가로 M.2 M-Key 2280(PCIe Gen3 x4) 슬롯이 있습니다.
+  status: on_sale
+  price_note: 가격은 구성에 따라 달라지며 이 사이트에서 확인하지 않았습니다. 공식 제품 페이지에는 가격이 표기되지 않습니다.
+  forms:
+  - 'pico-ITX 단일 보드 SBC: 1× 10GbE SFP+ + 1× GbE RJ45, USB-C(DP Alt Mode)와 eDP 듀얼 디스플레이'
+  official_os:
+  - bianbu
+  - ubuntu
+  - openkylin
+  - deepin
+  - fedora
+  distros:
+  - distro: bianbu
+    level: official
+    note: 출하 시 Bianbu 사전 설치. RuyiSDK 실측에서 4.0.1 Desktop이 good(2026-10-25) 판정을 받았습니다.
+  - distro: fedora
+    level: official
+    note: Fedora RISC-V 하드웨어 페이지는 Milk-V Jupiter2를 SpacemiT K3 항목 아래에 기재하고 있습니다.
+  - distro: ubuntu
+    level: partial
+    note: 제조사 제품 페이지에는 Ubuntu 26.04가 지원 시스템으로 표기되어 있지만, Canonical 공식 RISC-V 다운로드 페이지에는 Jupiter2 전용 버전이 보이지 않습니다.
+  - distro: openkylin
+    level: partial
+    note: 제조사 제품 페이지에는 OpenKylin 2.0이 기재되어 있지만, 이 사이트는 openKylin 공식 채널에서 Jupiter2 항목을 찾지 못했습니다.
+  - distro: deepin
+    level: partial
+    note: 제조사 제품 페이지에는 deepin 25가 기재되어 있지만, 이 사이트는 deepin 공식 채널에서 Jupiter2 항목을 찾지 못했습니다.
+  downloads:
+  - label: 공식 제품 페이지 (사양과 소프트웨어 지원 목록)
+    url: https://milkv.io/jupiter2
+  guides:
+  - label: 공식 빠른 시작 (Jupiter2)
+    url: https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+    type: doc
+    lang: zh
+  - label: 'RuyiSDK 실측 보고서: Bianbu 4.0.1 Desktop, good(2026-10-25)'
+    url: https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+    type: doc
+    lang: en
+  - label: 'Fedora Wiki: Milk-V Jupiter2'
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
+    type: doc
+    lang: en
+  gotchas:
+  - 10GbE는 SFP+ 광 포트이며 RJ45가 아닙니다. 일반 스위치에 연결하려면 광 모듈을 꽂거나 유일한 GbE 전기 포트를 써야 합니다.
+  - 듀얼 디스플레이는 USB-C의 DP Alt Mode와 eDP로 출력하며 표준 HDMI 포트는 없습니다.
+  - 출하 시 Bianbu가 사전 설치되어 있습니다(RuyiSDK 기록은 4.0.1 Desktop). 재설치할 때는 범용 K3 이미지가 아니라 Jupiter2에 맞는 이미지인지 먼저 확인해야 합니다.
+  - 공식 페이지에는 가격이 표기되지 않았고 가격과 소매 채널은 확인하지 않았습니다.
+  doc_langs:
+  - zh
+  - en
+  note: RVA23-ready K3 단일 보드 중 첫 제품(제조사 주장)이며, pico-ITX 폼팩터에 10GbE SFP+를 갖춰 데스크톱이나 네트워크 실험 플랫폼으로 쓰기 좋습니다.
+  checked: '2026-11-03'
+  order: 6
+  feature: false
+  sources:
+  - https://milkv.io/jupiter2
+  - https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+  - https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
 - id: a210
   name: Zhihe A210(XuanTie MelonPi 개발 보드)
   soc: ZHIHE A210(4×C920 + 4×C908)
@@ -640,7 +704,7 @@ items:
   - en
   note: '모델 구분: 칩은 즈허컴퓨팅 A210(아르키메데스 계열, 쉬안톄 C920/C908 코어)이고 개발 보드 브랜드가 “MelonPi”입니다. Ubuntu 이미지는 A200(a200-evb)만 커버해 A210에는 쓸 수 없습니다.'
   checked: '2026-11-01'
-  order: 6
+  order: 7
   feature: true
   sources:
   - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
@@ -708,7 +772,7 @@ items:
   note: CanMV(MicroPython 펌웨어)가 출하량이 가장 많고 자료도 가장 많습니다. Linux 쪽은 공식적으로 Buildroot를 밀고, Apache NuttX에는 CanMV-K230 보드 지원이 따로 있습니다(배포판 아님). RuyiSDK 지원 매트릭스에 CanMV K230(D)이 올라 있어 ruyi device provision으로 이미지를
     받을 수 있습니다.
   checked: '2026-11-01'
-  order: 7
+  order: 8
   feature: false
   sources:
   - https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
@@ -777,7 +841,7 @@ items:
   - en
   note: Megrez는 EIC7700X를 가장 먼저 양산한 Mini-ITX 보드입니다. 같은 칩에 SiFive HiFive Premier P550(더 비싸지만 Ubuntu 공식 지원이 좋음)도 있습니다.
   checked: '2026-11-01'
-  order: 8
+  order: 9
   feature: false
   sources:
   - https://github.com/milkv-megrez/megrez-build/releases/
@@ -848,7 +912,7 @@ items:
   - en
   note: “그래픽 카드를 꽂을 수 있는 RISC-V 워크스테이션/경량 서버”를 겨냥하며 기본 OS는 Ubuntu입니다. Fedora 44부터 Omni 커널로 바뀌었습니다.
   checked: '2026-11-01'
-  order: 9
+  order: 10
   feature: false
   sources:
   - https://github.com/milkv-titan/titan-ubuntu/releases
@@ -943,7 +1007,7 @@ items:
   - en
   note: 역사적으로 RISC-V 데스크톱의 기준점이었지만 지금은 중고/교육용에 더 맞습니다. 초보자 진입 비용이 높아(시리얼+딥스위치+전원) 첫 보드로는 권하지 않습니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
   checked: '2026-11-01'
-  order: 10
+  order: 11
   feature: false
   sources:
   - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
@@ -1034,7 +1098,7 @@ items:
   - en
   note: K1은 2024-2025년 출하량이 가장 큰 고성능 RISC-V SBC 칩 중 하나이고, BPI-F3는 생태계가 가장 잡다합니다(공식 Bianbu + 커뮤니티 Armbian/Fedora/openSUSE/Arch/Gentoo 이미지 모두 있음). RuyiSDK 지원 매트릭스에도 BPI-F3가 올라 있습니다.
   checked: '2026-11-01'
-  order: 11
+  order: 12
   feature: false
   sources:
   - https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
@@ -1102,7 +1166,7 @@ items:
   - en
   note: Ky X1은 SpaceMiT K1과 매우 동일한 계열(8×X60 계열 코어, 업계에서는 개명판으로 보는 시각이 많음)이지만 벤더가 공식 확인하지 않았습니다. 그래서 Bianbu K1 이미지를 그대로 쓸 수 없습니다.
   checked: '2026-11-01'
-  order: 12
+  order: 13
   feature: false
   sources:
   - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
@@ -1176,7 +1240,7 @@ items:
   - en
   note: Milk-V Megrez와 같은 칩(EIC7700X)이지만 P550은 Ubuntu 공식 프리인스톨+OTA라 소프트웨어 성숙도가 Megrez보다 높습니다. Red Hat RHEL 10 개발자 프리뷰 지원도 있습니다.
   checked: '2026-11-01'
-  order: 13
+  order: 14
   feature: false
   sources:
   - https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1245,7 +1309,7 @@ items:
   - en
   note: VisionFive 3는 나오지 않았습니다. StarFive의 2026년 신제품은 서버용 Dubhe-100 RISC-V IP이고 SBC 라인은 VisionFive 2 Lite까지만 갱신됐습니다(2025-08 크라우드펀딩, 2025-10 양산). rvspace는 OpenWrt 네이티브 지원도 언급합니다(배포판 id 아님).
   checked: '2026-11-01'
-  order: 14
+  order: 15
   feature: false
   sources:
   - https://debian.starfivetech.com/
@@ -1327,7 +1391,7 @@ items:
   - en
   note: 하드웨어 완성도와 cape 생태계는 좋지만 소프트웨어는 TH1520 삼형제 중 가장 나쁩니다. 공식 이미지가 3년째 갱신되지 않아 소장/교육용으로만 맞습니다.
   checked: '2026-11-01'
-  order: 15
+  order: 16
   feature: false
   sources:
   - https://www.beagleboard.org/distros
@@ -1415,7 +1479,7 @@ items:
   - zh
   note: “RISC-V 워크스테이션/서버”로 쓸 수 있는 유일한 보드이고 가격과 소비전력이 다른 차원입니다. 64코어 병렬 빌드나 CI 러너에 맞고 입문용은 아닙니다. opencloudos 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
   checked: '2026-11-01'
-  order: 16
+  order: 17
   feature: false
   sources:
   - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
@@ -1524,7 +1588,7 @@ items:
   - zh
   note: US$5급 입문용으로 임베디드 Linux/RTOS 학습에 맞고 데스크톱에는 맞지 않습니다. 사기 전에 64M인지 256M/S인지 확인하세요. 이미지가 완전히 호환되지 않습니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
   checked: '2026-11-01'
-  order: 17
+  order: 18
   feature: false
   sources:
   - https://milkv.io/docs/duo/getting-started/download

@@ -169,6 +169,9 @@ items:
   - board: bpi-f3
     level: partial
     note: Banana Pi BPI-F3 is not in the official board list
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Canonical's official RISC-V download page (pick an image per board)
     url: https://ubuntu.com/download/risc-v/canonical-built
@@ -264,6 +267,9 @@ items:
   - board: bpi-f3
     level: official
     note: Officially supported under the SpacemiT M1/K1 entry (Banana Pi BPI-F3)
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: Fedora RISC-V image root (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
@@ -508,6 +514,9 @@ items:
   - board: k3
     level: official
     note: 'K3 platforms: Pico-ITX and CoM260 Kit, Bianbu 4.x only'
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: K1 image index (official archive, every version and date)
     url: https://archive.spacemit.com/image/k1/version/bianbu/
@@ -650,7 +659,7 @@ items:
     type: doc
     lang: en
   gotchas:
-  - "The 26.09 innovation release (2026-09-30) has no riscv64 ISO: its ISO/OS/everything trees carry only aarch64 and x86_64, so RISC-V users should stay on 24.03 LTS SP4"
+  - 'The 26.09 innovation release (2026-09-30) has no riscv64 ISO: its ISO/OS/everything trees carry only aarch64 and x86_64, so RISC-V users should stay on 24.03 LTS SP4'
   - RVA20 and RVA23 images ship separately; 24.03 LTS SP4 offers RISC-V as RVA23 ISO only (there is no rva20 directory)
   - Needs UEFI/EDK2 firmware and a matching board DTB; older U-Boot boards may not boot
   - Docs are versioned by path and the RISC-V install page only exists under 24.03_LTS, so SP3/SP4 paths 404
@@ -729,6 +738,9 @@ items:
     note: ''
   - board: visionfive2
     level: community
+    note: ''
+  - board: jupiter2
+    level: partial
     note: ''
   downloads:
   - label: System download centre (filter by RISC-V architecture)
@@ -835,6 +847,9 @@ items:
   - board: visionfive2
     level: community
     note: JH7110, kernel 5.15/6.6/6.12, U-Boot boot
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Official download page (RISC-V technical preview)
     url: https://www.deepin.org/zh/download/
@@ -1242,15 +1257,13 @@ items:
   name: RHEL RISC-V Developer Preview
   vendor: Red Hat
   upstream: official
-  upstream_note: 'The RISC-V Developer Preview published by Red Hat itself, based on the RHEL 10.2
-    code base; prebuilt images are offered for only a few platforms, and Red Hat states explicitly
-    that it is not a supported product release.'
+  upstream_note: The RISC-V Developer Preview published by Red Hat itself, based on the RHEL 10.2 code base; prebuilt images are offered for only a few platforms, and Red Hat states explicitly that it is
+    not a supported product release.
   kind: distro
   based_on: RHEL 10.2 (Fedora / CentOS Stream 10 code base)
   audience: advanced
   versions:
-  - 10.2 Developer Preview Update (2026-10-09; images 2.6 GB, sources 14.19 GB, requires a Red Hat
-    account to download)
+  - 10.2 Developer Preview Update (2026-10-09; images 2.6 GB, sources 14.19 GB, requires a Red Hat account to download)
   - 10.2 Developer Preview
   - 10.0 Developer Preview (first released 2025-05, platform was P550)
   boards:
@@ -1270,8 +1283,7 @@ items:
     level: partial
     note: There is no separate QEMU image; images are published per board
   downloads:
-  - label: Official download page (RHEL 10.2 RISC-V Developer Preview Update, requires a Red Hat
-      developer account)
+  - label: Official download page (RHEL 10.2 RISC-V Developer Preview Update, requires a Red Hat developer account)
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
   - label: 'Red Hat blog: RISC-V Developer Preview updated to 10.2'
@@ -1279,19 +1291,14 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Developer Preview, not a supported production release: Red Hat provides no support, so do not
-    run production workloads on it'
-  - 'Downloading requires signing in with a (free) Red Hat developer account; a plain curl is
-    blocked with 403 by anti-bot protection'
-  - 'Images are published per platform; there is no generic RISC-V installation medium — the 2.6 GB
-    one is a single-platform disk image'
-  - 'SpacemiT V100, added in the 10.2 Update, is a server-class CPU with no matching complete-system
-    entry yet, so it only shows that the chip has landed in RHEL'
+  - 'Developer Preview, not a supported production release: Red Hat provides no support, so do not run production workloads on it'
+  - Downloading requires signing in with a (free) Red Hat developer account; a plain curl is blocked with 403 by anti-bot protection
+  - Images are published per platform; there is no generic RISC-V installation medium — the 2.6 GB one is a single-platform disk image
+  - SpacemiT V100, added in the 10.2 Update, is a server-class CPU with no matching complete-system entry yet, so it only shows that the chip has landed in RHEL
   doc_langs:
   - en
   derivatives: []
-  note: 'An enterprise-oriented RISC-V preview: use it to check whether the RHEL userland runs, but
-    for day-to-day use Debian / Ubuntu / RevyOS are less trouble.'
+  note: 'An enterprise-oriented RISC-V preview: use it to check whether the RHEL userland runs, but for day-to-day use Debian / Ubuntu / RevyOS are less trouble.'
   checked: '2026-11-02'
   order: 14
   feature: false
@@ -1302,25 +1309,23 @@ items:
   name: AlmaLinux OS Kitten 10
   vendor: AlmaLinux OS Foundation
   upstream: official
-  upstream_note: 'AlmaLinux publishes official riscv64 builds (Kitten 10 is a downstream preview of
-    CentOS Stream 10, announced in the official blog on 2026-03-17). It is an official AlmaLinux
-    release, but not a stable product line.'
+  upstream_note: AlmaLinux publishes official riscv64 builds (Kitten 10 is a downstream preview of CentOS Stream 10, announced in the official blog on 2026-03-17). It is an official AlmaLinux release, but
+    not a stable product line.
   kind: distro
   based_on: CentOS Stream 10 (RHEL 10 code base)
   audience: advanced
   versions:
-  - 'Kitten 10 (riscv64; Docker images and GenericCloud VM images are already available, while board
-    images for VF2 / P550 are described officially as "coming soon")'
+  - Kitten 10 (riscv64; Docker images and GenericCloud VM images are already available, while board images for VF2 / P550 are described officially as "coming soon")
   boards:
   - board: qemu
     level: official
-    note: 'The GenericCloud VM image boots directly in QEMU, as the official blog states explicitly'
+    note: The GenericCloud VM image boots directly in QEMU, as the official blog states explicitly
   - board: visionfive2
     level: partial
-    note: 'Officially described as "coming soon"; no public download as of the check date'
+    note: Officially described as "coming soon"; no public download as of the check date
   - board: p550
     level: partial
-    note: 'Officially described as "coming soon"; no public download as of the check date'
+    note: Officially described as "coming soon"; no public download as of the check date
   downloads:
   - label: Official download page (select AlmaLinux OS Kitten 10 / RISC-V)
     url: https://almalinux.org/get-almalinux/
@@ -1334,17 +1339,13 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Kitten is a downstream preview of CentOS Stream, meant for previewing where RHEL 10 is heading;
-    it is not suitable as a stable system'
-  - 'Board images (VisionFive 2 / P550) are only described as "coming soon"; what can actually be
-    downloaded now is the Docker image and the GenericCloud image for QEMU'
-  - 'There is no separate 10-kitten directory on the mirrors, so do not try to compose paths such as
-    /almalinux/10-kitten/ — they return 404'
+  - Kitten is a downstream preview of CentOS Stream, meant for previewing where RHEL 10 is heading; it is not suitable as a stable system
+  - Board images (VisionFive 2 / P550) are only described as "coming soon"; what can actually be downloaded now is the Docker image and the GenericCloud image for QEMU
+  - There is no separate 10-kitten directory on the mirrors, so do not try to compose paths such as /almalinux/10-kitten/ — they return 404
   doc_langs:
   - en
   derivatives: []
-  note: 'The first downstream distribution in the RHEL family to publish official riscv64 builds;
-    without a board at hand, the GenericCloud image under QEMU lets you try it right away.'
+  note: The first downstream distribution in the RHEL family to publish official riscv64 builds; without a board at hand, the GenericCloud image under QEMU lets you try it right away.
   checked: '2026-11-02'
   order: 15
   feature: false
@@ -1356,29 +1357,24 @@ items:
   name: Rocky Linux 10
   vendor: Rocky Enterprise Software Foundation
   upstream: official
-  upstream_note: 'Rocky Linux 10 officially supports riscv64 (riscv64gc builds), driven by the Rocky
-    AltArch SIG and the Fedora RISC-V community. riscv64 is listed as an Alternative Architecture:
-    its build failures do not block the release of other architectures.'
+  upstream_note: 'Rocky Linux 10 officially supports riscv64 (riscv64gc builds), driven by the Rocky AltArch SIG and the Fedora RISC-V community. riscv64 is listed as an Alternative Architecture: its build
+    failures do not block the release of other architectures.'
   kind: distro
   based_on: RHEL 10 (CentOS Stream 10 code base)
   audience: advanced
   versions:
   - '10.2 (riscv64 container images published: Base / Minimal / Toolbox / UBI, built 2026-05-25)'
-  - '10.0 (the GA announcement lists riscv64 as a supported architecture; installation images and
-    package repository are not online yet)'
+  - 10.0 (the GA announcement lists riscv64 as a supported architecture; installation images and package repository are not online yet)
   boards:
   - board: qemu
     level: partial
-    note: The official announcement lists QEMU as a target platform, but there is no installation
-      image yet
+    note: The official announcement lists QEMU as a target platform, but there is no installation image yet
   - board: visionfive2
     level: partial
-    note: The official announcement lists VisionFive 2 as a target platform, but there are no board
-      images yet
+    note: The official announcement lists VisionFive 2 as a target platform, but there are no board images yet
   - board: p550
     level: partial
-    note: The official announcement lists HiFive Premier P550 as a target platform, but there are no
-      board images yet
+    note: The official announcement lists HiFive Premier P550 as a target platform, but there are no board images yet
   downloads:
   - label: Rocky 10 riscv64 container image directory (Base / Minimal / Toolbox / UBI)
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
@@ -1392,19 +1388,15 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Only container images can be downloaded right now: the installation ISO and dnf repository are
-    not online yet — /pub/rocky/10/BaseOS/riscv64/os/ is empty, and the official announcement says
-    images are "coming soon"'
-  - 'The board list is inherited directly from Fedora RISC-V (VisionFive 2 / QEMU / P550); Rocky
-    itself has no board images'
-  - 'riscv64 is an Alternative Architecture, so build failures do not block releases of the primary
-    architectures — package completeness is a matter of luck'
+  - 'Only container images can be downloaded right now: the installation ISO and dnf repository are not online yet — /pub/rocky/10/BaseOS/riscv64/os/ is empty, and the official announcement says images
+    are "coming soon"'
+  - The board list is inherited directly from Fedora RISC-V (VisionFive 2 / QEMU / P550); Rocky itself has no board images
+  - riscv64 is an Alternative Architecture, so build failures do not block releases of the primary architectures — package completeness is a matter of luck
   doc_langs:
   - en
   derivatives: []
-  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account, the riscv64
-    container images of Rocky 10 are the ready-to-use option today; running a real system still
-    means waiting for installation media.'
+  note: If you want the RHEL 10 userland on RISC-V without touching a Red Hat account, the riscv64 container images of Rocky 10 are the ready-to-use option today; running a real system still means waiting
+    for installation media.
   checked: '2026-11-02'
   order: 16
   feature: false

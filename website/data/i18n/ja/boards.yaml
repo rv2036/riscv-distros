@@ -587,6 +587,70 @@ items:
   - https://forum.banana-pi.org/t/public-sale-banana-pi-spacemit-bpi-sm10-k3-com260-and-k3-pico-itx-sbc/27279
   - https://matrix.ruyisdk.org/reports/K3-Pico-ITX/Bianbu/README/
   - https://matrix.ruyisdk.org/
+- id: jupiter2
+  name: Milk-V Jupiter2
+  soc: SpacemiT K3：SpacemiT X100 + A100
+  vendor: Milk-V
+  spec: メモリは LPDDR5 8G/16G/32G（RuyiSDK が記録したテスト構成）。オンボード UFS は最大 256GB で、ほかに M.2 M-Key 2280（PCIe Gen3 x4）を備えます。
+  status: on_sale
+  price_note: 価格は構成によって変動し、当サイトでは未確認です。公式製品ページに価格の記載はありません。
+  forms:
+  - pico-ITX シングルボードコンピュータ：1× 10GbE SFP+ + 1× GbE RJ45、USB-C（DP Alt Mode）と eDP によるデュアルディスプレイ
+  official_os:
+  - bianbu
+  - ubuntu
+  - openkylin
+  - deepin
+  - fedora
+  distros:
+  - distro: bianbu
+    level: official
+    note: 出荷時に Bianbu をプリインストール。RuyiSDK の実機テストでは 4.0.1 Desktop が good（2026-10-25）
+  - distro: fedora
+    level: official
+    note: Fedora RISC-V のハードウェアページは Milk-V Jupiter2 を SpacemiT K3 の項目に掲載しています
+  - distro: ubuntu
+    level: partial
+    note: ベンダーの製品ページは Ubuntu 26.04 を対応 OS として挙げていますが、Canonical 公式の RISC-V ダウンロードページに Jupiter2 専用版は見当たりません
+  - distro: openkylin
+    level: partial
+    note: ベンダーの製品ページは OpenKylin 2.0 を挙げていますが、当サイトでは openKylin 公式チャネルに Jupiter2 の項目を見つけられませんでした
+  - distro: deepin
+    level: partial
+    note: ベンダーの製品ページは deepin 25 を挙げていますが、当サイトでは deepin 公式チャネルに Jupiter2 の項目を見つけられませんでした
+  downloads:
+  - label: 公式製品ページ（仕様とソフトウェア対応リスト）
+    url: https://milkv.io/jupiter2
+  guides:
+  - label: 公式クイックスタート（Jupiter2）
+    url: https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+    type: doc
+    lang: zh
+  - label: RuyiSDK 実機レポート：Bianbu 4.0.1 Desktop、good（2026-10-25）
+    url: https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+    type: doc
+    lang: en
+  - label: Fedora Wiki：Milk-V Jupiter2
+    url: https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
+    type: doc
+    lang: en
+  gotchas:
+  - 10GbE は SFP+ の光ポートで、RJ45 ではありません。一般的なスイッチにつなぐには光モジュールを挿すか、唯一の GbE 有線ポートを使うことになります
+  - デュアルディスプレイは USB-C の DP Alt Mode と eDP を使うもので、標準の HDMI ポートはありません
+  - 出荷時に Bianbu をプリインストール（RuyiSDK の記録は 4.0.1 Desktop）。再インストール時は、汎用の K3 イメージではなく Jupiter2 に対応したイメージかどうかを先に確認してください
+  - 公式ページに価格の記載はなく、価格と小売チャネルは未確認です
+  doc_langs:
+  - zh
+  - en
+  note: RVA23-ready の K3 シングルボードとしては初（ベンダーによる説明）で、pico-ITX 形状に 10GbE SFP+ を加えた構成は、デスクトップやネットワーク実験のプラットフォームに適しています。
+  checked: '2026-11-03'
+  order: 6
+  feature: false
+  sources:
+  - https://milkv.io/jupiter2
+  - https://milkv.io/zh/docs/jupiter2/getting-started/quick-start
+  - https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/
+  - https://fedoraproject.org/wiki/Architectures/RISC-V/Milk-V/Jupiter2
 - id: a210
   name: 知合計算 A210（XuanTie MelonPi 開発ボード）
   soc: ZHIHE A210（4×C920 + 4×C908）
@@ -640,7 +704,7 @@ items:
   - en
   note: 型番の混同に注意：チップは知合计算 A210（Archimedes シリーズ、XuanTie C920/C908 コア）で、開発ボードのブランド名は「XuanTie MelonPi」と書かれます。Ubuntu イメージは A200（a200-evb）しか対象にしておらず、A210 ではそのまま使えません。
   checked: '2026-11-01'
-  order: 6
+  order: 7
   feature: true
   sources:
   - http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
@@ -708,7 +772,7 @@ items:
   note: CanMV（MicroPython ファームウェア）が最も出荷量が多く資料も揃った形態です。Linux 側で公式が推すのは Buildroot です。Apache NuttX にも CanMV-K230 のボード対応があります（ディストリビューションではありません）。RuyiSDK サポートマトリクスにも CanMV K230(D) が収録されており、ruyi device provision
     でイメージを取得できます。
   checked: '2026-11-01'
-  order: 7
+  order: 8
   feature: false
   sources:
   - https://download.kendryte.com/k230/release/linux_sdk_images/daily_build/
@@ -777,7 +841,7 @@ items:
   - en
   note: Megrez は EIC7700X で最初に量産された Mini-ITX ボードです。同じチップには SiFive HiFive Premier P550 もあり、こちらはより高価ですが Ubuntu の公式対応が手厚くなっています。
   checked: '2026-11-01'
-  order: 8
+  order: 9
   feature: false
   sources:
   - https://github.com/milkv-megrez/megrez-build/releases/
@@ -848,7 +912,7 @@ items:
   - en
   note: 「グラフィックスカードを挿せる RISC-V ワークステーション／軽サーバー」という位置づけで、第一候補の OS は Ubuntu です。Fedora 44 からは Omni カーネルに変わっています。
   checked: '2026-11-01'
-  order: 9
+  order: 10
   feature: false
   sources:
   - https://github.com/milkv-titan/titan-ubuntu/releases
@@ -943,7 +1007,7 @@ items:
   - en
   note: 歴史的に RISC-V デスクトップの基準でしたが、今は中古で安く拾うか教材用途が似合います。初心者の着手コストは高く（シリアル＋DIP スイッチ＋給電）、最初の 1 枚にはおすすめしません。ほかに openwrt などのコミュニティ派生版もあります（標準のディストリビューション id には入れていません）。
   checked: '2026-11-01'
-  order: 10
+  order: 11
   feature: false
   sources:
   - https://cdimage.ubuntu.com/ubuntu/releases/24.04.5/release/ubuntu-24.04.5-preinstalled-server-riscv64+unmatched.img.xz
@@ -1034,7 +1098,7 @@ items:
   - en
   note: K1 は 2024〜2025 年で最も出荷された高性能 RISC-V SBC チップのひとつで、BPI-F3 はエコシステムが最も雑多です（公式 Bianbu に加え、コミュニティの Armbian/Fedora/openSUSE/Arch/Gentoo にもイメージがあります）。RuyiSDK サポートマトリクスにも BPI-F3 が収録されています。
   checked: '2026-11-01'
-  order: 11
+  order: 12
   feature: false
   sources:
   - https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
@@ -1102,7 +1166,7 @@ items:
   - en
   note: Ky X1 は SpacemiT K1 と非常に近い構成です（8×X60 系コアで、業界では名前を変えた版と広く見られています）が、ベンダーは明確に認めていません。そのため Bianbu の K1 イメージをそのまま使うことはできません。
   checked: '2026-11-01'
-  order: 12
+  order: 13
   feature: false
   sources:
   - http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html
@@ -1176,7 +1240,7 @@ items:
   - en
   note: Milk-V Megrez と同じチップ（EIC7700X）ですが、P550 は公式 Ubuntu のプリインストールと OTA があり、ソフトウェアの成熟度は Megrez より上です。ほかに Red Hat RHEL 10 の開発者プレビューもサポートされています。
   checked: '2026-11-01'
-  order: 13
+  order: 14
   feature: false
   sources:
   - https://github.com/sifive/hifive-premier-p550-ubuntu/releases
@@ -1246,7 +1310,7 @@ items:
   note: VisionFive 3 は未発表です。StarFive の 2026 年の新製品はサーバー向けの Dubhe-100 RISC-V IP で、SBC 製品線は VisionFive 2 Lite までしか更新されていません（2025-08 クラウドファンディング、2025-10 量産）。rvspace は OpenWrt のネイティブ対応も謳っています（ディストリビューション id
     には入れていません）。
   checked: '2026-11-01'
-  order: 14
+  order: 15
   feature: false
   sources:
   - https://debian.starfivetech.com/
@@ -1328,7 +1392,7 @@ items:
   - en
   note: ハードウェアの作りと cape エコシステムは良好ですが、ソフトウェアは TH1520 の三兄弟で最も劣ります。公式イメージは 3 年間更新されておらず、コレクションか教材向けです。
   checked: '2026-11-01'
-  order: 15
+  order: 16
   feature: false
   sources:
   - https://www.beagleboard.org/distros
@@ -1416,7 +1480,7 @@ items:
   - zh
   note: 「RISC-V ワークステーション／サーバー」として使える唯一のボードで、価格も消費電力も別格です。64 コアの並列ビルドや CI ランナー向きで、入門には向きません。ほかに opencloudos などのコミュニティ派生版もあります（標準のディストリビューション id には入れていません）。
   checked: '2026-11-01'
-  order: 16
+  order: 17
   feature: false
   sources:
   - https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20260504/
@@ -1525,7 +1589,7 @@ items:
   - zh
   note: US$5 クラスの入門の定番で、組み込み Linux/RTOS の学習に向いています。デスクトップには向きません。買う前に 64M か 256M/S かを必ず確認してください。イメージはまったく互換がありません。ほかに openwrt などのコミュニティ派生版もあります（標準のディストリビューション id には入れていません）。
   checked: '2026-11-01'
-  order: 17
+  order: 18
   feature: false
   sources:
   - https://milkv.io/docs/duo/getting-started/download

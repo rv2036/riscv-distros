@@ -38,6 +38,7 @@ BOARD_MAP = {
     'OrangePi-RV2': 'orangepi-rv2',
     'Pioneer': 'pioneer',
     'Jupiter': 'jupiter',
+    'Jupiter2': 'jupiter2',
     'Mars': 'mars',
     'STAR64': 'star64',
     'Duo': 'milkv-duo',

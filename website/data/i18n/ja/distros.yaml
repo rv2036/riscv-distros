@@ -168,6 +168,9 @@ items:
   - board: bpi-f3
     level: partial
     note: 公式のボード一覧に Banana Pi BPI-F3 はありません
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: Canonical 公式 RISC-V ダウンロードページ（ボード別にイメージを選択）
     url: https://ubuntu.com/download/risc-v/canonical-built
@@ -261,6 +264,9 @@ items:
   - board: bpi-f3
     level: official
     note: SpacemiT M1/K1 の項目で公式対応（Banana Pi BPI-F3）
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: Fedora RISC-V イメージ一覧ディレクトリ（alt/risc-v/releases）
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
@@ -499,6 +505,9 @@ items:
   - board: k3
     level: official
     note: K3 プラットフォーム：Pico ITX と CoM260 Kit。Bianbu 4.x 専用です
+  - board: jupiter2
+    level: official
+    note: ''
   downloads:
   - label: K1 イメージ索引（公式 archive、全バージョンと日付）
     url: https://archive.spacemit.com/image/k1/version/bianbu/
@@ -639,7 +648,7 @@ items:
     type: doc
     lang: en
   gotchas:
-  - "イノベーション版 26.09（2026-09-30 リリース）には riscv64 ISO がありません。ISO/OS/everything の各ツリーは aarch64 と x86_64 のみで、RISC-V は引き続き 24.03 LTS SP4 が基準です"
+  - イノベーション版 26.09（2026-09-30 リリース）には riscv64 ISO がありません。ISO/OS/everything の各ツリーは aarch64 と x86_64 のみで、RISC-V は引き続き 24.03 LTS SP4 が基準です
   - RVA20 と RVA23 のイメージは別々に公開されています。24.03 LTS SP4 の RISC-V は RVA23 の ISO だけで、rva20 ディレクトリは存在しません
   - UEFI/EDK2 ファームウェアとボード対応の DTB が必要で、古い U-Boot のボードでは起動しないことがあります
   - ドキュメントはバージョンごとにパスが分かれ、RISC-V のインストールページは 24.03_LTS の下にしかありません。SP3/SP4 のパスは 404 になります
@@ -717,6 +726,9 @@ items:
     note: ''
   - board: visionfive2
     level: community
+    note: ''
+  - board: jupiter2
+    level: partial
     note: ''
   downloads:
   - label: システムダウンロードセンター（アーキテクチャで RISC-V を選択）
@@ -821,6 +833,9 @@ items:
   - board: visionfive2
     level: community
     note: JH7110、カーネル 5.15/6.6/6.12、u-boot 起動
+  - board: jupiter2
+    level: partial
+    note: ''
   downloads:
   - label: 公式ダウンロードページ（RISC-V 技術プレビュー）
     url: https://www.deepin.org/zh/download/
@@ -1253,7 +1268,7 @@ items:
   - label: 公式ダウンロードページ（RHEL 10.2 RISC-V Developer Preview Update、Red Hat 開発者アカウントが必要）
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
-  - label: 'Red Hat ブログ：RISC-V Developer Preview が 10.2 に更新'
+  - label: Red Hat ブログ：RISC-V Developer Preview が 10.2 に更新
     url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
     type: doc
     lang: en
@@ -1296,11 +1311,11 @@ items:
   - label: 公式ダウンロードページ（AlmaLinux OS Kitten 10 / RISC-V を選択）
     url: https://almalinux.org/get-almalinux/
   guides:
-  - label: 'AlmaLinux ブログ：AlmaLinux goes RISC-V（Kitten 10 riscv64 リリースノート）'
+  - label: AlmaLinux ブログ：AlmaLinux goes RISC-V（Kitten 10 riscv64 リリースノート）
     url: https://almalinux.org/blog/2026-03-17-almalinux-goes-riscv
     type: doc
     lang: en
-  - label: 'AlmaLinux Wiki：AlmaLinux OS Kitten 10'
+  - label: AlmaLinux Wiki：AlmaLinux OS Kitten 10
     url: https://wiki.almalinux.org/development/almalinux-os-kitten-10.html
     type: doc
     lang: en
@@ -1344,7 +1359,7 @@ items:
   - label: Rocky 10 riscv64 コンテナイメージディレクトリ（Base / Minimal / Toolbox / UBI）
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   guides:
-  - label: 'Rocky 公式アナウンス：Rocky Linux 10 が RISC-V をサポート'
+  - label: Rocky 公式アナウンス：Rocky Linux 10 が RISC-V をサポート
     url: https://rockylinux.org/news/rockylinux-support-for-riscv
     type: doc
     lang: en

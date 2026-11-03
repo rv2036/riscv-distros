@@ -1,11 +1,11 @@
 # RuyiSDK 支持矩阵（自动生成，勿手改）
 # 来源：https://github.com/ruyisdk/support-matrix → https://matrix.ruyisdk.org
-# 生成于 2026-11-01
+# 生成于 2026-11-03
 
 source:
   site: "https://matrix.ruyisdk.org"
   repo: "https://github.com/ruyisdk/support-matrix"
-  fetched_at: "2026-11-01"
+  fetched_at: "2026-11-03"
   note: "RuyiSDK 官方测试矩阵：逐板逐系统在真机上的实测报告"
 
 # status 枚举（取自仓库 CONTRIBUTING.md）
@@ -275,6 +275,18 @@ items:
         status: "cfh"
         date: "2025-04-05"
         url: "https://matrix.ruyisdk.org/reports/Jupiter/openKylin/README/"
+  - board: jupiter2
+    board_name: "Milk-V Jupiter2"
+    distro: bianbu
+    distro_name: "Bianbu"
+    status: good
+    last_update: "2026-10-25"
+    reports:
+      - ver: "4.0.1"
+        var: "Desktop"
+        status: "good"
+        date: "2026-10-25"
+        url: "https://matrix.ruyisdk.org/reports/Jupiter2/Bianbu/README/"
   - board: k230
     board_name: "CanMV K230"
     distro: debian
