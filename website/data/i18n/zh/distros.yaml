@@ -222,7 +222,7 @@ items:
   audience: recommended
   versions:
   - 44 (稳定版, 已有 RISC-V 镜像)
-  - 45 (Beta/RC, RISC-V 镜像标注 "non-official, community-contributed")
+  - 45 (2026-11-03 发布；riscv64 镜像在 alt 树，Server / Cloud / Container 均为 2026-10-22 构建)
   - rawhide
   boards:
   - board: qemu
@@ -270,6 +270,8 @@ items:
   downloads:
   - label: Fedora RISC-V 镜像总目录 (alt/risc-v/releases)
     url: https://dl.fedoraproject.org/pub/alt/risc-v/releases/
+  - label: Fedora 45 RISC-V 镜像目录（Server / Cloud / Container）
+    url: https://dl.fedoraproject.org/pub/alt/risc-v/release/45/
   - label: Fedora Remix for RISC-V
     url: https://dl.fedoraproject.org/pub/alt/risc-v/fedora-remix/
   guides:
@@ -297,7 +299,7 @@ items:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
   note: Fedora 有官方 RISC-V SIG 与持续构建，但官方至今把 riscv64 写作「not officially supported」，镜像走 alt 通道。日常使用没问题，只是它的「官方支持」等级与 Debian、Ubuntu 不同级。
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 3
   feature: true
   sources:
@@ -313,6 +315,7 @@ items:
   - https://matrix.ruyisdk.org/reports/LicheePi4A/Fedora/README/
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
+  - https://fedoramagazine.org/announcing-fedora-linux-45/
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1390,7 +1393,7 @@ items:
   based_on: 独立（源码构建，OpenRC/systemd 可选）
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261026T164559Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261102T160056Z）
   boards:
   - board: qemu
     level: official
@@ -1436,7 +1439,7 @@ items:
   - en
   derivatives: []
   note: 老手友好、新手劝退：文档齐全但全手工安装，适合想深度定制或做嵌入式 rootfs 的人。
-  checked: '2026-11-01'
+  checked: '2026-11-04'
   order: 17
   feature: false
   sources:
