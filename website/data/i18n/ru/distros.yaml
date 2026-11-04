@@ -1607,12 +1607,13 @@ items:
   name: NetBSD
   vendor: ''
   upstream: official
-  upstream_note: Официальный port (tier 2), NetBSD 11.0 предоставляет установочные наборы riscv64 и предварительно скомпилированные пакеты pkgsrc, поддерживает RV64/SV39.
+  upstream_note: Официальный port (tier 2), NetBSD 11.1 (выпущен 2026-11-02) предоставляет установочные наборы riscv64 и предварительно скомпилированные пакеты pkgsrc, поддерживает RV64/SV39.
   kind: distro
   based_on: Независимая (BSD, ядро NetBSD + pkgsrc)
   audience: advanced
   versions:
-  - 11.0 (текущий релиз)
+  - 11.1 (текущий релиз, выпущен 2026-11-02)
+  - 11.0 (предыдущий)
   boards:
   - board: qemu
     level: official
@@ -1621,10 +1622,10 @@ items:
     level: official
     note: На странице порта перечислены StarFive VisionFive 2 / Milk-V Mars CM
   downloads:
-  - label: Установочный набор riscv64 11.0 (instkernel/misc)
-    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - label: Предварительно скомпилированные пакеты pkgsrc для riscv64 11.0 (также 2026Q2)
-    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - label: Установочный набор riscv64 11.1 и EFI-загрузчик (installation/)
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - label: Предварительно скомпилированные пакеты pkgsrc для riscv64 (в 11.1 пока сборка 2026Q2)
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
   guides:
   - label: Страница порта NetBSD/riscv (поддерживаемое оборудование, информация о release)
     url: https://wiki.netbsd.org/ports/riscv/
@@ -1639,16 +1640,19 @@ items:
   - Только RV64/SV39, rv32 — это другой port
   - 'tier 2: уровень выпуска и поддержки ниже, чем у x86/arm'
   - Документация по платам разрозненна, многое приходится искать в списках рассылки
+  - Ссылка на загрузку 11.1 со страницы port ведёт на …/NetBSD-11.1/riscv/ и отдаёт 404; реальный каталог — riscv-riscv64/ (32-бит в riscv-riscv32/)
+  - Каталог installation/instkernel пуст, единственный загрузочный файл — installation/misc/bootriscv64.efi, готового установочного образа нет
   doc_langs:
   - en
   derivatives: []
   note: В QEMU работает гладко; на реальном железе зависит от того, есть ли у вас готовый U-Boot.
-  checked: '2026-11-01'
+  checked: '2026-11-05'
   order: 20
   feature: false
   sources:
-  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
+  - https://www.netbsd.org/releases/formal-11/NetBSD-11.1.html
   - https://wiki.netbsd.org/ports/riscv/
   - https://wiki.netbsd.org/ports/qemu_riscv/
   - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/
