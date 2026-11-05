@@ -1598,12 +1598,13 @@ items:
   name: NetBSD
   vendor: ''
   upstream: official
-  upstream_note: Official port (tier 2); NetBSD 11.0 provides riscv64 install sets and prebuilt pkgsrc packages, supporting RV64/SV39.
+  upstream_note: Official port (tier 2); NetBSD 11.1 (released 2026-11-02) provides riscv64 install sets and prebuilt pkgsrc packages, supporting RV64/SV39.
   kind: distro
   based_on: Independent (BSD, NetBSD kernel + pkgsrc)
   audience: advanced
   versions:
-  - 11.0 (current release)
+  - 11.1 (current release, released 2026-11-02)
+  - 11.0 (previous)
   boards:
   - board: qemu
     level: official
@@ -1612,10 +1613,10 @@ items:
     level: official
     note: The port page lists StarFive VisionFive 2 / Milk-V Mars CM
   downloads:
-  - label: 11.0 riscv64 install sets (instkernel/misc)
-    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - label: 11.0 riscv64 prebuilt pkgsrc packages (2026Q2 also works)
-    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - label: 11.1 riscv64 install sets and EFI boot file (installation/)
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - label: riscv64 prebuilt pkgsrc packages (11.1 still uses the 2026Q2 build)
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
   guides:
   - label: NetBSD/riscv port page (supported hardware, release info)
     url: https://wiki.netbsd.org/ports/riscv/
@@ -1630,16 +1631,19 @@ items:
   - RV64/SV39 only; rv32 is a separate port
   - 'Tier 2: weaker release and support effort than x86/arm'
   - Board docs are scattered; much of it lives on mailing lists
+  - The download link on the port page points to .../NetBSD-11.1/riscv/, which returns 404; the real directory is riscv-riscv64/ (32-bit lives in riscv-riscv32/)
+  - installation/instkernel is empty and the only boot file is installation/misc/bootriscv64.efi — there is no ready-to-write install image
   doc_langs:
   - en
   derivatives: []
   note: Smooth under QEMU; on real hardware it depends on whether you already have a working U-Boot.
-  checked: '2026-11-01'
+  checked: '2026-11-05'
   order: 20
   feature: false
   sources:
-  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
+  - https://www.netbsd.org/releases/formal-11/NetBSD-11.1.html
   - https://wiki.netbsd.org/ports/riscv/
   - https://wiki.netbsd.org/ports/qemu_riscv/
   - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/

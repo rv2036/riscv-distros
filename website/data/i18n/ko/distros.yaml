@@ -1576,12 +1576,13 @@ items:
   name: NetBSD
   vendor: ''
   upstream: official
-  upstream_note: 공식 port(tier 2)입니다. NetBSD 11.0이 riscv64 설치 세트와 pkgsrc 사전 빌드 패키지를 제공하며 RV64/SV39를 지원합니다.
+  upstream_note: 공식 port(tier 2)입니다. NetBSD 11.1(2026-11-02 공개)이 riscv64 설치 세트와 pkgsrc 사전 빌드 패키지를 제공하며 RV64/SV39를 지원합니다.
   kind: distro
   based_on: 독립 (BSD, NetBSD 커널 + pkgsrc)
   audience: advanced
   versions:
-  - 11.0(현재 릴리스)
+  - 11.1(현재 릴리스, 2026-11-02 공개)
+  - 11.0(이전 버전)
   boards:
   - board: qemu
     level: official
@@ -1590,10 +1591,10 @@ items:
     level: official
     note: 포트 페이지에 StarFive VisionFive 2 / Milk-V Mars CM이 나와 있습니다.
   downloads:
-  - label: 11.0 riscv64 설치 세트 (instkernel/misc)
-    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - label: 11.0 riscv64 pkgsrc 사전 빌드 패키지 (2026Q2도 가능)
-    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - label: 11.1 riscv64 설치 세트와 EFI 부트 파일(installation/)
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - label: riscv64 pkgsrc 사전 빌드 패키지(11.1은 아직 2026Q2 빌드 사용)
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
   guides:
   - label: NetBSD/riscv 포트 페이지 (지원 하드웨어, release 정보)
     url: https://wiki.netbsd.org/ports/riscv/
@@ -1608,16 +1609,19 @@ items:
   - RV64/SV39만 있고 rv32는 별도 port입니다.
   - tier 2라 릴리스와 지원 강도가 x86/arm보다 낮습니다.
   - 보드별 문서가 흩어져 있어 메일링 리스트를 뒤져야 하는 경우가 많습니다.
+  - port 페이지의 11.1 다운로드 링크는 …/NetBSD-11.1/riscv/ 이며 404가 납니다. 실제 디렉터리는 riscv-riscv64/ 입니다(32비트는 riscv-riscv32/)
+  - installation/instkernel 디렉터리는 비어 있고 부트 파일은 installation/misc/bootriscv64.efi 뿐이라 바로 쓸 설치 이미지는 없습니다
   doc_langs:
   - en
   derivatives: []
   note: QEMU에서는 매끄럽습니다. 실기는 기존 U-Boot가 있는지에 달려 있습니다.
-  checked: '2026-11-01'
+  checked: '2026-11-05'
   order: 20
   feature: false
   sources:
-  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
+  - https://www.netbsd.org/releases/formal-11/NetBSD-11.1.html
   - https://wiki.netbsd.org/ports/riscv/
   - https://wiki.netbsd.org/ports/qemu_riscv/
   - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/

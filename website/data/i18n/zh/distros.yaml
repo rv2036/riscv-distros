@@ -1574,12 +1574,13 @@ items:
   name: NetBSD
   vendor: ''
   upstream: official
-  upstream_note: 官方 port（tier 2），NetBSD 11.0 提供 riscv64 安装集与 pkgsrc 预编译包，支持 RV64/SV39。
+  upstream_note: 官方 port（tier 2）；NetBSD 11.1（2026-11-02 发布）提供 riscv64 安装集与 pkgsrc 预编译包，支持 RV64/SV39。
   kind: distro
   based_on: 独立（BSD，NetBSD 内核 + pkgsrc）
   audience: advanced
   versions:
-  - 11.0（当前 release）
+  - 11.1（当前 release，2026-11-02 发布）
+  - 11.0（上一版）
   boards:
   - board: qemu
     level: official
@@ -1588,10 +1589,10 @@ items:
     level: official
     note: 端口页列 StarFive VisionFive 2 / Milk-V Mars CM
   downloads:
-  - label: 11.0 riscv64 安装集（instkernel/misc）
-    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - label: 11.0 riscv64 预编译 pkgsrc 包（2026Q2 亦可）
-    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - label: 11.1 riscv64 安装集与 EFI 引导文件（installation/）
+    url: https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - label: riscv64 预编译 pkgsrc 包（11.1 沿用 2026Q2 构建）
+    url: https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
   guides:
   - label: NetBSD/riscv 端口页（支持硬件、release 信息）
     url: https://wiki.netbsd.org/ports/riscv/
@@ -1606,16 +1607,19 @@ items:
   - 只有 RV64/SV39，rv32 是另一个 port
   - tier 2：发布与支持强度低于 x86/arm
   - 板级文档零散，很多要翻邮件列表
+  - 端口页给的 11.1 下载地址是 …/NetBSD-11.1/riscv/，实测打开是 404；实际目录是 riscv-riscv64/（32 位另有 riscv-riscv32/）
+  - installation/instkernel 目录是空的，引导文件只有 installation/misc/bootriscv64.efi——没有可直接写入的安装镜像
   doc_langs:
   - en
   derivatives: []
   note: QEMU 上体验顺畅；实机取决于你有没有现成 U-Boot。
-  checked: '2026-11-01'
+  checked: '2026-11-05'
   order: 20
   feature: false
   sources:
-  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/riscv-riscv64/installation/
-  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.0/
+  - https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.1/riscv-riscv64/installation/
+  - https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/riscv64/11.1/All/
+  - https://www.netbsd.org/releases/formal-11/NetBSD-11.1.html
   - https://wiki.netbsd.org/ports/riscv/
   - https://wiki.netbsd.org/ports/qemu_riscv/
   - https://matrix.ruyisdk.org/reports/STAR64/NetBSD/README/
