@@ -995,7 +995,7 @@ items:
   based_on: Независимый
   audience: recommended
   versions:
-  - 3.24.3 (текущая стабильная, alpine-standard-3.24.3-riscv64.iso)
+  - 3.24.4 (текущая стабильная, alpine-standard-3.24.4-riscv64.iso)
   - edge (ветка разработки)
   boards:
   - board: qemu
@@ -1042,8 +1042,8 @@ items:
     url: https://alpinelinux.org/downloads/
   - label: Каталог релиза v3.24 riscv64
     url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - label: alpine-standard-3.24.3-riscv64.iso
-    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - label: alpine-standard-3.24.4-riscv64.iso
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
   guides:
   - label: Руководство пользователя Alpine · раздел установки
     url: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
@@ -1057,18 +1057,21 @@ items:
   - 'Официальный u-boot покрывает только пять категорий: qemu / starfive / spacemit / unleashed / unmatched; для остальных плат загрузчик нужно готовить самостоятельно'
   - 'musl libc + busybox: предварительно собранные бинарники, зависящие от glibc, не запустятся'
   - Официальная wiki (wiki.alpinelinux.org) возвращает 403 при автоматизированном доступе; детали RISC-V можно вывести только из страниц packages/downloads
+  - '3.24.4 (2026-11-05) — релиз с исправлениями безопасности: устранён обход парольной аутентификации в openssh-server (обновите и перезапустите sshd; если обновление невозможно, задайте PasswordAuthentication
+    no), также исправлено падение apk-tools'
   doc_langs:
   - en
   derivatives:
   - postmarketOS
   note: riscv64 в Alpine — официальная архитектура, но поддержка на уровне плат узкая — пакетов u-boot всего пять, платы вне этого списка требуют самостоятельного портирования.
-  checked: '2026-11-01'
+  checked: '2026-11-06'
   order: 11
   feature: false
   sources:
   - https://alpinelinux.org/downloads/
   - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
+  - https://www.alpinelinux.org/posts/alpine-3.21.10-3.22.8-3.23.8-3.24.4-released/
   - https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
   - https://alpinelinux.org/releases/
   - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/

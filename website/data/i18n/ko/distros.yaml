@@ -974,7 +974,7 @@ items:
   based_on: 독립
   audience: recommended
   versions:
-  - 3.24.3(현재 안정판, alpine-standard-3.24.3-riscv64.iso)
+  - 3.24.4(현재 안정판, alpine-standard-3.24.4-riscv64.iso)
   - edge(개발 브랜치)
   boards:
   - board: qemu
@@ -1021,8 +1021,8 @@ items:
     url: https://alpinelinux.org/downloads/
   - label: v3.24 riscv64 릴리스 디렉터리
     url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - label: alpine-standard-3.24.3-riscv64.iso
-    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - label: alpine-standard-3.24.4-riscv64.iso
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
   guides:
   - label: Alpine 사용자 핸드북 · 설치 장
     url: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
@@ -1036,18 +1036,20 @@ items:
   - 공식 u-boot는 qemu / starfive / spacemit / unleashed / unmatched 다섯 종만 커버하므로 나머지 보드는 부트로더를 직접 준비해야 합니다.
   - musl libc + busybox 조합이라 glibc에 의존하는 사전 빌드 바이너리는 돌지 않습니다.
   - 공식 wiki(wiki.alpinelinux.org)가 자동 접근에 403을 돌려주므로 RISC-V 세부 정보는 packages/downloads 페이지에서 역으로 확인해야 합니다.
+  - 3.24.4(2026-11-05)는 보안 수정 릴리스입니다. openssh-server의 비밀번호 인증 우회를 수정했으며(sshd를 운영하는 보드는 업그레이드 후 재시작, 업그레이드가 어려우면 PasswordAuthentication no 설정), apk-tools 충돌도 함께 수정했습니다.
   doc_langs:
   - en
   derivatives:
   - postmarketOS
   note: Alpine의 riscv64는 정식 아키텍처이지만 보드 지원 범위가 좁습니다. u-boot 패키지가 다섯 종뿐이라 그 밖의 보드는 사실상 직접 포팅해야 합니다.
-  checked: '2026-11-01'
+  checked: '2026-11-06'
   order: 11
   feature: false
   sources:
   - https://alpinelinux.org/downloads/
   - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
+  - https://www.alpinelinux.org/posts/alpine-3.21.10-3.22.8-3.23.8-3.24.4-released/
   - https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
   - https://alpinelinux.org/releases/
   - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/
