@@ -973,7 +973,7 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - 3.24.3 (当前稳定, alpine-standard-3.24.3-riscv64.iso)
+  - 3.24.4 (当前稳定, alpine-standard-3.24.4-riscv64.iso)
   - edge (开发分支)
   boards:
   - board: qemu
@@ -1020,8 +1020,8 @@ items:
     url: https://alpinelinux.org/downloads/
   - label: v3.24 riscv64 发布目录
     url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - label: alpine-standard-3.24.3-riscv64.iso
-    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - label: alpine-standard-3.24.4-riscv64.iso
+    url: https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
   guides:
   - label: Alpine 用户手册 · 安装章节
     url: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
@@ -1035,18 +1035,20 @@ items:
   - 官方 u-boot 只覆盖 qemu / starfive / spacemit / unleashed / unmatched 五类，其余板子要自己准备引导
   - musl libc + busybox：依赖 glibc 的预编译二进制跑不了
   - 官方 wiki (wiki.alpinelinux.org) 对自动化访问返回 403，RISC-V 细节只能从 packages/downloads 页反推
+  - 3.24.4（2026-11-05）是安全修复版本：修复 openssh-server 的密码认证绕过漏洞（跑 sshd 的板子应升级并重启；不便升级时设 PasswordAuthentication no），另修 apk-tools 崩溃问题
   doc_langs:
   - en
   derivatives:
   - postmarketOS
   note: Alpine 的 riscv64 是正式架构，但板级支持面窄——u-boot 包就那五个，超出范围的板子等于自己移植。
-  checked: '2026-11-01'
+  checked: '2026-11-06'
   order: 11
   feature: false
   sources:
   - https://alpinelinux.org/downloads/
   - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/
-  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.3-riscv64.iso
+  - https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/riscv64/alpine-standard-3.24.4-riscv64.iso
+  - https://www.alpinelinux.org/posts/alpine-3.21.10-3.22.8-3.23.8-3.24.4-released/
   - https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
   - https://alpinelinux.org/releases/
   - https://matrix.ruyisdk.org/reports/Bit-Brick_K1/Alpine/README/
