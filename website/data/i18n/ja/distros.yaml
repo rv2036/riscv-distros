@@ -1160,8 +1160,8 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - Tumbleweed（rolling、現行 ISO は Snapshot20260924）
-  - MicroOS 16.0.0 (riscv64, Snapshot20260924)
+  - Tumbleweed（rolling、現行 ISO は Snapshot20261011）
+  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
   boards:
   - board: qemu
     level: official
@@ -1227,7 +1227,7 @@ items:
   - en
   derivatives: []
   note: MicroOS は同じプロジェクトの riscv64 変体（kvm-and-xen qcow2 イメージあり）で、下流の派生ではありません。
-  checked: '2026-11-01'
+  checked: '2026-11-07'
   order: 13
   feature: false
   sources:
