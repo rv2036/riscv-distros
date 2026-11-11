@@ -1397,7 +1397,7 @@ items:
   based_on: 독립 (소스 빌드, OpenRC/systemd 선택)
   audience: advanced
   versions:
-  - rolling(stage3 rv64_lp64d-openrc 20261102T160056Z)
+  - rolling(stage3 rv64_lp64d-openrc 20261109T164603Z)
   boards:
   - board: qemu
     level: official
@@ -1443,7 +1443,7 @@ items:
   - en
   derivatives: []
   note: 숙련자에게는 편하고 초보자에게는 진입장벽이 높습니다. 문서는 충실하지만 전 과정 수동 설치라 깊게 커스터마이즈하거나 임베디드 rootfs를 만들 사람에게 맞습니다.
-  checked: '2026-11-04'
+  checked: '2026-11-12'
   order: 17
   feature: false
   sources:

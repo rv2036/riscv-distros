@@ -1420,7 +1420,7 @@ items:
   based_on: Independent (built from source, OpenRC/systemd optional)
   audience: advanced
   versions:
-  - rolling (stage3 rv64_lp64d-openrc 20261102T160056Z)
+  - rolling (stage3 rv64_lp64d-openrc 20261109T164603Z)
   boards:
   - board: qemu
     level: official
@@ -1466,7 +1466,7 @@ items:
   - en
   derivatives: []
   note: 'Friendly to veterans, discouraging for beginners: complete docs but a fully manual install, good for people who want deep customization or an embedded rootfs.'
-  checked: '2026-11-04'
+  checked: '2026-11-12'
   order: 17
   feature: false
   sources:
