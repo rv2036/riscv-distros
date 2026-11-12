@@ -1395,7 +1395,7 @@ items:
   based_on: 独立（源码构建，OpenRC/systemd 可选）
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261102T160056Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261109T164603Z）
   boards:
   - board: qemu
     level: official
@@ -1441,7 +1441,7 @@ items:
   - en
   derivatives: []
   note: 老手友好、新手劝退：文档齐全但全手工安装，适合想深度定制或做嵌入式 rootfs 的人。
-  checked: '2026-11-04'
+  checked: '2026-11-12'
   order: 17
   feature: false
   sources:
