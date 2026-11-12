@@ -790,7 +790,7 @@ items:
   based_on: Debian 系 ＋ deepin 独自リポジトリ（deepin 25「crimson」）。カーネルはボードごとに 6.6/6.12/6.16、DP1000 はメインラインカーネル
   audience: advanced
   versions:
-  - deepin 25.2.0（RISC-V 汎用 ISO、2026-07-07）
+  - deepin 25.3.0（RISC-V 汎用 ISO、2026-11-11）
   - deepin 25 crimson preview（ボード別イメージ、K3 の最新は 2026-05-22）
   - deepin next-crimson preview（K3、2026-09-14）
   boards:
@@ -842,8 +842,8 @@ items:
   downloads:
   - label: 公式ダウンロードページ（RISC-V 技術プレビュー）
     url: https://www.deepin.org/zh/download/
-  - label: deepin 25.2.0 RISC-V 汎用 ISO
-    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: deepin 25.3.0 RISC-V 汎用 ISO
+    url: https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
   - label: deepin-ports RISC-V イメージ一覧（ボード別 tar.xz）
     url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   guides:
@@ -863,9 +863,13 @@ items:
     url: https://www.deepin.org/en/dp1000
     type: doc
     lang: zh
+  - label: deepin 25.3.0 リリースノート
+    url: https://www.deepin.org/zh/deepin-25-3-release
+    type: doc
+    lang: zh
   gotchas:
   - RISC-V は今も技術プレビュー（公式が明記）で、安定性と完成度は不十分です
-  - ボード別イメージは ISO ではなく tar.xz なので、手動で展開して書き込みます。汎用 ISO 25.2.0 は UEFI 起動が必要です
+  - ボード別イメージは ISO ではなく tar.xz なので、手動で展開して書き込みます。汎用 ISO は UEFI 起動です（25.2.0 で実測）
   - インストーラ付きの liveimage-desktop は既定ユーザーを作りません。root の既定パスワードは deepin です
   - immutable（読み取り専用ルート）の変体があり、システムの改造方法が通常と異なります
   - deepin の RISC-V はコミュニティレベルのサポートのみで、商用サポートは統信 UOS になります
@@ -875,12 +879,13 @@ items:
   derivatives:
   - 統信 UOS
   note: デスクトップが最も美しい中国製ディストリビューションですが、RISC-V ブランチはコミュニティのプレビュー扱いでボード別に tar.xz を配布しています。評価や試用向けで、唯一の日常システムにはしないでください。
-  checked: '2026-11-01'
+  checked: '2026-11-13'
   order: 9
   feature: true
   sources:
   - https://www.deepin.org/zh/download/
-  - https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
+  - https://www.deepin.org/zh/deepin-25-3-release
   - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   - https://www.deepin.org/zh/deepin-25-installation/
   - https://www.deepin.org/en/deepin-25-installation/

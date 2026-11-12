@@ -790,7 +790,7 @@ items:
   based_on: Debian 系 + deepin 自有仓库（deepin 25『crimson』）；内核按板卡 6.6/6.12/6.16，DP1000 用主线内核
   audience: advanced
   versions:
-  - deepin 25.2.0（RISC-V 通用 ISO，2026-07-07）
+  - deepin 25.3.0（RISC-V 通用 ISO，2026-11-11）
   - deepin 25 crimson preview（按板卡镜像，K3 最新 2026-05-22）
   - deepin next-crimson preview（K3，2026-09-14）
   boards:
@@ -842,8 +842,8 @@ items:
   downloads:
   - label: 官方下载页（RISC-V 技术预览）
     url: https://www.deepin.org/zh/download/
-  - label: deepin 25.2.0 RISC-V 通用 ISO
-    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: deepin 25.3.0 RISC-V 通用 ISO
+    url: https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
   - label: deepin-ports RISC-V 镜像列表（按板卡 tar.xz）
     url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   guides:
@@ -863,9 +863,13 @@ items:
     url: https://www.deepin.org/en/dp1000
     type: doc
     lang: zh
+  - label: deepin 25.3.0 版本发行注记
+    url: https://www.deepin.org/zh/deepin-25-3-release
+    type: doc
+    lang: zh
   gotchas:
   - RISC-V 仍为技术预览（官方明确标注），稳定性和完整性不足
-  - 按板卡的镜像是 tar.xz 而非 ISO，需要手动解压写盘；通用 ISO 25.2.0 需要 UEFI 启动
+  - 按板卡的镜像是 tar.xz 而非 ISO，需要手动解压写盘；通用 ISO 走 UEFI 启动（25.2.0 实测）
   - 带安装器的 liveimage-desktop 不创建默认用户，root 默认密码是 deepin
   - 存在 immutable（只读根）变体，改装系统的方式与常规不同
   - deepin RISC-V 仅社区级支持，商业支持要走统信 UOS
@@ -875,12 +879,13 @@ items:
   derivatives:
   - 统信 UOS
   note: 桌面做得最漂亮的国产发行版，但 RISC-V 分支是社区预览性质、按板卡发 tar.xz，适合评估/尝鲜，不建议作为唯一日常系统。
-  checked: '2026-11-01'
+  checked: '2026-11-13'
   order: 9
   feature: true
   sources:
   - https://www.deepin.org/zh/download/
-  - https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
+  - https://www.deepin.org/zh/deepin-25-3-release
   - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   - https://www.deepin.org/zh/deepin-25-installation/
   - https://www.deepin.org/en/deepin-25-installation/
