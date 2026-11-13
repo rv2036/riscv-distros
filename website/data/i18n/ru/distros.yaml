@@ -809,7 +809,7 @@ items:
   based_on: На базе Debian + собственные репозитории deepin (deepin 25 «crimson»); ядро по платам 6.6/6.12/6.16, для DP1000 используется mainline-ядро
   audience: advanced
   versions:
-  - deepin 25.2.0 (универсальный ISO для RISC-V, 2026-07-07)
+  - deepin 25.3.0 (универсальный ISO для RISC-V, 2026-11-11)
   - deepin 25 crimson preview (образы по платам, последний для K3 2026-05-22)
   - deepin next-crimson preview（K3，2026-09-14）
   boards:
@@ -861,8 +861,8 @@ items:
   downloads:
   - label: Официальная страница загрузки (технический предпросмотр RISC-V)
     url: https://www.deepin.org/zh/download/
-  - label: Универсальный ISO deepin 25.2.0 RISC-V
-    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: Универсальный ISO deepin 25.3.0 RISC-V
+    url: https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
   - label: Список образов deepin-ports RISC-V (tar.xz по платам)
     url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   guides:
@@ -882,9 +882,13 @@ items:
     url: https://www.deepin.org/en/dp1000
     type: doc
     lang: zh
+  - label: Примечания к выпуску deepin 25.3.0
+    url: https://www.deepin.org/zh/deepin-25-3-release
+    type: doc
+    lang: zh
   gotchas:
   - RISC-V по-прежнему в статусе технического предпросмотра (официально явно указано), стабильность и полнота недостаточны
-  - 'Образы по платам — это tar.xz, а не ISO: нужно вручную распаковать и записать на носитель; универсальный ISO 25.2.0 требует загрузки через UEFI'
+  - 'Образы по платам — это tar.xz, а не ISO: нужно вручную распаковать и записать на носитель; универсальный ISO загружается через UEFI (проверено на 25.2.0)'
   - liveimage-desktop с установщиком не создаёт пользователя по умолчанию, пароль root по умолчанию — deepin
   - Есть вариант immutable (только для чтения корень), способ модификации системы отличается от обычного
   - deepin RISC-V поддерживается только на уровне сообщества; коммерческая поддержка — через UnionTech UOS
@@ -895,12 +899,13 @@ items:
   - UnionTech UOS
   note: 'Самый красивый по оформлению рабочего стола китайский дистрибутив, но ветка RISC-V — это общественный предпросмотр с tar.xz по платам: подходит для оценки/первого знакомства, не рекомендуется как
     единственная повседневная система.'
-  checked: '2026-11-01'
+  checked: '2026-11-13'
   order: 9
   feature: true
   sources:
   - https://www.deepin.org/zh/download/
-  - https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
+  - https://www.deepin.org/zh/deepin-25-3-release
   - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   - https://www.deepin.org/zh/deepin-25-installation/
   - https://www.deepin.org/en/deepin-25-installation/

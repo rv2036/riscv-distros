@@ -804,7 +804,7 @@ items:
   based_on: Debian-based + deepin's own repos (deepin 25 "crimson"); kernel 6.6/6.12/6.16 depending on board, mainline kernel on DP1000
   audience: advanced
   versions:
-  - deepin 25.2.0 (generic RISC-V ISO, 2026-07-07)
+  - deepin 25.3.0 (generic RISC-V ISO, 2026-11-11)
   - deepin 25 crimson preview (per-board images, newest K3 build 2026-05-22)
   - deepin next-crimson preview (K3, 2026-09-14)
   boards:
@@ -856,8 +856,8 @@ items:
   downloads:
   - label: Official download page (RISC-V technical preview)
     url: https://www.deepin.org/zh/download/
-  - label: deepin 25.2.0 generic RISC-V ISO
-    url: https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - label: deepin 25.3.0 generic RISC-V ISO
+    url: https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
   - label: deepin-ports RISC-V image list (per-board tar.xz)
     url: https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   guides:
@@ -877,9 +877,13 @@ items:
     url: https://www.deepin.org/en/dp1000
     type: doc
     lang: zh
+  - label: deepin 25.3.0 release notes
+    url: https://www.deepin.org/zh/deepin-25-3-release
+    type: doc
+    lang: zh
   gotchas:
   - RISC-V is still an official technical preview, short on stability and completeness
-  - Per-board images are tar.xz rather than ISO and must be unpacked and written manually; the generic 25.2.0 ISO needs UEFI boot
+  - Per-board images are tar.xz rather than ISO and must be unpacked and written manually; the generic ISO boots via UEFI (verified on 25.2.0)
   - The liveimage-desktop installer creates no default user; the default root password is deepin
   - There are immutable (read-only root) variants, where modifying the system works differently
   - deepin RISC-V has community-level support only; commercial support means UnionTech UOS
@@ -889,12 +893,13 @@ items:
   derivatives:
   - UnionTech UOS
   note: The best-looking domestic desktop distro, but its RISC-V branch is a community preview shipped as per-board tar.xz files — fine for evaluation, not recommended as your only daily system.
-  checked: '2026-11-01'
+  checked: '2026-11-13'
   order: 9
   feature: true
   sources:
   - https://www.deepin.org/zh/download/
-  - https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso
+  - https://cdimage.deepin.com/releases/25.3.0/riscv64/deepin-desktop-community-25.3.0-riscv64.iso
+  - https://www.deepin.org/zh/deepin-25-3-release
   - https://deepin-community.github.io/sig-deepin-ports/images/riscv64
   - https://www.deepin.org/zh/deepin-25-installation/
   - https://www.deepin.org/en/deepin-25-installation/
