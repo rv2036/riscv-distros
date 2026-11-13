@@ -221,8 +221,8 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - 44 (稳定版, 已有 RISC-V 镜像)
-  - 45 (2026-11-03 发布；riscv64 镜像在 alt 树，Server / Cloud / Container 均为 2026-10-22 构建)
+  - 44 (上一版, RISC-V 镜像仍可下载)
+  - 45 (当前稳定版, 2026-11-03 发布；riscv64 镜像在 alt 树，Server / Cloud / Container 均为 2026-10-22 构建)
   - rawhide
   boards:
   - board: qemu
@@ -299,7 +299,7 @@ items:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
   note: Fedora 有官方 RISC-V SIG 与持续构建，但官方至今把 riscv64 写作「not officially supported」，镜像走 alt 通道。日常使用没问题，只是它的「官方支持」等级与 Debian、Ubuntu 不同级。
-  checked: '2026-11-04'
+  checked: '2026-11-14'
   order: 3
   feature: true
   sources:

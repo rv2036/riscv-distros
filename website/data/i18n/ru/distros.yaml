@@ -226,8 +226,8 @@ items:
   based_on: Независимый
   audience: recommended
   versions:
-  - 44 (стабильная версия, образ RISC-V уже есть)
-  - 45 (выпуск 2026-11-03; образы riscv64 в alt-дереве, сборки Server / Cloud / Container от 2026-10-22)
+  - 44 (предыдущий выпуск, образы RISC-V по-прежнему доступны)
+  - 45 (текущая стабильная версия, выпуск 2026-11-03; образы riscv64 в alt-дереве, сборки Server / Cloud / Container от 2026-10-22)
   - rawhide
   boards:
   - board: qemu
@@ -306,7 +306,7 @@ items:
   - Fedora Remix for RISC-V
   note: У Fedora есть официальный SIG RISC-V с непрерывными сборками, но riscv64 по-прежнему помечен как «not officially supported», а образы публикуются в канале alt. В повседневной работе это не мешает,
     однако уровень поддержки не тот же, что у Debian или Ubuntu.
-  checked: '2026-11-04'
+  checked: '2026-11-14'
   order: 3
   feature: true
   sources:
