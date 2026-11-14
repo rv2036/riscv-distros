@@ -666,6 +666,7 @@ items:
     type: doc
     lang: en
   gotchas:
+  - 'openEuler 24.03 LTS SP5 был представлен на openEuler Summit 2026 (2026-11-13) по сообщениям СМИ; другой отчёт указывает, что фактический выпуск запланирован на декабрь 2026 года. По состоянию на 2026-11-15 ни зеркало, ни страница загрузки не содержат каталога SP5, поэтому SP4 остаётся самой новой доступной версией'
   - 'В инновационном выпуске 26.09 (2026-09-30) нет ISO для riscv64: в деревьях ISO/OS/everything только aarch64 и x86_64, поэтому для RISC-V ориентируйтесь на 24.03 LTS SP4'
   - Образы RVA20 и RVA23 выпускаются отдельно; для RISC-V в 24.03 LTS SP4 доступен только ISO RVA23 (каталог rva20 отсутствует)
   - Требуется прошивка UEFI/EDK2 и соответствующий DTB платы; на старых платах с U-Boot может не загрузиться
@@ -680,7 +681,7 @@ items:
   - Eulaceura
   note: База RISC-V для серверных/корпоративных сценариев, быстрее всех продвигается RVA23 + спецификация Server Platform; пользователям персональных плат разработчика, если только не нужна серверная проверка,
     проще с RevyOS/Bianbu.
-  checked: '2026-11-02'
+  checked: '2026-11-15'
   order: 7
   feature: true
   sources:
@@ -701,6 +702,8 @@ items:
   - https://matrix.ruyisdk.org/reports/Meles/openEuler/README/
   - https://matrix.ruyisdk.org/reports/Duo/openEuler/README/
   - https://matrix.ruyisdk.org/
+  - https://www.ithome.com/1/026/911.htm
+  - https://m.zhidx.com/p/610109.html
 - id: openkylin
   name: openKylin
   vendor: ''
