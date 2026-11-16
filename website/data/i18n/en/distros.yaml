@@ -774,12 +774,13 @@ items:
   - 3.0's RISC-V images lean server/embedded (Server, Embedded) and are not a desktop experience
   - Download links are download-smp.php?id=xxx redirects; the real files are on cdimage.openkylin.top
   - Docs are mostly Chinese and the English doc site is largely a shell; RISC-V questions get answered mainly by the Chinese community/SIG
+  - 'The 3.0 SP1 release (uploaded to the mirror on 2026-11-11) ships desktop images for x86_64 / ARM64 / LoongArch only; RISC-V stays on the 3.0 line (K3 Server / Embedded, V100). SP1 being listed as the newest version on the download page does not mean RISC-V was updated too.'
   doc_langs:
   - zh
   derivatives: []
   note: The RISC-V branch of a domestic desktop OS, with board coverage split across versions (3.0 only knows K3/V100). Good for evaluating a domestic desktop stack, not as a daily driver on older TH1520/K1
     boards.
-  checked: '2026-11-01'
+  checked: '2026-11-16'
   order: 8
   feature: true
   sources:
@@ -797,6 +798,7 @@ items:
   - https://matrix.ruyisdk.org/reports/LicheePi4A/openKylin/README/
   - https://matrix.ruyisdk.org/reports/Mars/openKylin/README/
   - https://matrix.ruyisdk.org/
+  - https://cdimage.openkylin.top/3.0-SP1/
 - id: deepin
   name: deepin
   vendor: ''

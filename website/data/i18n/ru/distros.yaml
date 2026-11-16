@@ -779,12 +779,13 @@ items:
   - Образы RISC-V в 3.0 ориентированы на серверы/встраиваемые системы (Server, Embedded) и не равны настольному опыту
   - Ссылки на скачивание ведут через download-smp.php?id=xxx, реальные файлы находятся на cdimage.openkylin.top
   - Документация в основном на китайском, англоязычный сайт документации практически пустой; вопросы по RISC-V решаются в основном через китайское сообщество/SIG
+  - 'Релиз 3.0 SP1 (загружен на зеркало 2026-11-11) содержит образы рабочего стола только для x86_64 / ARM64 / LoongArch; RISC-V остаётся на линии 3.0 (K3 Server / Embedded, V100). То, что SP1 указан на странице загрузки как новейшая версия, не означает, что RISC-V тоже обновлён.'
   doc_langs:
   - zh
   derivatives: []
   note: RISC-V-ветка китайской настольной ОС, покрытие плат разорвано по версиям (3.0 поддерживает только K3/V100). Подходит для оценки китайского настольного стека, не подходит как повседневная система
     для старых плат TH1520/K1.
-  checked: '2026-11-01'
+  checked: '2026-11-16'
   order: 8
   feature: true
   sources:
@@ -802,6 +803,7 @@ items:
   - https://matrix.ruyisdk.org/reports/LicheePi4A/openKylin/README/
   - https://matrix.ruyisdk.org/reports/Mars/openKylin/README/
   - https://matrix.ruyisdk.org/
+  - https://cdimage.openkylin.top/3.0-SP1/
 - id: deepin
   name: deepin
   vendor: ''
