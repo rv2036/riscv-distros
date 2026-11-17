@@ -299,6 +299,7 @@ items:
   - 'Подходит только для headless: mainline не содержит драйвера встроенной графики SoC, официальное позиционирование — сборочная машина/сервер ("video output are pretty much completely ignored")'
   - Для установки требуется последовательная консоль (Requirements → Serial console access)
   - Некоторые пакеты требуют патчей специально для RISC-V, всё ещё есть расхождения с исходным кодом upstream
+  - При обновлении с Fedora 44 на 45 на платах JH7110 (например, VisionFive 2) с ядром generic и хранилищем NVMe есть риск повреждения данных; в официальном анонсе просят сначала прочитать примечания к обновлению
   doc_langs:
   - en
   derivatives:
@@ -306,7 +307,7 @@ items:
   - Fedora Remix for RISC-V
   note: У Fedora есть официальный SIG RISC-V с непрерывными сборками, но riscv64 по-прежнему помечен как «not officially supported», а образы публикуются в канале alt. В повседневной работе это не мешает,
     однако уровень поддержки не тот же, что у Debian или Ubuntu.
-  checked: '2026-11-14'
+  checked: '2026-11-18'
   order: 3
   feature: true
   sources:
@@ -323,6 +324,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
   - https://fedoramagazine.org/announcing-fedora-linux-45/
+  - https://discussion.fedoraproject.org/t/fedora-45-risc-v-ga-images-are-available/206919
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1280,35 +1282,41 @@ items:
   name: RHEL RISC-V Developer Preview
   vendor: Red Hat
   upstream: official
-  upstream_note: 'Предварительная версия для разработчиков (Developer Preview) RISC-V, выпущенная самой Red Hat на кодовой базе RHEL 10.2: предсобранные образы только для нескольких платформ; Red Hat прямо
+  upstream_note: 'Предварительная версия для разработчиков (Developer Preview) RISC-V, выпущенная самой Red Hat на кодовой базе RHEL 10.3: предсобранные образы только для нескольких платформ; Red Hat прямо
     указывает, что это не поддерживаемая версия продукта.'
   kind: distro
-  based_on: RHEL 10.2 (кодовая база Fedora / CentOS Stream 10)
+  based_on: RHEL 10.3 (кодовая база Fedora / CentOS Stream 10)
   audience: advanced
   versions:
+  - 10.3 Developer Preview Update (анонс 2026-11-16; добавлены SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 и кластерный сервер RV2768, UltraRISC URDP1000, Epic Semi Contrail AIX; на момент проверки
+    в разделе загрузки страницы продукта по-прежнему образ 10.2)
   - 10.2 Developer Preview Update (2026-10-09; образ 2.6 GB, исходники 14.19 GB, для загрузки нужен вход в аккаунт Red Hat)
   - 10.2 Developer Preview
   - 10.0 Developer Preview (первый выпуск 2025-05, платформа P550)
   boards:
   - board: p550
     level: official
-    note: Первая и главная долгосрочная платформа (SiFive HiFive Premier P550)
+    note: Первая и главная долгосрочная платформа (SiFive HiFive Premier P550); 10.3 — последнее обновление, тестируемое на P550
   - board: k3
     level: official
-    note: 'Добавлено в 10.2 Update: SpacemiT K3 Pico-ITX'
+    note: 'Добавлено в 10.2 Update: SpacemiT K3 Pico-ITX; поддержка сохранена в 10.3 (Pico-ITX и CoM260)'
   - board: k3-som260
     level: official
-    note: 'Добавлено в 10.2 Update: SpacemiT K3 CoM260'
+    note: 'Добавлено в 10.2 Update: SpacemiT K3 CoM260; поддержка сохранена в 10.3'
   - board: titan
     level: official
-    note: 'Добавлено в 10.2 Update: UltraRISC UR-DP1000 (Milk-V Titan)'
+    note: 'Добавлено в 10.2 Update: UltraRISC UR-DP1000 (Milk-V Titan); поддержка сохранена в 10.3'
   - board: qemu
     level: partial
     note: Отдельного образа для QEMU официально нет, образы выпускаются по платам
   downloads:
-  - label: Официальная страница загрузки (RHEL 10.2 RISC-V Developer Preview Update, нужен аккаунт разработчика Red Hat)
+  - label: Официальная страница загрузки (по состоянию на 2026-11-18 указан образ RHEL 10.2 RISC-V Developer Preview Update; нужен аккаунт разработчика Red Hat)
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
+  - label: 'Блог Red Hat: RHEL 10 Developer Preview for RISC-V обновлён до 10.3'
+    url: https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
+    type: doc
+    lang: en
   - label: 'Блог Red Hat: RISC-V Developer Preview обновлён до 10.2'
     url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
     type: doc
@@ -1317,17 +1325,19 @@ items:
   - 'Developer Preview, а не версия с поддержкой для продакшена: Red Hat её не поддерживает, не стоит использовать для рабочих задач'
   - Для загрузки нужен аккаунт разработчика Red Hat (бесплатный); прямой curl упирается в антибот и получает 403
   - Образы выпускаются по платформам, универсального установочного носителя для RISC-V нет; образ на 2.6 GB — это дисковый образ для одной платформы
-  - SpacemiT V100, добавленный в 10.2 Update, — серверный CPU; готовой системы с ним в каталоге пока нет, так что это лишь свидетельство того, что чип уже вошёл в RHEL
+  - SpacemiT V100, добавленный в 10.3, — серверный CPU (два сокета, 2×46 ядер); готовой системы с ним в каталоге пока нет, так что это лишь свидетельство того, что чип уже вошёл в RHEL
+  - 10.3 (2026-11-16) — последнее обновление, тестируемое на SiFive HiFive Premier P550; после него базовая платформа проекта переходит на SiFive BigSky 2U870
   doc_langs:
   - en
   derivatives: []
   note: 'Превью-система RISC-V с корпоративным уклоном: подойдёт, чтобы проверить, «запускается ли пользовательское окружение RHEL»; для повседневной работы Debian / Ubuntu / RevyOS всё же проще.'
-  checked: '2026-11-02'
+  checked: '2026-11-18'
   order: 14
   feature: false
   sources:
   - https://developers.redhat.com/products/rhel/riscv
   - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+  - https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
 - id: almalinux
   name: AlmaLinux OS Kitten 10
   vendor: AlmaLinux OS Foundation
@@ -1437,7 +1447,7 @@ items:
   based_on: Независимый (сборка из исходников, OpenRC/systemd на выбор)
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261109T164603Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261116T160104Z）
   boards:
   - board: qemu
     level: official
@@ -1483,7 +1493,7 @@ items:
   - en
   derivatives: []
   note: 'Дружелюбно к опытным, отпугивает новичков: документация полная, но установка полностью ручная; подходит тем, кто хочет глубокой кастомизации или собрать встраиваемый rootfs.'
-  checked: '2026-11-12'
+  checked: '2026-11-18'
   order: 17
   feature: false
   sources:

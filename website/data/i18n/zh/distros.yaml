@@ -293,13 +293,14 @@ items:
   - 只适合 headless：mainline 不含 SoC 集显驱动，官方定位是构建机/服务器（"video output are pretty much completely ignored"）
   - 安装需要串口控制台（Requirements → Serial console access）
   - 部分软件包需要 RISC-V 专用 patch，与上游源码仍有 delta
+  - 从 Fedora 44 升级到 45 时，VisionFive 2 等 JH7110 板在 generic 内核 + NVMe 存储的配置下有数据损坏风险，官方公告要求先读升级说明
   doc_langs:
   - en
   derivatives:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
   note: Fedora 有官方 RISC-V SIG 与持续构建，但官方至今把 riscv64 写作「not officially supported」，镜像走 alt 通道。日常使用没问题，只是它的「官方支持」等级与 Debian、Ubuntu 不同级。
-  checked: '2026-11-14'
+  checked: '2026-11-18'
   order: 3
   feature: true
   sources:
@@ -316,6 +317,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
   - https://fedoramagazine.org/announcing-fedora-linux-45/
+  - https://discussion.fedoraproject.org/t/fedora-45-risc-v-ga-images-are-available/206919
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1254,34 +1256,39 @@ items:
   name: RHEL RISC-V Developer Preview
   vendor: Red Hat
   upstream: official
-  upstream_note: Red Hat 自己发布的 RISC-V 开发者预览版（Developer Preview），基于 RHEL 10.2 代码基，只面向少数平台提供预构建镜像；Red Hat 明确它不是受支持的产品版本。
+  upstream_note: Red Hat 自己发布的 RISC-V 开发者预览版（Developer Preview），基于 RHEL 10.3 代码基，只面向少数平台提供预构建镜像；Red Hat 明确它不是受支持的产品版本。
   kind: distro
-  based_on: RHEL 10.2（Fedora / CentOS Stream 10 代码基）
+  based_on: RHEL 10.3（Fedora / CentOS Stream 10 代码基）
   audience: advanced
   versions:
+  - 10.3 Developer Preview Update（2026-11-16 公告；新增 SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 与 RV2768 集群服务器、UltraRISC URDP1000、Epic Semi Contrail AIX；产品页下载区截至核查仍列 10.2 镜像）
   - 10.2 Developer Preview Update（2026-10-09；镜像 2.6 GB、源码 14.19 GB，需登录 Red Hat 账号下载）
   - 10.2 Developer Preview
   - 10.0 Developer Preview（2025-05 首发，平台为 P550）
   boards:
   - board: p550
     level: official
-    note: 首个也是长期的主平台（SiFive HiFive Premier P550）
+    note: 首个也是长期的主平台（SiFive HiFive Premier P550）；10.3 是最后一个在 P550 上测试的更新
   - board: k3
     level: official
-    note: 10.2 Update 新增：SpacemiT K3 Pico-ITX
+    note: 10.2 Update 新增 SpacemiT K3 Pico-ITX；10.3 继续支持（Pico-ITX 与 CoM260）
   - board: k3-som260
     level: official
-    note: 10.2 Update 新增：SpacemiT K3 CoM260
+    note: 10.2 Update 新增 SpacemiT K3 CoM260；10.3 继续支持
   - board: titan
     level: official
-    note: 10.2 Update 新增：UltraRISC UR-DP1000（Milk-V Titan）
+    note: 10.2 Update 新增 UltraRISC UR-DP1000（Milk-V Titan）；10.3 继续支持
   - board: qemu
     level: partial
     note: 官方没有单独的 QEMU 镜像，镜像按板卡出
   downloads:
-  - label: 官方下载页（RHEL 10.2 RISC-V Developer Preview Update，需 Red Hat 开发者账号）
+  - label: 官方下载页（截至 2026-11-18 仍列 RHEL 10.2 RISC-V Developer Preview Update 镜像，需 Red Hat 开发者账号）
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
+  - label: Red Hat 博客：RHEL 10 Developer Preview for RISC-V 更新到 10.3
+    url: https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
+    type: doc
+    lang: en
   - label: Red Hat 博客：RISC-V Developer Preview 已更新到 10.2
     url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
     type: doc
@@ -1290,17 +1297,19 @@ items:
   - Developer Preview，不是生产支持版本：Red Hat 不提供支持，别拿去跑业务
   - 下载要登录 Red Hat 开发者账号（免费），直接 curl 会被反爬挡成 403
   - 镜像按平台出，没有通用的 RISC-V 安装介质；2.6 GB 那个是单平台磁盘镜像
-  - 10.2 Update 新增的 SpacemiT V100 是服务器级 CPU，目前没有对应的整机条目，只能当「芯片已进 RHEL」看
+  - 10.3 新增的 SpacemiT V100 是服务器级 CPU（双路 2×46 核），目前没有对应的整机条目，只能当「芯片已进 RHEL」看
+  - 10.3（2026-11-16）是最后一个在 SiFive HiFive Premier P550 上测试的更新，此后 Red Hat 的基准平台转向 SiFive BigSky 2U870
   doc_langs:
   - en
   derivatives: []
   note: 企业级取向的 RISC-V 预览系统：想验证「RHEL 用户态能不能跑起来」看它，日常用还是 Debian / Ubuntu / RevyOS 更省事。
-  checked: '2026-11-02'
+  checked: '2026-11-18'
   order: 14
   feature: false
   sources:
   - https://developers.redhat.com/products/rhel/riscv
   - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+  - https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
 - id: almalinux
   name: AlmaLinux OS Kitten 10
   vendor: AlmaLinux OS Foundation
@@ -1405,7 +1414,7 @@ items:
   based_on: 独立（源码构建，OpenRC/systemd 可选）
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261109T164603Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261116T160104Z）
   boards:
   - board: qemu
     level: official
@@ -1451,7 +1460,7 @@ items:
   - en
   derivatives: []
   note: 老手友好、新手劝退：文档齐全但全手工安装，适合想深度定制或做嵌入式 rootfs 的人。
-  checked: '2026-11-12'
+  checked: '2026-11-18'
   order: 17
   feature: false
   sources:

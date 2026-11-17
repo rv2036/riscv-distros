@@ -296,6 +296,7 @@ items:
   - 'Headless only: mainline has no integrated GPU driver, and the project positions this as a build machine/server ("video output are pretty much completely ignored")'
   - Installation requires a serial console (Requirements → Serial console access)
   - Some packages need RISC-V-specific patches and still differ from upstream sources
+  - When upgrading from Fedora 44 to 45, JH7110 boards such as the VisionFive 2 with the generic kernel and NVMe storage risk data corruption; the official announcement asks you to read the upgrade notes first
   doc_langs:
   - en
   derivatives:
@@ -303,7 +304,7 @@ items:
   - Fedora Remix for RISC-V
   note: Fedora runs an official RISC-V SIG with continuous builds, but the project still labels riscv64 "not officially supported" and ships images through the alt channel. It works fine day to day; its
     support level is simply not the same as Debian or Ubuntu.
-  checked: '2026-11-14'
+  checked: '2026-11-18'
   order: 3
   feature: true
   sources:
@@ -320,6 +321,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
   - https://fedoramagazine.org/announcing-fedora-linux-45/
+  - https://discussion.fedoraproject.org/t/fedora-45-risc-v-ga-images-are-available/206919
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1273,35 +1275,41 @@ items:
   name: RHEL RISC-V Developer Preview
   vendor: Red Hat
   upstream: official
-  upstream_note: The RISC-V Developer Preview published by Red Hat itself, based on the RHEL 10.2 code base; prebuilt images are offered for only a few platforms, and Red Hat states explicitly that it is
+  upstream_note: The RISC-V Developer Preview published by Red Hat itself, based on the RHEL 10.3 code base; prebuilt images are offered for only a few platforms, and Red Hat states explicitly that it is
     not a supported product release.
   kind: distro
-  based_on: RHEL 10.2 (Fedora / CentOS Stream 10 code base)
+  based_on: RHEL 10.3 (Fedora / CentOS Stream 10 code base)
   audience: advanced
   versions:
+  - 10.3 Developer Preview Update (announced 2026-11-16; adds SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 and the RV2768 cluster server, UltraRISC URDP1000, and Epic Semi Contrail AIX; as of this check
+    the product page download section still lists the 10.2 image)
   - 10.2 Developer Preview Update (2026-10-09; images 2.6 GB, sources 14.19 GB, requires a Red Hat account to download)
   - 10.2 Developer Preview
   - 10.0 Developer Preview (first released 2025-05, platform was P550)
   boards:
   - board: p550
     level: official
-    note: The first and long-term primary platform (SiFive HiFive Premier P550)
+    note: The first and long-term primary platform (SiFive HiFive Premier P550); 10.3 is the last update tested on the P550
   - board: k3
     level: official
-    note: 'New in the 10.2 Update: SpacemiT K3 Pico-ITX'
+    note: 'New in the 10.2 Update: SpacemiT K3 Pico-ITX; still supported in 10.3 (Pico-ITX and CoM260)'
   - board: k3-som260
     level: official
-    note: 'New in the 10.2 Update: SpacemiT K3 CoM260'
+    note: 'New in the 10.2 Update: SpacemiT K3 CoM260; still supported in 10.3'
   - board: titan
     level: official
-    note: 'New in the 10.2 Update: UltraRISC UR-DP1000 (Milk-V Titan)'
+    note: 'New in the 10.2 Update: UltraRISC UR-DP1000 (Milk-V Titan); still supported in 10.3'
   - board: qemu
     level: partial
     note: There is no separate QEMU image; images are published per board
   downloads:
-  - label: Official download page (RHEL 10.2 RISC-V Developer Preview Update, requires a Red Hat developer account)
+  - label: Official download page (as of 2026-11-18 it still lists the RHEL 10.2 RISC-V Developer Preview Update image; requires a Red Hat developer account)
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
+  - label: 'Red Hat blog: RHEL 10 Developer Preview for RISC-V updated to 10.3'
+    url: https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
+    type: doc
+    lang: en
   - label: 'Red Hat blog: RISC-V Developer Preview updated to 10.2'
     url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
     type: doc
@@ -1310,17 +1318,19 @@ items:
   - 'Developer Preview, not a supported production release: Red Hat provides no support, so do not run production workloads on it'
   - Downloading requires signing in with a (free) Red Hat developer account; a plain curl is blocked with 403 by anti-bot protection
   - Images are published per platform; there is no generic RISC-V installation medium — the 2.6 GB one is a single-platform disk image
-  - SpacemiT V100, added in the 10.2 Update, is a server-class CPU with no matching complete-system entry yet, so it only shows that the chip has landed in RHEL
+  - SpacemiT V100, added in 10.3, is a server-class CPU (dual-socket, 2x46 cores) with no matching complete-system entry yet, so it only shows that the chip has landed in RHEL
+  - 10.3 (2026-11-16) is the last update tested on the SiFive HiFive Premier P550; the project's base platform then moves to the SiFive BigSky 2U870
   doc_langs:
   - en
   derivatives: []
   note: 'An enterprise-oriented RISC-V preview: use it to check whether the RHEL userland runs, but for day-to-day use Debian / Ubuntu / RevyOS are less trouble.'
-  checked: '2026-11-02'
+  checked: '2026-11-18'
   order: 14
   feature: false
   sources:
   - https://developers.redhat.com/products/rhel/riscv
   - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+  - https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
 - id: almalinux
   name: AlmaLinux OS Kitten 10
   vendor: AlmaLinux OS Foundation
@@ -1430,7 +1440,7 @@ items:
   based_on: Independent (built from source, OpenRC/systemd optional)
   audience: advanced
   versions:
-  - rolling (stage3 rv64_lp64d-openrc 20261109T164603Z)
+  - rolling (stage3 rv64_lp64d-openrc 20261116T160104Z)
   boards:
   - board: qemu
     level: official
@@ -1476,7 +1486,7 @@ items:
   - en
   derivatives: []
   note: 'Friendly to veterans, discouraging for beginners: complete docs but a fully manual install, good for people who want deep customization or an embedded rootfs.'
-  checked: '2026-11-12'
+  checked: '2026-11-18'
   order: 17
   feature: false
   sources:
