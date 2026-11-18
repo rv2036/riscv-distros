@@ -293,13 +293,14 @@ items:
   - headless 専用と考えてください。メインラインに SoC 内蔵 GPU のドライバがなく、公式の位置づけはビルドマシン／サーバーです（「video output are pretty much completely ignored」）
   - インストールにはシリアルコンソールが必要です（Requirements → Serial console access）
   - 一部のパッケージには RISC-V 専用のパッチが必要で、上流のソースとはまだ差分があります
+  - Fedora 44 から 45 へアップグレードする際、VisionFive 2 など JH7110 ボードで generic カーネルと NVMe ストレージを使う構成にはデータ破損のリスクがあります。公式アナウンスは事前にアップグレードノートを読むよう求めています
   doc_langs:
   - en
   derivatives:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
   note: Fedora には公式の RISC-V SIG と継続ビルドがありますが、riscv64 はいまも「not officially supported」と明記され、イメージは alt チャネル配布です。日常利用に問題はありませんが、公式サポートの位置づけは Debian や Ubuntu とは同じではありません。
-  checked: '2026-11-14'
+  checked: '2026-11-18'
   order: 3
   feature: true
   sources:
@@ -316,6 +317,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Fedora/README/
   - https://matrix.ruyisdk.org/
   - https://fedoramagazine.org/announcing-fedora-linux-45/
+  - https://discussion.fedoraproject.org/t/fedora-45-risc-v-ga-images-are-available/206919
 - id: fvf
   name: Fedora-V Force (FVF)
   vendor: ''
@@ -1255,34 +1257,39 @@ items:
   name: RHEL RISC-V Developer Preview
   vendor: Red Hat
   upstream: official
-  upstream_note: Red Hat 自身が公開している RISC-V 開発者プレビュー（Developer Preview）です。RHEL 10.2 のコードベースを基にしており、一部のプラットフォームにのみビルド済みイメージを提供しています。Red Hat はサポート対象の製品版ではないと明言しています。
+  upstream_note: Red Hat 自身が公開している RISC-V 開発者プレビュー（Developer Preview）です。RHEL 10.3 のコードベースを基にしており、一部のプラットフォームにのみビルド済みイメージを提供しています。Red Hat はサポート対象の製品版ではないと明言しています。
   kind: distro
-  based_on: RHEL 10.2（Fedora / CentOS Stream 10 のコードベース）
+  based_on: RHEL 10.3（Fedora / CentOS Stream 10 のコードベース）
   audience: advanced
   versions:
+  - 10.3 Developer Preview Update（2026-11-16 発表。SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 と RV2768 クラスタサーバー、UltraRISC URDP1000、Epic Semi Contrail AIX を追加。確認時点で製品ページのダウンロード欄は依然 10.2 イメージ）
   - 10.2 Developer Preview Update（2026-10-09；イメージ 2.6 GB、ソース 14.19 GB、ダウンロードには Red Hat アカウントでのログインが必要）
   - 10.2 Developer Preview
   - 10.0 Developer Preview（2025-05 に初公開、プラットフォームは P550）
   boards:
   - board: p550
     level: official
-    note: 最初のプラットフォームであり、長期的な主力ターゲットでもあります（SiFive HiFive Premier P550）
+    note: 最初のプラットフォームであり、長期的な主力ターゲットでもあります（SiFive HiFive Premier P550）。10.3 が P550 でテストされる最後の更新です
   - board: k3
     level: official
-    note: 10.2 Update で追加：SpacemiT K3 Pico-ITX
+    note: 10.2 Update で追加：SpacemiT K3 Pico-ITX。10.3 でも引き続き対応します（Pico-ITX と CoM260）
   - board: k3-som260
     level: official
-    note: 10.2 Update で追加：SpacemiT K3 CoM260
+    note: 10.2 Update で追加：SpacemiT K3 CoM260。10.3 でも引き続き対応します
   - board: titan
     level: official
-    note: 10.2 Update で追加：UltraRISC UR-DP1000（Milk-V Titan）
+    note: 10.2 Update で追加：UltraRISC UR-DP1000（Milk-V Titan）。10.3 でも引き続き対応します
   - board: qemu
     level: partial
     note: 公式に QEMU 専用イメージはなく、イメージはボードごとに提供されます
   downloads:
-  - label: 公式ダウンロードページ（RHEL 10.2 RISC-V Developer Preview Update、Red Hat 開発者アカウントが必要）
+  - label: 公式ダウンロードページ（2026-11-18 時点では RHEL 10.2 RISC-V Developer Preview Update のイメージを掲載。Red Hat 開発者アカウントが必要）
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
+  - label: Red Hat ブログ：RHEL 10 Developer Preview for RISC-V が 10.3 に更新
+    url: https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
+    type: doc
+    lang: en
   - label: Red Hat ブログ：RISC-V Developer Preview が 10.2 に更新
     url: https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
     type: doc
@@ -1291,17 +1298,19 @@ items:
   - Developer Preview であり、本番サポート版ではありません。Red Hat はサポートを提供しないため、業務用途には使わないでください
   - ダウンロードには Red Hat 開発者アカウント（無料）でのログインが必要です。curl で直接取得しようとするとボット対策で 403 になります
   - イメージはプラットフォームごとに提供され、汎用の RISC-V インストールメディアはありません。2.6 GB のものは単一プラットフォーム向けのディスクイメージです
-  - 10.2 Update で追加された SpacemiT V100 はサーバー級 CPU で、現時点で対応する完成機の項目がありません。「チップが RHEL に入った」という段階にとどまります
+  - 10.3 で追加された SpacemiT V100 はサーバー級 CPU（デュアルソケット 2×46 コア）で、現時点で対応する完成機の項目がありません。「チップが RHEL に入った」という段階にとどまります
+  - 10.3（2026-11-16）が SiFive HiFive Premier P550 でテストされる最後の更新です。以後 Red Hat の基準プラットフォームは SiFive BigSky 2U870 に移ります
   doc_langs:
   - en
   derivatives: []
   note: エンタープライズ志向の RISC-V プレビューシステムです。「RHEL のユーザーランドが動くか」を確かめたいときに見るもので、日常使いなら Debian / Ubuntu / RevyOS のほうが手間がかかりません。
-  checked: '2026-11-02'
+  checked: '2026-11-18'
   order: 14
   feature: false
   sources:
   - https://developers.redhat.com/products/rhel/riscv
   - https://www.redhat.com/en/blog/red-hat-has-updated-risc-v-developer-preview
+  - https://developers.redhat.com/articles/2026/11/16/rhel-10-developer-preview-for-risc-v-updates-to-10-3
 - id: almalinux
   name: AlmaLinux OS Kitten 10
   vendor: AlmaLinux OS Foundation
@@ -1406,7 +1415,7 @@ items:
   based_on: 独立（ソースビルド、OpenRC/systemd 選択可）
   audience: advanced
   versions:
-  - rolling（stage3 rv64_lp64d-openrc 20261109T164603Z）
+  - rolling（stage3 rv64_lp64d-openrc 20261116T160104Z）
   boards:
   - board: qemu
     level: official
@@ -1452,7 +1461,7 @@ items:
   - en
   derivatives: []
   note: 慣れた人には快適、初心者には厳しい。ドキュメントは揃っていますがすべて手作業のインストールで、深くカスタマイズしたい人や組み込み向け rootfs を作りたい人に向いています。
-  checked: '2026-11-12'
+  checked: '2026-11-18'
   order: 17
   feature: false
   sources:
