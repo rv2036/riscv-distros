@@ -1396,21 +1396,26 @@ items:
   based_on: RHEL 10 (кодовая база CentOS Stream 10)
   audience: advanced
   versions:
+  - '10.3 (riscv64: универсальный SBC-образ raw, сборка 20261112.0, и GenericCloud qcow2, выложены 2026-11-13; репозитории BaseOS и AppStream для riscv64 уже доступны)'
   - '10.2 (образы контейнеров riscv64 уже выпущены: Base / Minimal / Toolbox / UBI, сборка 2026-05-25)'
-  - 10.0 (в анонсе GA riscv64 указана как поддерживаемая архитектура; установочные образы и репозиторий пакетов пока не выложены)
+  - 10.0 (в анонсе GA riscv64 указана как поддерживаемая архитектура)
   boards:
   - board: qemu
     level: partial
-    note: В официальном анонсе QEMU указан среди целевых платформ, но установочного образа пока нет
+    note: В официальном анонсе QEMU указан среди целевых платформ; теперь есть GenericCloud qcow2 и универсальный SBC-образ raw, но установочного ISO для riscv64 нет
   - board: visionfive2
     level: partial
-    note: В официальном анонсе VisionFive 2 указана среди целевых платформ, но образов для плат пока нет
+    note: В официальном анонсе VisionFive 2 указана среди целевых платформ; универсальный SBC-образ есть, но отдельных каталогов по платам и списка проверки по платам нет
   - board: p550
     level: partial
-    note: В официальном анонсе HiFive Premier P550 указана среди целевых платформ, но образов для плат пока нет
+    note: В официальном анонсе HiFive Premier P550 указана среди целевых платформ; тоже остаётся только универсальный SBC-образ
   downloads:
-  - label: Каталог образов контейнеров Rocky 10 riscv64 (Base / Minimal / Toolbox / UBI)
+  - label: Каталог образов Rocky 10 riscv64 (универсальный SBC raw / GenericCloud qcow2)
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  - label: Универсальный SBC-образ Rocky 10.3 raw (20261112.0, 673 МБ)
+    url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-SBC-Generic-10.3-20261112.0.riscv64.raw.xz
+  - label: Репозиторий пакетов Rocky 10 riscv64 (BaseOS, 952 пакета)
+    url: https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/os/
   guides:
   - label: 'Официальный анонс Rocky: Rocky Linux 10 поддерживает RISC-V'
     url: https://rockylinux.org/news/rockylinux-support-for-riscv
@@ -1421,21 +1426,20 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Сейчас доступны только образы контейнеров: установочный ISO и репозиторий dnf ещё не выложены — каталог /pub/rocky/10/BaseOS/riscv64/os/ пуст, в официальном анонсе сказано «образы для загрузки появятся
-    в ближайшее время»'
-  - Список плат повторяет Fedora RISC-V (VisionFive 2 / QEMU / P550); собственных образов для плат у Rocky нет
+  - 'Установочного ISO для riscv64 нет: /pub/rocky/10.3/iso/ отдаёт 404, скачать можно только готовые образы raw/qcow2, установщик anaconda недоступен'
+  - 'SBC-образ — универсальный «SBC-Generic» raw: разбивки по платам и списка проверки по платам нет, поэтому загрузится ли плата на JH7110, придётся проверять самому'
   - 'riscv64 — Alternative Architecture: сбой сборки не блокирует выпуск основных архитектур, поэтому полнота пакетов — как повезёт'
   doc_langs:
   - en
   derivatives: []
-  note: Если нужно пользовательское окружение RHEL 10 на RISC-V и не хочется связываться с аккаунтом Red Hat, образы контейнеров Rocky 10 riscv64 — готовый вариант; для установки на реальное железо придётся
-    ждать установочных образов.
-  checked: '2026-11-02'
+  note: 'Если нужно пользовательское окружение RHEL 10 на RISC-V и не хочется связываться с аккаунтом Red Hat: у Rocky 10 теперь есть репозиторий пакетов riscv64 (952 пакета в BaseOS), универсальный SBC-образ raw и облачные образы — не хватает только установочного ISO.'
+  checked: '2026-11-19'
   order: 16
   feature: false
   sources:
   - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - https://rockylinux.org/news/rockylinux-support-for-riscv
+  - https://download.rockylinux.org/pub/rocky/10.3/BaseOS/riscv64/os/
   - https://rockylinux.org/news/rocky-linux-10-0-ga-release
 - id: gentoo
   name: Gentoo
@@ -2116,16 +2120,32 @@ items:
   based_on: AOSP (ядро Linux + фреймворк Android)
   audience: advanced
   versions:
-  - Android 17（AOSP，2026-06）
-  - main（trunk_staging）
+  - Android 17 (RISE Android 17 v1.0, 2026-10-14; бинарные образы для K3 Pico-ITX / A210 EVB)
+  - Android 17 nightly (непрерывные сборки RISE с 2026-11-18)
+  - Android 17 (AOSP, 2026-06)
+  - main (trunk_staging)
   boards:
   - board: qemu
     level: official
-    note: Cuttlefish (cvd) — единственный официальный способ запуска, требуется qemu ≥ 8.1 (9.0+ стабильнее для расширения V)
+    note: Cuttlefish (cvd) — единственный официальный способ запуска AOSP, требуется qemu ≥ 8.1 (9.0+ стабильнее для расширения V)
+  - board: k3
+    level: partial
+    note: RISE публикует бинарные образы для Pico-ITX (v1.0 и nightly); версия для разработчиков, не серийная сертификация, NPU не поддерживается
+  - board: a210
+    level: partial
+    note: RISE публикует бинарные образы для A210 EVB (v1.0 и nightly); версия для разработчиков, не серийная сертификация, NPU не поддерживается
   downloads:
-  - label: Скачивание исходников AOSP (riscv64 только сборка из исходников, официальных образов нет)
+  - label: Страница релиза RISE Android 17 v1.0 (образы и скрипты прошивки для K3 Pico-ITX / A210 EVB)
+    url: https://github.com/riseproject-dev/android_manifest/releases/tag/android-17-v1.0
+  - label: Ночные сборки RISE Android 17 (с 2026-11-18)
+    url: https://github.com/riseproject-dev/android_manifest/releases
+  - label: Скачивание исходников AOSP (riscv64 только сборка из исходников, образов от Google нет)
     url: https://source.android.com/docs/setup/download
   guides:
+  - label: 'Анонс RISE: Android 17 доступен на оборудовании RVA23 (K3 Pico-ITX / A210 EVB)'
+    url: https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise
+    type: doc
+    lang: en
   - label: google/android-riscv64 (статус, цели lunch, шаги Cuttlefish)
     url: https://github.com/google/android-riscv64
     type: doc
@@ -2139,19 +2159,23 @@ items:
     type: doc
     lang: en
   gotchas:
-  - Официальных образов для телефонов/плат разработчика нет, только эмулятор
+  - Образов от производителей телефонов нет, у Google по-прежнему только эмулятор Cuttlefish; образы для реального железа — версия для разработчиков от RISE (финансируют SpacemiT и Alibaba DAMO, реализует BayLibre)
+  - Сборка RISE — версия для разработчиков, а не серийная или сертифицированная: SELinux остаётся в permissive, нет secure boot и TEE, GPU ограничен OpenGL ES 2.0 (поэтому в WebView нет WebGL)
+  - На K3 после adb reboot команда fastboot usb 0 может не поднять USB3 PHY — нужно передёрнуть питание; NPU на обеих платах не поддерживается
   - ABI riscv64 в NDK ещё не утверждён (provisional), скомпилированные сейчас .so могут быть несовместимы в будущем
-  - Загрузка до рабочего стола даже на быстрой машине занимает около 10 минут
+  - Загрузка до рабочего стола даже на быстрой машине занимает около 10 минут (путь Cuttlefish)
   - После удаления RISC-V из ACK/GKI производители не получают долгосрочной поддержки ядра, серийное производство бесперспективно
   doc_langs:
   - en
   derivatives: []
-  note: Подходит только для проверочных экспериментов «запустить фреймворк Android на RISC-V», не стоит считать это рабочей системой.
-  checked: '2026-11-01'
+  note: 'Если хочется запустить Android на реальном железе, теперь можно прошить образы для разработчиков от RISE для K3 Pico-ITX / A210 EVB; это по-прежнему проверочная версия, не стоит считать её рабочей системой.'
+  checked: '2026-11-19'
   order: 29
   feature: false
   sources:
   - https://source.android.com/docs/setup/download
+  - https://github.com/riseproject-dev/android_manifest/releases
+  - https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise
   - https://github.com/google/android-riscv64
   - https://source.android.com/docs/setup/build/building
   - https://source.android.com/docs/devices/cuttlefish/get-started
