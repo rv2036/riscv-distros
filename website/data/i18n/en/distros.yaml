@@ -1389,21 +1389,26 @@ items:
   based_on: RHEL 10 (CentOS Stream 10 code base)
   audience: advanced
   versions:
+  - '10.3 (riscv64: a generic SBC raw image built 20261112.0 plus a GenericCloud qcow2, uploaded 2026-11-13; the BaseOS and AppStream riscv64 repositories are online)'
   - '10.2 (riscv64 container images published: Base / Minimal / Toolbox / UBI, built 2026-05-25)'
-  - 10.0 (the GA announcement lists riscv64 as a supported architecture; installation images and package repository are not online yet)
+  - 10.0 (the GA announcement lists riscv64 as a supported architecture)
   boards:
   - board: qemu
     level: partial
-    note: The official announcement lists QEMU as a target platform, but there is no installation image yet
+    note: The official announcement lists QEMU as a target platform; a GenericCloud qcow2 and a generic SBC raw image are now available, but there is no riscv64 installation ISO
   - board: visionfive2
     level: partial
-    note: The official announcement lists VisionFive 2 as a target platform, but there are no board images yet
+    note: The official announcement lists VisionFive 2 as a target platform; the generic SBC raw image exists, but the official site neither splits images per board nor publishes a per-board validation list
   - board: p550
     level: partial
-    note: The official announcement lists HiFive Premier P550 as a target platform, but there are no board images yet
+    note: The official announcement lists HiFive Premier P550 as a target platform; again there is only the generic SBC image to try
   downloads:
-  - label: Rocky 10 riscv64 container image directory (Base / Minimal / Toolbox / UBI)
+  - label: Rocky 10 riscv64 image directory (generic SBC raw / GenericCloud qcow2)
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
+  - label: Rocky 10.3 generic SBC raw image (20261112.0, 673 MB)
+    url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-SBC-Generic-10.3-20261112.0.riscv64.raw.xz
+  - label: Rocky 10 riscv64 package repository (BaseOS, 952 packages)
+    url: https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/os/
   guides:
   - label: 'Rocky official announcement: Rocky Linux 10 supports RISC-V'
     url: https://rockylinux.org/news/rockylinux-support-for-riscv
@@ -1414,21 +1419,20 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Only container images can be downloaded right now: the installation ISO and dnf repository are not online yet — /pub/rocky/10/BaseOS/riscv64/os/ is empty, and the official announcement says images
-    are "coming soon"'
-  - The board list is inherited directly from Fedora RISC-V (VisionFive 2 / QEMU / P550); Rocky itself has no board images
+  - 'There is no riscv64 installation ISO: /pub/rocky/10.3/iso/ returns 404, and everything downloadable is a preinstalled raw/qcow2 image, so the anaconda installer is not an option'
+  - 'The SBC image is a generic "SBC-Generic" raw image: no per-board directories and no per-board validation list, so whether a JH7110 board boots is up to your own testing'
   - riscv64 is an Alternative Architecture, so build failures do not block releases of the primary architectures — package completeness is a matter of luck
   doc_langs:
   - en
   derivatives: []
-  note: If you want the RHEL 10 userland on RISC-V without touching a Red Hat account, the riscv64 container images of Rocky 10 are the ready-to-use option today; running a real system still means waiting
-    for installation media.
-  checked: '2026-11-02'
+  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account: Rocky 10 now ships a riscv64 package repository (952 packages in BaseOS), a generic SBC raw image and cloud images — only the installation ISO is missing.'
+  checked: '2026-11-19'
   order: 16
   feature: false
   sources:
   - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - https://rockylinux.org/news/rockylinux-support-for-riscv
+  - https://download.rockylinux.org/pub/rocky/10.3/BaseOS/riscv64/os/
   - https://rockylinux.org/news/rocky-linux-10-0-ga-release
 - id: gentoo
   name: Gentoo
@@ -2104,16 +2108,32 @@ items:
   based_on: AOSP (Linux kernel + Android framework)
   audience: advanced
   versions:
+  - Android 17 (RISE Android 17 v1.0, 2026-10-14; binary images for K3 Pico-ITX / A210 EVB)
+  - Android 17 nightly (continuous RISE builds since 2026-11-18)
   - Android 17 (AOSP, 2026-06)
   - main (trunk_staging)
   boards:
   - board: qemu
     level: official
-    note: Cuttlefish (cvd) is the only official way to run it and needs qemu >= 8.1 (9.0+ is steadier for the V extension)
+    note: Cuttlefish (cvd) is the only official way to run AOSP and needs qemu >= 8.1 (9.0+ is steadier for the V extension)
+  - board: k3
+    level: partial
+    note: RISE publishes Pico-ITX binary images (v1.0 and nightly); a developer release, not production-certified, NPU not supported
+  - board: a210
+    level: partial
+    note: RISE publishes A210 EVB binary images (v1.0 and nightly); a developer release, not production-certified, NPU not supported
   downloads:
-  - label: AOSP source download (riscv64 is source-build only, no official images)
+  - label: RISE Android 17 v1.0 release page (K3 Pico-ITX / A210 EVB images and flash scripts)
+    url: https://github.com/riseproject-dev/android_manifest/releases/tag/android-17-v1.0
+  - label: RISE Android 17 nightly builds (since 2026-11-18)
+    url: https://github.com/riseproject-dev/android_manifest/releases
+  - label: AOSP source download (riscv64 is source-build only, no Google images)
     url: https://source.android.com/docs/setup/download
   guides:
+  - label: 'RISE announcement: Android 17 available on RVA23 hardware (K3 Pico-ITX / A210 EVB)'
+    url: https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise
+    type: doc
+    lang: en
   - label: google/android-riscv64 (status, lunch targets, Cuttlefish steps)
     url: https://github.com/google/android-riscv64
     type: doc
@@ -2127,19 +2147,23 @@ items:
     type: doc
     lang: en
   gotchas:
-  - No official phone/dev-board images, only the emulator
+  - 'No phone-vendor images; Google itself still offers only the Cuttlefish emulator. The real-hardware images come from RISE (funded by SpacemiT and Alibaba DAMO, implemented by BayLibre) as a developer release'
+  - 'The RISE build is a developer release, not a production or certified build: SELinux stays permissive, there is no secure boot or TEE, and the GPU tops out at OpenGL ES 2.0 (so WebView has no WebGL)'
+  - 'On K3, "fastboot usb 0" after adb reboot may fail to bring up the USB3 PHY; power-cycle the board. The NPUs on both boards are unsupported'
   - The NDK riscv64 ABI is still provisional, so .so files you build now may not be compatible later
-  - Booting to the desktop takes about 10 minutes even on a fast host
+  - Booting to the desktop takes about 10 minutes even on a fast host (the Cuttlefish path)
   - With RISC-V gone from ACK/GKI, vendors get no long-term kernel support, which rules out mass production
   doc_langs:
   - en
   derivatives: []
-  note: Only for experiments that check whether the Android framework boots on RISC-V — don't treat it as a usable system.
-  checked: '2026-11-01'
+  note: 'To run Android on real hardware you can now flash RISE developer images for the K3 Pico-ITX / A210 EVB; it is still a validation-grade release, so do not treat it as a usable system.'
+  checked: '2026-11-19'
   order: 29
   feature: false
   sources:
   - https://source.android.com/docs/setup/download
+  - https://github.com/riseproject-dev/android_manifest/releases
+  - https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise
   - https://github.com/google/android-riscv64
   - https://source.android.com/docs/setup/build/building
   - https://source.android.com/docs/devices/cuttlefish/get-started

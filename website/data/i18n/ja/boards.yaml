@@ -517,6 +517,9 @@ items:
   - distro: rhel
     level: official
     note: ''
+  - distro: android
+    level: partial
+    note: RISE Android 17 v1.0 と nightly が Pico-ITX イメージを提供。開発者向け版で量産認証はなく、NPU 非対応
   downloads:
   - label: Bianbu K3 イメージ（4.0.8 を含む）
     url: https://archive.spacemit.com/image/k3/version/bianbu/
@@ -672,6 +675,9 @@ items:
   - distro: buildroot
     level: official
     note: zhihe_a210_defconfig、公式 Buildroot SDK
+  - distro: android
+    level: partial
+    note: RISE Android 17 v1.0 と nightly が A210 EVB イメージを提供。開発者向け版で量産認証はなく、NPU 非対応
   downloads:
   - label: A210 Debian デスクトップイメージ（v2.9.0）
     url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz

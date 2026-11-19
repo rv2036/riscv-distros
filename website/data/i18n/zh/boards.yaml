@@ -517,6 +517,9 @@ items:
   - distro: rhel
     level: official
     note: ''
+  - distro: android
+    level: partial
+    note: RISE Android 17 v1.0 与 nightly 提供 Pico-ITX 镜像，开发者版本、非量产认证，NPU 不支持
   downloads:
   - label: Bianbu K3 镜像（含 4.0.8）
     url: https://archive.spacemit.com/image/k3/version/bianbu/
@@ -672,6 +675,9 @@ items:
   - distro: buildroot
     level: official
     note: zhihe_a210_defconfig，官方 Buildroot SDK
+  - distro: android
+    level: partial
+    note: RISE Android 17 v1.0 与 nightly 提供 A210 EVB 镜像，开发者版本、非量产认证，NPU 不支持
   downloads:
   - label: A210 Debian 桌面镜像（v2.9.0）
     url: http://developer.zhcomputing.com/downloads/release/zhihesdk/v2.9.0/diskimage_v2.9.0_a210-evb-release_desktop_debian_public.tar.gz
