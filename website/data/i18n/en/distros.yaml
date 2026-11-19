@@ -297,6 +297,7 @@ items:
   - Installation requires a serial console (Requirements → Serial console access)
   - Some packages need RISC-V-specific patches and still differ from upstream sources
   - When upgrading from Fedora 44 to 45, JH7110 boards such as the VisionFive 2 with the generic kernel and NVMe storage risk data corruption; the official announcement asks you to read the upgrade notes first
+  - The Fedora 45 announcement lists two more known issues: GCC on SpacemiT K3 and glibc on Milk-V Titan, both being worked on with upstream
   doc_langs:
   - en
   derivatives:
@@ -304,7 +305,7 @@ items:
   - Fedora Remix for RISC-V
   note: Fedora runs an official RISC-V SIG with continuous builds, but the project still labels riscv64 "not officially supported" and ships images through the alt channel. It works fine day to day; its
     support level is simply not the same as Debian or Ubuntu.
-  checked: '2026-11-18'
+  checked: '2026-11-20'
   order: 3
   feature: true
   sources:
@@ -1389,20 +1390,22 @@ items:
   based_on: RHEL 10 (CentOS Stream 10 code base)
   audience: advanced
   versions:
-  - '10.3 (riscv64: a generic SBC raw image built 20261112.0 plus a GenericCloud qcow2, uploaded 2026-11-13; the BaseOS and AppStream riscv64 repositories are online)'
+  - '10.3 (GA 2026-11-16): riscv64 ships boot / minimal / dvd installation ISOs (built 2026-11-12/13, 10-latest refreshed 11-18), a generic SBC raw image (20261112.0) and a GenericCloud qcow2; the BaseOS and AppStream riscv64 repositories are online (952 packages in BaseOS)'
   - '10.2 (riscv64 container images published: Base / Minimal / Toolbox / UBI, built 2026-05-25)'
   - 10.0 (the GA announcement lists riscv64 as a supported architecture)
   boards:
   - board: qemu
-    level: partial
-    note: The official announcement lists QEMU as a target platform; a GenericCloud qcow2 and a generic SBC raw image are now available, but there is no riscv64 installation ISO
+    level: official
+    note: Rocky's official RISC-V announcement and the 10.0 release notes both list QEMU as supported at release ("works out-of-the-box ... in QEMU"); boot / minimal ISOs are now also available for an anaconda install
   - board: visionfive2
-    level: partial
-    note: The official announcement lists VisionFive 2 as a target platform; the generic SBC raw image exists, but the official site neither splits images per board nor publishes a per-board validation list
+    level: official
+    note: The official announcement lists VisionFive 2 as the recommended board (the standard EL10 kernel boots it); both the generic SBC raw image and the installation ISOs work, but there is still no per-board validation list
   - board: p550
     level: partial
-    note: The official announcement lists HiFive Premier P550 as a target platform; again there is only the generic SBC image to try
+    note: 'Officially listed as "limited support": requires a vendor kernel and some features are limited'
   downloads:
+  - label: Rocky 10.3 riscv64 installation ISO directory (boot / minimal / dvd)
+    url: https://download.rockylinux.org/pub/rocky/10.3/isos/riscv64/
   - label: Rocky 10 riscv64 image directory (generic SBC raw / GenericCloud qcow2)
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - label: Rocky 10.3 generic SBC raw image (20261112.0, 673 MB)
@@ -1414,26 +1417,32 @@ items:
     url: https://rockylinux.org/news/rockylinux-support-for-riscv
     type: doc
     lang: en
-  - label: Rocky Linux 10.0 GA release notes (riscv64 listed as a supported architecture)
-    url: https://rockylinux.org/news/rocky-linux-10-0-ga-release
+  - label: Rocky Linux 10.3 GA announcement (riscv64 listed as a supported architecture)
+    url: https://rockylinux.org/news/rocky-linux-10-3-ga-release
+    type: doc
+    lang: en
+  - label: 'Rocky Linux 10.0 release notes (RISC-V supported platforms: VisionFive 2 / QEMU / P550)'
+    url: https://docs.rockylinux.org/10/releases/release_notes/10_0/
     type: doc
     lang: en
   gotchas:
-  - 'There is no riscv64 installation ISO: /pub/rocky/10.3/iso/ returns 404, and everything downloadable is a preinstalled raw/qcow2 image, so the anaconda installer is not an option'
+  - 'Installation ISOs exist, but only boot / minimal / dvd — there is no Live image (/pub/rocky/10.3/Live/ returns 404); the ISOs boot via EFI (they contain EFI/BOOT/BOOTRISCV64.EFI), so boards that boot straight from U-Boot still need the generic SBC raw image'
   - 'The SBC image is a generic "SBC-Generic" raw image: no per-board directories and no per-board validation list, so whether a JH7110 board boots is up to your own testing'
   - riscv64 is an Alternative Architecture, so build failures do not block releases of the primary architectures — package completeness is a matter of luck
   doc_langs:
   - en
   derivatives: []
-  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account: Rocky 10 now ships a riscv64 package repository (952 packages in BaseOS), a generic SBC raw image and cloud images — only the installation ISO is missing.'
-  checked: '2026-11-19'
+  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account: Rocky 10.3 (GA 2026-11-16) now ships installation ISOs, a generic SBC raw image, cloud images and a riscv64 package repository (952 packages in BaseOS); QEMU and VisionFive 2 are officially supported at release, and the P550 is under limited support.'
+  checked: '2026-11-20'
   order: 16
   feature: false
   sources:
+  - https://download.rockylinux.org/pub/rocky/10.3/isos/riscv64/
   - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - https://rockylinux.org/news/rockylinux-support-for-riscv
   - https://download.rockylinux.org/pub/rocky/10.3/BaseOS/riscv64/os/
-  - https://rockylinux.org/news/rocky-linux-10-0-ga-release
+  - https://rockylinux.org/news/rocky-linux-10-3-ga-release
+  - https://docs.rockylinux.org/10/releases/release_notes/10_0/
 - id: gentoo
   name: Gentoo
   vendor: ''

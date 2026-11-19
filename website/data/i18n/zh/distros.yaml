@@ -294,13 +294,14 @@ items:
   - 安装需要串口控制台（Requirements → Serial console access）
   - 部分软件包需要 RISC-V 专用 patch，与上游源码仍有 delta
   - 从 Fedora 44 升级到 45 时，VisionFive 2 等 JH7110 板在 generic 内核 + NVMe 存储的配置下有数据损坏风险，官方公告要求先读升级说明
+  - Fedora 45 官方公告另列两个已知问题：SpacemiT K3 上的 GCC、Milk-V Titan 上的 glibc，正在与上游共同修复
   doc_langs:
   - en
   derivatives:
   - Fedora-V Force (FVF)
   - Fedora Remix for RISC-V
   note: Fedora 有官方 RISC-V SIG 与持续构建，但官方至今把 riscv64 写作「not officially supported」，镜像走 alt 通道。日常使用没问题，只是它的「官方支持」等级与 Debian、Ubuntu 不同级。
-  checked: '2026-11-18'
+  checked: '2026-11-20'
   order: 3
   feature: true
   sources:
@@ -1366,20 +1367,22 @@ items:
   based_on: RHEL 10（CentOS Stream 10 代码基）
   audience: advanced
   versions:
-  - 10.3（riscv64：SBC 通用 raw 镜像 20261112.0 构建、GenericCloud qcow2，2026-11-13 上传；BaseOS 与 AppStream 的 riscv64 仓库已上线）
+  - 10.3（GA 2026-11-16）：riscv64 有 boot / minimal / dvd 安装 ISO（2026-11-12/13 构建，11-18 刷新 10-latest）、SBC 通用 raw 镜像（20261112.0）与 GenericCloud qcow2；BaseOS 与 AppStream 的 riscv64 仓库已上线（BaseOS 952 个包）
   - 10.2（riscv64 容器镜像已发布：Base / Minimal / Toolbox / UBI，2026-05-25 构建）
   - 10.0（GA 公告把 riscv64 列为支持架构）
   boards:
   - board: qemu
-    level: partial
-    note: 官方公告把 QEMU 列入目标平台；现在有 GenericCloud qcow2 与 SBC 通用 raw 镜像可装，但没有 riscv64 安装 ISO
+    level: official
+    note: Rocky 官方 RISC-V 公告与 10.0 发布说明都把 QEMU 列为发布即支持（原文「works out-of-the-box … in QEMU」）；现在还能用 boot / minimal ISO 走 anaconda 安装
   - board: visionfive2
-    level: partial
-    note: 官方公告把 VisionFive 2 列入目标平台；现有 SBC 通用 raw 镜像，官方没按板卡分目录、也没给逐板验证清单
+    level: official
+    note: 官方公告把 VisionFive 2 列为推荐板（标准 EL10 内核即可启动）；SBC 通用 raw 与安装 ISO 都能用，但官方没给逐板验证清单
   - board: p550
     level: partial
-    note: 官方公告把 HiFive Premier P550 列入目标平台；同样只能用 SBC 通用镜像试
+    note: 官方标注为「limited support」：要用厂商内核，部分特性受限
   downloads:
+  - label: Rocky 10.3 riscv64 安装 ISO 目录（boot / minimal / dvd）
+    url: https://download.rockylinux.org/pub/rocky/10.3/isos/riscv64/
   - label: Rocky 10 riscv64 镜像目录（SBC 通用 raw / GenericCloud qcow2）
     url: https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - label: Rocky 10.3 SBC 通用 raw 镜像（20261112.0，673 MB）
@@ -1391,26 +1394,32 @@ items:
     url: https://rockylinux.org/news/rockylinux-support-for-riscv
     type: doc
     lang: en
-  - label: Rocky Linux 10.0 GA 发布说明（riscv64 列为支持架构）
-    url: https://rockylinux.org/news/rocky-linux-10-0-ga-release
+  - label: Rocky Linux 10.3 GA 发布公告（riscv64 列为支持架构）
+    url: https://rockylinux.org/news/rocky-linux-10-3-ga-release
+    type: doc
+    lang: en
+  - label: Rocky Linux 10.0 发布说明（列出 RISC-V 支持平台：VisionFive 2 / QEMU / P550）
+    url: https://docs.rockylinux.org/10/releases/release_notes/10_0/
     type: doc
     lang: en
   gotchas:
-  - 没有 riscv64 安装 ISO：/pub/rocky/10.3/iso/ 是 404，能下的都是预装好的 raw / qcow2 镜像，用不上 anaconda 安装器
+  - 有安装 ISO，但只有 boot / minimal / dvd 三种，没有 Live 镜像（/pub/rocky/10.3/Live/ 是 404）；ISO 走 EFI 引导（内含 EFI/BOOT/BOOTRISCV64.EFI），U-Boot 直启的板子仍要用 SBC 通用 raw
   - SBC 镜像是「SBC-Generic」通用 raw，不按板卡分目录，也没有逐板验证清单；JH7110 这类板能不能起要自己实测
   - riscv64 是 Alternative Architecture，构建失败不阻塞主架构发布，所以软件包齐不齐要看运气
   doc_langs:
   - en
   derivatives: []
-  note: 想在 RISC-V 上用 RHEL 10 用户态、又不想碰 Red Hat 账号：Rocky 10 现在有 riscv64 软件仓库（BaseOS 952 个包）、SBC 通用 raw 镜像与云镜像，缺的只是安装 ISO。
-  checked: '2026-11-19'
+  note: 想在 RISC-V 上用 RHEL 10 用户态、又不想碰 Red Hat 账号：Rocky 10.3（2026-11-16 GA）把安装 ISO、SBC 通用 raw、云镜像和 riscv64 仓库（BaseOS 952 个包）都补齐了；官方点名 QEMU 与 VisionFive 2 发布即支持，P550 属有限支持。
+  checked: '2026-11-20'
   order: 16
   feature: false
   sources:
+  - https://download.rockylinux.org/pub/rocky/10.3/isos/riscv64/
   - https://download.rockylinux.org/pub/rocky/10/images/riscv64/
   - https://download.rockylinux.org/pub/rocky/10.3/BaseOS/riscv64/os/
   - https://rockylinux.org/news/rockylinux-support-for-riscv
-  - https://rockylinux.org/news/rocky-linux-10-0-ga-release
+  - https://rockylinux.org/news/rocky-linux-10-3-ga-release
+  - https://docs.rockylinux.org/10/releases/release_notes/10_0/
 - id: gentoo
   name: Gentoo
   vendor: ''
