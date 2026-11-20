@@ -936,8 +936,10 @@ items:
   based_on: Debian/Ubuntu (фреймворк сборки Armbian)
   audience: recommended
   versions:
-  - 26.8.9（MusePi Pro）
-  - 26.8.3（BPI-F3 / K3 Pico-ITX）
+  - 26.8.9 (MusePi Pro; сборка 2026-10-08, ядро 6.18.55 current / 6.6.100 legacy)
+  - 26.8.3 (BPI-F3 / K3 Pico-ITX; сборка 2026-08-21)
+  - rolling (VisionFive 2 / Orange Pi RV2 / универсальный UEFI riscv64; сборка 2026-11-13, 6.18.63 на OPi RV2 и образах UEFI, вендорское 6.6.20 на VF2)
+  - rolling (Milk-V Duo S; сборка 2026-11-18, ядро edge 7.3.5)
   boards:
   - board: k3
     level: official
@@ -947,10 +949,13 @@ items:
     note: Уровень Standard, ядро 6.18.45; есть также вариант Bianbu
   - board: orangepi-rv2
     level: community
-    note: Уровень Community, только Debian 13 minimal (6.18.58)
+    note: Сборка rolling уровня Community (2026-11-13) — Ubuntu 24.04 и Debian 13 minimal, а также Ubuntu 24.04 Xfce, ядро 6.18.63
   - board: visionfive2
     level: community
     note: Уровень Community, ядро производителя 6.6.20, три образа Ubuntu/Debian
+  - board: milkv-duo
+    level: community
+    note: Для Duo S есть Debian 13 minimal (сборка 2026-11-18, ядро edge 7.3.5); для Duo / Duo 256M образов нет
   downloads:
   - label: Скачать образ MusePi Pro (SpaceMiT K3)
     url: https://armbian.com/boards/musepipro
@@ -962,6 +967,8 @@ items:
     url: https://armbian.com/boards/orangepirv2
   - label: Скачать образ StarFive VisionFive2
     url: https://armbian.com/boards/visionfive2
+  - label: Универсальные образы UEFI riscv64 (машины с прошивкой UEFI)
+    url: https://armbian.com/uefi-riscv64
   guides:
   - label: Официальная документация Armbian (сборка/запись/использование)
     url: https://docs.armbian.com/
@@ -973,7 +980,8 @@ items:
     lang: en
   gotchas:
   - Многие платы всё ещё привязаны к ядру производителя (6.6.x Bianbu), степень перехода на mainline различается
-  - Платы уровня Community имеют только один CLI-образ, десктоп/обновления — за счёт сообщества
+  - У плат уровня Community нет стабильного номера версии, выходят только rolling-сборки (на VisionFive 2 по-прежнему вендорское ядро 6.6.20)
+  - Универсальный образ UEFI riscv64 рассчитан на машины с прошивкой UEFI и загрузится не на каждой плате (VisionFive 2 по-прежнему требует вендорское ядро)
   - Нет плат Meles / Pioneer / Megrez / K230 и др.
   - Один и тот же номер версии на разных платах соответствует разным версиям ядра — не указывайте жёстко в документации
   doc_langs:
@@ -981,7 +989,7 @@ items:
   derivatives:
   - Производные от Armbian/Debian, такие как DietPi, имеют неофициальную поддержку VisionFive 2
   note: Во многом благодаря ему китайские платы RISC-V «работают из коробки»; для новых плат вроде K3/BPI-F3 смотрите в первую очередь на него.
-  checked: '2026-11-01'
+  checked: 2026-11-21
   order: 10
   feature: false
   sources:
@@ -998,6 +1006,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
   - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
   - https://matrix.ruyisdk.org/
+  - https://armbian.com/uefi-riscv64
 - id: alpine
   name: Alpine Linux
   vendor: ''

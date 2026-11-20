@@ -1565,6 +1565,9 @@ items:
   - distro: openeuler
     level: community
     note: В openEuler есть образ Duo
+  - distro: armbian
+    level: community
+    note: Armbian выпускает Debian 13 minimal для Duo S (ядро edge 7.3.5, сборка 2026-11-18); для Duo / Duo 256M образов нет
   downloads:
   - label: Сводка официальных образов Milk-V (включая таблицу сторонних образов)
     url: https://milkv.io/docs/duo/getting-started/download

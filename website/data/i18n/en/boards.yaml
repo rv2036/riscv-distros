@@ -1562,6 +1562,9 @@ items:
   - distro: openeuler
     level: community
     note: openEuler has a Duo image
+  - distro: armbian
+    level: community
+    note: Armbian ships a Debian 13 minimal image for Duo S (edge 7.3.5, built 2026-11-18); no Armbian images for Duo / Duo 256M
   downloads:
   - label: Milk-V image roundup (including a third-party image table)
     url: https://milkv.io/docs/duo/getting-started/download

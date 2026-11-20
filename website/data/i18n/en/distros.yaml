@@ -930,8 +930,10 @@ items:
   based_on: Debian/Ubuntu (Armbian build framework)
   audience: recommended
   versions:
-  - 26.8.9 (MusePi Pro)
-  - 26.8.3 (BPI-F3 / K3 Pico-ITX)
+  - 26.8.9 (MusePi Pro; built 2026-10-08, kernel 6.18.55 current / 6.6.100 legacy)
+  - 26.8.3 (BPI-F3 / K3 Pico-ITX; built 2026-08-21)
+  - rolling (VisionFive 2 / Orange Pi RV2 / generic UEFI riscv64; built 2026-11-13, 6.18.63 on OPi RV2 and the UEFI images, vendor 6.6.20 on VF2)
+  - rolling (Milk-V Duo S; built 2026-11-18, edge kernel 7.3.5)
   boards:
   - board: k3
     level: official
@@ -941,10 +943,13 @@ items:
     note: Standard tier, kernel 6.18.45; a Bianbu variant also exists
   - board: orangepi-rv2
     level: community
-    note: Community tier, Debian 13 minimal only (6.18.58)
+    note: Community tier rolling build (2026-11-13) — Ubuntu 24.04 and Debian 13 minimal plus Ubuntu 24.04 Xfce, kernel 6.18.63
   - board: visionfive2
     level: community
     note: Community tier, vendor kernel 6.6.20, three Ubuntu/Debian images
+  - board: milkv-duo
+    level: community
+    note: Duo S has a Debian 13 minimal image (built 2026-11-18, edge kernel 7.3.5); no Armbian images for Duo / Duo 256M
   downloads:
   - label: MusePi Pro (SpacemiT K3) image download
     url: https://armbian.com/boards/musepipro
@@ -956,6 +961,8 @@ items:
     url: https://armbian.com/boards/orangepirv2
   - label: StarFive VisionFive2 image download
     url: https://armbian.com/boards/visionfive2
+  - label: Generic UEFI riscv64 images (machines with UEFI firmware)
+    url: https://armbian.com/uefi-riscv64
   guides:
   - label: Armbian documentation (build/flash/use)
     url: https://docs.armbian.com/
@@ -967,7 +974,8 @@ items:
     lang: en
   gotchas:
   - Many boards still depend on a vendor kernel (6.6.x Bianbu), with varying degrees of mainline support
-  - Community-tier boards get a single CLI image; desktops and updates come from the community
+  - Community-tier boards have no stable version number and only ship rolling builds (VisionFive 2 still runs the vendor 6.6.20 kernel)
+  - The generic UEFI riscv64 image targets machines with UEFI firmware and will not boot every board (VisionFive 2 still needs the vendor kernel)
   - No Meles / Pioneer / Megrez / K230 boards
   - The same release number ships different kernel versions on different boards — don't hard-code it in docs
   doc_langs:
@@ -975,7 +983,7 @@ items:
   derivatives:
   - Unofficial VisionFive 2 support exists in derivatives such as DietPi (Armbian/Debian based)
   note: The main reason domestic RISC-V boards are usable out of the box; look here first for newer boards like K3/BPI-F3.
-  checked: '2026-11-01'
+  checked: 2026-11-21
   order: 10
   feature: false
   sources:
@@ -992,6 +1000,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
   - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
   - https://matrix.ruyisdk.org/
+  - https://armbian.com/uefi-riscv64
 - id: alpine
   name: Alpine Linux
   vendor: ''
