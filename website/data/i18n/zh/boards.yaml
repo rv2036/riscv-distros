@@ -64,7 +64,7 @@ items:
     level: official
     note: ''
   - distro: rocky
-    level: partial
+    level: official
     note: ''
   - distro: rhel
     level: partial
@@ -196,7 +196,7 @@ items:
     level: partial
     note: ''
   - distro: rocky
-    level: partial
+    level: official
     note: ''
   downloads:
   - label: StarFive 官方 Debian 202510（v0.15.0）
