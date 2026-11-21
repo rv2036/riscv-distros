@@ -10,7 +10,7 @@ items:
   based_on: 독립
   audience: recommended
   versions:
-  - 13.7(trixie, 현재 안정판, ISO는 debian-13.7.0-riscv64-netinst.iso)
+  - 13.8(trixie, 현재 안정판, ISO는 debian-13.8.0-riscv64-netinst.iso)
   - 14(forky, 개발/테스트 중)
   boards:
   - board: qemu
@@ -55,8 +55,8 @@ items:
   downloads:
   - label: riscv64 CD 이미지 디렉터리 (cdimage, 현재 안정판)
     url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - label: debian-13.7.0-riscv64-netinst.iso 직링크
-    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - label: debian-13.8.0-riscv64-netinst.iso 직링크
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   guides:
   - label: Debian GNU/Linux 13 riscv64 설치 매뉴얼 (영문)
     url: https://www.debian.org/releases/stable/riscv64/
@@ -97,12 +97,13 @@ items:
   derivatives:
   - Ubuntu
   note: Debian은 이 중 유일하게 riscv64를 정식 릴리스 아키텍처에 넣은 독립 배포판입니다. 파생으로는 Deepin, RevyOS 등 Debian 기반 riscv64 시스템이 있습니다(항목별 검증은 하지 않음).
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 1
   feature: true
   sources:
+  - https://www.debian.org/News/2026/20261121
   - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   - https://www.debian.org/releases/stable/riscv64/
   - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
   - https://www.debian.org/releases/stable/riscv64/index.ja.html
@@ -766,7 +767,7 @@ items:
   - 3.0의 RISC-V 이미지는 서버/임베디드(Server, Embedded) 성격이라 데스크톱 경험과는 다릅니다.
   - 다운로드 링크가 download-smp.php?id=xxx로 넘어가고 실제 파일은 cdimage.openkylin.top에 있습니다.
   - 문서가 중국어 중심이고 영문 문서 사이트는 거의 비어 있습니다. RISC-V 문제는 주로 중국어 커뮤니티/SIG가 대응합니다.
-  - '3.0 SP1(2026-11-11 미러 업로드)은 x86_64 / ARM64 / LoongArch 데스크톱 이미지만 제공합니다. RISC-V는 3.0 계열(K3 Server / Embedded, V100)에 그대로 머물러 있습니다. 다운로드 페이지에 SP1이 최신 버전으로 올라와 있다고 해서 RISC-V까지 갱신된 것은 아닙니다.'
+  - 3.0 SP1(2026-11-11 미러 업로드)은 x86_64 / ARM64 / LoongArch 데스크톱 이미지만 제공합니다. RISC-V는 3.0 계열(K3 Server / Embedded, V100)에 그대로 머물러 있습니다. 다운로드 페이지에 SP1이 최신 버전으로 올라와 있다고 해서 RISC-V까지 갱신된 것은 아닙니다.
   doc_langs:
   - zh
   derivatives: []
@@ -1183,8 +1184,8 @@ items:
   based_on: 독립
   audience: recommended
   versions:
-  - Tumbleweed(rolling, 현재 ISO Snapshot20261011)
-  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
+  - Tumbleweed(rolling, 현재 ISO Snapshot20261106)
+  - MicroOS 16.0.0 (riscv64, Snapshot20261106)
   boards:
   - board: qemu
     level: official
@@ -1250,7 +1251,7 @@ items:
   - en
   derivatives: []
   note: MicroOS는 같은 프로젝트의 riscv64 변형(kvm-and-xen qcow2 이미지 제공)이라 다운스트림 파생으로 보지 않습니다.
-  checked: '2026-11-07'
+  checked: '2026-11-22'
   order: 13
   feature: false
   sources:
@@ -1378,7 +1379,8 @@ items:
   based_on: RHEL 10 (CentOS Stream 10 코드베이스)
   audience: advanced
   versions:
-  - '10.3 (GA 2026-11-16): riscv64용 boot / minimal / dvd 설치 ISO(2026-11-12/13 빌드, 11-18에 10-latest 갱신), SBC 범용 raw 이미지(20261112.0), GenericCloud qcow2를 제공합니다. BaseOS와 AppStream의 riscv64 저장소도 공개되었습니다(BaseOS 952개 패키지)'
+  - '10.3 (GA 2026-11-16): riscv64용 boot / minimal / dvd 설치 ISO(2026-11-12/13 빌드, 11-18에 10-latest 갱신), SBC 범용 raw 이미지(20261112.0), GenericCloud qcow2를 제공합니다. BaseOS와 AppStream의 riscv64 저장소도 공개되었습니다(BaseOS
+    952개 패키지)'
   - '10.2 (riscv64 컨테이너 이미지 이미 릴리스: Base / Minimal / Toolbox / UBI, 2026-05-25 빌드)'
   - 10.0 (GA 공지에서 riscv64를 지원 아키텍처로 명시)
   boards:
@@ -1390,7 +1392,7 @@ items:
     note: 공식 공지에서 VisionFive 2를 권장 보드로 명시합니다(표준 EL10 커널로 부팅). SBC 범용 raw 이미지와 설치 ISO를 모두 쓸 수 있지만 보드별 검증 목록은 여전히 없습니다
   - board: p550
     level: partial
-    note: '공식적으로 "limited support"로 표기되어 벤더 커널이 필요하고 일부 기능이 제한됩니다'
+    note: 공식적으로 "limited support"로 표기되어 벤더 커널이 필요하고 일부 기능이 제한됩니다
   downloads:
   - label: Rocky 10.3 riscv64 설치 ISO 디렉터리(boot / minimal / dvd)
     url: https://download.rockylinux.org/pub/rocky/10.3/isos/riscv64/
@@ -1414,13 +1416,14 @@ items:
     type: doc
     lang: en
   gotchas:
-  - '설치 ISO는 있지만 boot / minimal / dvd 세 종류뿐이며 Live 이미지는 없습니다(/pub/rocky/10.3/Live/는 404). ISO는 EFI 부팅(EFI/BOOT/BOOTRISCV64.EFI 포함)이라 U-Boot에서 직접 부팅하는 보드는 여전히 SBC 범용 raw가 필요합니다'
+  - 설치 ISO는 있지만 boot / minimal / dvd 세 종류뿐이며 Live 이미지는 없습니다(/pub/rocky/10.3/Live/는 404). ISO는 EFI 부팅(EFI/BOOT/BOOTRISCV64.EFI 포함)이라 U-Boot에서 직접 부팅하는 보드는 여전히 SBC 범용 raw가 필요합니다
   - SBC 이미지는 'SBC-Generic' 범용 raw라 보드별 디렉터리도 보드별 검증 목록도 없습니다. JH7110 계열 보드가 부팅되는지는 직접 시험해야 합니다
   - riscv64는 대체 아키텍처(Alternative Architecture)라 빌드 실패가 주 아키텍처 릴리스를 막지 않으므로, 패키지가 얼마나 갖춰져 있는지는 운에 달려 있습니다
   doc_langs:
   - en
   derivatives: []
-  note: RISC-V에서 RHEL 10 사용자 공간을 쓰면서 Red Hat 계정은 피하고 싶다면, Rocky 10.3(GA 2026-11-16)에는 이제 설치 ISO, SBC 범용 raw, 클라우드 이미지, riscv64 저장소(BaseOS 952개 패키지)가 모두 있습니다. QEMU와 VisionFive 2는 릴리스 시점부터 공식 지원, P550은 제한 지원입니다.
+  note: RISC-V에서 RHEL 10 사용자 공간을 쓰면서 Red Hat 계정은 피하고 싶다면, Rocky 10.3(GA 2026-11-16)에는 이제 설치 ISO, SBC 범용 raw, 클라우드 이미지, riscv64 저장소(BaseOS 952개 패키지)가 모두 있습니다. QEMU와 VisionFive 2는 릴리스 시점부터 공식 지원, P550은 제한
+    지원입니다.
   checked: '2026-11-20'
   order: 16
   feature: false

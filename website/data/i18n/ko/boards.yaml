@@ -705,11 +705,12 @@ items:
   - A210과 A200 이미지는 호환되지 않습니다. 공식 Ubuntu는 A200만 제공하고 A210은 Debian/Buildroot뿐입니다.
   - GitHub/Gitee에 공식 BSP 저장소가 없고(검색 결과 0) 커널과 드라이버가 벤더 SDK 패키지로만 나와 제3자 배포판 지원이 거의 없습니다.
   - '벤더 데이터: 단일 칩 DeepSeek-7B 약 8 tok/s, 4 die 캐스케이드 25 tok/s. 실제 값은 자체 측정 기준입니다.'
+  - '업스트림 메인라인 지원 진행 중: 2026-11-21에 공개된 v4 패치 시리즈(13개)가 A210에 SCMI 클럭/리셋, UART, 디바이스 트리를 추가합니다. 작성자에 따르면 Linux 7.4-rc3에서 Melon Pi V2가 시리얼 콘솔로 셸까지 부팅됩니다. 확인일 기준 아직 리뷰 중이며 병합되지 않았습니다.'
   doc_langs:
   - zh
   - en
   note: '모델 구분: 칩은 즈허컴퓨팅 A210(아르키메데스 계열, 쉬안톄 C920/C908 코어)이고 개발 보드 브랜드가 “MelonPi”입니다. Ubuntu 이미지는 A200(a200-evb)만 커버해 A210에는 쓸 수 없습니다.'
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 7
   feature: true
   sources:
@@ -719,6 +720,7 @@ items:
   - https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
+  - https://lists.openwall.net/linux-kernel/2026/11/20/3184
 - id: k230
   name: Canaan K230(Kendryte K230 / CanMV-K230)
   soc: Kendryte K230(2×C908)

@@ -10,7 +10,7 @@ items:
   based_on: Independent
   audience: recommended
   versions:
-  - 13.7 (trixie, current stable; ISO is debian-13.7.0-riscv64-netinst.iso)
+  - 13.8 (trixie, current stable; ISO is debian-13.8.0-riscv64-netinst.iso)
   - 14 (forky, in development/testing)
   boards:
   - board: qemu
@@ -55,8 +55,8 @@ items:
   downloads:
   - label: riscv64 CD image directory (cdimage, current stable)
     url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - label: debian-13.7.0-riscv64-netinst.iso direct link
-    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - label: debian-13.8.0-riscv64-netinst.iso direct link
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   guides:
   - label: Debian GNU/Linux 13 riscv64 installation guide (English)
     url: https://www.debian.org/releases/stable/riscv64/
@@ -97,12 +97,13 @@ items:
   derivatives:
   - Ubuntu
   note: Debian is the only independent distro here that made riscv64 an official release architecture; separately there are Debian-based riscv64 systems such as deepin and RevyOS (not verified one by one).
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 1
   feature: true
   sources:
+  - https://www.debian.org/News/2026/20261121
   - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   - https://www.debian.org/releases/stable/riscv64/
   - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
   - https://www.debian.org/releases/stable/riscv64/index.ja.html
@@ -296,7 +297,8 @@ items:
   - 'Headless only: mainline has no integrated GPU driver, and the project positions this as a build machine/server ("video output are pretty much completely ignored")'
   - Installation requires a serial console (Requirements → Serial console access)
   - Some packages need RISC-V-specific patches and still differ from upstream sources
-  - When upgrading from Fedora 44 to 45, JH7110 boards such as the VisionFive 2 with the generic kernel and NVMe storage risk data corruption; the official announcement asks you to read the upgrade notes first
+  - When upgrading from Fedora 44 to 45, JH7110 boards such as the VisionFive 2 with the generic kernel and NVMe storage risk data corruption; the official announcement asks you to read the upgrade notes
+    first
   - The Fedora 45 announcement lists two more known issues: GCC on SpacemiT K3 and glibc on Milk-V Titan, both being worked on with upstream
   doc_langs:
   - en
@@ -665,7 +667,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'openEuler 24.03 LTS SP5 was unveiled at openEuler Summit 2026 on 2026-11-13 (media reports; one report says the actual release is planned for December 2026); as of 2026-11-15 neither the mirror nor the download page has an SP5 tree, so SP4 remains the newest downloadable version'
+  - openEuler 24.03 LTS SP5 was unveiled at openEuler Summit 2026 on 2026-11-13 (media reports; one report says the actual release is planned for December 2026); as of 2026-11-15 neither the mirror nor
+    the download page has an SP5 tree, so SP4 remains the newest downloadable version
   - 'The 26.09 innovation release (2026-09-30) has no riscv64 ISO: its ISO/OS/everything trees carry only aarch64 and x86_64, so RISC-V users should stay on 24.03 LTS SP4'
   - RVA20 and RVA23 images ship separately; 24.03 LTS SP4 offers RISC-V as RVA23 ISO only (there is no rva20 directory)
   - Needs UEFI/EDK2 firmware and a matching board DTB; older U-Boot boards may not boot
@@ -777,7 +780,8 @@ items:
   - 3.0's RISC-V images lean server/embedded (Server, Embedded) and are not a desktop experience
   - Download links are download-smp.php?id=xxx redirects; the real files are on cdimage.openkylin.top
   - Docs are mostly Chinese and the English doc site is largely a shell; RISC-V questions get answered mainly by the Chinese community/SIG
-  - 'The 3.0 SP1 release (uploaded to the mirror on 2026-11-11) ships desktop images for x86_64 / ARM64 / LoongArch only; RISC-V stays on the 3.0 line (K3 Server / Embedded, V100). SP1 being listed as the newest version on the download page does not mean RISC-V was updated too.'
+  - The 3.0 SP1 release (uploaded to the mirror on 2026-11-11) ships desktop images for x86_64 / ARM64 / LoongArch only; RISC-V stays on the 3.0 line (K3 Server / Embedded, V100). SP1 being listed as the
+    newest version on the download page does not mean RISC-V was updated too.
   doc_langs:
   - zh
   derivatives: []
@@ -1200,8 +1204,8 @@ items:
   based_on: Independent
   audience: recommended
   versions:
-  - Tumbleweed (rolling, current ISO Snapshot20261011)
-  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
+  - Tumbleweed (rolling, current ISO Snapshot20261106)
+  - MicroOS 16.0.0 (riscv64, Snapshot20261106)
   boards:
   - board: qemu
     level: official
@@ -1267,7 +1271,7 @@ items:
   - en
   derivatives: []
   note: MicroOS is a riscv64 variant of the same project (there is a kvm-and-xen qcow2 image), not a downstream derivative.
-  checked: '2026-11-07'
+  checked: '2026-11-22'
   order: 13
   feature: false
   sources:
@@ -1399,16 +1403,19 @@ items:
   based_on: RHEL 10 (CentOS Stream 10 code base)
   audience: advanced
   versions:
-  - '10.3 (GA 2026-11-16): riscv64 ships boot / minimal / dvd installation ISOs (built 2026-11-12/13, 10-latest refreshed 11-18), a generic SBC raw image (20261112.0) and a GenericCloud qcow2; the BaseOS and AppStream riscv64 repositories are online (952 packages in BaseOS)'
+  - '10.3 (GA 2026-11-16): riscv64 ships boot / minimal / dvd installation ISOs (built 2026-11-12/13, 10-latest refreshed 11-18), a generic SBC raw image (20261112.0) and a GenericCloud qcow2; the BaseOS
+    and AppStream riscv64 repositories are online (952 packages in BaseOS)'
   - '10.2 (riscv64 container images published: Base / Minimal / Toolbox / UBI, built 2026-05-25)'
   - 10.0 (the GA announcement lists riscv64 as a supported architecture)
   boards:
   - board: qemu
     level: official
-    note: Rocky's official RISC-V announcement and the 10.0 release notes both list QEMU as supported at release ("works out-of-the-box ... in QEMU"); boot / minimal ISOs are now also available for an anaconda install
+    note: Rocky's official RISC-V announcement and the 10.0 release notes both list QEMU as supported at release ("works out-of-the-box ... in QEMU"); boot / minimal ISOs are now also available for an anaconda
+      install
   - board: visionfive2
     level: official
-    note: The official announcement lists VisionFive 2 as the recommended board (the standard EL10 kernel boots it); both the generic SBC raw image and the installation ISOs work, but there is still no per-board validation list
+    note: The official announcement lists VisionFive 2 as the recommended board (the standard EL10 kernel boots it); both the generic SBC raw image and the installation ISOs work, but there is still no
+      per-board validation list
   - board: p550
     level: partial
     note: 'Officially listed as "limited support": requires a vendor kernel and some features are limited'
@@ -1435,13 +1442,15 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Installation ISOs exist, but only boot / minimal / dvd — there is no Live image (/pub/rocky/10.3/Live/ returns 404); the ISOs boot via EFI (they contain EFI/BOOT/BOOTRISCV64.EFI), so boards that boot straight from U-Boot still need the generic SBC raw image'
+  - Installation ISOs exist, but only boot / minimal / dvd — there is no Live image (/pub/rocky/10.3/Live/ returns 404); the ISOs boot via EFI (they contain EFI/BOOT/BOOTRISCV64.EFI), so boards that boot
+    straight from U-Boot still need the generic SBC raw image
   - 'The SBC image is a generic "SBC-Generic" raw image: no per-board directories and no per-board validation list, so whether a JH7110 board boots is up to your own testing'
   - riscv64 is an Alternative Architecture, so build failures do not block releases of the primary architectures — package completeness is a matter of luck
   doc_langs:
   - en
   derivatives: []
-  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account: Rocky 10.3 (GA 2026-11-16) now ships installation ISOs, a generic SBC raw image, cloud images and a riscv64 package repository (952 packages in BaseOS); QEMU and VisionFive 2 are officially supported at release, and the P550 is under limited support.'
+  note: 'If you want the RHEL 10 userland on RISC-V without touching a Red Hat account: Rocky 10.3 (GA 2026-11-16) now ships installation ISOs, a generic SBC raw image, cloud images and a riscv64 package
+    repository (952 packages in BaseOS); QEMU and VisionFive 2 are officially supported at release, and the P550 is under limited support.'
   checked: '2026-11-20'
   order: 16
   feature: false
@@ -2165,16 +2174,17 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'No phone-vendor images; Google itself still offers only the Cuttlefish emulator. The real-hardware images come from RISE (funded by SpacemiT and Alibaba DAMO, implemented by BayLibre) as a developer release'
+  - No phone-vendor images; Google itself still offers only the Cuttlefish emulator. The real-hardware images come from RISE (funded by SpacemiT and Alibaba DAMO, implemented by BayLibre) as a developer
+    release
   - 'The RISE build is a developer release, not a production or certified build: SELinux stays permissive, there is no secure boot or TEE, and the GPU tops out at OpenGL ES 2.0 (so WebView has no WebGL)'
-  - 'On K3, "fastboot usb 0" after adb reboot may fail to bring up the USB3 PHY; power-cycle the board. The NPUs on both boards are unsupported'
+  - On K3, "fastboot usb 0" after adb reboot may fail to bring up the USB3 PHY; power-cycle the board. The NPUs on both boards are unsupported
   - The NDK riscv64 ABI is still provisional, so .so files you build now may not be compatible later
   - Booting to the desktop takes about 10 minutes even on a fast host (the Cuttlefish path)
   - With RISC-V gone from ACK/GKI, vendors get no long-term kernel support, which rules out mass production
   doc_langs:
   - en
   derivatives: []
-  note: 'To run Android on real hardware you can now flash RISE developer images for the K3 Pico-ITX / A210 EVB; it is still a validation-grade release, so do not treat it as a usable system.'
+  note: To run Android on real hardware you can now flash RISE developer images for the K3 Pico-ITX / A210 EVB; it is still a validation-grade release, so do not treat it as a usable system.
   checked: '2026-11-19'
   order: 29
   feature: false

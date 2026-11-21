@@ -705,11 +705,12 @@ items:
   - A210 与 A200 镜像不通用：官方 Ubuntu 只给 A200，A210 只有 Debian/Buildroot
   - GitHub/Gitee 无官方 BSP 仓库（检索 0 结果），内核与驱动以厂商 SDK 包形式发布，社区几乎无第三方发行版支持
   - 厂商数据：单芯片 DeepSeek-7B 约 8 tok/s，4 die 级联 25 tok/s，实际以自测为准
+  - 上游主线支持推进中：2026-11-21 公开的 v4 补丁系列（13 个补丁）为 A210 增加 SCMI 时钟/复位、串口与设备树，作者称在 Linux 7.4-rc3 上 Melon Pi V2 已能串口启动进 shell；截至核查日仍在评审、尚未合并
   doc_langs:
   - zh
   - en
   note: 型号消歧：芯片是知合计算 A210（阿基米德系列，玄铁 C920/C908 核），开发板品牌写作“玄铁 MelonPi”。Ubuntu 镜像只覆盖 A200（a200-evb），A210 不通用。
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 7
   feature: true
   sources:
@@ -719,6 +720,7 @@ items:
   - https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
+  - https://lists.openwall.net/linux-kernel/2026/11/20/3184
 - id: k230
   name: 嘉楠 Canaan K230（Kendryte K230 / CanMV-K230）
   soc: Kendryte K230（2×C908）

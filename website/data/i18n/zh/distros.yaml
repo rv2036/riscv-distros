@@ -10,7 +10,7 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - 13.7 (trixie, 当前稳定, ISO 为 debian-13.7.0-riscv64-netinst.iso)
+  - 13.8 (trixie, 当前稳定, ISO 为 debian-13.8.0-riscv64-netinst.iso)
   - 14 (forky, 开发/测试中)
   boards:
   - board: qemu
@@ -55,8 +55,8 @@ items:
   downloads:
   - label: riscv64 光盘镜像目录 (cdimage, 当前稳定版)
     url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - label: debian-13.7.0-riscv64-netinst.iso 直链
-    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - label: debian-13.8.0-riscv64-netinst.iso 直链
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   guides:
   - label: Debian GNU/Linux 13 riscv64 安装手册 (英文)
     url: https://www.debian.org/releases/stable/riscv64/
@@ -97,12 +97,13 @@ items:
   derivatives:
   - Ubuntu
   note: Debian 是这批里唯一把 riscv64 放进正式发布架构的独立发行版；衍生作品另有 Deepin、RevyOS 等基于 Debian 的 riscv64 系统（未逐项核实）。
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 1
   feature: true
   sources:
+  - https://www.debian.org/News/2026/20261121
   - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   - https://www.debian.org/releases/stable/riscv64/
   - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
   - https://www.debian.org/releases/stable/riscv64/index.ja.html
@@ -765,7 +766,7 @@ items:
   - 3.0 的 RISC-V 镜像偏服务器/嵌入式（Server、Embedded），不等于桌面体验
   - 下载链接是 download-smp.php?id=xxx 跳转，真实文件在 cdimage.openkylin.top
   - 文档以中文为主，英文文档站基本是空壳；RISC-V 问题主要靠中文社区/SIG 响应
-  - '3.0 SP1（2026-11-11 上传到镜像站）只有 x86_64 / ARM64 / LoongArch 的桌面镜像，RISC-V 仍停在 3.0 线（K3 Server / Embedded、V100）——下载页把 SP1 列成最新版，不代表 RISC-V 也跟着更新'
+  - 3.0 SP1（2026-11-11 上传到镜像站）只有 x86_64 / ARM64 / LoongArch 的桌面镜像，RISC-V 仍停在 3.0 线（K3 Server / Embedded、V100）——下载页把 SP1 列成最新版，不代表 RISC-V 也跟着更新
   doc_langs:
   - zh
   derivatives: []
@@ -1181,8 +1182,8 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - Tumbleweed (rolling, 当前 ISO Snapshot20261011)
-  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
+  - Tumbleweed (rolling, 当前 ISO Snapshot20261106)
+  - MicroOS 16.0.0 (riscv64, Snapshot20261106)
   boards:
   - board: qemu
     level: official
@@ -1248,7 +1249,7 @@ items:
   - en
   derivatives: []
   note: MicroOS 是同项目的 riscv64 变体（有 kvm-and-xen qcow2 镜像），不算下游衍生。
-  checked: '2026-11-07'
+  checked: '2026-11-22'
   order: 13
   feature: false
   sources:
