@@ -1,11 +1,11 @@
 # RuyiSDK 支持矩阵（自动生成，勿手改）
 # 来源：https://github.com/ruyisdk/support-matrix → https://matrix.ruyisdk.org
-# 生成于 2026-11-20
+# 生成于 2026-11-21
 
 source:
   site: "https://matrix.ruyisdk.org"
   repo: "https://github.com/ruyisdk/support-matrix"
-  fetched_at: "2026-11-20"
+  fetched_at: "2026-11-21"
   note: "RuyiSDK 官方测试矩阵：逐板逐系统在真机上的实测报告"
 
 # status 枚举（取自仓库 CONTRIBUTING.md）

@@ -1545,6 +1545,9 @@ items:
   - distro: openeuler
     level: community
     note: openEuler に Duo イメージあり
+  - distro: armbian
+    level: community
+    note: Armbian は Duo S 向けに Debian 13 minimal（edge 7.3.5、2026-11-18 ビルド）を提供しています。Duo / Duo 256M 用のイメージはありません
   downloads:
   - label: Milk-V 公式イメージまとめ（サードパーティイメージ表を含む）
     url: https://milkv.io/docs/duo/getting-started/download

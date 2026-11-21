@@ -915,8 +915,10 @@ items:
   based_on: Debian/Ubuntu（Armbian build framework）
   audience: recommended
   versions:
-  - 26.8.9（MusePi Pro）
-  - 26.8.3（BPI-F3 / K3 Pico-ITX）
+  - 26.8.9（MusePi Pro；2026-10-08 构建，内核 6.18.55 current / 6.6.100 legacy）
+  - 26.8.3（BPI-F3 / K3 Pico-ITX；2026-08-21 构建）
+  - rolling（VisionFive 2 / Orange Pi RV2 / 通用 UEFI riscv64；2026-11-13 构建，OPi RV2 与 UEFI 镜像为 6.18.63，VF2 为 vendor 6.6.20）
+  - rolling（Milk-V Duo S；2026-11-18 构建，edge 内核 7.3.5）
   boards:
   - board: k3
     level: official
@@ -926,10 +928,13 @@ items:
     note: Standard 级，内核 6.18.45；另有 Bianbu 变体
   - board: orangepi-rv2
     level: community
-    note: Community 级，仅 Debian 13 minimal（6.18.58）
+    note: Community 级 rolling 构建（2026-11-13）：Ubuntu 24.04 与 Debian 13 各有 minimal，另有 Ubuntu 24.04 Xfce，内核 6.18.63
   - board: visionfive2
     level: community
     note: Community 级，vendor 内核 6.6.20，Ubuntu/Debian 三镜像
+  - board: milkv-duo
+    level: community
+    note: Duo S 有 Debian 13 minimal（2026-11-18 构建，edge 内核 7.3.5）；Duo / Duo 256M 没有 Armbian 镜像
   downloads:
   - label: MusePi Pro（SpaceMiT K3）镜像下载
     url: https://armbian.com/boards/musepipro
@@ -941,6 +946,8 @@ items:
     url: https://armbian.com/boards/orangepirv2
   - label: StarFive VisionFive2 镜像下载
     url: https://armbian.com/boards/visionfive2
+  - label: 通用 UEFI riscv64 镜像（自带 UEFI 固件的机器）
+    url: https://armbian.com/uefi-riscv64
   guides:
   - label: Armbian 官方文档（构建/烧写/使用）
     url: https://docs.armbian.com/
@@ -952,7 +959,8 @@ items:
     lang: en
   gotchas:
   - 不少板仍绑 vendor 内核（6.6.x Bianbu），主线化程度不一
-  - Community 级板只有单一 CLI 镜像，桌面/更新靠社区
+  - Community 级板没有稳定版本号，只出 rolling 构建（VisionFive 2 至今仍是 vendor 内核 6.6.20）
+  - 通用 UEFI riscv64 镜像面向自带 UEFI 固件的机器，不是每块板都能直接启（VisionFive 2 仍需 vendor 内核）
   - 没有 Meles / Pioneer / Megrez / K230 等板
   - 同一版本号在不同板上的内核版本不一致，写文档别写死
   doc_langs:
@@ -960,7 +968,7 @@ items:
   derivatives:
   - DietPi 等基于 Armbian/Debian 的衍生版对 VisionFive 2 有非官方支持
   note: 国产 RISC-V 板“能开箱用”的最大功臣；K3/BPI-F3 这类新板优先看它。
-  checked: '2026-11-01'
+  checked: 2026-11-21
   order: 10
   feature: false
   sources:
@@ -977,6 +985,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
   - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
   - https://matrix.ruyisdk.org/
+  - https://armbian.com/uefi-riscv64
 - id: alpine
   name: Alpine Linux
   vendor: ''

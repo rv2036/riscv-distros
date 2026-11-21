@@ -915,8 +915,10 @@ items:
   based_on: Debian/Ubuntu（Armbian build framework）
   audience: recommended
   versions:
-  - 26.8.9（MusePi Pro）
-  - 26.8.3（BPI-F3 / K3 Pico-ITX）
+  - 26.8.9（MusePi Pro、2026-10-08 ビルド、カーネル 6.18.55 current / 6.6.100 legacy）
+  - 26.8.3（BPI-F3 / K3 Pico-ITX、2026-08-21 ビルド）
+  - rolling（VisionFive 2 / Orange Pi RV2 / 汎用 UEFI riscv64、2026-11-13 ビルド、OPi RV2 と UEFI イメージは 6.18.63、VF2 はベンダー 6.6.20）
+  - rolling（Milk-V Duo S、2026-11-18 ビルド、edge カーネル 7.3.5）
   boards:
   - board: k3
     level: official
@@ -926,10 +928,13 @@ items:
     note: Standard 級、カーネル 6.18.45。Bianbu の変体もあります
   - board: orangepi-rv2
     level: community
-    note: Community 級、Debian 13 minimal（6.18.58）のみ
+    note: Community 級の rolling ビルド（2026-11-13）。Ubuntu 24.04 と Debian 13 の minimal、さらに Ubuntu 24.04 Xfce、カーネル 6.18.63
   - board: visionfive2
     level: community
     note: Community 級、ベンダーカーネル 6.6.20、Ubuntu/Debian の 3 イメージ
+  - board: milkv-duo
+    level: community
+    note: Duo S には Debian 13 minimal（2026-11-18 ビルド、edge カーネル 7.3.5）があります。Duo / Duo 256M 用のイメージはありません
   downloads:
   - label: MusePi Pro（SpaceMiT K3）イメージ
     url: https://armbian.com/boards/musepipro
@@ -941,6 +946,8 @@ items:
     url: https://armbian.com/boards/orangepirv2
   - label: StarFive VisionFive2 イメージ
     url: https://armbian.com/boards/visionfive2
+  - label: 汎用 UEFI riscv64 イメージ（UEFI ファームウェアを搭載したマシン向け）
+    url: https://armbian.com/uefi-riscv64
   guides:
   - label: Armbian 公式ドキュメント（ビルド／書き込み／使い方）
     url: https://docs.armbian.com/
@@ -952,7 +959,8 @@ items:
     lang: en
   gotchas:
   - 多くのボードは今もベンダーカーネル（6.6.x Bianbu）に縛られており、メインライン化の度合いはまちまちです
-  - Community 級のボードは CLI イメージが 1 つだけで、デスクトップや更新はコミュニティ任せです
+  - Community 級のボードは安定版番号がなく rolling ビルドのみ（VisionFive 2 は今もベンダーカーネル 6.6.20）
+  - 汎用 UEFI riscv64 イメージは UEFI ファームウェア搭載機向けで、すべてのボードで起動するわけではありません（VisionFive 2 はベンダーカーネルが必要）
   - Meles / Pioneer / Megrez / K230 などのボードはありません
   - 同じバージョン番号でもボードによってカーネル版が違います。ドキュメントに固定値で書かないでください
   doc_langs:
@@ -960,7 +968,7 @@ items:
   derivatives:
   - DietPi など Armbian/Debian ベースの派生版は VisionFive 2 を非公式にサポートしています
   note: 中国製 RISC-V ボードが「買ってすぐ使える」ようになった最大の功労者です。K3 や BPI-F3 のような新しいボードは、まずこれを確認してください。
-  checked: '2026-11-01'
+  checked: 2026-11-21
   order: 10
   feature: false
   sources:
@@ -977,6 +985,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Mars/Armbian/README/
   - https://matrix.ruyisdk.org/reports/STAR64/Armbian/README/
   - https://matrix.ruyisdk.org/
+  - https://armbian.com/uefi-riscv64
 - id: alpine
   name: Alpine Linux
   vendor: ''
