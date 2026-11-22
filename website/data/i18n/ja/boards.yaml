@@ -76,7 +76,7 @@ items:
     url: https://www.qemu.org/download/
   - label: Ubuntu 24.04 riscv64 cloud image
     url: https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-riscv64.img
-  - label: Debian 13.7 riscv64 netinst ISO
+  - label: Debian 13.8 riscv64 netinst ISO
     url: https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/
   - label: Arch Linux RISC-V ISO
     url: https://archriscv.felixc.at/images/archlinux-2026.08.27-riscv64.iso
@@ -705,11 +705,12 @@ items:
   - A210 と A200 のイメージは互換がありません。公式 Ubuntu は A200 向けだけで、A210 には Debian/Buildroot しかありません
   - GitHub/Gitee に公式 BSP リポジトリはありません（検索しても 0 件）。カーネルとドライバはベンダー SDK のパッケージとして配布され、コミュニティによるサードパーティのディストリビューション対応はほぼありません
   - ベンダー公称値では、単チップで DeepSeek-7B が約 8 tok/s、4 die のカスケードで 25 tok/s。実際の値は自分の環境で測ってください
+  - 上流メインライン対応が進行中：2026-11-21 に公開された v4 パッチシリーズ（13 個）が A210 に SCMI クロック／リセット、UART、デバイスツリーを追加します。投稿者によれば Linux 7.4-rc3 上で Melon Pi V2 がシリアルコンソールでシェルまで起動するとのこと。確認日時点ではレビュー中で未マージです。
   doc_langs:
   - zh
   - en
   note: 型番の混同に注意：チップは知合计算 A210（Archimedes シリーズ、XuanTie C920/C908 コア）で、開発ボードのブランド名は「XuanTie MelonPi」と書かれます。Ubuntu イメージは A200（a200-evb）しか対象にしておらず、A210 ではそのまま使えません。
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 7
   feature: true
   sources:
@@ -719,6 +720,7 @@ items:
   - https://developer.zhcomputing.com/en/docs/A210/A210_Datasheet
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
+  - https://lists.openwall.net/linux-kernel/2026/11/20/3184
 - id: k230
   name: Canaan K230（Kendryte K230 / CanMV-K230）
   soc: Kendryte K230（2×C908）

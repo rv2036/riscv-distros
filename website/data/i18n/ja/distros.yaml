@@ -10,7 +10,7 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - 13.7（trixie、現行安定版、ISO は debian-13.7.0-riscv64-netinst.iso）
+  - 13.8（trixie、現行安定版、ISO は debian-13.8.0-riscv64-netinst.iso）
   - 14（forky、開発／テスト中）
   boards:
   - board: qemu
@@ -55,8 +55,8 @@ items:
   downloads:
   - label: riscv64 CD イメージディレクトリ（cdimage、現行安定版）
     url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - label: debian-13.7.0-riscv64-netinst.iso への直リンク
-    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - label: debian-13.8.0-riscv64-netinst.iso への直リンク
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   guides:
   - label: Debian GNU/Linux 13 riscv64 インストールマニュアル（英語）
     url: https://www.debian.org/releases/stable/riscv64/
@@ -97,12 +97,13 @@ items:
   derivatives:
   - Ubuntu
   note: Debian は今回のリストで唯一、riscv64 を正式なリリースアーキテクチャに含めている独立系ディストリビューションです。派生には Deepin や RevyOS など、Debian をベースにした riscv64 システムもあります（個別の検証はしていません）。
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 1
   feature: true
   sources:
+  - https://www.debian.org/News/2026/20261121
   - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   - https://www.debian.org/releases/stable/riscv64/
   - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
   - https://www.debian.org/releases/stable/riscv64/index.ja.html
@@ -765,7 +766,7 @@ items:
   - 3.0 の RISC-V イメージはサーバー／組み込み寄り（Server、Embedded）で、デスクトップ体験とは別物です
   - ダウンロードリンクは download-smp.php?id=xxx のリダイレクトで、実体は cdimage.openkylin.top にあります
   - ドキュメントは中国語が中心で、英語のドキュメントサイトはほぼ空です。RISC-V の話題は主に中国語コミュニティ／SIG が対応します
-  - '3.0 SP1（2026-11-11 にミラーへアップロード）は x86_64 / ARM64 / LoongArch のデスクトップイメージのみ。RISC-V は 3.0 系（K3 Server / Embedded、V100）のままです。ダウンロードページで SP1 が最新版として並んでいても、RISC-V も更新されたわけではありません。'
+  - 3.0 SP1（2026-11-11 にミラーへアップロード）は x86_64 / ARM64 / LoongArch のデスクトップイメージのみ。RISC-V は 3.0 系（K3 Server / Embedded、V100）のままです。ダウンロードページで SP1 が最新版として並んでいても、RISC-V も更新されたわけではありません。
   doc_langs:
   - zh
   derivatives: []
@@ -1182,8 +1183,8 @@ items:
   based_on: 独立
   audience: recommended
   versions:
-  - Tumbleweed（rolling、現行 ISO は Snapshot20261011）
-  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
+  - Tumbleweed（rolling、現行 ISO は Snapshot20261106）
+  - MicroOS 16.0.0 (riscv64, Snapshot20261106)
   boards:
   - board: qemu
     level: official
@@ -1249,7 +1250,7 @@ items:
   - en
   derivatives: []
   note: MicroOS は同じプロジェクトの riscv64 変体（kvm-and-xen qcow2 イメージあり）で、下流の派生ではありません。
-  checked: '2026-11-07'
+  checked: '2026-11-22'
   order: 13
   feature: false
   sources:
@@ -1377,7 +1378,8 @@ items:
   based_on: RHEL 10（CentOS Stream 10 のコードベース）
   audience: advanced
   versions:
-  - 10.3（GA 2026-11-16）：riscv64 向けに boot / minimal / dvd のインストール ISO（2026-11-12/13 ビルド、11-18 に 10-latest を更新）、SBC 汎用 raw イメージ（20261112.0）、GenericCloud qcow2 を提供。BaseOS と AppStream の riscv64 リポジトリも公開済み（BaseOS 952 パッケージ）
+  - 10.3（GA 2026-11-16）：riscv64 向けに boot / minimal / dvd のインストール ISO（2026-11-12/13 ビルド、11-18 に 10-latest を更新）、SBC 汎用 raw イメージ（20261112.0）、GenericCloud qcow2 を提供。BaseOS と AppStream の riscv64 リポジトリも公開済み（BaseOS
+    952 パッケージ）
   - 10.2（riscv64 コンテナイメージを公開済み：Base / Minimal / Toolbox / UBI、2026-05-25 ビルド）
   - 10.0（GA アナウンスで riscv64 をサポートアーキテクチャとして記載）
   boards:
@@ -2119,7 +2121,7 @@ items:
   - label: AOSP ソースのダウンロード（riscv64 はソースビルドのみ、Google 公式イメージなし）
     url: https://source.android.com/docs/setup/download
   guides:
-  - label: 'RISE アナウンス：Android 17 が RVA23 ハードウェアで利用可能（K3 Pico-ITX / A210 EVB）'
+  - label: RISE アナウンス：Android 17 が RVA23 ハードウェアで利用可能（K3 Pico-ITX / A210 EVB）
     url: https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise
     type: doc
     lang: en

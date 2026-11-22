@@ -10,7 +10,7 @@ items:
   based_on: Независимый
   audience: recommended
   versions:
-  - 13.7 (trixie, текущая стабильная, ISO — debian-13.7.0-riscv64-netinst.iso)
+  - 13.8 (trixie, текущая стабильная, ISO — debian-13.8.0-riscv64-netinst.iso)
   - 14 (forky, в разработке/тестировании)
   boards:
   - board: qemu
@@ -55,8 +55,8 @@ items:
   downloads:
   - label: Каталог CD-образов riscv64 (cdimage, текущая стабильная версия)
     url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - label: Прямая ссылка на debian-13.7.0-riscv64-netinst.iso
-    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - label: Прямая ссылка на debian-13.8.0-riscv64-netinst.iso
+    url: https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   guides:
   - label: Руководство по установке Debian GNU/Linux 13 riscv64 (на английском)
     url: https://www.debian.org/releases/stable/riscv64/
@@ -98,12 +98,13 @@ items:
   - Ubuntu
   note: Debian — единственный независимый дистрибутив в этой подборке, включивший riscv64 в число официально поддерживаемых архитектур релиза; есть и производные системы на базе Debian для riscv64, например
     Deepin и RevyOS (по каждому пункту не проверялось).
-  checked: '2026-11-01'
+  checked: '2026-11-22'
   order: 1
   feature: true
   sources:
+  - https://www.debian.org/News/2026/20261121
   - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/
-  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.7.0-riscv64-netinst.iso
+  - https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd/debian-13.8.0-riscv64-netinst.iso
   - https://www.debian.org/releases/stable/riscv64/
   - https://www.debian.org/releases/stable/riscv64/index.zh-cn.html
   - https://www.debian.org/releases/stable/riscv64/index.ja.html
@@ -299,7 +300,8 @@ items:
   - 'Подходит только для headless: mainline не содержит драйвера встроенной графики SoC, официальное позиционирование — сборочная машина/сервер ("video output are pretty much completely ignored")'
   - Для установки требуется последовательная консоль (Requirements → Serial console access)
   - Некоторые пакеты требуют патчей специально для RISC-V, всё ещё есть расхождения с исходным кодом upstream
-  - При обновлении с Fedora 44 на 45 на платах JH7110 (например, VisionFive 2) с ядром generic и хранилищем NVMe есть риск повреждения данных; в официальном анонсе просят сначала прочитать примечания к обновлению
+  - При обновлении с Fedora 44 на 45 на платах JH7110 (например, VisionFive 2) с ядром generic и хранилищем NVMe есть риск повреждения данных; в официальном анонсе просят сначала прочитать примечания к
+    обновлению
   - В официальном анонсе Fedora 45 указаны ещё две известные проблемы: GCC на SpacemiT K3 и glibc на Milk-V Titan; исправления готовятся совместно с upstream
   doc_langs:
   - en
@@ -669,7 +671,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'openEuler 24.03 LTS SP5 был представлен на openEuler Summit 2026 (2026-11-13) по сообщениям СМИ; другой отчёт указывает, что фактический выпуск запланирован на декабрь 2026 года. По состоянию на 2026-11-15 ни зеркало, ни страница загрузки не содержат каталога SP5, поэтому SP4 остаётся самой новой доступной версией'
+  - openEuler 24.03 LTS SP5 был представлен на openEuler Summit 2026 (2026-11-13) по сообщениям СМИ; другой отчёт указывает, что фактический выпуск запланирован на декабрь 2026 года. По состоянию на 2026-11-15
+    ни зеркало, ни страница загрузки не содержат каталога SP5, поэтому SP4 остаётся самой новой доступной версией
   - 'В инновационном выпуске 26.09 (2026-09-30) нет ISO для riscv64: в деревьях ISO/OS/everything только aarch64 и x86_64, поэтому для RISC-V ориентируйтесь на 24.03 LTS SP4'
   - Образы RVA20 и RVA23 выпускаются отдельно; для RISC-V в 24.03 LTS SP4 доступен только ISO RVA23 (каталог rva20 отсутствует)
   - Требуется прошивка UEFI/EDK2 и соответствующий DTB платы; на старых платах с U-Boot может не загрузиться
@@ -782,7 +785,8 @@ items:
   - Образы RISC-V в 3.0 ориентированы на серверы/встраиваемые системы (Server, Embedded) и не равны настольному опыту
   - Ссылки на скачивание ведут через download-smp.php?id=xxx, реальные файлы находятся на cdimage.openkylin.top
   - Документация в основном на китайском, англоязычный сайт документации практически пустой; вопросы по RISC-V решаются в основном через китайское сообщество/SIG
-  - 'Релиз 3.0 SP1 (загружен на зеркало 2026-11-11) содержит образы рабочего стола только для x86_64 / ARM64 / LoongArch; RISC-V остаётся на линии 3.0 (K3 Server / Embedded, V100). То, что SP1 указан на странице загрузки как новейшая версия, не означает, что RISC-V тоже обновлён.'
+  - Релиз 3.0 SP1 (загружен на зеркало 2026-11-11) содержит образы рабочего стола только для x86_64 / ARM64 / LoongArch; RISC-V остаётся на линии 3.0 (K3 Server / Embedded, V100). То, что SP1 указан на
+    странице загрузки как новейшая версия, не означает, что RISC-V тоже обновлён.
   doc_langs:
   - zh
   derivatives: []
@@ -1206,8 +1210,8 @@ items:
   based_on: Независимый
   audience: recommended
   versions:
-  - Tumbleweed (rolling, текущий ISO Snapshot20261011)
-  - MicroOS 16.0.0 (riscv64, Snapshot20261011)
+  - Tumbleweed (rolling, текущий ISO Snapshot20261106)
+  - MicroOS 16.0.0 (riscv64, Snapshot20261106)
   boards:
   - board: qemu
     level: official
@@ -1274,7 +1278,7 @@ items:
   - en
   derivatives: []
   note: MicroOS — вариант riscv64 того же проекта (есть образ kvm-and-xen qcow2), не считается downstream-производным.
-  checked: '2026-11-07'
+  checked: '2026-11-22'
   order: 13
   feature: false
   sources:
@@ -1406,16 +1410,19 @@ items:
   based_on: RHEL 10 (кодовая база CentOS Stream 10)
   audience: advanced
   versions:
-  - '10.3 (GA 2026-11-16): для riscv64 есть установочные ISO boot / minimal / dvd (сборка 2026-11-12/13, 10-latest обновлён 11-18), универсальный SBC-образ raw (20261112.0) и GenericCloud qcow2; репозитории BaseOS и AppStream для riscv64 доступны (952 пакета в BaseOS)'
+  - '10.3 (GA 2026-11-16): для riscv64 есть установочные ISO boot / minimal / dvd (сборка 2026-11-12/13, 10-latest обновлён 11-18), универсальный SBC-образ raw (20261112.0) и GenericCloud qcow2; репозитории
+    BaseOS и AppStream для riscv64 доступны (952 пакета в BaseOS)'
   - '10.2 (образы контейнеров riscv64 уже выпущены: Base / Minimal / Toolbox / UBI, сборка 2026-05-25)'
   - 10.0 (в анонсе GA riscv64 указана как поддерживаемая архитектура)
   boards:
   - board: qemu
     level: official
-    note: В официальном анонсе Rocky и в заметках о выпуске 10.0 QEMU указан как поддерживаемый с момента релиза (в оригинале "works out-of-the-box ... in QEMU"); теперь для установки через anaconda есть и ISO boot / minimal
+    note: В официальном анонсе Rocky и в заметках о выпуске 10.0 QEMU указан как поддерживаемый с момента релиза (в оригинале "works out-of-the-box ... in QEMU"); теперь для установки через anaconda есть
+      и ISO boot / minimal
   - board: visionfive2
     level: official
-    note: В официальном анонсе VisionFive 2 названа рекомендуемой платой (загружается со стандартным ядром EL10); работают и универсальный SBC-образ, и установочные ISO, но списка проверки по платам по-прежнему нет
+    note: В официальном анонсе VisionFive 2 названа рекомендуемой платой (загружается со стандартным ядром EL10); работают и универсальный SBC-образ, и установочные ISO, но списка проверки по платам по-прежнему
+      нет
   - board: p550
     level: partial
     note: 'Официально указана как "limited support": требуется ядро от производителя, часть функций ограничена'
@@ -1442,13 +1449,15 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 'Установочные ISO есть, но только boot / minimal / dvd — Live-образа нет (/pub/rocky/10.3/Live/ отдаёт 404); ISO загружаются через EFI (внутри EFI/BOOT/BOOTRISCV64.EFI), поэтому платам с прямой загрузкой из U-Boot по-прежнему нужен универсальный SBC-образ raw'
+  - Установочные ISO есть, но только boot / minimal / dvd — Live-образа нет (/pub/rocky/10.3/Live/ отдаёт 404); ISO загружаются через EFI (внутри EFI/BOOT/BOOTRISCV64.EFI), поэтому платам с прямой загрузкой
+    из U-Boot по-прежнему нужен универсальный SBC-образ raw
   - 'SBC-образ — универсальный «SBC-Generic» raw: разбивки по платам и списка проверки по платам нет, поэтому загрузится ли плата на JH7110, придётся проверять самому'
   - 'riscv64 — Alternative Architecture: сбой сборки не блокирует выпуск основных архитектур, поэтому полнота пакетов — как повезёт'
   doc_langs:
   - en
   derivatives: []
-  note: 'Если нужно пользовательское окружение RHEL 10 на RISC-V и не хочется связываться с аккаунтом Red Hat: в Rocky 10.3 (GA 2026-11-16) теперь есть установочные ISO, универсальный SBC-образ raw, облачные образы и репозиторий riscv64 (952 пакета в BaseOS); QEMU и VisionFive 2 официально поддерживаются с релиза, P550 — в режиме ограниченной поддержки.'
+  note: 'Если нужно пользовательское окружение RHEL 10 на RISC-V и не хочется связываться с аккаунтом Red Hat: в Rocky 10.3 (GA 2026-11-16) теперь есть установочные ISO, универсальный SBC-образ raw, облачные
+    образы и репозиторий riscv64 (952 пакета в BaseOS); QEMU и VisionFive 2 официально поддерживаются с релиза, P550 — в режиме ограниченной поддержки.'
   checked: '2026-11-20'
   order: 16
   feature: false
@@ -2177,7 +2186,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - Образов от производителей телефонов нет, у Google по-прежнему только эмулятор Cuttlefish; образы для реального железа — версия для разработчиков от RISE (финансируют SpacemiT и Alibaba DAMO, реализует BayLibre)
+  - Образов от производителей телефонов нет, у Google по-прежнему только эмулятор Cuttlefish; образы для реального железа — версия для разработчиков от RISE (финансируют SpacemiT и Alibaba DAMO, реализует
+    BayLibre)
   - Сборка RISE — версия для разработчиков, а не серийная или сертифицированная: SELinux остаётся в permissive, нет secure boot и TEE, GPU ограничен OpenGL ES 2.0 (поэтому в WebView нет WebGL)
   - На K3 после adb reboot команда fastboot usb 0 может не поднять USB3 PHY — нужно передёрнуть питание; NPU на обеих платах не поддерживается
   - ABI riscv64 в NDK ещё не утверждён (provisional), скомпилированные сейчас .so могут быть несовместимы в будущем
@@ -2186,7 +2196,8 @@ items:
   doc_langs:
   - en
   derivatives: []
-  note: 'Если хочется запустить Android на реальном железе, теперь можно прошить образы для разработчиков от RISE для K3 Pico-ITX / A210 EVB; это по-прежнему проверочная версия, не стоит считать её рабочей системой.'
+  note: Если хочется запустить Android на реальном железе, теперь можно прошить образы для разработчиков от RISE для K3 Pico-ITX / A210 EVB; это по-прежнему проверочная версия, не стоит считать её рабочей
+    системой.
   checked: '2026-11-19'
   order: 29
   feature: false
