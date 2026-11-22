@@ -703,14 +703,16 @@ items:
   gotchas:
   - 소매 채널과 공개 가격이 없어 개발 보드가 평가/협력 채널 중심이라 일반 개발자는 구하기 어렵습니다.
   - A210과 A200 이미지는 호환되지 않습니다. 공식 Ubuntu는 A200만 제공하고 A210은 Debian/Buildroot뿐입니다.
-  - GitHub/Gitee에 공식 BSP 저장소가 없고(검색 결과 0) 커널과 드라이버가 벤더 SDK 패키지로만 나와 제3자 배포판 지원이 거의 없습니다.
+  - GitHub/Gitee에 공식 BSP 저장소가 없고(검색 결과 0) 커널과 드라이버가 벤더 SDK 패키지로만 나와 제3자 배포판 지원은 개인 포팅이 중심입니다.
   - '벤더 데이터: 단일 칩 DeepSeek-7B 약 8 tok/s, 4 die 캐스케이드 25 tok/s. 실제 값은 자체 측정 기준입니다.'
   - '업스트림 메인라인 지원 진행 중: 2026-11-21에 공개된 v4 패치 시리즈(13개)가 A210에 SCMI 클럭/리셋, UART, 디바이스 트리를 추가합니다. 작성자에 따르면 Linux 7.4-rc3에서 Melon Pi V2가 시리얼 콘솔로 셸까지 부팅됩니다. 확인일 기준 아직 리뷰 중이며 병합되지 않았습니다.'
+  - 2026-11-20 커뮤니티 NixOS 포팅 기록이 있습니다. 벤더 U-Boot/OpenSBI와 6.6 커널로 사용자 공간까지 부팅하며 사운드, HDMI, 블루투스/Wi-Fi, 이더넷, GPU가 동작합니다. OpenSBI를 직접 빌드할 때는 -march=generic을 사용해야 하며, 벤더 기본값 -march=rv64gv는 mstatus의 벡터 컨텍스트가
+    꺼져 있어 부팅 초기에 불법 명령 예외가 발생합니다
   doc_langs:
   - zh
   - en
   note: '모델 구분: 칩은 즈허컴퓨팅 A210(아르키메데스 계열, 쉬안톄 C920/C908 코어)이고 개발 보드 브랜드가 “MelonPi”입니다. Ubuntu 이미지는 A200(a200-evb)만 커버해 A210에는 쓸 수 없습니다.'
-  checked: '2026-11-22'
+  checked: '2026-11-23'
   order: 7
   feature: true
   sources:
@@ -721,6 +723,7 @@ items:
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
   - https://lists.openwall.net/linux-kernel/2026/11/20/3184
+  - https://feyor.sh/blog/nixos-bringup-on-an-alibaba-riscv-board/
 - id: k230
   name: Canaan K230(Kendryte K230 / CanMV-K230)
   soc: Kendryte K230(2×C908)
@@ -844,11 +847,12 @@ items:
   - 첫 부팅에서 파티션이 자동 확장되지 않아 루트가 6GB뿐입니다. gparted로 직접 늘리지 않으면 곧 꽉 차서 재부팅 후 데스크톱에 못 들어갑니다.
   - Fedora 이미지는 Fedora-V Force(F41) 빌드이고 Fedora 공식 빌드가 아닙니다. Ubuntu 공식 이미지는 없습니다.
   - 공개 소매 채널이 없고(공식 사이트는 Contact us만) 2026년 현재 실제 구매가 어렵습니다.
+  - 메인라인 디바이스 트리 지원은 아직 리뷰 중입니다. 2026-11-18에 올라온 v2 시리즈(2개 패치)는 보드 compatible과 USB-C 디버그 포트의 UART0를 시리얼 콘솔로 켜는 최소 디바이스 트리만 추가하며, 나머지 주변장치는 여전히 벤더/RockOS 커널에 의존합니다
   doc_langs:
   - zh
   - en
   note: Megrez는 EIC7700X를 가장 먼저 양산한 Mini-ITX 보드입니다. 같은 칩에 SiFive HiFive Premier P550(더 비싸지만 Ubuntu 공식 지원이 좋음)도 있습니다.
-  checked: '2026-11-01'
+  checked: '2026-11-23'
   order: 9
   feature: false
   sources:
@@ -864,6 +868,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
   - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
   - https://matrix.ruyisdk.org/
+  - https://lists.openwall.net/linux-kernel/2026/11/17/3479
 - id: titan
   name: Milk-V Titan(UltraRISC DP1000)
   soc: UltraRISC UR-DP1000

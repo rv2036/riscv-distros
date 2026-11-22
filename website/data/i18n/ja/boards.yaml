@@ -703,14 +703,16 @@ items:
   gotchas:
   - 小売チャネルも公開価格もなく、開発ボードは評価／提携チャネルが中心で、一般の開発者は入手しにくいです
   - A210 と A200 のイメージは互換がありません。公式 Ubuntu は A200 向けだけで、A210 には Debian/Buildroot しかありません
-  - GitHub/Gitee に公式 BSP リポジトリはありません（検索しても 0 件）。カーネルとドライバはベンダー SDK のパッケージとして配布され、コミュニティによるサードパーティのディストリビューション対応はほぼありません
+  - GitHub/Gitee に公式 BSP リポジトリはありません（検索しても 0 件）。カーネルとドライバはベンダー SDK のパッケージとして配布され、サードパーティのディストリビューション対応は個人による移植が中心です
   - ベンダー公称値では、単チップで DeepSeek-7B が約 8 tok/s、4 die のカスケードで 25 tok/s。実際の値は自分の環境で測ってください
   - 上流メインライン対応が進行中：2026-11-21 に公開された v4 パッチシリーズ（13 個）が A210 に SCMI クロック／リセット、UART、デバイスツリーを追加します。投稿者によれば Linux 7.4-rc3 上で Melon Pi V2 がシリアルコンソールでシェルまで起動するとのこと。確認日時点ではレビュー中で未マージです。
+  - 2026-11-20 にコミュニティによる NixOS 移植の記録があります。ベンダーの U-Boot/OpenSBI と 6.6 カーネルでユーザー空間まで起動し、サウンド、HDMI、Bluetooth/Wi-Fi、Ethernet、GPU が動作します。OpenSBI を自分でビルドする場合は -march=generic を使ってください。ベンダー既定の -march=rv64gv では
+    mstatus のベクターコンテキストが有効でないため、起動初期に不正命令例外が発生します
   doc_langs:
   - zh
   - en
   note: 型番の混同に注意：チップは知合计算 A210（Archimedes シリーズ、XuanTie C920/C908 コア）で、開発ボードのブランド名は「XuanTie MelonPi」と書かれます。Ubuntu イメージは A200（a200-evb）しか対象にしておらず、A210 ではそのまま使えません。
-  checked: '2026-11-22'
+  checked: '2026-11-23'
   order: 7
   feature: true
   sources:
@@ -721,6 +723,7 @@ items:
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
   - https://lists.openwall.net/linux-kernel/2026/11/20/3184
+  - https://feyor.sh/blog/nixos-bringup-on-an-alibaba-riscv-board/
 - id: k230
   name: Canaan K230（Kendryte K230 / CanMV-K230）
   soc: Kendryte K230（2×C908）
@@ -844,11 +847,12 @@ items:
   - 初回起動ではパーティションが自動拡張されず、ルートが 6GB しかありません。gparted で手動拡張しないとすぐ埋まり、再起動でデスクトップに入れなくなります
   - Fedora イメージは Fedora-V Force（F41）製で、Fedora 公式ビルドではありません。Ubuntu の公式イメージはありません
   - 公開の小売チャネルがありません（公式サイトは Contact us のみ）。2026 年現在、実際に買うのは難しいです
+  - メインラインのデバイスツリー対応はまだレビュー中です。2026-11-18 に投稿された v2 シリーズ（2 パッチ）は、ボードの compatible と、USB-C デバッグポートの UART0 をシリアルコンソールとして有効にする最小限のデバイスツリーを追加するだけです。その他の周辺機器は引き続きベンダー/RockOS カーネルに依存します
   doc_langs:
   - zh
   - en
   note: Megrez は EIC7700X で最初に量産された Mini-ITX ボードです。同じチップには SiFive HiFive Premier P550 もあり、こちらはより高価ですが Ubuntu の公式対応が手厚くなっています。
-  checked: '2026-11-01'
+  checked: '2026-11-23'
   order: 9
   feature: false
   sources:
@@ -864,6 +868,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
   - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
   - https://matrix.ruyisdk.org/
+  - https://lists.openwall.net/linux-kernel/2026/11/17/3479
 - id: titan
   name: Milk-V Titan（UltraRISC DP1000）
   soc: UltraRISC UR-DP1000

@@ -711,16 +711,18 @@ items:
   gotchas:
   - No retail channel or public price; boards go mainly through evaluation/partner channels, so ordinary developers struggle to buy one
   - 'A210 and A200 images are not interchangeable: the official Ubuntu only covers A200, while A210 has Debian/Buildroot only'
-  - There is no official BSP repo on GitHub/Gitee (zero search results); the kernel and drivers ship inside vendor SDK packages, and the community has almost no third-party distro support
+  - There is no official BSP repo on GitHub/Gitee (zero search results); the kernel and drivers ship inside vendor SDK packages, and third-party distro support is mostly individual ports
   - 'Vendor figures: about 8 tok/s for DeepSeek-7B on a single chip and 25 tok/s with 4 dies cascaded; measure it yourself'
   - 'Upstream mainline support is in progress: the v4 patch series posted on 2026-11-21 (13 patches) adds SCMI clocks/resets, UARTs and device trees for the A210; the author reports a Melon Pi V2 booting
     to a shell on the serial console with Linux 7.4-rc3. As of the check date it is still under review and not merged.'
+  - 'A community NixOS bring-up was documented on 2026-11-20: vendor U-Boot/OpenSBI plus the vendor 6.6 kernel boot to userspace with sound, HDMI, Bluetooth/Wi-Fi, Ethernet and GPU working; if you build
+    OpenSBI yourself, compile it with -march=generic - the vendor default -march=rv64gv hits an illegal-instruction trap early in boot because the vector context bit in mstatus is not set'
   doc_langs:
   - zh
   - en
   note: 'Model disambiguation: the chip is Zhihe A210 (Archimedes series, XuanTie C920/C908 cores), while the board brand is written "XuanTie MelonPi". The Ubuntu image only covers the A200 (a200-evb) and
     does not work on the A210.'
-  checked: '2026-11-22'
+  checked: '2026-11-23'
   order: 7
   feature: true
   sources:
@@ -731,6 +733,7 @@ items:
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
   - https://lists.openwall.net/linux-kernel/2026/11/20/3184
+  - https://feyor.sh/blog/nixos-bringup-on-an-alibaba-riscv-board/
 - id: k230
   name: Canaan K230 (Kendryte K230 / CanMV-K230)
   soc: Kendryte K230 (2×C908)
@@ -855,11 +858,13 @@ items:
   - First boot does not grow the partition and root is only 6GB; expand it with gparted or it fills up quickly and reboots into no desktop
   - The Fedora image comes from Fedora-V Force (F41), not an official Fedora build; there is no official Ubuntu image
   - No public retail channel (the site only offers Contact us), so in 2026 it is genuinely hard to buy
+  - 'Mainline device tree support is still under review: the v2 series posted on 2026-11-18 (2 patches) only adds the board compatible and a minimal device tree enabling UART0 on the USB-C debug port as
+    the serial console; other peripherals still rely on the vendor/RockOS kernel'
   doc_langs:
   - zh
   - en
   note: Megrez was the first EIC7700X board in volume production (Mini-ITX); the same chip also appears in the SiFive HiFive Premier P550, which is dearer but has better official Ubuntu support.
-  checked: '2026-11-01'
+  checked: '2026-11-23'
   order: 9
   feature: false
   sources:
@@ -875,6 +880,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
   - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
   - https://matrix.ruyisdk.org/
+  - https://lists.openwall.net/linux-kernel/2026/11/17/3479
 - id: titan
   name: Milk-V Titan (UltraRISC DP1000)
   soc: UltraRISC UR-DP1000
