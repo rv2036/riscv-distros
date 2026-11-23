@@ -703,14 +703,15 @@ items:
   gotchas:
   - 无零售渠道与公开报价，开发板以评估/合作渠道为主，普通开发者难买到
   - A210 与 A200 镜像不通用：官方 Ubuntu 只给 A200，A210 只有 Debian/Buildroot
-  - GitHub/Gitee 无官方 BSP 仓库（检索 0 结果），内核与驱动以厂商 SDK 包形式发布，社区几乎无第三方发行版支持
+  - GitHub/Gitee 无官方 BSP 仓库（检索 0 结果），内核与驱动以厂商 SDK 包形式发布；第三方发行版支持以个人移植为主
   - 厂商数据：单芯片 DeepSeek-7B 约 8 tok/s，4 die 级联 25 tok/s，实际以自测为准
   - 上游主线支持推进中：2026-11-21 公开的 v4 补丁系列（13 个补丁）为 A210 增加 SCMI 时钟/复位、串口与设备树，作者称在 Linux 7.4-rc3 上 Melon Pi V2 已能串口启动进 shell；截至核查日仍在评审、尚未合并
+  - 2026-11-20 有社区 NixOS 移植记录：用厂商 U-Boot/OpenSBI 与 6.6 内核跑到用户态，声音、HDMI、蓝牙/Wi-Fi、以太网与 GPU 均可用；自行编译 OpenSBI 必须以 -march=generic 编译，厂商默认的 -march=rv64gv 会因 mstatus 未开向量上下文而在启动早期触发非法指令
   doc_langs:
   - zh
   - en
   note: 型号消歧：芯片是知合计算 A210（阿基米德系列，玄铁 C920/C908 核），开发板品牌写作“玄铁 MelonPi”。Ubuntu 镜像只覆盖 A200（a200-evb），A210 不通用。
-  checked: '2026-11-22'
+  checked: '2026-11-23'
   order: 7
   feature: true
   sources:
@@ -721,6 +722,7 @@ items:
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
   - https://lists.openwall.net/linux-kernel/2026/11/20/3184
+  - https://feyor.sh/blog/nixos-bringup-on-an-alibaba-riscv-board/
 - id: k230
   name: 嘉楠 Canaan K230（Kendryte K230 / CanMV-K230）
   soc: Kendryte K230（2×C908）
@@ -843,11 +845,12 @@ items:
   - 首次启动不自动扩分区，根分区仅 6GB，必须用 gparted 手动扩容，否则很快写满/重启进不了桌面
   - Fedora 镜像来自 Fedora-V Force（F41），不是 Fedora 官方构建；无 Ubuntu 官方镜像
   - 无公开零售渠道（官网只剩 Contact us），2026 年实际较难买到
+  - 主线设备树仍在评审：2026-11-18 的 v2 补丁（2 个）只增加板级 compatible 与 USB-C 调试口 UART0 的串口控制台设备树，其余外设仍依赖厂商/RockOS 内核
   doc_langs:
   - zh
   - en
   note: Megrez 是 EIC7700X 最早量产的 Mini-ITX 板；同芯片还有 SiFive HiFive Premier P550（更贵、Ubuntu 官方支持更好）。
-  checked: '2026-11-01'
+  checked: '2026-11-23'
   order: 9
   feature: false
   sources:
@@ -863,6 +866,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
   - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
   - https://matrix.ruyisdk.org/
+  - https://lists.openwall.net/linux-kernel/2026/11/17/3479
 - id: titan
   name: Milk-V Titan（UltraRISC DP1000）
   soc: UltraRISC UR-DP1000

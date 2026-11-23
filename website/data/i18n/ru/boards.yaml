@@ -712,16 +712,19 @@ items:
   gotchas:
   - Розничных каналов и публичных цен нет, платы разработчика распространяются в основном через каналы оценки/сотрудничества, обычному разработчику трудно купить
   - 'Образы A210 и A200 несовместимы: официальная Ubuntu есть только для A200, для A210 — только Debian/Buildroot'
-  - На GitHub/Gitee нет официального репозитория BSP (поиск дал 0 результатов), ядро и драйверы поставляются в виде пакета SDK производителя, сторонних дистрибутивов сообщества практически нет
+  - На GitHub/Gitee нет официального репозитория BSP (поиск дал 0 результатов), ядро и драйверы поставляются в виде пакета SDK производителя, поддержка сторонних дистрибутивов - в основном личные порты
   - 'Данные производителя: на одном чипе DeepSeek-7B около 8 tok/s, при каскаде из 4 die — 25 tok/s, фактически ориентироваться на собственные замеры'
   - 'Поддержка в основном ядре (mainline) в процессе: серия патчей v4, опубликованная 2026-11-21 (13 патчей), добавляет для A210 часы и сброс через SCMI, UART и device tree; автор сообщает, что Melon Pi
     V2 загружается до оболочки на последовательной консоли на Linux 7.4-rc3. На дату проверки серия ещё на ревью и не принята.'
+  - '20.11.2026 опубликован отчёт сообщества о портировании NixOS: с вендорными U-Boot/OpenSBI и ядром 6.6 система доходит до пользовательского пространства, работают звук, HDMI, Bluetooth/Wi-Fi, Ethernet
+    и GPU; при самостоятельной сборке OpenSBI нужен -march=generic - вендорный -march=rv64gv получает исключение «недопустимая инструкция» на раннем этапе загрузки, так как векторный контекст в mstatus
+    не включён'
   doc_langs:
   - zh
   - en
   note: 'Уточнение модели: чип — Zhihe Computing A210 (серия «Архимед», ядра XuanTie C920/C908), бренд платы разработчика записывается как «XuanTie MelonPi». Образ Ubuntu покрывает только A200 (a200-evb),
     для A210 он несовместим.'
-  checked: '2026-11-22'
+  checked: '2026-11-23'
   order: 7
   feature: true
   sources:
@@ -732,6 +735,7 @@ items:
   - https://developer.zhcomputing.com/zh/docs/SDK/Quick-start-guide/Basic_quick_start_guide
   - https://developer.zhcomputing.com/zh/docs/A210/A210_Burning_Instruction/
   - https://lists.openwall.net/linux-kernel/2026/11/20/3184
+  - https://feyor.sh/blog/nixos-bringup-on-an-alibaba-riscv-board/
 - id: k230
   name: Canaan K230 (Kendryte K230 / CanMV-K230)
   soc: Kendryte K230（2×C908）
@@ -856,11 +860,13 @@ items:
   - При первом запуске разделы не расширяются автоматически, корневой раздел всего 6GB; необходимо вручную расширить через gparted, иначе он быстро заполнится/перезагрузка не дойдёт до рабочего стола
   - Образ Fedora от Fedora-V Force (F41), не официальная сборка Fedora; официального образа Ubuntu нет
   - Публичных розничных каналов нет (на официальном сайте осталось только Contact us); в 2026 году фактически трудно купить
+  - 'Поддержка device tree в mainline всё ещё на ревью: серия v2 от 18.11.2026 (2 патча) добавляет только compatible платы и минимальный device tree, включающий UART0 отладочного порта USB-C как последовательную
+    консоль; остальная периферия по-прежнему зависит от вендорного ядра/RockOS'
   doc_langs:
   - zh
   - en
   note: Megrez — первая серийная плата Mini-ITX на EIC7700X; на том же чипе есть SiFive HiFive Premier P550 (дороже, официальная поддержка Ubuntu лучше).
-  checked: '2026-11-01'
+  checked: '2026-11-23'
   order: 9
   feature: false
   sources:
@@ -876,6 +882,7 @@ items:
   - https://matrix.ruyisdk.org/reports/Megrez/OpenCloudOS/README/
   - https://matrix.ruyisdk.org/reports/Megrez/RockOS/README/
   - https://matrix.ruyisdk.org/
+  - https://lists.openwall.net/linux-kernel/2026/11/17/3479
 - id: titan
   name: Milk-V Titan (UltraRISC DP1000)
   soc: UltraRISC UR-DP1000
