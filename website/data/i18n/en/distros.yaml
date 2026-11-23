@@ -482,7 +482,7 @@ items:
   derivatives: []
   note: 'The de facto standard on TH1520 boards: LicheePi 4A and Milk-V Meles ship with RevyOS, and the official tutorials flash it too. The best first pick for newcomers, but note that the mirror is newer
     than the docs — take the latest date from the mirror directory.'
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 5
   feature: true
   sources:
@@ -667,8 +667,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - openEuler 24.03 LTS SP5 was unveiled at openEuler Summit 2026 on 2026-11-13 (media reports; one report says the actual release is planned for December 2026); as of 2026-11-15 neither the mirror nor
-    the download page has an SP5 tree, so SP4 remains the newest downloadable version
+  - openEuler 24.03 LTS SP5 was released at openEuler Summit 2026 on 2026-11-13 (several outlets report it consistently; one report says the actual release is planned for December 2026); as of 2026-11-24
+    neither repo.openeuler.org nor dl-cdn has an SP5 tree, so SP4 remains the newest downloadable version
   - 'The 26.09 innovation release (2026-09-30) has no riscv64 ISO: its ISO/OS/everything trees carry only aarch64 and x86_64, so RISC-V users should stay on 24.03 LTS SP4'
   - RVA20 and RVA23 images ship separately; 24.03 LTS SP4 offers RISC-V as RVA23 ISO only (there is no rva20 directory)
   - Needs UEFI/EDK2 firmware and a matching board DTB; older U-Boot boards may not boot
@@ -682,7 +682,7 @@ items:
   - EulixOS
   - Eulaceura
   note: An RISC-V base for server/enterprise use, moving fastest on RVA23 + Server Platform; unless you are validating server scenarios, RevyOS/Bianbu will save you trouble on a dev board.
-  checked: '2026-11-15'
+  checked: '2026-11-24'
   order: 7
   feature: true
   sources:
@@ -1295,8 +1295,8 @@ items:
   based_on: RHEL 10.3 (Fedora / CentOS Stream 10 code base)
   audience: advanced
   versions:
-  - 10.3 Developer Preview Update (announced 2026-11-16; adds SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 and the RV2768 cluster server, UltraRISC URDP1000, and Epic Semi Contrail AIX; as of this check
-    the product page download section still lists the 10.2 image)
+  - 10.3 Developer Preview Update (announced 2026-11-16; adds SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 and the RV2768 cluster server, UltraRISC URDP1000, and Epic Semi Contrail AIX; the product page
+    download section now offers the 10.3 image (2.37 GB, released 2026-11-13))
   - 10.2 Developer Preview Update (2026-10-09; images 2.6 GB, sources 14.19 GB, requires a Red Hat account to download)
   - 10.2 Developer Preview
   - 10.0 Developer Preview (first released 2025-05, platform was P550)
@@ -1317,7 +1317,7 @@ items:
     level: partial
     note: There is no separate QEMU image; images are published per board
   downloads:
-  - label: Official download page (as of 2026-11-18 it still lists the RHEL 10.2 RISC-V Developer Preview Update image; requires a Red Hat developer account)
+  - label: Official download page (now lists the RHEL 10.3 RISC-V Developer Preview image, 2.37 GB, released 2026-11-13; requires a Red Hat developer account)
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
   - label: 'Red Hat blog: RHEL 10 Developer Preview for RISC-V updated to 10.3'
@@ -1338,7 +1338,7 @@ items:
   - en
   derivatives: []
   note: 'An enterprise-oriented RISC-V preview: use it to check whether the RHEL userland runs, but for day-to-day use Debian / Ubuntu / RevyOS are less trouble.'
-  checked: '2026-11-18'
+  checked: '2026-11-24'
   order: 14
   feature: false
   sources:

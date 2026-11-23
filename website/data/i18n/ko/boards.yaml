@@ -283,7 +283,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 공식 주력. 최신 시스템 이미지 20251226(Debian 계열 + kernel 6.6).
+    note: 공식 주력. 최신 전체 시스템 이미지 20260504(Debian 계열 + kernel 6.6).
   - distro: debian
     level: partial
     note: 메인라인 Debian 13이 LPi4A에서 부팅되지만 U-Boot/DTB를 직접 준비해야 하고 공식 설치 이미지는 없습니다.
@@ -318,8 +318,8 @@ items:
     level: partial
     note: RevyOS가 Buildroot로 boot/rootfs를 빌드합니다.
   downloads:
-  - label: RevyOS LicheePi 4A 이미지 (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS LicheePi 4A 이미지 (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - label: RevyOS 플래싱 개요 (U-Boot env 초기화 설명 포함)
     url: https://docs.revyos.dev/en/docs/Installation/intro/
   - label: Sipeed Wiki 이미지 모음 (영문)
@@ -368,11 +368,11 @@ items:
   - en
   - zh
   note: TH1520 중 자료가 가장 많고 커뮤니티가 가장 큰 보드입니다. RevyOS 데스크톱은 쓸 만하지만 GPU/NPU가 클로즈드소스인 점이 아픕니다. openwrt 등 커뮤니티 파생판도 있습니다(표준 배포판 id에는 미포함).
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 3
   feature: true
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - https://docs.revyos.dev/en/docs/Installation/intro/
   - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
   - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
@@ -402,7 +402,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 공식 주력, 20251226 시스템 이미지(kernel 6.6). Milk-V 공식 이미지 페이지는 이제 RevyOS Docs를 가리킵니다.
+    note: 공식 주력, 최신 전체 시스템 이미지 20260504(kernel 6.6). Milk-V 공식 이미지 페이지는 이제 RevyOS Docs를 가리킵니다.
   - distro: openeuler
     level: community
     note: openEuler RISC-V SIG가 Meles 이미지를 제공합니다.
@@ -416,8 +416,8 @@ items:
     level: partial
     note: RevyOS 빌드 체인이 Buildroot 기반이라 boot/rootfs를 직접 낼 수 있습니다.
   downloads:
-  - label: RevyOS Meles 이미지 (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: RevyOS Meles 이미지 (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - label: Milk-V 공식 이미지 페이지 (RevyOS로 안내)
     url: https://milkv.io/docs/meles/resources-download/image
   - label: eMMC에 기록하기 (fastboot 절차)
@@ -458,11 +458,11 @@ items:
   - en
   - zh
   note: LicheePi 4A와 같은 SoC로 더 작고 저렴하지만 커뮤니티가 한 단계 작아 이미지는 사실상 RevyOS 한 갈래입니다.
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 4
   feature: false
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - https://milkv.io/docs/meles/resources-download/image
   - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
   - https://milkv.io/docs/meles/installation

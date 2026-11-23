@@ -473,7 +473,7 @@ items:
   - en
   derivatives: []
   note: TH1520 板卡的事实标准系统：LicheePi 4A、Milk-V Meles 出厂/官方教程默认刷 RevyOS。新手上手首选，但注意镜像站比文档新，按镜像站目录取最新日期。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 5
   feature: true
   sources:
@@ -655,7 +655,7 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 24.03 LTS SP5 于 2026-11-13 在 openEuler Summit 2026 上发布（媒体转述；另有报道称正式发布计划在 2026 年 12 月）；截至 2026-11-15 镜像站与下载页都没有 SP5 目录，可下载的最新版仍是 SP4
+  - 24.03 LTS SP5 在 2026-11-13 的 openEuler Summit 2026 上发布（多家媒体一致报道；另有报道称正式发布计划在 2026 年 12 月）；截至 2026-11-24 官方镜像站 repo.openeuler.org 与 dl-cdn 仍无 SP5 目录，可下载的最新版仍是 SP4
   - 创新版本 26.09（2026-09-30 发布）没有 riscv64 ISO：ISO/OS/everything 目录只有 aarch64 与 x86_64，RISC-V 仍以 24.03 LTS SP4 为准
   - RVA20 与 RVA23 镜像分开发布；24.03 LTS SP4 的 RISC-V 只提供 RVA23 ISO（rva20 目录不存在）
   - 需要 UEFI/EDK2 固件与对应板卡 DTB，老 U-Boot 板卡可能起不来
@@ -669,7 +669,7 @@ items:
   - EulixOS
   - Eulaceura
   note: 服务器/企业场景的 RISC-V 底座，RVA23 + Server Platform 规范推进最快；个人开发板用户除非要做服务器验证，否则不如 RevyOS/Bianbu 省事。
-  checked: '2026-11-15'
+  checked: '2026-11-24'
   order: 7
   feature: true
   sources:
@@ -1272,7 +1272,7 @@ items:
   based_on: RHEL 10.3（Fedora / CentOS Stream 10 代码基）
   audience: advanced
   versions:
-  - 10.3 Developer Preview Update（2026-11-16 公告；新增 SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 与 RV2768 集群服务器、UltraRISC URDP1000、Epic Semi Contrail AIX；产品页下载区截至核查仍列 10.2 镜像）
+  - 10.3 Developer Preview Update（2026-11-16 公告；新增 SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 与 RV2768 集群服务器、UltraRISC URDP1000、Epic Semi Contrail AIX；产品页下载区已提供 10.3 镜像，2.37 GB，2026-11-13 发布）
   - 10.2 Developer Preview Update（2026-10-09；镜像 2.6 GB、源码 14.19 GB，需登录 Red Hat 账号下载）
   - 10.2 Developer Preview
   - 10.0 Developer Preview（2025-05 首发，平台为 P550）
@@ -1293,7 +1293,7 @@ items:
     level: partial
     note: 官方没有单独的 QEMU 镜像，镜像按板卡出
   downloads:
-  - label: 官方下载页（截至 2026-11-18 仍列 RHEL 10.2 RISC-V Developer Preview Update 镜像，需 Red Hat 开发者账号）
+  - label: 官方下载页（已列 RHEL 10.3 RISC-V Developer Preview 镜像，2.37 GB，2026-11-13 发布；需 Red Hat 开发者账号）
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
   - label: Red Hat 博客：RHEL 10 Developer Preview for RISC-V 更新到 10.3
@@ -1314,7 +1314,7 @@ items:
   - en
   derivatives: []
   note: 企业级取向的 RISC-V 预览系统：想验证「RHEL 用户态能不能跑起来」看它，日常用还是 Debian / Ubuntu / RevyOS 更省事。
-  checked: '2026-11-18'
+  checked: '2026-11-24'
   order: 14
   feature: false
   sources:

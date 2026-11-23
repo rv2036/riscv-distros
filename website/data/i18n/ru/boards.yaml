@@ -285,7 +285,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: Официально продвигаемая, последний системный образ 20251226 (на базе Debian + kernel 6.6)
+    note: Официально продвигаемая, последний полный системный образ 20260504 (на базе Debian + kernel 6.6)
   - distro: debian
     level: partial
     note: Mainline Debian 13 загружается на LPi4A, но нужно самостоятельно подготовить U-Boot/DTB; официального образа установщика нет
@@ -320,8 +320,8 @@ items:
     level: partial
     note: RevyOS собирает boot/rootfs с помощью Buildroot
   downloads:
-  - label: Образ RevyOS для LicheePi 4A (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: Образ RevyOS для LicheePi 4A (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - label: Обзор прошивки RevyOS (включая сброс U-Boot env)
     url: https://docs.revyos.dev/en/docs/Installation/intro/
   - label: Коллекция образов Sipeed Wiki (английский)
@@ -371,11 +371,11 @@ items:
   - zh
   note: Самая документированная и с самым большим сообществом плата на TH1520; рабочий стол RevyOS работает, но закрытые GPU/NPU — серьёзный недостаток. Есть также производные от сообщества сборки вроде
     openwrt (не входят в стандартный id дистрибутива).
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 3
   feature: true
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - https://docs.revyos.dev/en/docs/Installation/intro/
   - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
   - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
@@ -406,7 +406,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: Официально продвигается, системный образ от 20251226 (kernel 6.6); официальная страница образов Milk-V теперь перенаправляет на RevyOS Docs
+    note: Официально продвигается, последний полный системный образ 20260504 (kernel 6.6); официальная страница образов Milk-V теперь перенаправляет на RevyOS Docs
   - distro: openeuler
     level: community
     note: openEuler RISC-V SIG предоставляет образ для Meles
@@ -420,8 +420,8 @@ items:
     level: partial
     note: Сборочная цепочка RevyOS основана на Buildroot, можно собрать собственные boot/rootfs
   downloads:
-  - label: Образ RevyOS для Meles (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: Образ RevyOS для Meles (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - label: Официальная страница образов Milk-V (перенаправляет на RevyOS)
     url: https://milkv.io/docs/meles/resources-download/image
   - label: Прошивка на eMMC (шаги fastboot)
@@ -462,11 +462,11 @@ items:
   - en
   - zh
   note: Тот же SoC, что у LicheePi 4A, меньше и дешевле, но сообщество заметно меньше, и образ по сути только один — RevyOS.
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 4
   feature: false
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - https://milkv.io/docs/meles/resources-download/image
   - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
   - https://milkv.io/docs/meles/installation

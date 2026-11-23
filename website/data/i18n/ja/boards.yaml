@@ -283,7 +283,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 公式の主力。最新システムイメージは 20251226（Debian 系 ＋ kernel 6.6）
+    note: 公式の主力。最新の完全なシステムイメージは 20260504（Debian 系 ＋ kernel 6.6）
   - distro: debian
     level: partial
     note: メインライン Debian 13 は LPi4A で起動できますが、U-Boot/DTB を自分で用意する必要があり、公式インストーライメージはありません
@@ -318,8 +318,8 @@ items:
     level: partial
     note: RevyOS は Buildroot で boot/rootfs をビルドしています
   downloads:
-  - label: RevyOS LicheePi 4A イメージ（20251226）
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS LicheePi 4A イメージ（20260504）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - label: RevyOS 書き込み手順の概要（U-Boot env リセットの説明あり）
     url: https://docs.revyos.dev/en/docs/Installation/intro/
   - label: Sipeed Wiki イメージ集（英語）
@@ -368,11 +368,11 @@ items:
   - en
   - zh
   note: TH1520 の中で資料が最も揃い、コミュニティも最大のボードです。RevyOS ならデスクトップが使えますが、GPU/NPU がクローズドソースなのが痛いところです。ほかに openwrt などのコミュニティ派生版もあります（標準のディストリビューション id には入れていません）。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 3
   feature: true
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - https://docs.revyos.dev/en/docs/Installation/intro/
   - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
   - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
@@ -402,7 +402,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 公式の主力。20251226 のシステムイメージ（kernel 6.6）。Milk-V の公式イメージページは RevyOS Docs を指すようになっています
+    note: 公式の主力。最新の完全なシステムイメージは 20260504（kernel 6.6）。Milk-V の公式イメージページは RevyOS Docs を指すようになっています
   - distro: openeuler
     level: community
     note: openEuler RISC-V SIG が Meles イメージを提供
@@ -416,8 +416,8 @@ items:
     level: partial
     note: RevyOS のビルドチェーンは Buildroot ベースで、boot/rootfs を自分で生成できます
   downloads:
-  - label: RevyOS Meles イメージ（20251226）
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: RevyOS Meles イメージ（20260504）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - label: Milk-V 公式イメージページ（RevyOS を指す）
     url: https://milkv.io/docs/meles/resources-download/image
   - label: eMMC への書き込み（fastboot 手順）
@@ -458,11 +458,11 @@ items:
   - en
   - zh
   note: LicheePi 4A と同じ SoC でより小さく安いのですが、コミュニティは一回り小さく、イメージはほぼ RevyOS 一択です。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 4
   feature: false
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - https://milkv.io/docs/meles/resources-download/image
   - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
   - https://milkv.io/docs/meles/installation

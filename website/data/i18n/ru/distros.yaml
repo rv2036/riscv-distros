@@ -485,7 +485,7 @@ items:
   derivatives: []
   note: 'Фактически стандартная система для плат TH1520: LicheePi 4A, Milk-V Meles — заводская/официальная прошивка по умолчанию RevyOS. Первый выбор для новичков, но учтите: зеркало новее документации
     — берите самую свежую дату в каталоге зеркала.'
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 5
   feature: true
   sources:
@@ -671,8 +671,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - openEuler 24.03 LTS SP5 был представлен на openEuler Summit 2026 (2026-11-13) по сообщениям СМИ; другой отчёт указывает, что фактический выпуск запланирован на декабрь 2026 года. По состоянию на 2026-11-15
-    ни зеркало, ни страница загрузки не содержат каталога SP5, поэтому SP4 остаётся самой новой доступной версией
+  - openEuler 24.03 LTS SP5 был выпущен на openEuler Summit 2026 (2026-11-13), о чём согласно сообщают несколько СМИ; другой отчёт указывает, что фактический выпуск запланирован на декабрь 2026 года. По
+    состоянию на 2026-11-24 ни repo.openeuler.org, ни dl-cdn не содержат каталога SP5, поэтому SP4 остаётся самой новой доступной версией
   - 'В инновационном выпуске 26.09 (2026-09-30) нет ISO для riscv64: в деревьях ISO/OS/everything только aarch64 и x86_64, поэтому для RISC-V ориентируйтесь на 24.03 LTS SP4'
   - Образы RVA20 и RVA23 выпускаются отдельно; для RISC-V в 24.03 LTS SP4 доступен только ISO RVA23 (каталог rva20 отсутствует)
   - Требуется прошивка UEFI/EDK2 и соответствующий DTB платы; на старых платах с U-Boot может не загрузиться
@@ -687,7 +687,7 @@ items:
   - Eulaceura
   note: База RISC-V для серверных/корпоративных сценариев, быстрее всех продвигается RVA23 + спецификация Server Platform; пользователям персональных плат разработчика, если только не нужна серверная проверка,
     проще с RevyOS/Bianbu.
-  checked: '2026-11-15'
+  checked: '2026-11-24'
   order: 7
   feature: true
   sources:
@@ -1302,8 +1302,8 @@ items:
   based_on: RHEL 10.3 (кодовая база Fedora / CentOS Stream 10)
   audience: advanced
   versions:
-  - 10.3 Developer Preview Update (анонс 2026-11-16; добавлены SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 и кластерный сервер RV2768, UltraRISC URDP1000, Epic Semi Contrail AIX; на момент проверки
-    в разделе загрузки страницы продукта по-прежнему образ 10.2)
+  - 10.3 Developer Preview Update (анонс 2026-11-16; добавлены SiFive BigSky 2U870, SpacemiT V100, SpacemiT K3 и кластерный сервер RV2768, UltraRISC URDP1000, Epic Semi Contrail AIX; в разделе загрузки
+    страницы продукта уже доступен образ 10.3, 2.37 GB, выпуск 2026-11-13)
   - 10.2 Developer Preview Update (2026-10-09; образ 2.6 GB, исходники 14.19 GB, для загрузки нужен вход в аккаунт Red Hat)
   - 10.2 Developer Preview
   - 10.0 Developer Preview (первый выпуск 2025-05, платформа P550)
@@ -1324,7 +1324,7 @@ items:
     level: partial
     note: Отдельного образа для QEMU официально нет, образы выпускаются по платам
   downloads:
-  - label: Официальная страница загрузки (по состоянию на 2026-11-18 указан образ RHEL 10.2 RISC-V Developer Preview Update; нужен аккаунт разработчика Red Hat)
+  - label: Официальная страница загрузки (уже указан образ RHEL 10.3 RISC-V Developer Preview, 2.37 GB, выпуск 2026-11-13; нужен аккаунт разработчика Red Hat)
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
   - label: 'Блог Red Hat: RHEL 10 Developer Preview for RISC-V обновлён до 10.3'
@@ -1345,7 +1345,7 @@ items:
   - en
   derivatives: []
   note: 'Превью-система RISC-V с корпоративным уклоном: подойдёт, чтобы проверить, «запускается ли пользовательское окружение RHEL»; для повседневной работы Debian / Ubuntu / RevyOS всё же проще.'
-  checked: '2026-11-18'
+  checked: '2026-11-24'
   order: 14
   feature: false
   sources:

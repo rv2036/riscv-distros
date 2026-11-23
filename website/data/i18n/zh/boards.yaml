@@ -283,7 +283,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 官方主推，最新系统镜像 20251226（Debian 系 + kernel 6.6）
+    note: 官方主推，最新完整系统镜像 20260504（Debian 系 + kernel 6.6）
   - distro: debian
     level: partial
     note: 主线 Debian 13 能在 LPi4A 启动，但需自备 U-Boot/DTB，没有官方安装器镜像
@@ -318,8 +318,8 @@ items:
     level: partial
     note: RevyOS 用 Buildroot 构建 boot/rootfs
   downloads:
-  - label: RevyOS LicheePi 4A 镜像（20251226）
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS LicheePi 4A 镜像（20260504）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - label: RevyOS 刷机总览（含 U-Boot env 重置说明）
     url: https://docs.revyos.dev/en/docs/Installation/intro/
   - label: Sipeed Wiki 镜像集合（英文）
@@ -368,11 +368,11 @@ items:
   - en
   - zh
   note: TH1520 里资料最全、社区最大的板；RevyOS 桌面可用，但 GPU/NPU 闭源是硬伤。 另有 openwrt 等社区衍生版（未列入标准发行版 id）。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 3
   feature: true
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - https://docs.revyos.dev/en/docs/Installation/intro/
   - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
   - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
@@ -402,7 +402,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: 官方主推，20251226 系统镜像（kernel 6.6）；Milk-V 官方镜像页已改为指向 RevyOS Docs
+    note: 官方主推，最新完整系统镜像 20260504（kernel 6.6）；Milk-V 官方镜像页已改为指向 RevyOS Docs
   - distro: openeuler
     level: community
     note: openEuler RISC-V SIG 提供 Meles 镜像
@@ -416,8 +416,8 @@ items:
     level: partial
     note: RevyOS 构建链基于 Buildroot，可自出 boot/rootfs
   downloads:
-  - label: RevyOS Meles 镜像（20251226）
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: RevyOS Meles 镜像（20260504）
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - label: Milk-V 官方镜像页（指向 RevyOS）
     url: https://milkv.io/docs/meles/resources-download/image
   - label: 刷写到 eMMC（fastboot 步骤）
@@ -458,11 +458,11 @@ items:
   - en
   - zh
   note: 和 LicheePi 4A 同 SoC、更小更便宜，但社区规模小一截，镜像基本只有 RevyOS 一条路。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 4
   feature: false
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - https://milkv.io/docs/meles/resources-download/image
   - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
   - https://milkv.io/docs/meles/installation
