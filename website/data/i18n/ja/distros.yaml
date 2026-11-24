@@ -473,7 +473,7 @@ items:
   - en
   derivatives: []
   note: TH1520 ボードでの事実上の標準システムです。LicheePi 4A と Milk-V Meles は出荷時／公式チュートリアルで RevyOS を書き込む前提になっています。初心者にはまずこれですが、ミラーサイトの方がドキュメントより新しく、日付はミラーサイトのディレクトリで最新のものを選んでください。
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 5
   feature: true
   sources:
@@ -655,7 +655,8 @@ items:
     type: doc
     lang: en
   gotchas:
-  - 24.03 LTS SP5 は 2026-11-13 の openEuler Summit 2026 で発表されました（メディア報道。正式リリースは 2026 年 12 月予定とする報道もあり）。2026-11-15 時点でミラーとダウンロードページに SP5 のディレクトリはなく、ダウンロードできる最新版は依然として SP4 です
+  - 24.03 LTS SP5 は 2026-11-13 の openEuler Summit 2026 でリリースが発表されました（複数メディアが一致して報道。正式リリースは 2026 年 12 月予定とする報道もあり）。2026-11-24 時点で公式ミラー repo.openeuler.org と dl-cdn に SP5 のディレクトリはなく、ダウンロードできる最新版は依然として SP4
+    です
   - イノベーション版 26.09（2026-09-30 リリース）には riscv64 ISO がありません。ISO/OS/everything の各ツリーは aarch64 と x86_64 のみで、RISC-V は引き続き 24.03 LTS SP4 が基準です
   - RVA20 と RVA23 のイメージは別々に公開されています。24.03 LTS SP4 の RISC-V は RVA23 の ISO だけで、rva20 ディレクトリは存在しません
   - UEFI/EDK2 ファームウェアとボード対応の DTB が必要で、古い U-Boot のボードでは起動しないことがあります
@@ -669,7 +670,7 @@ items:
   - EulixOS
   - Eulaceura
   note: サーバー／企業向けの RISC-V 基盤で、RVA23 ＋ Server Platform 仕様の整備が最も進んでいます。個人の開発ボード用途なら、サーバー検証をしたい場合を除いて RevyOS/Bianbu の方が楽です。
-  checked: '2026-11-15'
+  checked: '2026-11-24'
   order: 7
   feature: true
   sources:
@@ -1273,7 +1274,8 @@ items:
   based_on: RHEL 10.3（Fedora / CentOS Stream 10 のコードベース）
   audience: advanced
   versions:
-  - 10.3 Developer Preview Update（2026-11-16 発表。SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 と RV2768 クラスタサーバー、UltraRISC URDP1000、Epic Semi Contrail AIX を追加。確認時点で製品ページのダウンロード欄は依然 10.2 イメージ）
+  - 10.3 Developer Preview Update（2026-11-16 発表。SiFive BigSky 2U870、SpacemiT V100、SpacemiT K3 と RV2768 クラスタサーバー、UltraRISC URDP1000、Epic Semi Contrail AIX を追加。製品ページのダウンロード欄は 10.3 イメージ（2.37 GB、2026-11-13
+    公開）を掲載）
   - 10.2 Developer Preview Update（2026-10-09；イメージ 2.6 GB、ソース 14.19 GB、ダウンロードには Red Hat アカウントでのログインが必要）
   - 10.2 Developer Preview
   - 10.0 Developer Preview（2025-05 に初公開、プラットフォームは P550）
@@ -1294,7 +1296,7 @@ items:
     level: partial
     note: 公式に QEMU 専用イメージはなく、イメージはボードごとに提供されます
   downloads:
-  - label: 公式ダウンロードページ（2026-11-18 時点では RHEL 10.2 RISC-V Developer Preview Update のイメージを掲載。Red Hat 開発者アカウントが必要）
+  - label: 公式ダウンロードページ（RHEL 10.3 RISC-V Developer Preview イメージ 2.37 GB、2026-11-13 公開を掲載。Red Hat 開発者アカウントが必要）
     url: https://developers.redhat.com/products/rhel/riscv
   guides:
   - label: Red Hat ブログ：RHEL 10 Developer Preview for RISC-V が 10.3 に更新
@@ -1315,7 +1317,7 @@ items:
   - en
   derivatives: []
   note: エンタープライズ志向の RISC-V プレビューシステムです。「RHEL のユーザーランドが動くか」を確かめたいときに見るもので、日常使いなら Debian / Ubuntu / RevyOS のほうが手間がかかりません。
-  checked: '2026-11-18'
+  checked: '2026-11-24'
   order: 14
   feature: false
   sources:

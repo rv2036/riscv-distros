@@ -285,7 +285,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: The vendor's recommended system; newest image 20251226 (Debian-based + kernel 6.6)
+    note: The vendor's recommended system; newest complete image 20260504 (Debian-based + kernel 6.6)
   - distro: debian
     level: partial
     note: Mainline Debian 13 boots on the LPi4A, but you need your own U-Boot/DTB — there is no official installer image
@@ -320,8 +320,8 @@ items:
     level: partial
     note: RevyOS builds boot/rootfs with Buildroot
   downloads:
-  - label: RevyOS LicheePi 4A image (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - label: RevyOS LicheePi 4A image (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - label: RevyOS flashing overview (including the U-Boot env reset)
     url: https://docs.revyos.dev/en/docs/Installation/intro/
   - label: Sipeed Wiki image collection (English)
@@ -371,11 +371,11 @@ items:
   - zh
   note: The best-documented TH1520 board with the largest community; the RevyOS desktop works, but closed-source GPU/NPU support is the weak spot. Community derivatives such as openwrt exist too (not listed
     as standard distro ids).
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 3
   feature: true
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20260504/
   - https://docs.revyos.dev/en/docs/Installation/intro/
   - https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/3_images.html
   - https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html
@@ -405,7 +405,7 @@ items:
   distros:
   - distro: revyos
     level: official
-    note: The vendor's recommended system, image 20251226 (kernel 6.6); Milk-V's image page now points to the RevyOS docs
+    note: The vendor's recommended system, newest complete image 20260504 (kernel 6.6); Milk-V's image page now points to the RevyOS docs
   - distro: openeuler
     level: community
     note: The openEuler RISC-V SIG provides Meles images
@@ -419,8 +419,8 @@ items:
     level: partial
     note: The RevyOS build chain is Buildroot-based, so you can produce your own boot/rootfs
   downloads:
-  - label: RevyOS Meles image (20251226)
-    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - label: RevyOS Meles image (20260504)
+    url: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - label: Milk-V image page (points to RevyOS)
     url: https://milkv.io/docs/meles/resources-download/image
   - label: Flashing to eMMC (fastboot steps)
@@ -461,11 +461,11 @@ items:
   - en
   - zh
   note: Same SoC as the LicheePi 4A, smaller and cheaper, but with a noticeably smaller community and essentially only RevyOS for images.
-  checked: '2026-11-01'
+  checked: '2026-11-24'
   order: 4
   feature: false
   sources:
-  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20251226/
+  - https://mirror.iscas.ac.cn/revyos/extra/images/meles/20260504/
   - https://milkv.io/docs/meles/resources-download/image
   - https://milkv.io/docs/meles/installation/install-an-image-to-emmc
   - https://milkv.io/docs/meles/installation
