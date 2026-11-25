@@ -999,6 +999,7 @@ items:
   order: 10
   feature: false
   sources:
+  - https://github.com/armbian/distribution/releases/tag/26.11.2
   - https://armbian.com/boards/musepipro
   - https://armbian.com/boards/bananapif3
   - https://armbian.com/boards/k3picoitx
