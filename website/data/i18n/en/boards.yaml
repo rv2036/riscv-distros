@@ -508,6 +508,9 @@ items:
   - distro: debian
     level: official
     note: Debian 13 GNOME/XFCE/Minimal images (built 2026-07-30)
+  - distro: armbian
+    level: community
+    note: ''
   - distro: buildroot
     level: official
     note: The official SDK provides Buildroot configs and images
