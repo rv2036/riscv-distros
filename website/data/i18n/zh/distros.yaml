@@ -916,26 +916,28 @@ items:
   based_on: Debian/Ubuntu（Armbian build framework）
   audience: recommended
   versions:
+  - 26.11.2（2026-11-19 发布；MusePi Pro current 6.18.64 / legacy 6.6.100，K3 Pico-ITX legacy 6.18.3）
   - 26.8.9（MusePi Pro；2026-10-08 构建，内核 6.18.55 current / 6.6.100 legacy）
   - 26.8.3（BPI-F3 / K3 Pico-ITX；2026-08-21 构建）
-  - rolling（VisionFive 2 / Orange Pi RV2 / 通用 UEFI riscv64；2026-11-13 构建，OPi RV2 与 UEFI 镜像为 6.18.63，VF2 为 vendor 6.6.20）
-  - rolling（Milk-V Duo S；2026-11-18 构建，edge 内核 7.3.5）
+  - rolling（VisionFive 2 / Orange Pi RV2 / 通用 UEFI riscv64；2026-11-20 构建，OPi RV2 与 UEFI 镜像为 6.18.64，VF2 为 vendor 6.6.20）
+  - rolling（Banana Pi BPI-F3；2026-11-23 构建，current 6.18.64）
+  - rolling（Milk-V Duo S；26.11.2，2026-11-18 构建，edge 内核 7.3.5）
   boards:
   - board: k3
     level: official
-    note: MusePi Pro 为 Platinum（内核 6.18.55 current / 6.6.100 legacy）；K3 Pico-ITX 亦为 Platinum
+    note: MusePi Pro 为 Platinum（26.11.2：current 6.18.64 / legacy 6.6.100）；K3 Pico-ITX 亦为 Platinum（26.11.2 legacy 6.18.3）
   - board: bpi-f3
     level: official
-    note: Standard 级，内核 6.18.45；另有 Bianbu 变体
+    note: Standard 级；稳定版 26.8.3（current 6.18.45），最新 trunk 140 为 6.18.64；另有 Bianbu 变体
   - board: orangepi-rv2
     level: community
-    note: Community 级 rolling 构建（2026-11-13）：Ubuntu 24.04 与 Debian 13 各有 minimal，另有 Ubuntu 24.04 Xfce，内核 6.18.63
+    note: Community 级 rolling 构建（2026-11-20，trunk 137）：Ubuntu 24.04 与 Debian 13 各有 minimal，另有 Ubuntu 24.04 Xfce，内核 6.18.64
   - board: visionfive2
     level: community
     note: Community 级，vendor 内核 6.6.20，Ubuntu/Debian 三镜像
   - board: milkv-duo
     level: community
-    note: Duo S 有 Debian 13 minimal（2026-11-18 构建，edge 内核 7.3.5）；Duo / Duo 256M 没有 Armbian 镜像
+    note: Duo S 有 Debian 13 minimal（26.11.2，2026-11-18 构建，edge 内核 7.3.5）；Duo / Duo 256M 没有 Armbian 镜像
   downloads:
   - label: MusePi Pro（SpaceMiT K3）镜像下载
     url: https://armbian.com/boards/musepipro
@@ -969,7 +971,7 @@ items:
   derivatives:
   - DietPi 等基于 Armbian/Debian 的衍生版对 VisionFive 2 有非官方支持
   note: 国产 RISC-V 板“能开箱用”的最大功臣；K3/BPI-F3 这类新板优先看它。
-  checked: 2026-11-21
+  checked: 2026-11-26
   order: 10
   feature: false
   sources:
