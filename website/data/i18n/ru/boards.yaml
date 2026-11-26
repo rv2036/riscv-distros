@@ -509,6 +509,9 @@ items:
   - distro: debian
     level: official
     note: Образы Debian 13 GNOME/XFCE/Minimal (сборка 2026-07-30)
+  - distro: armbian
+    level: community
+    note: ''
   - distro: buildroot
     level: official
     note: Официальный SDK предоставляет конфигурации и образы buildroot

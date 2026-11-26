@@ -934,26 +934,28 @@ items:
   based_on: Debian/Ubuntu (Armbian build framework)
   audience: recommended
   versions:
+  - 26.11.2 (released 2026-11-19; MusePi Pro current 6.18.64 / legacy 6.6.100, K3 Pico-ITX legacy 6.18.3)
   - 26.8.9 (MusePi Pro; built 2026-10-08, kernel 6.18.55 current / 6.6.100 legacy)
   - 26.8.3 (BPI-F3 / K3 Pico-ITX; built 2026-08-21)
-  - rolling (VisionFive 2 / Orange Pi RV2 / generic UEFI riscv64; built 2026-11-13, 6.18.63 on OPi RV2 and the UEFI images, vendor 6.6.20 on VF2)
-  - rolling (Milk-V Duo S; built 2026-11-18, edge kernel 7.3.5)
+  - rolling (VisionFive 2 / Orange Pi RV2 / generic UEFI riscv64; built 2026-11-20, 6.18.64 on OPi RV2 and the UEFI images, vendor 6.6.20 on VF2)
+  - rolling (Banana Pi BPI-F3; built 2026-11-23, current 6.18.64)
+  - rolling (Milk-V Duo S; 26.11.2, built 2026-11-18, edge kernel 7.3.5)
   boards:
   - board: k3
     level: official
-    note: MusePi Pro is Platinum (kernel 6.18.55 current / 6.6.100 legacy); K3 Pico-ITX is Platinum too
+    note: MusePi Pro is Platinum (26.11.2, current 6.18.64 / legacy 6.6.100); K3 Pico-ITX is also Platinum (26.11.2 legacy 6.18.3)
   - board: bpi-f3
     level: official
-    note: Standard tier, kernel 6.18.45; a Bianbu variant also exists
+    note: Standard tier; stable 26.8.3 (current 6.18.45), latest trunk 140 runs 6.18.64; a Bianbu variant also exists
   - board: orangepi-rv2
     level: community
-    note: Community tier rolling build (2026-11-13) — Ubuntu 24.04 and Debian 13 minimal plus Ubuntu 24.04 Xfce, kernel 6.18.63
+    note: Community-tier rolling build (2026-11-20, trunk 137) — Ubuntu 24.04 and Debian 13 minimal plus Ubuntu 24.04 Xfce, kernel 6.18.64
   - board: visionfive2
     level: community
     note: Community tier, vendor kernel 6.6.20, three Ubuntu/Debian images
   - board: milkv-duo
     level: community
-    note: Duo S has a Debian 13 minimal image (built 2026-11-18, edge kernel 7.3.5); no Armbian images for Duo / Duo 256M
+    note: Duo S has a Debian 13 minimal image (26.11.2, built 2026-11-18, edge kernel 7.3.5); no Armbian images for Duo / Duo 256M
   downloads:
   - label: MusePi Pro (SpacemiT K3) image download
     url: https://armbian.com/boards/musepipro
@@ -987,10 +989,11 @@ items:
   derivatives:
   - Unofficial VisionFive 2 support exists in derivatives such as DietPi (Armbian/Debian based)
   note: The main reason domestic RISC-V boards are usable out of the box; look here first for newer boards like K3/BPI-F3.
-  checked: 2026-11-21
+  checked: 2026-11-26
   order: 10
   feature: false
   sources:
+  - https://github.com/armbian/distribution/releases/tag/26.11.2
   - https://armbian.com/boards/musepipro
   - https://armbian.com/boards/bananapif3
   - https://armbian.com/boards/k3picoitx

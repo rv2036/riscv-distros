@@ -502,6 +502,9 @@ items:
   - distro: debian
     level: official
     note: Debian 13 の GNOME/XFCE/Minimal イメージ（2026-07-30 ビルド）
+  - distro: armbian
+    level: community
+    note: ''
   - distro: buildroot
     level: official
     note: 公式 SDK が buildroot の設定とイメージを提供

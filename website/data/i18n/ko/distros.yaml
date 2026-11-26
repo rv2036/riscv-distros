@@ -918,26 +918,28 @@ items:
   based_on: Debian/Ubuntu (Armbian build framework)
   audience: recommended
   versions:
+  - 26.11.2(2026-11-19 출시, MusePi Pro current 6.18.64 / legacy 6.6.100, K3 Pico-ITX legacy 6.18.3)
   - 26.8.9(MusePi Pro, 2026-10-08 빌드, 커널 6.18.55 current / 6.6.100 legacy)
   - 26.8.3(BPI-F3 / K3 Pico-ITX, 2026-08-21 빌드)
-  - rolling(VisionFive 2 / Orange Pi RV2 / 범용 UEFI riscv64, 2026-11-13 빌드, OPi RV2와 UEFI 이미지는 6.18.63, VF2는 벤더 6.6.20)
-  - rolling(Milk-V Duo S, 2026-11-18 빌드, edge 커널 7.3.5)
+  - rolling(VisionFive 2 / Orange Pi RV2 / 범용 UEFI riscv64, 2026-11-20 빌드, OPi RV2와 UEFI 이미지는 6.18.64, VF2는 벤더 6.6.20)
+  - rolling(Banana Pi BPI-F3, 2026-11-23 빌드, current 6.18.64)
+  - rolling(Milk-V Duo S, 26.11.2, 2026-11-18 빌드, edge 커널 7.3.5)
   boards:
   - board: k3
     level: official
-    note: MusePi Pro는 Platinum(커널 6.18.55 current / 6.6.100 legacy), K3 Pico-ITX도 Platinum입니다.
+    note: MusePi Pro는 Platinum(26.11.2, current 6.18.64 / legacy 6.6.100), K3 Pico-ITX도 Platinum입니다(26.11.2 legacy 6.18.3).
   - board: bpi-f3
     level: official
-    note: Standard 등급, 커널 6.18.45. Bianbu 변형도 있습니다.
+    note: Standard 등급. 안정판 26.8.3(current 6.18.45), 최신 trunk 140은 6.18.64. Bianbu 변형도 있습니다.
   - board: orangepi-rv2
     level: community
-    note: Community 등급 rolling 빌드(2026-11-13) — Ubuntu 24.04와 Debian 13 minimal, Ubuntu 24.04 Xfce, 커널 6.18.63
+    note: Community 등급 rolling 빌드(2026-11-20, trunk 137) — Ubuntu 24.04와 Debian 13 minimal, Ubuntu 24.04 Xfce, 커널 6.18.64
   - board: visionfive2
     level: community
     note: Community 등급, vendor 커널 6.6.20, Ubuntu/Debian 이미지 3종.
   - board: milkv-duo
     level: community
-    note: Duo S는 Debian 13 minimal(2026-11-18 빌드, edge 커널 7.3.5)을 제공하며, Duo / Duo 256M용 이미지는 없습니다
+    note: Duo S는 Debian 13 minimal(26.11.2, 2026-11-18 빌드, edge 커널 7.3.5)을 제공하며, Duo / Duo 256M용 이미지는 없습니다
   downloads:
   - label: MusePi Pro(SpaceMiT K3) 이미지 다운로드
     url: https://armbian.com/boards/musepipro
@@ -971,10 +973,11 @@ items:
   derivatives:
   - DietPi 등 Armbian/Debian 기반 파생판이 VisionFive 2를 비공식 지원합니다.
   note: 중국 RISC-V 보드가 “개봉 후 바로 쓸 수 있게” 된 데 가장 크게 기여한 프로젝트입니다. K3/BPI-F3 같은 새 보드는 여기를 먼저 보세요.
-  checked: 2026-11-21
+  checked: 2026-11-26
   order: 10
   feature: false
   sources:
+  - https://github.com/armbian/distribution/releases/tag/26.11.2
   - https://armbian.com/boards/musepipro
   - https://armbian.com/boards/bananapif3
   - https://armbian.com/boards/k3picoitx

@@ -940,26 +940,28 @@ items:
   based_on: Debian/Ubuntu (фреймворк сборки Armbian)
   audience: recommended
   versions:
+  - 26.11.2 (выпуск 2026-11-19; MusePi Pro current 6.18.64 / legacy 6.6.100, K3 Pico-ITX legacy 6.18.3)
   - 26.8.9 (MusePi Pro; сборка 2026-10-08, ядро 6.18.55 current / 6.6.100 legacy)
   - 26.8.3 (BPI-F3 / K3 Pico-ITX; сборка 2026-08-21)
-  - rolling (VisionFive 2 / Orange Pi RV2 / универсальный UEFI riscv64; сборка 2026-11-13, 6.18.63 на OPi RV2 и образах UEFI, вендорское 6.6.20 на VF2)
-  - rolling (Milk-V Duo S; сборка 2026-11-18, ядро edge 7.3.5)
+  - rolling (VisionFive 2 / Orange Pi RV2 / универсальный UEFI riscv64; сборка 2026-11-20, 6.18.64 на OPi RV2 и образах UEFI, вендорское 6.6.20 на VF2)
+  - rolling (Banana Pi BPI-F3; сборка 2026-11-23, current 6.18.64)
+  - rolling (Milk-V Duo S; 26.11.2, сборка 2026-11-18, ядро edge 7.3.5)
   boards:
   - board: k3
     level: official
-    note: MusePi Pro — уровень Platinum (ядро 6.18.55 current / 6.6.100 legacy); K3 Pico-ITX также Platinum
+    note: MusePi Pro — уровень Platinum (26.11.2, current 6.18.64 / legacy 6.6.100); K3 Pico-ITX также Platinum (26.11.2 legacy 6.18.3)
   - board: bpi-f3
     level: official
-    note: Уровень Standard, ядро 6.18.45; есть также вариант Bianbu
+    note: Уровень Standard; стабильная 26.8.3 (current 6.18.45), последний trunk 140 — 6.18.64; есть также вариант Bianbu
   - board: orangepi-rv2
     level: community
-    note: Сборка rolling уровня Community (2026-11-13) — Ubuntu 24.04 и Debian 13 minimal, а также Ubuntu 24.04 Xfce, ядро 6.18.63
+    note: Сборка rolling уровня Community (2026-11-20, trunk 137) — Ubuntu 24.04 и Debian 13 minimal, а также Ubuntu 24.04 Xfce, ядро 6.18.64
   - board: visionfive2
     level: community
     note: Уровень Community, ядро производителя 6.6.20, три образа Ubuntu/Debian
   - board: milkv-duo
     level: community
-    note: Для Duo S есть Debian 13 minimal (сборка 2026-11-18, ядро edge 7.3.5); для Duo / Duo 256M образов нет
+    note: Для Duo S есть Debian 13 minimal (26.11.2, сборка 2026-11-18, ядро edge 7.3.5); для Duo / Duo 256M образов нет
   downloads:
   - label: Скачать образ MusePi Pro (SpaceMiT K3)
     url: https://armbian.com/boards/musepipro
@@ -993,10 +995,11 @@ items:
   derivatives:
   - Производные от Armbian/Debian, такие как DietPi, имеют неофициальную поддержку VisionFive 2
   note: Во многом благодаря ему китайские платы RISC-V «работают из коробки»; для новых плат вроде K3/BPI-F3 смотрите в первую очередь на него.
-  checked: 2026-11-21
+  checked: 2026-11-26
   order: 10
   feature: false
   sources:
+  - https://github.com/armbian/distribution/releases/tag/26.11.2
   - https://armbian.com/boards/musepipro
   - https://armbian.com/boards/bananapif3
   - https://armbian.com/boards/k3picoitx
