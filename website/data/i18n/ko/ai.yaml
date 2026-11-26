@@ -221,7 +221,8 @@ items:
     state: works
     evidence:
     - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
-    note: 업스트림 llama.cpp 공식 문서에 build-riscv64-spacemit.md 전용 장이 있습니다. A100은 RISCV64_SPACEMIT_IME2를 쓰고 실측 qwen3 0.6B Q4_0가 pp128 565.8 / tg128 55.8 t/s, qwen3 4B Q4_0가 pp128 79.7 / tg128 11.3 t/s(8스레드)입니다.
+    - https://github.com/ggml-org/llama.cpp/releases/tag/v1.1.0
+    note: 업스트림 llama.cpp 공식 문서에 build-riscv64-spacemit.md 전용 장이 있습니다. A100은 RISCV64_SPACEMIT_IME2를 쓰고 실측 qwen3 0.6B Q4_0가 pp128 565.8 / tg128 55.8 t/s, qwen3 4B Q4_0가 pp128 79.7 / tg128 11.3 t/s(8스레드)입니다. v1.1.0(2026-11-26)에서는 VLEN=1024 코어(K3의 A100)에만 영향을 주던 flash attention 문제 세 가지를 고쳤습니다. 마스크 없이 실행할 때 널 포인터를 참조해 크래시하는 문제, ALiBi 그룹 행에서 첫 행의 기울기를 잘못 쓰는 문제, softcap 처리입니다. 이전 버전은 K3에서 마스크 없는 flash attention을 실행하면 세그멘테이션 오류가 납니다.
   - item: spacemit-llama.cpp (벤더)
     state: works
     evidence:
@@ -262,7 +263,7 @@ items:
     note: archive.spacemit.com/spacemit-ai/가 ModelZoo, llama.cpp, localai, dify 같은 산출물을 제공하며 현재 RISC-V에서 가장 완성도 높은 벤더 AI 스택 중 하나입니다.
   npu: K3는 CPU+AI 코어(SpacemiT IME 확장)가 주력이고 독립 범용 NPU 프로그래밍 모델이 없습니다. 가속은 SpacemiT 사설 명령과 AI SDK로 합니다
   note: 현재 RISC-V SBC 중 AI 소프트웨어 스택이 가장 완성도 높은 축이고, 업스트림 llama.cpp가 그 kernel을 직접 내장하고 있습니다.
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 6
 - board: a210
   board_name: Zhihe A210(XuanTie MelonPi 개발 보드)

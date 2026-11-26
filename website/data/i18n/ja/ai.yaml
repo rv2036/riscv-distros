@@ -222,7 +222,8 @@ items:
     state: works
     evidence:
     - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
-    note: 上流 llama.cpp の公式ドキュメントに build-riscv64-spacemit.md の専用章があります。A100 は RISCV64_SPACEMIT_IME2 を使い、実測で qwen3 0.6B Q4_0 が pp128 565.8 / tg128 55.8 t/s、qwen3 4B Q4_0 が pp128 79.7 / tg128 11.3 t/s（8 スレッド）。
+    - https://github.com/ggml-org/llama.cpp/releases/tag/v1.1.0
+    note: 上流 llama.cpp の公式ドキュメントに build-riscv64-spacemit.md の専用章があります。A100 は RISCV64_SPACEMIT_IME2 を使い、実測で qwen3 0.6B Q4_0 が pp128 565.8 / tg128 55.8 t/s、qwen3 4B Q4_0 が pp128 79.7 / tg128 11.3 t/s（8 スレッド）。v1.1.0（2026-11-26）では VLEN=1024 のコア（K3 の A100）だけに影響する flash attention の三つの問題を修正しました。マスクなしで NULL ポインタを参照してクラッシュする問題、ALiBi のグループ化した行で先頭行の傾きを誤って使う問題、softcap の処理です。以前のバージョンは K3 でマスクなしの flash attention を実行するとセグメンテーション違反になります。
   - item: spacemit-llama.cpp (メーカー)
     state: works
     evidence:
@@ -263,7 +264,7 @@ items:
     note: archive.spacemit.com/spacemit-ai/ に ModelZoo、llama.cpp、localai、dify などの成果物があり、現在の RISC-V で最も揃ったベンダー AI スタックのひとつです。
   npu: K3 は CPU ＋ AI コア（SpacemiT IME 拡張）が主体で、独立した汎用 NPU のプログラミングモデルはありません。加速は SpacemiT 独自命令と AI SDK 経由です
   note: 現在の RISC-V SBC で AI ソフトウェアスタックが最も揃っている部類です。上流の llama.cpp にカーネルが直接入っています。
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 6
 - board: a210
   board_name: Zhihe Computing A210（XuanTie MelonPi 開発ボード）

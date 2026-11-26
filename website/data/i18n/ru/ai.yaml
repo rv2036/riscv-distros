@@ -227,8 +227,8 @@ items:
     state: works
     evidence:
     - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
-    note: 'В официальной документации upstream llama.cpp есть отдельная глава build-riscv64-spacemit.md: A100 использует RISCV64_SPACEMIT_IME2, практическая проверка qwen3 0.6B Q4_0 показала pp128 565.8
-      / tg128 55.8 t/s, qwen3 4B Q4_0 — pp128 79.7 / tg128 11.3 t/s (8 потоков).'
+    - https://github.com/ggml-org/llama.cpp/releases/tag/v1.1.0
+    note: 'В официальной документации upstream llama.cpp есть отдельная глава build-riscv64-spacemit.md: A100 использует RISCV64_SPACEMIT_IME2, практическая проверка qwen3 0.6B Q4_0 показала pp128 565.8 / tg128 55.8 t/s, qwen3 4B Q4_0 — pp128 79.7 / tg128 11.3 t/s (8 потоков). В версии 1.1.0 (2026-11-26) исправлены три проблемы flash attention, затрагивающие только ядра с VLEN=1024 (A100 в K3): падение при обращении к нулевому указателю, когда маска не передана, неверный наклон для сгруппированных строк ALiBi и обработка softcap; более ранние версии падают с segfault на K3 при запуске flash attention без маски.'
   - item: spacemit-llama.cpp (производитель)
     state: works
     evidence:
@@ -269,7 +269,7 @@ items:
     note: archive.spacemit.com/spacemit-ai/ предоставляет ModelZoo, llama.cpp, localai, dify и другие артефакты — это один из самых полных вендорских AI-стеков на текущий момент в RISC-V.
   npu: K3 делает ставку на CPU+AI-ядро (расширение SpacemiT IME), отдельной универсальной модели программирования NPU нет; ускорение идёт через закрытые инструкции SpacemiT и AI SDK
   note: 'На данный момент это наиболее полный AI-стек среди RISC-V SBC: upstream llama.cpp напрямую включает его kernel.'
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 6
 - board: a210
   board_name: Zhihe A210 (отладочная плата XuanTie MelonPi)
