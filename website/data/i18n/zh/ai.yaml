@@ -222,7 +222,8 @@ items:
     state: works
     evidence:
     - https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build-riscv64-spacemit.md
-    note: 上游 llama.cpp 官方文档专章 build-riscv64-spacemit.md：A100 走 RISCV64_SPACEMIT_IME2，实测 qwen3 0.6B Q4_0 达 pp128 565.8 / tg128 55.8 t/s，qwen3 4B Q4_0 达 pp128 79.7 / tg128 11.3 t/s（8 线程）。
+    - https://github.com/ggml-org/llama.cpp/releases/tag/v1.1.0
+    note: 上游 llama.cpp 官方文档专章 build-riscv64-spacemit.md：A100 走 RISCV64_SPACEMIT_IME2，实测 qwen3 0.6B Q4_0 达 pp128 565.8 / tg128 55.8 t/s，qwen3 4B Q4_0 达 pp128 79.7 / tg128 11.3 t/s（8 线程）。v1.1.0（2026-11-26）修复了只影响 VLEN=1024 核（K3 的 A100）的三处 flash attention 问题：无 mask 时读空指针崩溃、ALiBi 行分组取错斜率、softcap 处理；更早的版本在 K3 上跑不带 mask 的 flash attention 会段错误。
   - item: spacemit-llama.cpp (厂商)
     state: works
     evidence:
@@ -263,7 +264,7 @@ items:
     note: archive.spacemit.com/spacemit-ai/ 提供 ModelZoo、llama.cpp、localai、dify 等制品，是当前 RISC-V 上最完整的厂商 AI 栈之一。
   npu: K3 主打 CPU+AI 核（SpacemiT IME 扩展），无独立通用 NPU 编程模型；加速走 SpacemiT 私有指令与 AI SDK
   note: 目前 RISC-V SBC 里 AI 软件栈最完整的一档：上游 llama.cpp 直接内置其 kernel。
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 6
 - board: a210
   board_name: 知合计算 A210（玄铁 MelonPi 开发板）

@@ -1948,7 +1948,8 @@ items:
   based_on: Independent, self-built (RPM + dnf, rolling release); kernel 7.2.6 / LTS 6.18.54, toolchain GCC 16.2 with its own glibc
   audience: vendor
   versions:
-  - 2026.09 (built 2026-09-29)
+  - '2026-11-05 (latest artifacts: RVA20 rootfs and OCI tar snapshots only, with no installer ISO and no RVA23 build)'
+  - 2026.09 (built 2026-09-29, the most recent full ISO set, includes RVA23)
   - 2026.08 (2026-08-26)
   - 2026.07 (2026-07-23)
   boards:
@@ -1961,6 +1962,8 @@ items:
   downloads:
   - label: Download root (Creek release line)
     url: https://releases.openruyi.cn/creek/
+  - label: 2026-11-05 RVA20 rootfs snapshot directory
+    url: https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - label: 2026.09 release directory (both RVA20 and RVA23)
     url: https://releases.openruyi.cn/creek/2026.09/
   - label: 2026.09 RVA23 (Server ISO / Workstation KDE / labwc / Zero / rootfs)
@@ -1987,6 +1990,7 @@ items:
   gotchas:
   - Rolling release with no LTS; monthly builds can change a lot, so it is a poor stable production base
   - Images come in RVA20 and RVA23 sets; the wrong one won't boot on cores without that profile
+  - Since 2026-11-05 the new artifacts are RVA20 rootfs / OCI snapshots only, with no installer ISO; installing on real hardware still requires the 2026.09 images
   - K3 needs the matching Ruyi Firmware (coreboot+OpenSBI+EDK2), and most ordinary U-Boot boards have no ready image
   - The installer wipes the whole disk and targets servers/workstations by default — not an out-of-the-box Chinese desktop
   - Docs are all English with very little Chinese material, and the community is small
@@ -1995,11 +1999,12 @@ items:
   derivatives: []
   note: 'Mostly for vendor/ecosystem testing: it is officially positioned as early validation — surfacing firmware, platform-semantics and kernel interop problems early so vendors fork less. Regular users
     normally don''t need it; for daily use pick a vendor distro such as Bianbu / RevyOS / openKylin, and try its QEMU image if you just want a zero-cost look.'
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 25
   feature: false
   sources:
   - https://releases.openruyi.cn/creek/
+  - https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - https://releases.openruyi.cn/creek/2026.09/
   - https://releases.openruyi.cn/creek/2026.09/rva23/
   - https://releases.openruyi.cn/creek/2026.09/rva20/

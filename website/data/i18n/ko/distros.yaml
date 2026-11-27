@@ -1919,7 +1919,8 @@ items:
   based_on: 독립 자체 빌드 (RPM + dnf, 롤링 릴리스). 커널 7.2.6 / LTS 6.18.54, 툴체인 GCC 16.2 / glibc 내장
   audience: vendor
   versions:
-  - 2026.09(2026-09-29 빌드)
+  - '2026-11-05(최신 산출물: RVA20 rootfs와 OCI tar 스냅샷만 있고 설치 ISO와 RVA23 빌드는 없음)'
+  - 2026.09(2026-09-29 빌드, 마지막 완전한 ISO 세트, RVA23 포함)
   - 2026.08(2026-08-26)
   - 2026.07(2026-07-23)
   boards:
@@ -1932,6 +1933,8 @@ items:
   downloads:
   - label: 다운로드 사이트 전체 디렉터리 (Creek 버전 라인)
     url: https://releases.openruyi.cn/creek/
+  - label: 2026-11-05 RVA20 rootfs 스냅샷 디렉터리
+    url: https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - label: 2026.09 버전 디렉터리 (RVA20/RVA23 두 세트)
     url: https://releases.openruyi.cn/creek/2026.09/
   - label: 2026.09 RVA23 (Server ISO / Workstation KDE / labwc / Zero / rootfs)
@@ -1958,6 +1961,7 @@ items:
   gotchas:
   - 롤링 릴리스에 LTS가 없어 월간 버전이 크게 바뀔 수 있고 안정적인 운영 기반으로는 부적합합니다.
   - 이미지가 RVA20 / RVA23 두 세트라 해당 profile을 지원하지 않는 코어에서는 부팅되지 않습니다.
+  - 2026-11-05 이후 새 산출물은 RVA20 rootfs / OCI 스냅샷뿐이고 설치 ISO가 없습니다. 실기 설치에는 2026.09 이미지를 써야 합니다
   - K3는 Ruyi Firmware(coreboot+OpenSBI+EDK2)가 필요하고 일반 U-Boot 개발 보드 대부분은 바로 쓸 이미지가 없습니다.
   - 설치 프로그램이 디스크를 통째로 포맷하고 기본이 서버/워크스테이션이라 중국어 데스크톱을 바로 쓰는 형태가 아닙니다.
   - 문서가 전부 영문이고 중국어 자료는 드물며 커뮤니티 규모도 작습니다.
@@ -1965,11 +1969,12 @@ items:
   - en
   derivatives: []
   note: 주로 벤더/생태계 테스트용입니다. 공식 포지셔닝이 ‘조기 검증’이라 펌웨어·플랫폼 의미론·커널 상호운용 문제를 빨리 드러내 벤더 분기를 줄이는 것이 목적입니다. 일반 사용자는 보통 필요 없고 일상용은 Bianbu / RevyOS / openKylin 같은 벤더 배포판을 고르세요. 비용 없이 맛보려면 QEMU 이미지부터 쓰면 됩니다.
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 25
   feature: false
   sources:
   - https://releases.openruyi.cn/creek/
+  - https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - https://releases.openruyi.cn/creek/2026.09/
   - https://releases.openruyi.cn/creek/2026.09/rva23/
   - https://releases.openruyi.cn/creek/2026.09/rva20/

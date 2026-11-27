@@ -1917,7 +1917,8 @@ items:
   based_on: 独立自前ビルド（RPM ＋ dnf、ローリングリリース）。カーネル 7.2.6 / LTS 6.18.54、ツールチェーンは GCC 16.2 / glibc 同梱
   audience: vendor
   versions:
-  - 2026.09（2026-09-29 ビルド）
+  - 2026-11-05（最新の成果物：RVA20 の rootfs と OCI tar スナップショットのみ。インストール ISO も RVA23 ビルドもありません）
+  - 2026.09（2026-09-29 ビルド、最後の完全な ISO 一式、RVA23 を含む）
   - 2026.08（2026-08-26）
   - 2026.07（2026-07-23）
   boards:
@@ -1930,6 +1931,8 @@ items:
   downloads:
   - label: ダウンロードサイトのトップディレクトリ（Creek 系列）
     url: https://releases.openruyi.cn/creek/
+  - label: 2026-11-05 RVA20 rootfs スナップショットのディレクトリ
+    url: https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - label: 2026.09 のディレクトリ（RVA20/RVA23 の 2 系統）
     url: https://releases.openruyi.cn/creek/2026.09/
   - label: 2026.09 RVA23（Server ISO / Workstation KDE / labwc / Zero / rootfs）
@@ -1956,6 +1959,7 @@ items:
   gotchas:
   - ローリングリリースで LTS はありません。月次版で大きく変わることがあり、安定した本番基盤には向きません
   - イメージは RVA20 / RVA23 の 2 系統で、対応プロファイルを持たないコアに間違った方を入れると起動しません
+  - 2026-11-05 以降の新規成果物は RVA20 の rootfs / OCI スナップショットのみで、インストール ISO はありません。実機に導入するには 2026.09 のイメージが必要です
   - K3 は Ruyi Firmware（coreboot+OpenSBI+EDK2）と組み合わせる必要があり、一般的な U-Boot ボードの多くには既成イメージがありません
   - インストーラはディスク全体をフォーマットし、既定ではサーバー／ワークステーション向けです。中国語のデスクトップが最初から使えるわけではありません
   - ドキュメントはすべて英語で、中国語の資料はごくわずかです。コミュニティも小規模です
@@ -1963,11 +1967,12 @@ items:
   - en
   derivatives: []
   note: 主にベンダー／エコシステムのテスト用です。公式の位置づけが「早期検証」で、ファームウェアやプラットフォームの意味論、カーネルとの相互運用の問題を早く炙り出し、ベンダー側の分岐を減らすことが目的です。一般ユーザーが入れる必要はほとんどなく、日常用途なら Bianbu / RevyOS / openKylin のようなベンダー版を選んでください。まず試したいだけなら QEMU イメージが手軽です。
-  checked: '2026-11-01'
+  checked: '2026-11-27'
   order: 25
   feature: false
   sources:
   - https://releases.openruyi.cn/creek/
+  - https://releases.openruyi.cn/creek/2026-11-05/rva20/
   - https://releases.openruyi.cn/creek/2026.09/
   - https://releases.openruyi.cn/creek/2026.09/rva23/
   - https://releases.openruyi.cn/creek/2026.09/rva20/
